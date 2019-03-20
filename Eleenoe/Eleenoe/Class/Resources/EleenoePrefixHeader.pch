@@ -1,0 +1,25 @@
+//
+//  EleenoePrefixHeader.pch
+//  Eleenoe
+//
+//  Created by FaceBooks on 2019/3/11.
+//  Copyright © 2019 FaceBook. All rights reserved.
+//
+
+#ifndef EleenoePrefixHeader_pch
+#define EleenoePrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+
+#import "ELCommonDefines.h"
+#import "ELColorDefines.h"
+#import "ELFilesManager.h"
+#import "ELColorDefines.h"
+#import "HOST_API.h"
+
+#endif
+
+#endif /* EleenoePrefixHeader_pch */
