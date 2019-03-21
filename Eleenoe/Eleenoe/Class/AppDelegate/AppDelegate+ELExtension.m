@@ -29,6 +29,8 @@
 
 -(void)registrationThirdLib{
 
+    NSLog(@"SSH");
+
 }
 
 @end
