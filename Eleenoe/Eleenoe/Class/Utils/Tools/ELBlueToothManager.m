@@ -73,7 +73,7 @@
         case CBCentralManagerStatePoweredOn: {
             NSLog(@"蓝牙已经成功开启，稍后……");
             _blueToothPowerblock(ELBlueToothPowerTypeON);
-            [self.centralManager scanForPeripheralsWithServices:nil options:nil]; //options=nil搜索附近所有设备
+            [self.centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
         }
             break;
         default:
@@ -85,24 +85,25 @@
     _blueToothPowerblock = blueToothPowerblock;
 }
 
+///MARK: 外设设备连接代理
 #pragma mark CBCentralManagerDelegate
-
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI {
     NSLog(@"扫描连接外设：%@ %@ %@",peripheral.name,RSSI,advertisementData);
     if([peripheral.name rangeOfString:M_BLE_Suffix].location != NSNotFound){
-        [self.centralManager connectPeripheral:peripheral options:nil];
+        self.peripheral = peripheral;  //外界设备
+        [self.centralManager connectPeripheral:_peripheral options:nil];
     }
 }
+
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
     NSLog(@"设备连接成功:%@", peripheral.name);
-    [self.peripheral setDelegate:self];
-    [self.peripheral discoverServices:nil];
-//    [self.centralManager stopScan];
+    [_peripheral setDelegate:self];
+    [_peripheral discoverServices:nil];
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
     NSLog(@"设备连接失败:%@", peripheral.name);
-    [self.centralManager scanForPeripheralsWithServices:nil options:nil];  //重新搜索
+    [self.centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
@@ -110,36 +111,37 @@
     [self.centralManager connectPeripheral:_peripheral options:nil];  //重连
 }
 
+
+///MARK:获取外设设备特征值代理
 #pragma mark CBPeripheralDelegate
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
-    NSLog(@"发现外设服务:%@",peripheral.services);
-    if (error) {
-        NSLog(@"设备获取服务失败:%@", peripheral.name);
-    }else{
+    if (!error) {
         for (CBService *service in peripheral.services) {
-            self.service = service;
             [peripheral discoverCharacteristics:nil forService:service];
-            NSLog(@"设备的服务(%@),UUID(%@),count(%lu)",service,service.UUID,peripheral.services.count);
+            NSLog(@"外设设备特征值：%@",service);
         }
+    }else{
+        NSLog(@"发现外设服务错误信息：%@",[error localizedDescription]);
     }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
-    NSLog(@"发现外设特征:%@",service);
-    if (error) {
-        NSLog(@"扫描外设的特征失败:%@ %@ %@",peripheral.name,service.UUID, [error localizedDescription]);
-    }else{
-        for (CBCharacteristic *characteristic in service.characteristics){
-            [peripheral discoverDescriptorsForCharacteristic:characteristic];
-            [peripheral readValueForCharacteristic:characteristic];
-            [peripheral setNotifyValue:YES forCharacteristic:characteristic]; //打开外设的通知，否则无法接受数据
+    if (!error) {
+        for (CBCharacteristic *characteristic in service.characteristics) {
+            [_peripheral discoverDescriptorsForCharacteristic:characteristic];
+            [_peripheral readValueForCharacteristic:characteristic];
+            [_peripheral setNotifyValue:YES forCharacteristic:characteristic]; //打开外设的通知，否则无法接受数据
             if ([characteristic.UUID.UUIDString isEqualToString:DEVICE]){
-                [peripheral readValueForCharacteristic:characteristic];
+                [_peripheral readValueForCharacteristic:characteristic];
             }
         }
+    }else{
+        NSLog(@"扫描外设的特征失败:%@",error.description);
     }
 }
 
+
+///MARK: 订阅外设设备值发生改变代理
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForDescriptor:(CBDescriptor *)descriptor error:(NSError *)error {
     NSLog(@"更新描述值:%@",descriptor.description);
 }
@@ -157,23 +159,22 @@
     NSLog(@"改变通知状态:%@",characteristic.service);
 }
 
-- (void)peripheral:(CBPeripheral *)peripheral didDiscoverDescriptorsForCharacteristic:(nonnull CBCharacteristic *)characteristic error:(nullable NSError *)error
-{
-    NSLog(@"发现外设的特征的描述数组:%@",characteristic.descriptors);
-    if (!error) {
-        for (CBDescriptor *descriptor in characteristic.descriptors) {
-            self.descriptor = descriptor;
-            [peripheral readValueForDescriptor:descriptor];
-        }
-    }
-}
+//- (void)peripheral:(CBPeripheral *)peripheral didDiscoverDescriptorsForCharacteristic:(nonnull CBCharacteristic *)characteristic error:(nullable NSError *)error{
+//    NSLog(@"发现外设的特征的描述数组:%@",characteristic.descriptors);
+//    if (!error) {
+//        for (CBDescriptor *descriptor in characteristic.descriptors) {
+//            self.descriptor = descriptor;
+//            [peripheral readValueForDescriptor:descriptor];
+//        }
+//    }
+//}
 
 -(void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
     NSLog(@"发送数据成功回调:%@",characteristic);
     if (error) {
-         NSLog(@"发送数据失败:(%@)\n error:%@",characteristic,error.userInfo);
+        NSLog(@"发送数据失败:%@",error.description);
     }else{
-         [peripheral readValueForCharacteristic:characteristic];
+        NSLog(@"发送数据成功回调:%@",characteristic);
     }
 }
 

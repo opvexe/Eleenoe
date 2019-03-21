@@ -112,6 +112,7 @@
 		D0180B0F223F399D008C06C1 /* CPProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPProgressHUD.h; sourceTree = "<group>"; };
 		D0180B5B223F90BA008C06C1 /* ELStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELStatusBar.h; sourceTree = "<group>"; };
 		D0180B5C223F90BA008C06C1 /* ELStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELStatusBar.m; sourceTree = "<group>"; };
+		D0180BD5224379EF008C06C1 /* ELBleDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBleDefines.h; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -474,6 +475,7 @@
 				D0F52AF5223781F500A26504 /* ELFilesManager.h */,
 				D0F52AF62237822000A26504 /* ELColorDefines.h */,
 				D0F52AFF223787F100A26504 /* ELThirdLibKeyDefines.h */,
+				D0180BD5224379EF008C06C1 /* ELBleDefines.h */,
 				D0F52AF72237827E00A26504 /* HOST_API.h */,
 				D0F52AF82237869D00A26504 /* ELAPIConstant.h */,
 				D0F52AF92237869D00A26504 /* ELAPIConstant.m */,

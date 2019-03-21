@@ -8,7 +8,6 @@
 
 #import "ELStatusBar.h"
 
-
 @implementation ELStatusBar
 
 

@@ -18,6 +18,7 @@
 #import "ELColorDefines.h"
 #import "ELFilesManager.h"
 #import "ELColorDefines.h"
+#import "ELBleDefines.h"
 #import "HOST_API.h"
 
 #endif
