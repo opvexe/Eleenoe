@@ -28,11 +28,7 @@
 }
 
 -(void)registrationThirdLib{
-    
     NSLog(@"SSH");
-     NSLog(@"SSH");
-     NSLog(@"SSH");
-     NSLog(@"SSH");
 }
 
 @end
