@@ -249,6 +249,7 @@
 		C2E6CE7A22369AA30049D54C /* Eleenoe */ = {
 			isa = PBXGroup;
 			children = (
+				C2E6CE8922369AA40049D54C /* Info.plist */,
 				C2E6CEAD22369BAB0049D54C /* Class */,
 			);
 			path = Eleenoe;
@@ -287,7 +288,6 @@
 		C2E6CEAE22369BAB0049D54C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C2E6CE8922369AA40049D54C /* Info.plist */,
 				C2E6CE8422369AA40049D54C /* Assets.xcassets */,
 				C2E6CEB322369C3E0049D54C /* EleenoePrefixHeader.pch */,
 			);
@@ -315,15 +315,6 @@
 				D0180AFC223F367A008C06C1 /* ELPlacemark.m */,
 			);
 			path = LocationTools;
-			sourceTree = "<group>";
-		};
-		D0180AFE223F3821008C06C1 /* BlueToothTools */ = {
-			isa = PBXGroup;
-			children = (
-				D0EC1EF3223B7C030059BA1C /* ELBlueToothManager.h */,
-				D0EC1EF4223B7C030059BA1C /* ELBlueToothManager.m */,
-			);
-			path = BlueToothTools;
 			sourceTree = "<group>";
 		};
 		D0180B00223F38A6008C06C1 /* WebView */ = {
@@ -410,6 +401,8 @@
 				D0EC4B2E2238AF3A00B5A74D /* ELTools.m */,
 				D0EC4B4622390BD300B5A74D /* ELTools+ELAuthorization.h */,
 				D0EC4B4722390BD300B5A74D /* ELTools+ELAuthorization.m */,
+				D0EC1EF3223B7C030059BA1C /* ELBlueToothManager.h */,
+				D0EC1EF4223B7C030059BA1C /* ELBlueToothManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -449,7 +442,6 @@
 			isa = PBXGroup;
 			children = (
 				D0180B04223F399D008C06C1 /* CPProgressHUD */,
-				D0180AFE223F3821008C06C1 /* BlueToothTools */,
 				D0180AF7223F357E008C06C1 /* LocationTools */,
 				D0DC66F822393AD90064C07A /* NetworkTools */,
 				D0EC4B352238D03B00B5A74D /* DataSocre */,
@@ -689,6 +681,11 @@
 				TargetAttributes = {
 					C2E6CE7722369AA30049D54C = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					C2E6CE8F22369AA40049D54C = {
 						CreatedOnToolsVersion = 10.1;
@@ -1004,7 +1001,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3NJC3EGBWR;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Eleenoe/Class/Resources/EleenoePrefixHeader.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Eleenoe/Class/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Eleenoe/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1027,7 +1024,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3NJC3EGBWR;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Eleenoe/Class/Resources/EleenoePrefixHeader.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Eleenoe/Class/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Eleenoe/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

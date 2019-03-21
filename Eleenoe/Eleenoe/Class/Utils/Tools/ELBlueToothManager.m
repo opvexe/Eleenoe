@@ -29,6 +29,10 @@
  描述
  */
 @property (nonatomic, strong) CBDescriptor *descriptor;
+/**
+ 蓝牙状态
+ */
+@property(nonatomic,copy)ELBlueToothPowerBlock blueToothPowerblock;
 
 @end
 
@@ -44,17 +48,10 @@
     return instance;
 }
 
-- (instancetype)init{
-    self = [super init];
-    if (self) {
-        
-        self.centralManager =[[CBCentralManager alloc]initWithDelegate:self queue:nil];
-        
-    }
-    return self;
+- (void)registerBlueToothManager{
+    _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 }
 
-//初始化
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     switch (central.state) {
         case CBCentralManagerStateUnknown:
@@ -70,10 +67,12 @@
             NSLog(@"设备未授权状态，过会请重试……");
             break;
         case CBCentralManagerStatePoweredOff:
+            _blueToothPowerblock(ELBlueToothPowerTypeOFF);
             NSLog(@"尚未打开蓝牙，请在设置中打开……");
             break;
         case CBCentralManagerStatePoweredOn: {
             NSLog(@"蓝牙已经成功开启，稍后……");
+            _blueToothPowerblock(ELBlueToothPowerTypeON);
             [self.centralManager scanForPeripheralsWithServices:nil options:nil]; //options=nil搜索附近所有设备
         }
             break;
@@ -82,6 +81,9 @@
     }
 }
 
+- (void)checkBlueToothPowerOn:(ELBlueToothPowerBlock)blueToothPowerblock{
+    _blueToothPowerblock = blueToothPowerblock;
+}
 
 #pragma mark CBCentralManagerDelegate
 
@@ -95,7 +97,7 @@
     NSLog(@"设备连接成功:%@", peripheral.name);
     [self.peripheral setDelegate:self];
     [self.peripheral discoverServices:nil];
-    [self.centralManager stopScan];
+//    [self.centralManager stopScan];
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
@@ -105,7 +107,7 @@
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
     NSLog(@"设备丢失连接:%@", peripheral.name);
-    [self.centralManager scanForPeripheralsWithServices:nil options:nil];
+    [self.centralManager connectPeripheral:_peripheral options:nil];  //重连
 }
 
 #pragma mark CBPeripheralDelegate
@@ -176,11 +178,11 @@
 }
 
 #pragma mark 数据发送
--(void)sendDataToBLE:(NSData *)data{
-    if (self.characteristic!=nil) {
-        [self.peripheral writeValue:data forCharacteristic:self.characteristic type:CBCharacteristicWriteWithoutResponse];
-    }
-}
+//-(void)sendDataToBLE:(NSData *)data{
+//    if (self.characteristic!=nil) {
+//        [self.peripheral writeValue:data forCharacteristic:self.characteristic type:CBCharacteristicWriteWithoutResponse];
+//    }
+//}
 
 //Mac地址解析
 - (NSString *)convertToNSStringWithNSData:(NSData *)data {
