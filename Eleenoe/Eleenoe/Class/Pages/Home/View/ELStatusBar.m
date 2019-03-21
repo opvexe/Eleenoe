@@ -8,16 +8,9 @@
 
 #import "ELStatusBar.h"
 
-static const CGFloat bottom_radius = 10.0;
 
 @implementation ELStatusBar
 
-- (void)drawRect:(CGRect)rect {
-    
-    [super drawRect:rect];
-    
-    
-}
 
 
 @end
