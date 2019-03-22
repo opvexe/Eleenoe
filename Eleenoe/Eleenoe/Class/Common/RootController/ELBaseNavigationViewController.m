@@ -31,7 +31,7 @@
         backgroundImage = [UIImage imageWithColor:UIColorFromRGB(0xffffff)];
         
         textAttributes = @{
-                           NSFontAttributeName :[UIFont ELPingFangSCLightFontOfSize:Number(14.0f)],
+                           NSFontAttributeName :[UIFont ELPingFangSCLightFontOfSize:kSaFont(14.0f)],
                            NSForegroundColorAttributeName :UIColorFromRGB(0x646464),
                            };
         
@@ -39,7 +39,7 @@
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
         backgroundImage = [UIImage imageWithColor:UIColorFromRGB(0xffffff)];
         textAttributes = @{
-                           UITextAttributeFont : [UIFont ELPingFangSCLightFontOfSize:Number(14.0f)]),
+                           UITextAttributeFont : [UIFont ELPingFangSCLightFontOfSize:kSaFont(14.0f)]),
                            UITextAttributeTextColor :UIColorFromRGB(0x646464),
                            UITextAttributeTextShadowColor : [UIColor clearColor],
                            UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetZero],

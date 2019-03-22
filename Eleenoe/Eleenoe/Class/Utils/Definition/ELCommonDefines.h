@@ -78,23 +78,29 @@ block();\
 
 #define LSSCALHEIGHT (SCREEN_HEIGHT/667.0)
 
-#define Number(num)                 (num*LSSCALWIDTH)
+//#define Number(num)                 (num*LSSCALWIDTH)
 
-#define NumberHeight(num)           (num*LSSCALHEIGHT)
+//#define NumberHeight(num)           (num*LSSCALHEIGHT)
 
 
 #define StatusBar_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
 
-// iphone x
-#define  EL_iPhoneX (SCREEN_WIDTH == 375.f && SCREEN_HEIGHT == 812.f ? YES : NO)
-
-#define  EL_TabbarHeight         (EL_iPhoneX ? (49.f+34.f) : 49.f)
-
-#define  EL_NavBarHeight                        (iOS7 ? (EL_iPhoneX ? 88.f : 64.f) : 44.0)
-
-#define  EL_iPhoneXStatusBarHeight                      (EL_iPhoneX ? 44.f : 0)
-
-#define  EL_StatusBarHeight                     (iOS7 ? (EL_iPhoneX ? 44.f : 20.f) : 0.0)
+///判断 iPhone X || 判断 iPhone Xs
+#define isIPhoneX_Xs (CGSizeEqualToSize(CGSizeMake(375.f, 812.f), [UIScreen mainScreen].bounds.size) || CGSizeEqualToSize(CGSizeMake(812.f, 375.f), [UIScreen mainScreen].bounds.size))
+//判断iPHoneXR || 判断iPhoneXs Max
+#define isIPhoneXR_XsMax (CGSizeEqualToSize(CGSizeMake(414.f, 896.f), [UIScreen mainScreen].bounds.size) || CGSizeEqualToSize(CGSizeMake(896.f, 414.f), [UIScreen mainScreen].bounds.size))
+//判断 iPhoneX 系列设备
+#define iS_IPhoneX_All ([UIScreen mainScreen].bounds.size.height == 812 || [UIScreen mainScreen].bounds.size.height == 896)
+/** 设置默认 iPhone X 导航栏 安全高度 */
+#define iPhoneX_Navigation_Safe_Height (iS_IPhoneX_All ? 24  : 0)
+/** 设置默认 iPhone X 底部导航栏 安全高度 */
+#define iPhoneX_Bottom_Bar_Safe_Height (iS_IPhoneX_All ? 34  : 0)
+/** 设置默认 iPhone X 导航栏 高度 88xp  普通 64xp */
+#define iPhone_X_Navigation_Bar_Heigth  (iS_IPhoneX_All ? iPhoneX_Bottom_Bar_Safe_Height + 64 : 64)
+/** 设置默认 iPhone X 底部导航栏 高度 83xp  普通 49xp */
+#define iPhoneX_Bottom_Navigation_Bar_Height (iS_IPhoneX_All ? iPhoneX_Bottom_Bar_Safe_Height + 49 : 49)
+/** 设置默认 iPhone X 状态栏高度 */
+#define StatusBarHeight ((iS_IPhoneX_All)?44:20)
 
 #define AutomaticallyAdjustsScrollViewInsetsNO(view) if (@available(iOS 11.0, *)) {view.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;}else{self.automaticallyAdjustsScrollViewInsets = NO;}
 

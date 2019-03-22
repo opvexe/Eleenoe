@@ -20,6 +20,7 @@
  */
 #import "ELTools.h"
 #import "ELBaseModel.h"
+#import "SCREENAdaptationTool.h"
 #import "UIFont+Category.h"
 #import "UIFont+Category.h"
 #import "UIView+Category.h"

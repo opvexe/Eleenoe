@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
@@ -125,7 +124,7 @@
     icon.frame = CGRectMake(0,0, pf.size.width, image.size.height);
     [_placeholderView addSubview:icon];
     
-    CGFloat y= icon.frame.size.height+Number(20);
+    CGFloat y= icon.frame.size.height+kSAdap(20);
     if(title){
         CGFloat height=[ELTools getHeightContain:title font:[UIFont ELPingFangSCLightFontOfSize:15.0] Width:pf.size.width];
         
@@ -142,7 +141,7 @@
     }
     
     if(message){
-        UILabel *lblTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, y, pf.size.width, Number(20))];
+        UILabel *lblTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, y, pf.size.width, kSAdap_V(20))];
         [lblTitle setText:message];
         [lblTitle setFont:[UIFont ELPingFangSCLightFontOfSize:16.0]];
         [lblTitle setTextColor:MainTitleColor];
@@ -151,13 +150,13 @@
         [lblTitle setAutoresizesSubviews:YES];
         [lblTitle setBackgroundColor:[UIColor clearColor]];
         [_placeholderView addSubview:lblTitle];
-        y=y+Number(25);
+        y=y+kSAdap_V(25);
     }
     //
     //    // 如果有重新加载方法，就显示重新加载按钮
     if(reloadAction){
         UIButton *reButton=[UIButton buttonWithType:UIButtonTypeCustom];
-        [reButton setFrame:CGRectMake(pf.size.width/2-Number(114)/2, y+5, Number(114), Number(30))];
+        [reButton setFrame:CGRectMake(pf.size.width/2-kSAdap(114)/2, y+5, kSAdap(114), kSAdap_V(30))];
         
         [reButton setBackgroundImage:[UIImage imageWithColor:MainBackgroundColor] forState:UIControlStateNormal];
         [reButton setBackgroundImage:[UIImage imageWithColor:MainBackgroundColor] forState:UIControlStateDisabled];
@@ -169,16 +168,16 @@
         [reButton.titleLabel setFont:[UIFont ELPingFangSCLightFontOfSize:12.0]];
         [reButton addTarget:self action:reloadAction forControlEvents:UIControlEventTouchUpInside];
         [reButton setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin];
-        reButton.layer.cornerRadius  = Number(15);
+        reButton.layer.cornerRadius  = kSAdap(15);
         reButton.layer.masksToBounds = YES;
         reButton.layer.borderColor =MainTitleColor.CGColor;
-        reButton.layer.borderWidth = Number(0.5);
+        reButton.layer.borderWidth = kSAdap(0.5);
         [_placeholderView addSubview:reButton];
         UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         activityIndicator.tag=10;
-        [activityIndicator setFrame:CGRectMake(Number(192)/2-Number(45), Number(15), Number(20), Number(20))];
+        [activityIndicator setFrame:CGRectMake(kSAdap(192)/2-kSAdap(45), kSAdap_V(15), kSAdap(20), kSAdap_V(20))];
         [reButton addSubview:activityIndicator];
-        y=y+Number(60);
+        y=y+kSAdap_V(60);
     }
     pf.size.height=y;
     
@@ -215,7 +214,7 @@
     [icon setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     icon.frame = CGRectMake(0,0, pf.size.width, image.size.height);
     [_placeholderView addSubview:icon];
-    CGFloat y= icon.frame.size.height+Number(20);
+    CGFloat y= icon.frame.size.height+kSAdap_V(20);
     if(title){
         CGFloat height=[ELTools getHeightContain:title font:[UIFont ELPingFangSCLightFontOfSize:15.0] Width:pf.size.width];
         
@@ -232,7 +231,7 @@
     }
     
     if(message){
-        UILabel *lblTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, y, pf.size.width, Number(20))];
+        UILabel *lblTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, y, pf.size.width, kSAdap_V(20))];
         [lblTitle setText:message];
         [lblTitle setFont:[UIFont ELPingFangSCLightFontOfSize:15.0] ];
         [lblTitle setTextColor:MainTitleColor];
@@ -241,13 +240,13 @@
         [lblTitle setAutoresizesSubviews:YES];
         [lblTitle setBackgroundColor:[UIColor clearColor]];
         [_placeholderView addSubview:lblTitle];
-        y=y+Number(25);
+        y=y+kSAdap_V(25);
     }
     
     // 如果有重新加载方法，就显示重新加载按钮
     if(reloadAction){
         UIButton *reButton=[UIButton buttonWithType:UIButtonTypeCustom];
-        [reButton setFrame:CGRectMake(pf.size.width/2-Number(114)/2, y+5, Number(114), Number(30))];
+        [reButton setFrame:CGRectMake(pf.size.width/2-kSAdap(114)/2, y+5, kSAdap(114), kSAdap_V(30))];
         [reButton setBackgroundImage:[UIImage imageWithColor:MainBackgroundColor] forState:UIControlStateNormal];
         [reButton setBackgroundImage:[UIImage imageWithColor:MainBackgroundColor] forState:UIControlStateDisabled];
         [reButton setBackgroundImage:[UIImage imageWithColor:MainBackgroundColor] forState:UIControlStateHighlighted];
@@ -258,17 +257,17 @@
         [reButton.titleLabel setFont:[UIFont ELPingFangSCLightFontOfSize:12.0]];
         [reButton addTarget:self action:reloadAction forControlEvents:UIControlEventTouchUpInside];
         [reButton setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin];
-        reButton.layer.cornerRadius  = Number(15);
+        reButton.layer.cornerRadius  = kSAdap(15);
         reButton.layer.masksToBounds = YES;
         reButton.layer.borderColor =MainTitleColor.CGColor;
-        reButton.layer.borderWidth = Number(0.5);
+        reButton.layer.borderWidth = kSAdap(0.5);
         [_placeholderView addSubview:reButton];
         UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         activityIndicator.tag=10;
-        [activityIndicator setFrame:CGRectMake(Number(192)/2-Number(45), Number(15), Number(20), Number(20))];
+        [activityIndicator setFrame:CGRectMake(kSAdap(192)/2-kSAdap(45), kSAdap_V(15), kSAdap(20), kSAdap_V(20))];
         [reButton addSubview:activityIndicator];
         
-        y=y+Number(60);
+        y=y+kSAdap_V(60);
     }
     pf.size.height=y;
     

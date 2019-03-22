@@ -69,16 +69,16 @@
 }
 
 - (void)customizeTabBarAppearance:(CYLTabBarController *)tabBarController {
-    tabBarController.tabBarHeight = EL_TabbarHeight;
+    tabBarController.tabBarHeight = iPhoneX_Bottom_Navigation_Bar_Height;
     ///普通状态下的文字属性
     NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
     normalAttrs[NSForegroundColorAttributeName] = TabbarNormalColor;
-    normalAttrs[NSFontAttributeName] = [UIFont ELPingFangSCLightFontOfSize:Number(12.0f)];
+    normalAttrs[NSFontAttributeName] = [UIFont ELPingFangSCLightFontOfSize:kSaFont(12.0f)];
     
     // 选中状态下的文字属性
     NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
     selectedAttrs[NSForegroundColorAttributeName] = TabbarHightColor;
-    selectedAttrs[NSFontAttributeName] = [UIFont ELPingFangSCLightFontOfSize:Number(12.0f)];
+    selectedAttrs[NSFontAttributeName] = [UIFont ELPingFangSCLightFontOfSize:kSaFont(12.0f)];
     
     // 设置文字属性
     UITabBarItem *tabBar = [UITabBarItem appearance];
