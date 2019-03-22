@@ -28,11 +28,10 @@
 }
 
 -(void)registrationThirdLib{
-    
-    NSLog(@"SSH");
-       NSLog(@"SSH");
-       NSLog(@"SSH");
-       NSLog(@"SSH");
+    NSLog(@"分支");
+    NSLog(@"分支");
+    NSLog(@"分支");
+    NSLog(@"分支");
 }
 
 @end
