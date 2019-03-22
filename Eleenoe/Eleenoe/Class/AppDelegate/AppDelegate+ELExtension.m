@@ -28,10 +28,12 @@
 }
 
 -(void)registrationThirdLib{
-    NSLog(@"主干测试测试");
-    NSLog(@"主干测试测试");
-    NSLog(@"主干测试测试");
-    NSLog(@"主干测试测试");
+     NSLog(@"合并测试");
+      NSLog(@"合并测试");
+    NSLog(@"分支");
+    NSLog(@"分支");
+    NSLog(@"分支");
+    NSLog(@"分支");
 }
 
 @end
