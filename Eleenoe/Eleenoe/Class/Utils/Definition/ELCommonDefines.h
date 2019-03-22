@@ -78,9 +78,6 @@ block();\
 
 #define LSSCALHEIGHT (SCREEN_HEIGHT/667.0)
 
-//#define Number(num)                 (num*LSSCALWIDTH)
-
-//#define NumberHeight(num)           (num*LSSCALHEIGHT)
 
 
 #define StatusBar_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
