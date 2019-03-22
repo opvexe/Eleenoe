@@ -28,7 +28,8 @@
 }
 
 -(void)registrationThirdLib{
-
+     NSLog(@"合并测试");
+      NSLog(@"合并测试");
     NSLog(@"SSH");
 }
 
