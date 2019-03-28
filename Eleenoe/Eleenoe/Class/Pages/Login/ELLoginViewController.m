@@ -12,7 +12,7 @@
 @property (nonatomic, strong) UIButton *loginButton;
 @property (nonatomic, strong) UITextField *iphoneTextField;
 @property (nonatomic, strong) UITextField *authCodeTextField;
-@property (nonatomic, strong) UIImageView *logoImageView;
+@property (nonatomic, strong) FLAnimatedImageView *logoImageView;
 @property (nonatomic, strong) ELMessageEventButton *messageEventButton;
 @property (nonatomic, strong) UIButton *weixinButton;
 @property (nonatomic, strong) UILabel *tipLabel;
@@ -141,7 +141,7 @@
     });
     
     _logoImageView = ({
-        UIImageView *iv = [[UIImageView alloc]init];
+        FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]init];
         iv.image = [UIImage imageNamed:@""];
         [self.view addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
