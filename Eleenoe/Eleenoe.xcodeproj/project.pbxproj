@@ -29,6 +29,7 @@
 		D0771057224CB4AB00D0B993 /* ELShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771056224CB4AB00D0B993 /* ELShopViewController.m */; };
 		D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D077105B224CB95900D0B993 /* ELMineTableViewCell.m */; };
 		D0771062224CC16700D0B993 /* ELSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771061224CC16700D0B993 /* ELSettingModel.m */; };
+		D0771066224CCA6000D0B993 /* ELSuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771065224CCA6000D0B993 /* ELSuggestionViewController.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -125,6 +126,8 @@
 		D077105B224CB95900D0B993 /* ELMineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMineTableViewCell.m; sourceTree = "<group>"; };
 		D0771060224CC16700D0B993 /* ELSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSettingModel.h; sourceTree = "<group>"; };
 		D0771061224CC16700D0B993 /* ELSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSettingModel.m; sourceTree = "<group>"; };
+		D0771064224CCA6000D0B993 /* ELSuggestionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELSuggestionViewController.h; sourceTree = "<group>"; };
+		D0771065224CCA6000D0B993 /* ELSuggestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSuggestionViewController.m; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -400,6 +403,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D0771063224CCA4400D0B993 /* Suggestion */ = {
+			isa = PBXGroup;
+			children = (
+				D0771064224CCA6000D0B993 /* ELSuggestionViewController.h */,
+				D0771065224CCA6000D0B993 /* ELSuggestionViewController.m */,
+			);
+			path = Suggestion;
+			sourceTree = "<group>";
+		};
 		D0DC66F822393AD90064C07A /* NetworkTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +631,7 @@
 		D0F52B37223790E400A26504 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				D0771063224CCA4400D0B993 /* Suggestion */,
 				D0771054224CB48700D0B993 /* Shop */,
 				D0180B00223F38A6008C06C1 /* WebView */,
 				D0EC4B342238B22C00B5A74D /* Guide */,
@@ -881,6 +894,7 @@
 				D0F52B04223788D500A26504 /* NSString+Category.m in Sources */,
 				D0180B5D223F90BA008C06C1 /* ELStatusBar.m in Sources */,
 				D0F52B2D22378BA000A26504 /* ELTabBarControllerConfig.m in Sources */,
+				D0771066224CCA6000D0B993 /* ELSuggestionViewController.m in Sources */,
 				D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */,
 				D0F52B1F22378A5800A26504 /* ELBaseView.m in Sources */,
 				D0F52B45223792C800A26504 /* ELPasswordViewController.m in Sources */,

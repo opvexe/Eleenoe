@@ -70,11 +70,11 @@
     
     NSArray *settings =[NSArray array];
     settings = @[@{@"sections":@[
-                           @{@"icon":@"instructions",@"title":@"使用说明",@"itemType":@(WDSettingItemTypeArrow)},
-                           @{@"icon":@"suggestion",@"title":@"意见反馈",@"itemType":@(WDSettingItemTypeArrow)},
-                           @{@"icon":@"announcements",@"title":@"注意事项",@"itemType":@(WDSettingItemTypeArrow)}]},
+                           @{@"icon":@"instructions",@"title":@"使用说明",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"},
+                           @{@"icon":@"suggestion",@"title":@"意见反馈",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELSuggestionViewController"},
+                           @{@"icon":@"announcements",@"title":@"注意事项",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"}]},
                  @{@"sections":@[
-                           @{@"icon":@"service",@"title":@"售后服务",@"itemType":@(WDSettingItemTypeArrow)}]}];
+                           @{@"icon":@"service",@"title":@"售后服务",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"}]}];
     self.lists = [ELSettingModel mj_objectArrayWithKeyValuesArray:settings];
     [self.tableListView reloadData];
 }
