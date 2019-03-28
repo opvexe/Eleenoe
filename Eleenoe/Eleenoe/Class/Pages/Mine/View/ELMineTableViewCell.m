@@ -32,7 +32,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(kSAdap(15.0));
             make.centerY.mas_equalTo(self.contentView);
-            make.size.mas_equalTo(CGSizeMake(kSAdap(20.0), kSAdap_V(20.0)));
+            make.size.mas_equalTo(CGSizeMake(kSAdap(15.0), kSAdap_V(16.0)));
         }];
         iv;
     });
@@ -43,20 +43,20 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(kSAdap(-15.0));
             make.centerY.mas_equalTo(self.contentView);
-            make.size.mas_equalTo(CGSizeMake(kSAdap(20.0), kSAdap_V(20.0)));
+            make.size.mas_equalTo(CGSizeMake(kSAdap(8.0), kSAdap_V(15.0)));
         }];
         iv;
     });
     
     _titleLabel = ({
         UILabel *iv = [[UILabel alloc]init];
-        iv.textColor = [UIColor blackColor];
         iv.numberOfLines = 1;
+        iv.textColor = MainBlackTitleColor;
         iv.textAlignment = NSTextAlignmentLeft;
-        [iv setFont:[UIFont ELHelveticaFontOfSize:kSaFont(14.0)]];
+        [iv setFont:[UIFont ELPingFangSCMediumFontOfSize:kSaFont(15.0)]];
         [self.contentView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.iconImageView.mas_right).mas_offset(kSAdap(8.0));
+            make.left.mas_equalTo(self.iconImageView.mas_right).mas_offset(kSAdap(20.0));
             make.centerY.mas_equalTo(self.contentView);
             make.right.mas_equalTo(self.itemImageView.mas_left).mas_offset(-kSAdap(8.0));
         }];

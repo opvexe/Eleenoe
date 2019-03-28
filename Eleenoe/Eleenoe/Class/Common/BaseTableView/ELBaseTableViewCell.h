@@ -17,7 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(id)CellWithTableView:(UITableView *)tableview;
 
-
+/**
+ * 
+ */
+@property(nonatomic,strong)UIView *bottomlineView;
 @end
 
 NS_ASSUME_NONNULL_END
