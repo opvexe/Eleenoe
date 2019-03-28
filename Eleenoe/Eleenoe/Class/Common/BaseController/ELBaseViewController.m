@@ -42,6 +42,16 @@
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 
+- (void)setNavigationRightView:(UIView *)navigationRightView{
+    _navigationRightView = navigationRightView;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:navigationRightView];
+}
+
+-(void)setNavigationleftView:(UIView *)navigationleftView{
+    _navigationleftView = navigationleftView;
+    self.navigationItem.leftBarButtonItem =  [[UIBarButtonItem alloc] initWithCustomView:navigationleftView];
+}
+
 #pragma mark 提示图
 - (void)makeToast:(NSString *)message{
     dispatch_async(dispatch_get_main_queue(), ^{

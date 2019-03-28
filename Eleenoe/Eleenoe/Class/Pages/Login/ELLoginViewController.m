@@ -8,6 +8,7 @@
 
 #import "ELLoginViewController.h"
 #import "ELMessageEventButton.h"
+#import "ELHomeViewController.h"
 @interface ELLoginViewController ()<ELMessageEventButtonDelegate,UITextFieldDelegate>
 @property (nonatomic, strong) UIButton *loginButton;
 @property (nonatomic, strong) UITextField *iphoneTextField;
@@ -246,6 +247,7 @@
         return;
     }
     
+    NSLog(@"发送验证码");
 }
 
 #pragma mark - TextFieldDelegate
@@ -255,6 +257,12 @@
             self.iphoneTextField.text = [textField.text substringToIndex:11];
         }else{
             self.iphoneTextField.text = textField.text;
+        }
+    }else if ([textField isEqual:self.authCodeTextField]){
+        if (textField.text.length >6) {
+            self.authCodeTextField.text = [textField.text substringToIndex:6];
+        }else{
+            self.authCodeTextField.text = textField.text;
         }
     }
 }
@@ -272,6 +280,8 @@
 #pragma mark - loginActoion
 -(void)loginAction:(UIButton *)sender{
     
+    ELHomeViewController *controller = [[ELHomeViewController alloc]init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 /*
  #pragma mark - Navigation

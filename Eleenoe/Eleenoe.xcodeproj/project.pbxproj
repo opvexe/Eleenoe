@@ -32,6 +32,7 @@
 		D0771066224CCA6000D0B993 /* ELSuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771065224CCA6000D0B993 /* ELSuggestionViewController.m */; };
 		D0771069224CCDA200D0B993 /* ELCouponAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771068224CCDA200D0B993 /* ELCouponAlertView.m */; };
 		D077106C224CCECA00D0B993 /* ELCauseShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = D077106B224CCECA00D0B993 /* ELCauseShowView.m */; };
+		D0771072224D172D00D0B993 /* CJXBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771070224D172D00D0B993 /* CJXBarButtonItem.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -134,6 +135,8 @@
 		D0771068224CCDA200D0B993 /* ELCouponAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELCouponAlertView.m; sourceTree = "<group>"; };
 		D077106A224CCECA00D0B993 /* ELCauseShowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCauseShowView.h; sourceTree = "<group>"; };
 		D077106B224CCECA00D0B993 /* ELCauseShowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELCauseShowView.m; sourceTree = "<group>"; };
+		D0771070224D172D00D0B993 /* CJXBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJXBarButtonItem.m; sourceTree = "<group>"; };
+		D0771071224D172D00D0B993 /* CJXBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJXBarButtonItem.h; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -469,6 +472,8 @@
 				D0EC1EF4223B7C030059BA1C /* ELBlueToothManager.m */,
 				D0180BD62244C7D2008C06C1 /* SCREENAdaptationTool.h */,
 				D0180BD72244C7D2008C06C1 /* SCREENAdaptationTool.m */,
+				D0771071224D172D00D0B993 /* CJXBarButtonItem.h */,
+				D0771070224D172D00D0B993 /* CJXBarButtonItem.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -911,6 +916,7 @@
 				D0F52B1F22378A5800A26504 /* ELBaseView.m in Sources */,
 				D0F52B45223792C800A26504 /* ELPasswordViewController.m in Sources */,
 				D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */,
+				D0771072224D172D00D0B993 /* CJXBarButtonItem.m in Sources */,
 				D0F52B03223788D400A26504 /* Foundation+Log.m in Sources */,
 				D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */,
 				D0180BD82244C7D2008C06C1 /* SCREENAdaptationTool.m in Sources */,

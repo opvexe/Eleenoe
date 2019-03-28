@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"肌筋膜放松仪";
-    [self rightBarButtonWithImage:[UIImage imageNamed:@"home_nav_more"] target:self action:@selector(Click)];
+    self.navigationRightView = [CJXBarButtonItem buttonWithImageNormal:@"home_nav_more" imageSelected:@"home_nav_more" imageHightlight:@"home_nav_more" target:self selector:@selector(Click)];
 }
 
 #pragma mark - 导航

@@ -19,6 +19,11 @@ typedef NS_ENUM(NSUInteger, ToastPositionType) {
 @interface ELBaseViewController : UIViewController
 
 /**
+ * 导航
+ */
+@property (nonatomic,strong) UIView *navigationRightView;
+@property (nonatomic,strong) UIView *navigationleftView;
+/**
  * 加载视图
  
  @param message 返回错误弹框提示
