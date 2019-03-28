@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UILabel *tipLabel;
 @property (nonatomic,strong) UIView *iphoneView;
 @property (nonatomic,strong) UIView *authCodeView;
+@property (nonatomic,strong) UIView *leftLineView;
+@property (nonatomic,strong) UIView *rightLineView;
 @end
 
 @implementation ELLoginViewController
@@ -44,15 +46,15 @@
         UIView *iv = [[UIView alloc]init];
         iv.backgroundColor = [UIColor whiteColor];
         iv.clipsToBounds = YES;
-        iv.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        iv.layer.borderColor = MainGrayBorderColor.CGColor;
         iv.layer.borderWidth = 0.5;
-        iv.layer.cornerRadius = kSAdap_V(15.0);
+        iv.layer.cornerRadius = kSAdap_V(20.0);
         [self.view addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(kSAdap(15.0));
             make.right.mas_equalTo(kSAdap(-15.0));
-            make.centerY.mas_equalTo(self.view).mas_offset(kSAdap_V(-40.0));
-            make.height.mas_equalTo(kSAdap_V(35.0));
+            make.centerY.mas_equalTo(self.view).mas_offset(kSAdap_V(-45.0));
+            make.height.mas_equalTo(kSAdap_V(40.0));
         }];
         iv;
     });
@@ -63,17 +65,17 @@
         [iv setTitle:@"获取验证码" forState:UIControlStateHighlighted];
         [iv setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
         [iv setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateHighlighted];
-        [iv.titleLabel  setFont:[UIFont ELHelveticaFontOfSize:kSaFont(13.0)]];
-        [iv setTitleColor:UIColorFromRGB(0xff758c) forState:UIControlStateNormal];
-        [iv setTitleColor:UIColorFromRGB(0xff758c) forState:UIControlStateHighlighted];
-        [iv setTitleColor:UIColorFromRGB(0x909090) forState:UIControlStateSelected];
+        [iv.titleLabel  setFont:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)]];
+        [iv setTitleColor:MainBlackTitleColor forState:UIControlStateNormal];
+        [iv setTitleColor:MainBlackTitleColor forState:UIControlStateHighlighted];
+        [iv setTitleColor:MainLightGrayTitleColor forState:UIControlStateSelected];
         iv.showsTouchWhenHighlighted=NO;
         iv.countdownBeginNumber                      = 60;
         iv.delegate                                  = self;
         iv.clipsToBounds =YES;
         [self.authCodeView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(self.view).mas_offset(kSAdap_V(-40.0));
+            make.centerY.mas_equalTo(self.authCodeView);
             make.width.mas_equalTo(kSAdap(80.0));
             make.right.mas_equalTo(kSAdap(-15.0));
             make.height.mas_equalTo(self.authCodeView);
@@ -83,11 +85,11 @@
     
     _authCodeTextField = ({
         UITextField *iv = [[UITextField alloc]init];
-        iv.font  = [UIFont ELHelveticaFontOfSize:kSaFont(16.0)];
+        iv.font  = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)];
         iv.clearButtonMode = UITextFieldViewModeWhileEditing;
-        iv.textColor =UIColorFromRGB(0x323232);
+        iv.textColor = MainBlackTitleColor;
         iv.placeholder =@"请输入验证码";
-        [iv setValue:UIColorFromRGB(0x777777) forKeyPath:@"_placeholderLabel.textColor"];
+        [iv setValue:MainLightGrayTitleColor forKeyPath:@"_placeholderLabel.textColor"];
         iv.keyboardType = UIKeyboardTypeNumberPad;
         iv.borderStyle =UITextBorderStyleNone;
         [self.authCodeView addSubview:iv];
@@ -105,26 +107,26 @@
         UIView *iv = [[UIView alloc]init];
         iv.backgroundColor = [UIColor whiteColor];
         iv.clipsToBounds = YES;
-        iv.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        iv.layer.borderColor = MainGrayBorderColor.CGColor;
         iv.layer.borderWidth = 0.5;
-        iv.layer.cornerRadius = kSAdap_V(15.0);
+        iv.layer.cornerRadius = kSAdap_V(20.0);
         [self.view addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(kSAdap(15.0));
             make.right.mas_equalTo(kSAdap(-15.0));
             make.bottom.mas_equalTo(self.authCodeTextField.mas_top).mas_offset(kSAdap_V(-20.0));
-            make.height.mas_equalTo(kSAdap_V(35.0));
+            make.height.mas_equalTo(kSAdap_V(40.0));
         }];
         iv;
     });
     
     _iphoneTextField = ({
         UITextField *iv = [[UITextField alloc]init];
-        iv.font  = [UIFont ELHelveticaFontOfSize:kSaFont(16.0)];
+        iv.font  = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)];
         iv.clearButtonMode = UITextFieldViewModeWhileEditing;
-        iv.textColor =UIColorFromRGB(0x323232);
+        iv.textColor = MainBlackTitleColor;
         iv.placeholder =@"请输入手机号";
-        [iv setValue:UIColorFromRGB(0x777777) forKeyPath:@"_placeholderLabel.textColor"];
+        [iv setValue:MainLightGrayTitleColor forKeyPath:@"_placeholderLabel.textColor"];
         iv.keyboardType = UIKeyboardTypeNumberPad;
         iv.borderStyle =UITextBorderStyleNone;
         [iv becomeFirstResponder];
@@ -142,22 +144,23 @@
     
     _logoImageView = ({
         FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]init];
-        iv.image = [UIImage imageNamed:@""];
+        iv.image = [UIImage imageNamed:@"login_logo"];
         [self.view addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(self.iphoneView.mas_top).mas_offset(kSAdap_V(30.0));
-            make.size.mas_equalTo(CGSizeMake(kSAdap(120.0), kSAdap_V(40.0)));
+            make.bottom.mas_equalTo(self.iphoneView.mas_top).mas_offset(-kSAdap_V(45));
+            make.size.mas_equalTo(CGSizeMake(kSAdap(105), kSAdap_V(56)));
+            make.centerX.mas_equalTo(self.view);
         }];
         iv;
     });
     
     _loginButton = ({
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
-        [iv setBackgroundImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
-        [iv setBackgroundImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateHighlighted];
-        [iv .titleLabel setFont:[UIFont ELHelveticaFontOfSize:kSaFont(16.0)]];
-        [iv setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [iv setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        [iv setBackgroundImage:[UIImage imageWithColor:MainThemColor] forState:UIControlStateNormal];
+        [iv setBackgroundImage:[UIImage imageWithColor:MainThemColor] forState:UIControlStateHighlighted];
+        [iv .titleLabel setFont:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)]];
+        [iv setTitleColor:MainWhiteTitleColor forState:UIControlStateNormal];
+        [iv setTitleColor:MainWhiteTitleColor forState:UIControlStateHighlighted];
         [iv setTitle:@"登录" forState:UIControlStateNormal];
         [iv setTitle:@"登录" forState:UIControlStateHighlighted];
         iv.showsTouchWhenHighlighted=NO;
@@ -177,15 +180,42 @@
     _tipLabel = ({
         UILabel *iv = [[UILabel alloc]init];
         iv.text =@"其他登录方式";
-        iv.font =[UIFont ELHelveticaFontOfSize:kSaFont(13.0)];
-        iv.textColor = [UIColor lightGrayColor];
+        iv.font =[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)];
+        iv.textColor = MainLightGrayTitleColor;
         iv.textAlignment = NSTextAlignmentCenter;
         iv.numberOfLines = 1;
         [self.view addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.mas_equalTo(self.loginButton);
-            make.top.mas_equalTo(self.loginButton.mas_bottom).mas_offset(kSAdap_V(40.0));
+            make.centerX.mas_equalTo(self.view);
+            make.width.mas_lessThanOrEqualTo(kSAdap(120.0));
+            make.top.mas_equalTo(self.loginButton.mas_bottom).mas_offset(kSAdap_V(45.0));
             make.height.mas_equalTo(kSAdap_V(20.0));
+        }];
+        iv;
+    });
+    
+    _leftLineView =({
+        UIView *iv = [[UIView alloc]init];
+        iv.backgroundColor = MainGrayBorderColor;
+        [self.view addSubview:iv];
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(self.tipLabel.mas_left).mas_offset(-kSAdap(20.0));
+            make.centerY.mas_equalTo(self.tipLabel);
+            make.height.mas_equalTo(0.5);
+            make.width.mas_equalTo(kSAdap(50.0));
+        }];
+        iv;
+    });
+    
+    _rightLineView =({
+        UIView *iv = [[UIView alloc]init];
+        iv.backgroundColor = MainGrayBorderColor;
+        [self.view addSubview:iv];
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.tipLabel.mas_right).mas_offset(kSAdap(20.0));
+            make.centerY.mas_equalTo(self.tipLabel);
+            make.height.mas_equalTo(0.5);
+            make.width.mas_equalTo(kSAdap(50.0));
         }];
         iv;
     });
@@ -202,7 +232,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.view);
             make.top.mas_equalTo(self.tipLabel.mas_bottom).mas_offset(kSAdap_V(15.0));
-            make.size.mas_equalTo(CGSizeMake(kSAdap(25.0), kSAdap_V(20.0)));
+            make.size.mas_equalTo(CGSizeMake(kSAdap(34.0), kSAdap_V(34.0)));
         }];
         iv;
     });

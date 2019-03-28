@@ -28,16 +28,20 @@
     tap.delegate = self;
     [self addGestureRecognizer:tap];
     
+    _container = ({
+        UIView *iv = [[UIView alloc]init];
+        iv.backgroundColor = [UIColor blackColor];
+        iv.frame = CGRectMake(0.0f, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height*3/4);
+        [self addSubview:iv];
+        iv;
+    });
     
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height*3/4) byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(15.0f, 15.0f)];
+    CAShapeLayer *layer =[[CAShapeLayer alloc] init];
+    [layer setPath:path.CGPath];
+    self.container.layer.mask = layer;
 }
 
-#pragma mark - 懒加载
--(UIView *)container{
-    if (!_container) {
-        _container = [[UIView alloc]init];
-    }
-    return _container;
-}
 
 #pragma mark - Tap
 -(void)Tap:(UITapGestureRecognizer *)sender{

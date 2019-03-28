@@ -19,7 +19,7 @@
     
 //    if ([ELUserDataSocure isNewVersion]) {
 //
-//        self.window.rootViewController = [[ELGuideViewController alloc]init];
+//        self.window.rootViewController = [[ELLoginViewController alloc]init];
 //
 //    }else{
 //

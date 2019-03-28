@@ -59,19 +59,19 @@
 - (NSArray *)tabBarItemsAttributesForController {
     NSDictionary *homeTabBarItemsAttributes = @{
                                                 CYLTabBarItemTitle : @"首页",
-                                                CYLTabBarItemImage : @"Home_Icon_Normal",
-                                                CYLTabBarItemSelectedImage : @"Home_Icon_Selected",
+                                                CYLTabBarItemImage : @"home_normal",
+                                                CYLTabBarItemSelectedImage : @"home_select",
                                                 };
     NSDictionary *shopTabBarItemsAttributes = @{
                                                 CYLTabBarItemTitle : @"商城",
-                                                CYLTabBarItemImage : @"Home_Icon_Normal",
-                                                CYLTabBarItemSelectedImage : @"Home_Icon_Selected",
+                                                CYLTabBarItemImage : @"shop_normal",
+                                                CYLTabBarItemSelectedImage : @"shop_select",
                                                 };
     
     NSDictionary *mineTabBarItemsAttributes = @{
                                                 CYLTabBarItemTitle : @"我的",
-                                                CYLTabBarItemImage : @"Message_Icon_Normal",
-                                                CYLTabBarItemSelectedImage : @"Message_Icon_Selected",
+                                                CYLTabBarItemImage : @"mine_normal",
+                                                CYLTabBarItemSelectedImage : @"mine_select",
                                                 };
     NSArray *tabBarItemsAttributes = @[
                                        homeTabBarItemsAttributes,
@@ -86,12 +86,12 @@
     ///普通状态下的文字属性
     NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
     normalAttrs[NSForegroundColorAttributeName] = TabbarNormalColor;
-    normalAttrs[NSFontAttributeName] = [UIFont ELPingFangSCLightFontOfSize:kSaFont(12.0f)];
+    normalAttrs[NSFontAttributeName] = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(10.0)];
     
     // 选中状态下的文字属性
     NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
     selectedAttrs[NSForegroundColorAttributeName] = TabbarHightColor;
-    selectedAttrs[NSFontAttributeName] = [UIFont ELPingFangSCLightFontOfSize:kSaFont(12.0f)];
+    selectedAttrs[NSFontAttributeName] = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(10.0)];
     
     // 设置文字属性
     UITabBarItem *tabBar = [UITabBarItem appearance];

@@ -16,17 +16,22 @@
 #define UIColorFromRGBA(rgbValue,a) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 
 //Tabbar Color
-#define   TabbarNormalColor     UIColorFromRGB(0x646464)
-#define   TabbarHightColor      UIColorFromRGB(0xFF758C)
+#define   TabbarNormalColor     UIColorFromRGB(0xDDDDDD)
+#define   TabbarHightColor      UIColorFromRGB(0x8EC31F)
 
 //Page Color
 #define  PageCurrentColor       UIColorFromRGB(0xFF758C)
 
 //Main Color
-#define MainThemColor           UIColorFromRGB(0x646464)
+#define MainThemColor           UIColorFromRGB(0x8EC31F)
 #define MainBackgroundColor     UIColorFromRGB(0xf4f4f4)
 //Text Color
 #define MainTitleColor          UIColorFromRGB(0x333333)
+#define MainWhiteTitleColor     UIColorFromRGB(0xFFFFFF)
+#define MainLightGrayTitleColor UIColorFromRGB(0x999999)
+#define MainBlackTitleColor     UIColorFromRGB(0x333333)
 
+//line Color
+#define MainGrayBorderColor    UIColorFromRGB(0xE4E4E4)
 
 #endif /* ELColorDefines_h */

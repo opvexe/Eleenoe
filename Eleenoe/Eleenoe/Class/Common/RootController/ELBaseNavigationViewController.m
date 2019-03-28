@@ -31,16 +31,16 @@
         backgroundImage = [UIImage imageWithColor:UIColorFromRGB(0xffffff)];
         
         textAttributes = @{
-                           NSFontAttributeName :[UIFont ELPingFangSCLightFontOfSize:kSaFont(14.0f)],
-                           NSForegroundColorAttributeName :UIColorFromRGB(0x646464),
+                           NSFontAttributeName :[UIFont ELPingFangSCRegularFontOfSize:kSaFont(16.0f)],
+                           NSForegroundColorAttributeName :MainBlackTitleColor,
                            };
         
     } else {
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
         backgroundImage = [UIImage imageWithColor:UIColorFromRGB(0xffffff)];
         textAttributes = @{
-                           UITextAttributeFont : [UIFont ELPingFangSCLightFontOfSize:kSaFont(14.0f)]),
-                           UITextAttributeTextColor :UIColorFromRGB(0x646464),
+                           UITextAttributeFont : [UIFont ELPingFangSCRegularFontOfSize:kSaFont(16.0f)]),
+                           UITextAttributeTextColor :MainBlackTitleColor,
                            UITextAttributeTextShadowColor : [UIColor clearColor],
                            UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetZero],
                            };
