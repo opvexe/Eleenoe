@@ -11,20 +11,23 @@
 #import "ELTabBarControllerConfig.h"
 #import "ELHomeViewController.h"
 #import "ELGuideViewController.h"
+#import "ELLoginViewController.h"
 
 @implementation AppDelegate (ELExtension)
 
 -(void)switchRootController{
     
-    if ([ELUserDataSocure isNewVersion]) {
-        
-        self.window.rootViewController = [[ELGuideViewController alloc]init];
-        
-    }else{
-        
-        ELTabBarControllerConfig  *tabBarControllerConfig = [[ELTabBarControllerConfig alloc]init];
-        self.window.rootViewController = tabBarControllerConfig.tabBarController;
-    }
+//    if ([ELUserDataSocure isNewVersion]) {
+//
+//        self.window.rootViewController = [[ELGuideViewController alloc]init];
+//
+//    }else{
+//
+//        ELTabBarControllerConfig  *tabBarControllerConfig = [[ELTabBarControllerConfig alloc]init];
+//        self.window.rootViewController = tabBarControllerConfig.tabBarController;
+//    }
+    
+    self.window.rootViewController = [[ELLoginViewController alloc]init];
 }
 
 -(void)registrationThirdLib{
