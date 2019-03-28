@@ -36,7 +36,7 @@ static SCREENAdaptationTool *_instance;
 {
     _vertical = [[UIScreen mainScreen]bounds].size.height / height;
     _Horizontal = [[UIScreen mainScreen]bounds].size.width / width;
-    _font = floorf([[UIScreen mainScreen]bounds].size.width / width);
+    _font = [[UIScreen mainScreen]bounds].size.width / width;
 }
 
 
