@@ -12,6 +12,7 @@
 @interface ELMineViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableListView;
 @property (nonatomic, strong) NSMutableArray *lists;
+@property (nonatomic, strong) UIButton *logoutButton;
 @end
 
 @implementation ELMineViewController
@@ -26,6 +27,24 @@
 
 -(void)configView{
     
+    UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kSAdap_V(80.0))];
+    footView.backgroundColor = [UIColor clearColor];
+    _logoutButton =({
+        UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
+        iv.frame = CGRectMake(0, kSAdap_V(40.0), SCREEN_WIDTH, kSAdap_V(40.0));
+        [iv setBackgroundImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+        [iv setBackgroundImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateHighlighted];
+        [iv .titleLabel setFont:[UIFont ELHelveticaFontOfSize:kSaFont(16.0)]];
+        [iv setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [iv setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+        [iv setTitle:@"退出" forState:UIControlStateNormal];
+        [iv setTitle:@"退出" forState:UIControlStateHighlighted];
+        iv.showsTouchWhenHighlighted=NO;
+        [iv addTarget:self action:@selector(logoutAction:) forControlEvents:UIControlEventTouchUpInside];
+        [footView addSubview:iv];
+        iv;
+    });
+    
     _tableListView = ({
         UITableView *iv = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];;
         [self.view addSubview:iv];
@@ -35,7 +54,7 @@
         iv.dataSource = self;
         iv.delegate = self;
         iv.rowHeight = kSAdap_V(60.0);
-        iv.tableFooterView  =[UIView new];
+        iv.tableFooterView  = footView;
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             if (iOS11) {
                 make.edges.mas_equalTo(self.view.safeAreaInsets);
@@ -58,6 +77,11 @@
                            @{@"icon":@"service",@"title":@"售后服务",@"itemType":@(WDSettingItemTypeArrow)}]}];
     self.lists = [ELSettingModel mj_objectArrayWithKeyValuesArray:settings];
     [self.tableListView reloadData];
+}
+
+#pragma mark - 退出
+-(void)logoutAction:(UIButton *)sender{
+    
 }
 
 #pragma mark UITableViewDelegate,UITableViewDataSource
