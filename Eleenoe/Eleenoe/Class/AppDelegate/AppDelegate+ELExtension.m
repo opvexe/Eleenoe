@@ -23,11 +23,10 @@
 //
 //    }else{
 //
-//        ELTabBarControllerConfig  *tabBarControllerConfig = [[ELTabBarControllerConfig alloc]init];
-//        self.window.rootViewController = tabBarControllerConfig.tabBarController;
+        ELTabBarControllerConfig  *tabBarControllerConfig = [[ELTabBarControllerConfig alloc]init];
+        self.window.rootViewController = tabBarControllerConfig.tabBarController;
 //    }
     
-    self.window.rootViewController = [[ELLoginViewController alloc]init];
 }
 
 -(void)registrationThirdLib{

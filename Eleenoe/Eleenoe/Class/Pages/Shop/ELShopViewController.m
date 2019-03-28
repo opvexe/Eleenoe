@@ -1,24 +1,22 @@
 //
-//  ELMineViewController.m
+//  ELShopViewController.m
 //  Eleenoe
 //
-//  Created by FaceBook on 2019/3/13.
-//  Copyright © 2019年 FaceBook. All rights reserved.
+//  Created by FaceBook on 2019/3/28.
+//  Copyright © 2019 FaceBook. All rights reserved.
 //
 
-#import "ELMineViewController.h"
+#import "ELShopViewController.h"
 
-@interface ELMineViewController ()
-@property (nonatomic, strong) UITableView *listTableView;
-@property (nonatomic, strong) NSMutableArray *lists;
+@interface ELShopViewController ()
+
 @end
 
-@implementation ELMineViewController
+@implementation ELShopViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"个人中心";
 }
 
 /*

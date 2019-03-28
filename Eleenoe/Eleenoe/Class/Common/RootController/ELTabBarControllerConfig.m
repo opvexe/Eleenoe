@@ -11,6 +11,7 @@
 #import "ELRootViewController.h"
 #import "ELHomeViewController.h"
 #import "ELMineViewController.h"
+#import "ELShopViewController.h"
 
 @interface ELTabBarControllerConfig ()
 
@@ -39,12 +40,17 @@
     UIViewController *homeNavigationController = [[ELBaseNavigationViewController alloc]
                                                   initWithRootViewController:homeViewController];
     
+    ELShopViewController *shopViewController = [[ELShopViewController alloc]init];
+    UIViewController *shopNavigationController = [[ELBaseNavigationViewController alloc]
+                                                  initWithRootViewController:shopViewController];
+    
     ELMineViewController *mineViewController = [[ELMineViewController alloc] init];
     UIViewController *mineNavigationController = [[ELBaseNavigationViewController alloc]
-                                                     initWithRootViewController:mineViewController];
+                                                  initWithRootViewController:mineViewController];
     
     NSArray *viewControllers = @[
                                  homeNavigationController,
+                                 shopNavigationController,
                                  mineNavigationController
                                  ];
     return viewControllers;
@@ -56,13 +62,20 @@
                                                 CYLTabBarItemImage : @"Home_Icon_Normal",
                                                 CYLTabBarItemSelectedImage : @"Home_Icon_Selected",
                                                 };
+    NSDictionary *shopTabBarItemsAttributes = @{
+                                                CYLTabBarItemTitle : @"商城",
+                                                CYLTabBarItemImage : @"Home_Icon_Normal",
+                                                CYLTabBarItemSelectedImage : @"Home_Icon_Selected",
+                                                };
+    
     NSDictionary *mineTabBarItemsAttributes = @{
-                                                   CYLTabBarItemTitle : @"我的",
-                                                   CYLTabBarItemImage : @"Message_Icon_Normal",
-                                                   CYLTabBarItemSelectedImage : @"Message_Icon_Selected",
-                                                   };
+                                                CYLTabBarItemTitle : @"我的",
+                                                CYLTabBarItemImage : @"Message_Icon_Normal",
+                                                CYLTabBarItemSelectedImage : @"Message_Icon_Selected",
+                                                };
     NSArray *tabBarItemsAttributes = @[
                                        homeTabBarItemsAttributes,
+                                       shopTabBarItemsAttributes,
                                        mineTabBarItemsAttributes
                                        ];
     return tabBarItemsAttributes;
