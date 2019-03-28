@@ -27,16 +27,16 @@
 
 -(void)configView{
     
-    UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kSAdap_V(80.0))];
+    UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kSAdap_V(170.0))];
     footView.backgroundColor = [UIColor clearColor];
     _logoutButton =({
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
-        iv.frame = CGRectMake(0, kSAdap_V(40.0), SCREEN_WIDTH, kSAdap_V(40.0));
-        [iv setBackgroundImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
-        [iv setBackgroundImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateHighlighted];
-        [iv .titleLabel setFont:[UIFont ELHelveticaFontOfSize:kSaFont(16.0)]];
-        [iv setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [iv setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+        iv.frame = CGRectMake(0, kSAdap_V(120.0), SCREEN_WIDTH, kSAdap_V(50.0));
+        [iv setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+        [iv setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateHighlighted];
+        [iv .titleLabel setFont:[UIFont ELPingFangSCMediumFontOfSize:kSaFont(15.0)]];
+        [iv setTitleColor:MainBlackTitleColor forState:UIControlStateNormal];
+        [iv setTitleColor:MainBlackTitleColor forState:UIControlStateHighlighted];
         [iv setTitle:@"退出" forState:UIControlStateNormal];
         [iv setTitle:@"退出" forState:UIControlStateHighlighted];
         iv.showsTouchWhenHighlighted=NO;
@@ -51,6 +51,7 @@
         iv.showsVerticalScrollIndicator =NO;
         iv.showsHorizontalScrollIndicator =NO;
         iv.separatorStyle = UITableViewCellSeparatorStyleNone;
+        iv.backgroundColor = MainTableViewColor;
         iv.dataSource = self;
         iv.delegate = self;
         iv.rowHeight = kSAdap_V(60.0);
@@ -67,21 +68,20 @@
 }
 
 -(void)loadDataSoucre{
-    
     NSArray *settings =[NSArray array];
     settings = @[@{@"sections":@[
-                           @{@"icon":@"instructions",@"title":@"使用说明",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"},
-                           @{@"icon":@"suggestion",@"title":@"意见反馈",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELSuggestionViewController"},
-                           @{@"icon":@"announcements",@"title":@"注意事项",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"}]},
+                           @{@"icon":@"mine_instructions",@"title":@"使用说明",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"},
+                           @{@"icon":@"mine_suggestion",@"title":@"意见反馈",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELSuggestionViewController"},
+                           @{@"icon":@"mine_announcements",@"title":@"注意事项",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"}]},
                  @{@"sections":@[
-                           @{@"icon":@"service",@"title":@"售后服务",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"}]}];
+                           @{@"icon":@"mine_service",@"title":@"售后服务",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"}]}];
     self.lists = [ELSettingModel mj_objectArrayWithKeyValuesArray:settings];
     [self.tableListView reloadData];
 }
 
 #pragma mark - 退出
 -(void)logoutAction:(UIButton *)sender{
-    
+    NSLog(@"退出");
 }
 
 #pragma mark UITableViewDelegate,UITableViewDataSource

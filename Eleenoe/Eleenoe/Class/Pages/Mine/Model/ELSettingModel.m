@@ -10,4 +10,8 @@
 
 @implementation ELSettingModel
 
++(NSDictionary *)mj_objectClassInArray{
+    return @{@"sections":@"ELSettingModel"};
+}
+
 @end

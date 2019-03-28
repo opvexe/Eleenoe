@@ -25,6 +25,7 @@
 }
 
 -(void)ELSinitConfingViews{
+    [super ELSinitConfingViews];
     
     _iconImageView = ({
         FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]init];
@@ -32,7 +33,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(kSAdap(15.0));
             make.centerY.mas_equalTo(self.contentView);
-            make.size.mas_equalTo(CGSizeMake(kSAdap(15.0), kSAdap_V(16.0)));
+            make.size.mas_equalTo(CGSizeMake(kSAdap(18.0), kSAdap_V(19.0)));
         }];
         iv;
     });
@@ -41,7 +42,7 @@
         FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]init];
         [self.contentView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(kSAdap(-15.0));
+            make.right.mas_equalTo(-kSAdap(15.0));
             make.centerY.mas_equalTo(self.contentView);
             make.size.mas_equalTo(CGSizeMake(kSAdap(8.0), kSAdap_V(15.0)));
         }];

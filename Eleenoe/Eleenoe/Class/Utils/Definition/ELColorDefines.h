@@ -32,6 +32,11 @@
 #define MainBlackTitleColor     UIColorFromRGB(0x333333)
 
 //line Color
-#define MainGrayBorderColor    UIColorFromRGB(0xE4E4E4)
+#define MainGrayBorderColor     UIColorFromRGB(0xE4E4E4)
+
+
+//TableView Color
+#define MainTableViewColor      UIColorFromRGB(0xF3F3F3)
+
 
 #endif /* ELColorDefines_h */
