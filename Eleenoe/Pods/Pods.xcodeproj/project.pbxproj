@@ -918,6 +918,7 @@
 		31F664D01A12AD452B2F308FF6B7C99D /* AXIndicatorView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AXIndicatorView-prefix.pch"; sourceTree = "<group>"; };
 		3223B4EF86733DFF726AE4E6140274D3 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJKWebViewProgressView.h; path = NJKWebViewProgress/NJKWebViewProgressView.h; sourceTree = "<group>"; };
 		325C8AAECBA892D9BA166ECFD768077C /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		33964EAE52A8B988BD385665AC23FAC6 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UMSocialWechatHandler.h; path = UMShare/SocialLibraries/WeChat/UMSocialWechatHandler.h; sourceTree = "<group>"; };
 		33CE6E23671A6D9F3D772CF6A33F314D /* RACEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACEvent.h; path = ReactiveObjC/RACEvent.h; sourceTree = "<group>"; };
 		348457D8F5E2AE20A9C1EC9B927BF4D3 /* FMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
 		34A9F3ABFBC34C79313F0E0ABD694E94 /* libMJExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMJExtension.a; path = libMJExtension.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -952,7 +953,6 @@
 		4015FEC7FEC714F58E3D7183A77DB06B /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
 		4034BC5880A6E87D56916CFA76AB39A4 /* ReactiveObjC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReactiveObjC-dummy.m"; sourceTree = "<group>"; };
 		40FD9FF829E2BAB3CA424B22060A5C10 /* UIRefreshControl+RACCommandSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+RACCommandSupport.h"; path = "ReactiveObjC/UIRefreshControl+RACCommandSupport.h"; sourceTree = "<group>"; };
-		41602E9663ED22D55A0E461CC2268F72 /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UMSocialSinaHandler.h; path = UMShare/SocialLibraries/Sina/UMSocialSinaHandler.h; sourceTree = "<group>"; };
 		4310BE7CD1F879424BBFBD2841695559 /* RACBehaviorSubject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACBehaviorSubject.m; path = ReactiveObjC/RACBehaviorSubject.m; sourceTree = "<group>"; };
 		434B652E8283DBCCFBCA0BC5A05BB1BB /* IQTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQTextView.h; path = IQKeyboardManager/IQTextView/IQTextView.h; sourceTree = "<group>"; };
 		436D7EF9B9AF9414E86719D26AC45669 /* NSString+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+MJExtension.m"; path = "MJExtension/NSString+MJExtension.m"; sourceTree = "<group>"; };
@@ -1048,12 +1048,10 @@
 		670352E628323EE23285012DFCAB66C3 /* AXCircleProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AXCircleProgressView.h; path = AXPracticalHUD/AXPracticalHUD/ProgressViews/AXCircleProgressView.h; sourceTree = "<group>"; };
 		67397CF1D11F7DFF85301BE437C089FC /* AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.xcconfig; sourceTree = "<group>"; };
 		680801F9E29FA33427F67F6F6EC13FA3 /* JSObjectionModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSObjectionModule.m; path = Source/JSObjectionModule.m; sourceTree = "<group>"; };
-		681B9106EA2E14080EADC69717E8FAAE /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UMSocialWechatHandler.h; path = UMShare/SocialLibraries/WeChat/UMSocialWechatHandler.h; sourceTree = "<group>"; };
 		681F71281E62E9AC3E5B516B29B66766 /* RACImmediateScheduler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACImmediateScheduler.h; path = ReactiveObjC/RACImmediateScheduler.h; sourceTree = "<group>"; };
 		685EFB13A908E1E1F72024C78F9A68A3 /* UITableViewHeaderFooterView+RACSignalSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableViewHeaderFooterView+RACSignalSupport.h"; path = "ReactiveObjC/UITableViewHeaderFooterView+RACSignalSupport.h"; sourceTree = "<group>"; };
 		6876C7D764516078D10511D8A26AFAEB /* NSFileHandle+RACSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSFileHandle+RACSupport.h"; path = "ReactiveObjC/NSFileHandle+RACSupport.h"; sourceTree = "<group>"; };
 		688E2FB4DC680F91083307BF2E6C69EF /* IQUIScrollView+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIScrollView+Additions.m"; path = "IQKeyboardManager/Categories/IQUIScrollView+Additions.m"; sourceTree = "<group>"; };
-		68C4EF1CEFD8F28FA7E86EDC1D4C109D /* UMSocialQQHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UMSocialQQHandler.h; path = UMShare/SocialLibraries/QQ/UMSocialQQHandler.h; sourceTree = "<group>"; };
 		68E7145BCCB5D8668B1449E8F63E80B6 /* libCYLTabBarController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libCYLTabBarController.a; path = libCYLTabBarController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		69142E47B75A4D0DEC95DE35E38E6C69 /* YYMemoryCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYMemoryCache.m; path = YYCache/YYMemoryCache.m; sourceTree = "<group>"; };
 		6967D2D58BDAF977ABA1E4E1052573CD /* Aspects.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Aspects.xcconfig; sourceTree = "<group>"; };
@@ -1092,7 +1090,7 @@
 		7A6B637A93C1DC6B1D765AD136FB8BBC /* MJRefreshConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshConst.h; path = MJRefresh/MJRefreshConst.h; sourceTree = "<group>"; };
 		7B1CECB49F2E63C753EA709283C170A4 /* JSObjectionInjector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSObjectionInjector.h; path = Source/JSObjectionInjector.h; sourceTree = "<group>"; };
 		7B280DEE32C497A875E2F5EF23F8B518 /* IQTitleBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQTitleBarButtonItem.m; path = IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.m; sourceTree = "<group>"; };
-		7C3BCF4E323A36980237F9C55AF8A4BE /* UMCShare.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UMCShare.xcconfig; sourceTree = "<group>"; };
+		7C4192A8B10D0FA04DF23A2047ABD812 /* UMCShare.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UMCShare.xcconfig; sourceTree = "<group>"; };
 		7C7DC7D5822E1687170718566D36E1A2 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+MJExtension.h"; path = "MJRefresh/UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
 		7EB30FE04C8E259D7A333C4B9D2C9FD3 /* NSObject+RACLifting.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+RACLifting.m"; path = "ReactiveObjC/NSObject+RACLifting.m"; sourceTree = "<group>"; };
 		7F03CDDA9CAED04DB27BD129071847F2 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -1117,7 +1115,6 @@
 		876341D5FB2D9DD43FAEFB56D54DC318 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
 		87CC1AD301DDFCDD1A971962C30CA308 /* Toast-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-prefix.pch"; sourceTree = "<group>"; };
 		87FB58B7F7A7D7E989F22CC0752FF731 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
-		88241A06F6C3FED23F4CB90061D39B37 /* libSocialQQ.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libSocialQQ.a; path = UMShare/SocialLibraries/QQ/libSocialQQ.a; sourceTree = "<group>"; };
 		88BDF0DE929556970A46C644D76DBC5E /* MJRefreshStateHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshStateHeader.m; path = MJRefresh/Custom/Header/MJRefreshStateHeader.m; sourceTree = "<group>"; };
 		8B24D6FF3B69AE2F214A661F9D4C6B80 /* UIBarButtonItem+RACCommandSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+RACCommandSupport.h"; path = "ReactiveObjC/UIBarButtonItem+RACCommandSupport.h"; sourceTree = "<group>"; };
 		8B32EB76C3C223E10938B3A414CA315F /* NSString+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+MJExtension.h"; path = "MJExtension/NSString+MJExtension.h"; sourceTree = "<group>"; };
@@ -1155,6 +1152,7 @@
 		9903404D260E1F2E7182ADCFC24032A5 /* UIBarButtonItem+CYLBadgeExtention.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+CYLBadgeExtention.h"; path = "CYLTabBarController/UIBarButtonItem+CYLBadgeExtention.h"; sourceTree = "<group>"; };
 		99E194DC5A778C7FDA056B994D6FE8B1 /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAFNetworking.a; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A94F23A6AD05B2ACDBEB9AF3F5BD2EE /* NSSet+RACSequenceAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSSet+RACSequenceAdditions.h"; path = "ReactiveObjC/NSSet+RACSequenceAdditions.h"; sourceTree = "<group>"; };
+		9AFCF7394DBA3E737683623CA8AB480D /* UMShare.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMShare.framework; path = UMShare/UMShare.framework; sourceTree = "<group>"; };
 		9B1CF971EEAB31A4EF920F96B282C542 /* RACTestScheduler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACTestScheduler.m; path = ReactiveObjC/RACTestScheduler.m; sourceTree = "<group>"; };
 		9B4F0259329E2E0A1ABCD3E60BD83C72 /* libFMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFMDB.a; path = libFMDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B5296F463666CEB26B87CBF869BBC0D /* NSObject+RACLifting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+RACLifting.h"; path = "ReactiveObjC/NSObject+RACLifting.h"; sourceTree = "<group>"; };
@@ -1197,7 +1195,6 @@
 		A99824E03ABA2C392E0F1CFC2190ECBE /* RACSequence.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACSequence.m; path = ReactiveObjC/RACSequence.m; sourceTree = "<group>"; };
 		A99C95A43980A9D735D1538A351B8E97 /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
 		A9EAB412C75389896387F3E61C213D82 /* CYLTabBarController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CYLTabBarController.h; path = CYLTabBarController/CYLTabBarController.h; sourceTree = "<group>"; };
-		AA10C5E4C2BCDE127D909542CFF7CE15 /* libSocialWeChat.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libSocialWeChat.a; path = UMShare/SocialLibraries/WeChat/libSocialWeChat.a; sourceTree = "<group>"; };
 		AA153168B7DE8FCE3B8CAAB62C50B729 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshBackFooter.h; path = MJRefresh/Base/MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		AA6DD3A544675593234D12268DAEE451 /* libYYCache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYCache.a; path = libYYCache.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA7A42FFAD027BDF8F3148AE5A5F70E6 /* IQKeyboardManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManager.h; path = IQKeyboardManager/IQKeyboardManager.h; sourceTree = "<group>"; };
@@ -1256,6 +1253,7 @@
 		BE95327688AD60725C815C8FA34601B3 /* RACDynamicSignal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACDynamicSignal.m; path = ReactiveObjC/RACDynamicSignal.m; sourceTree = "<group>"; };
 		BE9A8AB8B829E4087B989C17C476BC2A /* NSString+RACSequenceAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+RACSequenceAdditions.h"; path = "ReactiveObjC/NSString+RACSequenceAdditions.h"; sourceTree = "<group>"; };
 		BEFF28FD7778FC01624120BEE30E80A4 /* NSObject+RACKVOWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+RACKVOWrapper.h"; path = "ReactiveObjC/NSObject+RACKVOWrapper.h"; sourceTree = "<group>"; };
+		BF4729221D2DC4712F894436F8CC984B /* libSocialWeChat.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libSocialWeChat.a; path = UMShare/SocialLibraries/WeChat/libSocialWeChat.a; sourceTree = "<group>"; };
 		BF8740DD3420D5C390D3358DD38A5B05 /* AXNavigationBackItemInjection.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AXNavigationBackItemInjection.xcconfig; sourceTree = "<group>"; };
 		BFE6C9A78950D168681D0240B38B817B /* RACEXTRuntimeExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RACEXTRuntimeExtensions.h; path = ReactiveObjC/extobjc/RACEXTRuntimeExtensions.h; sourceTree = "<group>"; };
 		C13AAA927062B2160588970A6C85A11F /* JSObjectFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSObjectFactory.h; path = Source/JSObjectFactory.h; sourceTree = "<group>"; };
@@ -1297,7 +1295,6 @@
 		CF4CAC1B3F94ADE7E5046526FE650E61 /* libAXIndicatorView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAXIndicatorView.a; path = libAXIndicatorView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0ECD53C6FBB5041B21EF7DB47E265C0 /* CYLBaseViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CYLBaseViewController.m; path = CYLTabBarController/CYLBaseViewController.m; sourceTree = "<group>"; };
 		D11BC0E1475FF7AF77D4BA5581097B23 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
-		D224FB4519CDDDE78E15C7FFD22D9DD8 /* libSocialSina.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libSocialSina.a; path = UMShare/SocialLibraries/Sina/libSocialSina.a; sourceTree = "<group>"; };
 		D294569DD7D4898B2167B9122467708D /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		D31E64FF4C79543E81F955A55FDB0D4A /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
 		D326494EEC04A7DFA2928F62CBCAD7B0 /* NSButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSButton+WebCache.h"; path = "SDWebImage/NSButton+WebCache.h"; sourceTree = "<group>"; };
@@ -1311,7 +1308,6 @@
 		D7714383AEB91F0E29E331D6E544042D /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		D7DC9D63AC4187CB5E41F9F40546B1EA /* RACValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RACValueTransformer.m; path = ReactiveObjC/RACValueTransformer.m; sourceTree = "<group>"; };
 		D7F197E6AA01008B42F78F0865C55C9C /* NSNotificationCenter+RACSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSNotificationCenter+RACSupport.h"; path = "ReactiveObjC/NSNotificationCenter+RACSupport.h"; sourceTree = "<group>"; };
-		D8199F6249408B14BD3DFE8202170AAD /* UMShare.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMShare.framework; path = UMShare/UMShare.framework; sourceTree = "<group>"; };
 		D840AE6F5BD410D96802A00573495A3C /* FMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
 		D8D002CFC369C2C5471BAE0EA9F38EB4 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQNSArray+Sort.h"; path = "IQKeyboardManager/Categories/IQNSArray+Sort.h"; sourceTree = "<group>"; };
 		D90806A4FE53F42620B4E838A7086E28 /* MJRefreshAutoGifFooter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefreshAutoGifFooter.h; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.h; sourceTree = "<group>"; };
@@ -1635,10 +1631,10 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
-		10A73430708BB91023CA3D8B88585C84 /* Frameworks */ = {
+		126555C2A0B65C06510C351A87F596F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				88241A06F6C3FED23F4CB90061D39B37 /* libSocialQQ.a */,
+				9AFCF7394DBA3E737683623CA8AB480D /* UMShare.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1731,15 +1727,6 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		3D2615FC2136EA48463CA55328941D87 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7C3BCF4E323A36980237F9C55AF8A4BE /* UMCShare.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/UMCShare";
-			sourceTree = "<group>";
-		};
 		44097DAC37421EB18542B1C980DEF931 /* CYLTabBarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1783,24 +1770,6 @@
 			path = CYLTabBarController;
 			sourceTree = "<group>";
 		};
-		449929A05FD2846D932174B9C7C04D09 /* ReducedWeChat */ = {
-			isa = PBXGroup;
-			children = (
-				681B9106EA2E14080EADC69717E8FAAE /* UMSocialWechatHandler.h */,
-				E3F3DDA8EB1BD7AB8A4DDB96767A60CE /* Frameworks */,
-			);
-			name = ReducedWeChat;
-			sourceTree = "<group>";
-		};
-		4547D323965A591F9FA57D27005FCF3F /* ReducedQQ */ = {
-			isa = PBXGroup;
-			children = (
-				68C4EF1CEFD8F28FA7E86EDC1D4C109D /* UMSocialQQHandler.h */,
-				10A73430708BB91023CA3D8B88585C84 /* Frameworks */,
-			);
-			name = ReducedQQ;
-			sourceTree = "<group>";
-		};
 		4899E4F5147945BA5ED16A1CE0D79498 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -1819,24 +1788,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SVProgressHUD";
-			sourceTree = "<group>";
-		};
-		53D1493AFD782F256DE4410CE09C9938 /* Social */ = {
-			isa = PBXGroup;
-			children = (
-				4547D323965A591F9FA57D27005FCF3F /* ReducedQQ */,
-				8E4D4579E8B710484FD9AFD799AAD3B9 /* ReducedSina */,
-				449929A05FD2846D932174B9C7C04D09 /* ReducedWeChat */,
-			);
-			name = Social;
-			sourceTree = "<group>";
-		};
-		541828D16721053E079EB10113F68A50 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D224FB4519CDDDE78E15C7FFD22D9DD8 /* libSocialSina.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5460267DC85C6888509C9627B6C38462 /* ProgressView */ = {
@@ -1915,6 +1866,14 @@
 				B28A6FEAF92D9125739A38CD007B62F6 /* UIWebView+AFNetworking.m */,
 			);
 			name = UIKit;
+			sourceTree = "<group>";
+		};
+		70961DB14A0C6046AA6DE98DE7BA8FBF /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				97A9CF26D2D1D5338C8C9DF815F01365 /* ReducedWeChat */,
+			);
+			name = Social;
 			sourceTree = "<group>";
 		};
 		738574CB49C28D020607C73081625B20 /* AXWebViewController */ = {
@@ -2299,13 +2258,15 @@
 			path = ReactiveObjC;
 			sourceTree = "<group>";
 		};
-		8E4D4579E8B710484FD9AFD799AAD3B9 /* ReducedSina */ = {
+		91E54C9209E2E036FE7E7B526779A297 /* UMCShare */ = {
 			isa = PBXGroup;
 			children = (
-				41602E9663ED22D55A0E461CC2268F72 /* UMSocialSinaHandler.h */,
-				541828D16721053E079EB10113F68A50 /* Frameworks */,
+				D14CA8DCC7EB6268D3E8A0E5749A3683 /* Core */,
+				70961DB14A0C6046AA6DE98DE7BA8FBF /* Social */,
+				D62EED7F358BEB788A4CA47275888298 /* Support Files */,
 			);
-			name = ReducedSina;
+			name = UMCShare;
+			path = UMCShare;
 			sourceTree = "<group>";
 		};
 		93C0E87506CA08A44FF7E6A576914FEE /* Support Files */ = {
@@ -2331,6 +2292,15 @@
 			name = NSURLSession;
 			sourceTree = "<group>";
 		};
+		97A9CF26D2D1D5338C8C9DF815F01365 /* ReducedWeChat */ = {
+			isa = PBXGroup;
+			children = (
+				33964EAE52A8B988BD385665AC23FAC6 /* UMSocialWechatHandler.h */,
+				DFD2D7240C6AE1B03184C27CB500136A /* Frameworks */,
+			);
+			name = ReducedWeChat;
+			sourceTree = "<group>";
+		};
 		9A93B875B927B93D68ED5503D99833CE /* GIF */ = {
 			isa = PBXGroup;
 			children = (
@@ -2352,17 +2322,6 @@
 			);
 			name = "Pods-Eleenoe";
 			path = "Target Support Files/Pods-Eleenoe";
-			sourceTree = "<group>";
-		};
-		9F7CF7B06361EA9EDAC65776A4090274 /* UMCShare */ = {
-			isa = PBXGroup;
-			children = (
-				D06BCCBF9846DD1BAEEE9DC3644B0CF1 /* Core */,
-				53D1493AFD782F256DE4410CE09C9938 /* Social */,
-				3D2615FC2136EA48463CA55328941D87 /* Support Files */,
-			);
-			name = UMCShare;
-			path = UMCShare;
 			sourceTree = "<group>";
 		};
 		9FB4460390F0AB89C62F404F33CBA3D2 /* Frameworks */ = {
@@ -2624,12 +2583,21 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
-		D06BCCBF9846DD1BAEEE9DC3644B0CF1 /* Core */ = {
+		D14CA8DCC7EB6268D3E8A0E5749A3683 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				EB68C3BC20D7EE9FCD4FFBD2192BE080 /* Frameworks */,
+				126555C2A0B65C06510C351A87F596F1 /* Frameworks */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		D62EED7F358BEB788A4CA47275888298 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C4192A8B10D0FA04DF23A2047ABD812 /* UMCShare.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/UMCShare";
 			sourceTree = "<group>";
 		};
 		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
@@ -2650,10 +2618,10 @@
 			path = "../Target Support Files/YYCache";
 			sourceTree = "<group>";
 		};
-		E3F3DDA8EB1BD7AB8A4DDB96767A60CE /* Frameworks */ = {
+		DFD2D7240C6AE1B03184C27CB500136A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AA10C5E4C2BCDE127D909542CFF7CE15 /* libSocialWeChat.a */,
+				BF4729221D2DC4712F894436F8CC984B /* libSocialWeChat.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2682,7 +2650,7 @@
 				CD367349FB660517581D98BA7AEE80DE /* SVProgressHUD */,
 				8AA494C726333FFA1693D6298E4D61CD /* Toast */,
 				A0A10E51A7B13B35D65EA79EA5325114 /* UMCCommon */,
-				9F7CF7B06361EA9EDAC65776A4090274 /* UMCShare */,
+				91E54C9209E2E036FE7E7B526779A297 /* UMCShare */,
 				065AC925DB5F48753746CD4AD8B914D2 /* YYCache */,
 			);
 			name = Pods;
@@ -2767,14 +2735,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/CYLTabBarController";
-			sourceTree = "<group>";
-		};
-		EB68C3BC20D7EE9FCD4FFBD2192BE080 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D8199F6249408B14BD3DFE8202170AAD /* UMShare.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F003ABBE9566D134FD7CC1B1A4D6C9F3 /* AXPracticalHUD */ = {
@@ -5227,7 +5187,7 @@
 		};
 		A2076A4DF4C1D46565BB253FF2E7E333 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C3BCF4E323A36980237F9C55AF8A4BE /* UMCShare.xcconfig */;
+			baseConfigurationReference = 7C4192A8B10D0FA04DF23A2047ABD812 /* UMCShare.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -5431,7 +5391,7 @@
 		};
 		E5447B945CC13AB396D9B6B829613767 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C3BCF4E323A36980237F9C55AF8A4BE /* UMCShare.xcconfig */;
+			baseConfigurationReference = 7C4192A8B10D0FA04DF23A2047ABD812 /* UMCShare.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

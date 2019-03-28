@@ -52,12 +52,6 @@ PODS:
   - UMCCommon (2.0.0)
   - UMCShare/Core (6.9.5):
     - UMCCommon
-  - UMCShare/Social/ReducedQQ (6.9.5):
-    - UMCCommon
-    - UMCShare/Core
-  - UMCShare/Social/ReducedSina (6.9.5):
-    - UMCCommon
-    - UMCShare/Core
   - UMCShare/Social/ReducedWeChat (6.9.5):
     - UMCCommon
     - UMCShare/Core
@@ -79,8 +73,6 @@ DEPENDENCIES:
   - SDWebImage/GIF
   - SVProgressHUD
   - Toast
-  - UMCShare/Social/ReducedQQ
-  - UMCShare/Social/ReducedSina
   - UMCShare/Social/ReducedWeChat
   - YYCache
 
@@ -135,6 +127,6 @@ SPEC CHECKSUMS:
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: c85fc1d35a11779297a15a6f24f68fc62c25c5b7
+PODFILE CHECKSUM: 73500e6c9c8fd700afa48ced09cf1735bd802d50
 
 COCOAPODS: 1.6.1

@@ -28,7 +28,7 @@
 }
 
 -(void)registrationThirdLib{
-    NSLog(@"测试");
+    
 }
 
 @end
