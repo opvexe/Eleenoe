@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "20E13188ED135B99D2D31770058FD036"
-               BlueprintName = "ReactiveObjC"
+               BlueprintIdentifier = "9F9B8C92EBE74CF25ECA0B64A2463486"
+               BlueprintName = "SGPagingView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libReactiveObjC.a">
+               BuildableName = "libSGPagingView.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
