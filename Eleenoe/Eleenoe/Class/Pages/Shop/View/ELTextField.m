@@ -20,7 +20,7 @@
         _padding = padding;
         if(image){
             UIImageView *leftView = [[UIImageView alloc] initWithImage:image];
-            leftView.frame = CGRectMake(0, 0, 30, 20);
+            leftView.frame = CGRectMake(0, 0, 20, 20);
             leftView.contentMode = UIViewContentModeLeft;
             self.leftView = leftView;
         }else{

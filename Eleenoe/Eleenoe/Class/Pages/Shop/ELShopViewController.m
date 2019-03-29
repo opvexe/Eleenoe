@@ -130,8 +130,8 @@
 #pragma mark - 懒加载
 - (ELTextField *)searchField{
     if (!_searchField) {
-        _searchField = [[ELTextField alloc] initWithImage:[UIImage imageNamed:@"Search"] padding:SCREEN_WIDTH/2 - kSAdap(30.0)];
-        _searchField.frame = CGRectMake(kSAdap(15.0), 0, SCREEN_WIDTH - kSAdap(30.0), kSAdap_V(30.0));
+        _searchField = [[ELTextField alloc] initWithImage:[UIImage imageNamed:@"shop_search"] padding:SCREEN_WIDTH/2 - kSAdap(36.0)];
+        _searchField.frame = CGRectMake(kSAdap(18.0), 0, SCREEN_WIDTH - kSAdap(36.0), kSAdap_V(35.0));
         _searchField.backgroundColor = UIColorFromRGB(0xf1f1f1);
         _searchField.layer.cornerRadius = 5.0;
         _searchField.clipsToBounds = YES;

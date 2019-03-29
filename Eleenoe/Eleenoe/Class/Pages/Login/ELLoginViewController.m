@@ -97,13 +97,15 @@
     
     _authCodeTextField = ({
         UITextField *iv = [[UITextField alloc]init];
-        iv.font  = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)];
+        iv.font  = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(14.0)];
         iv.clearButtonMode = UITextFieldViewModeWhileEditing;
         iv.textColor = MainBlackTitleColor;
         iv.placeholder =@"请输入验证码";
         [iv setValue:MainLightGrayTitleColor forKeyPath:@"_placeholderLabel.textColor"];
+        [iv setValue:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)] forKeyPath:@"_placeholderLabel.font"];
         iv.keyboardType = UIKeyboardTypeNumberPad;
         iv.borderStyle =UITextBorderStyleNone;
+        iv.delegate =  self;
         [self.authCodeView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(self.messageEventButton);
@@ -134,11 +136,12 @@
     
     _iphoneTextField = ({
         UITextField *iv = [[UITextField alloc]init];
-        iv.font  = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)];
+        iv.font  = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(14.0)];
         iv.clearButtonMode = UITextFieldViewModeWhileEditing;
         iv.textColor = MainBlackTitleColor;
         iv.placeholder =@"请输入手机号";
         [iv setValue:MainLightGrayTitleColor forKeyPath:@"_placeholderLabel.textColor"];
+        [iv setValue:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)] forKeyPath:@"_placeholderLabel.font"];
         iv.keyboardType = UIKeyboardTypeNumberPad;
         iv.borderStyle =UITextBorderStyleNone;
         [iv becomeFirstResponder];
