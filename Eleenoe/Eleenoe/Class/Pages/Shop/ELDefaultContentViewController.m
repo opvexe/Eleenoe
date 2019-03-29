@@ -41,17 +41,17 @@
     
     NSArray *titleArr = @[@"设备配件", @"跑鞋", @"服装", @"食物",@"康复课程"];
     SGPageTitleViewConfigure *configure = [SGPageTitleViewConfigure pageTitleViewConfigure];
-    configure.titleFont = [UIFont ELPingFangSCRegularFontOfSize:12.0];
+    configure.titleFont = [UIFont ELPingFangSCRegularFontOfSize:14.0];
     configure.titleColor = MainLightGrayTitleColor;
     configure.indicatorHeight = 3.0;
     configure.indicatorCornerRadius = 2.0;
     configure.indicatorToBottomDistance = 15.0;
-    configure.titleSelectedFont = [UIFont ELPingFangSCRegularFontOfSize:14.0];
+    configure.titleSelectedFont = [UIFont ELPingFangSCRegularFontOfSize:16.0];
     configure.titleSelectedColor = MainThemColor;
     configure.indicatorColor =  MainThemColor;
     configure.indicatorStyle = SGIndicatorStyleFixed;
     configure.bottomSeparatorColor = [UIColor whiteColor];
-    self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0,0, self.view.frame.size.width, 65.0) delegate:self titleNames:titleArr configure:configure];
+    self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0,0, self.view.frame.size.width, 70.0) delegate:self titleNames:titleArr configure:configure];
     [self.view addSubview:_pageTitleView];
     
     self.childArr = [NSMutableArray array];
@@ -84,7 +84,7 @@
 - (ELTextField *)searchField{
     if (!_searchField) {
         _searchField = [[ELTextField alloc] initWithImage:[UIImage imageNamed:@"shop_search"] padding:SCREEN_WIDTH/2 - kSAdap(36.0)];
-        _searchField.frame = CGRectMake(kSAdap(18.0), 0, SCREEN_WIDTH - kSAdap(36.0), kSAdap_V(35.0));
+        _searchField.frame = CGRectMake(kSAdap(18.0), 0, SCREEN_WIDTH - kSAdap(36.0), kSAdap_V(25.0));
         _searchField.backgroundColor = UIColorFromRGB(0xf1f1f1);
         _searchField.layer.cornerRadius = 5.0;
         _searchField.clipsToBounds = YES;

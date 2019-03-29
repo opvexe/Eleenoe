@@ -82,7 +82,7 @@
 }
 
 - (void)customizeTabBarAppearance:(CYLTabBarController *)tabBarController {
-    tabBarController.tabBarHeight = iPhoneX_Bottom_Navigation_Bar_Height;
+
     ///普通状态下的文字属性
     NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
     normalAttrs[NSForegroundColorAttributeName] = TabbarNormalColor;
