@@ -50,6 +50,7 @@ PODS:
   - SDWebImage/GIF (4.4.6):
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
+  - SGPagingView (1.6.0)
   - SVProgressHUD (2.2.5)
   - Toast (4.0.0)
   - TTTAttributedLabel (1.13.4)
@@ -78,6 +79,7 @@ DEPENDENCIES:
   - Reveal-SDK (~> 4)
   - SDWebImage
   - SDWebImage/GIF
+  - SGPagingView
   - SVProgressHUD
   - Toast
   - TYCyclePagerView
@@ -106,6 +108,7 @@ SPEC REPOS:
     - ReactiveObjC
     - Reveal-SDK
     - SDWebImage
+    - SGPagingView
     - SVProgressHUD
     - Toast
     - TTTAttributedLabel
@@ -135,6 +138,7 @@ SPEC CHECKSUMS:
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   Reveal-SDK: 178c927f1a3230648d3a92b96f6e730a35b2750a
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  SGPagingView: 4b4f443b365bc70979f890da63d93bc22103be32
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
@@ -143,6 +147,6 @@ SPEC CHECKSUMS:
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: c60307414c26be421785813bcf0c9b91d842709f
+PODFILE CHECKSUM: 9a2087baf05700801dc301527817809bd45316c4
 
 COCOAPODS: 1.5.3
