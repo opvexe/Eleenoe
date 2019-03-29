@@ -95,6 +95,7 @@
 /* Begin PBXFileReference section */
 		00034EB6224E3AE100CE83AB /* ELButtonExtention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELButtonExtention.h; sourceTree = "<group>"; };
 		00034EB7224E3AE100CE83AB /* ELButtonExtention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELButtonExtention.m; sourceTree = "<group>"; };
+		00034EBA224E3E6600CE83AB /* SCREENMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCREENMacro.h; sourceTree = "<group>"; };
 		7150EA626360CE617E43344D /* Pods-Eleenoe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eleenoe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Eleenoe/Pods-Eleenoe.debug.xcconfig"; sourceTree = "<group>"; };
 		A3C6CF43DD0FF20A3589551D /* Pods-Eleenoe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eleenoe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eleenoe/Pods-Eleenoe.release.xcconfig"; sourceTree = "<group>"; };
 		C2E6CE7822369AA30049D54C /* Eleenoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eleenoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -591,6 +592,7 @@
 				D0F52AF72237827E00A26504 /* HOST_API.h */,
 				D0F52AF82237869D00A26504 /* ELAPIConstant.h */,
 				D0F52AF92237869D00A26504 /* ELAPIConstant.m */,
+				00034EBA224E3E6600CE83AB /* SCREENMacro.h */,
 			);
 			path = Definition;
 			sourceTree = "<group>";
