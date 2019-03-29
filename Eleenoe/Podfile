@@ -23,4 +23,6 @@ pod 'TYCyclePagerView'
 pod 'Objection'
 pod 'Toast'
 pod 'UMCShare/Social/ReducedWeChat'
+pod 'MLEmojiLabel'
+pod 'Reveal-SDK','~>4', :configurations => ['Debug']
 end

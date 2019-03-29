@@ -34,6 +34,8 @@ PODS:
   - Masonry (1.1.0)
   - MJExtension (3.0.15.1)
   - MJRefresh (3.1.15.7)
+  - MLEmojiLabel (1.0.2):
+    - TTTAttributedLabel (~> 1.13.4)
   - NJKWebViewProgress (0.2.3):
     - NJKWebViewProgress/Core (= 0.2.3)
     - NJKWebViewProgress/ProgressView (= 0.2.3)
@@ -41,6 +43,7 @@ PODS:
   - NJKWebViewProgress/ProgressView (0.2.3)
   - Objection (1.6.1)
   - ReactiveObjC (3.1.0)
+  - Reveal-SDK (4)
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
@@ -49,6 +52,7 @@ PODS:
     - SDWebImage/Core
   - SVProgressHUD (2.2.5)
   - Toast (4.0.0)
+  - TTTAttributedLabel (1.13.4)
   - TYCyclePagerView (1.1.2)
   - UMCCommon (2.0.0)
   - UMCShare/Core (6.9.5):
@@ -68,8 +72,10 @@ DEPENDENCIES:
   - Masonry
   - MJExtension
   - MJRefresh
+  - MLEmojiLabel
   - Objection
   - ReactiveObjC
+  - Reveal-SDK (~> 4)
   - SDWebImage
   - SDWebImage/GIF
   - SVProgressHUD
@@ -94,12 +100,15 @@ SPEC REPOS:
     - Masonry
     - MJExtension
     - MJRefresh
+    - MLEmojiLabel
     - NJKWebViewProgress
     - Objection
     - ReactiveObjC
+    - Reveal-SDK
     - SDWebImage
     - SVProgressHUD
     - Toast
+    - TTTAttributedLabel
     - TYCyclePagerView
     - UMCCommon
     - UMCShare
@@ -120,17 +129,20 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  MLEmojiLabel: 36d73c19f9975cbf9def24e5bc135263b0337fd8
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   Objection: ed03f2219cb22d2b5b893114219fe6c7e3263bde
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
+  Reveal-SDK: 178c927f1a3230648d3a92b96f6e730a35b2750a
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
   TYCyclePagerView: 0f67b0986995fd614843e819bc974cadd7f98008
   UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 0d75ddd9477a79aa14eeb638442cfd7c60ef18bb
+PODFILE CHECKSUM: c60307414c26be421785813bcf0c9b91d842709f
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.5.3
