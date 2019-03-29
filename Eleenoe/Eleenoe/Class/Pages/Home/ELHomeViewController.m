@@ -21,10 +21,6 @@
     self.navigationRightView = [CJXBarButtonItem buttonWithImageNormal:@"home_nav_more" imageSelected:@"home_nav_more" imageHightlight:@"home_nav_more" target:self selector:@selector(Click)];
 }
 
-#pragma mark - 导航
--(void)Click{
-    
-}
 
 
 /*

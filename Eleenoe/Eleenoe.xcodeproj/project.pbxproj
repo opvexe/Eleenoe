@@ -24,15 +24,14 @@
 		D0180B15223F399D008C06C1 /* HUD_info@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0180B0B223F399D008C06C1 /* HUD_info@3x.png */; };
 		D0180B16223F399D008C06C1 /* HUD_info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0180B0C223F399D008C06C1 /* HUD_info@2x.png */; };
 		D0180B17223F399D008C06C1 /* HUD_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0180B0D223F399D008C06C1 /* HUD_error@2x.png */; };
-		D0180B5D223F90BA008C06C1 /* ELStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D0180B5C223F90BA008C06C1 /* ELStatusBar.m */; };
 		D0180BD82244C7D2008C06C1 /* SCREENAdaptationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0180BD72244C7D2008C06C1 /* SCREENAdaptationTool.m */; };
 		D0771057224CB4AB00D0B993 /* ELShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771056224CB4AB00D0B993 /* ELShopViewController.m */; };
 		D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D077105B224CB95900D0B993 /* ELMineTableViewCell.m */; };
 		D0771062224CC16700D0B993 /* ELSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771061224CC16700D0B993 /* ELSettingModel.m */; };
 		D0771066224CCA6000D0B993 /* ELSuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771065224CCA6000D0B993 /* ELSuggestionViewController.m */; };
-		D0771069224CCDA200D0B993 /* ELCouponAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771068224CCDA200D0B993 /* ELCouponAlertView.m */; };
 		D077106C224CCECA00D0B993 /* ELCauseShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = D077106B224CCECA00D0B993 /* ELCauseShowView.m */; };
 		D0771072224D172D00D0B993 /* CJXBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771070224D172D00D0B993 /* CJXBarButtonItem.m */; };
+		D0771079224D253300D0B993 /* ELTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771078224D253300D0B993 /* ELTextField.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -118,8 +117,6 @@
 		D0180B0D223F399D008C06C1 /* HUD_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HUD_error@2x.png"; sourceTree = "<group>"; };
 		D0180B0E223F399D008C06C1 /* NSObject+CPHUDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CPHUDExtension.h"; sourceTree = "<group>"; };
 		D0180B0F223F399D008C06C1 /* CPProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPProgressHUD.h; sourceTree = "<group>"; };
-		D0180B5B223F90BA008C06C1 /* ELStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELStatusBar.h; sourceTree = "<group>"; };
-		D0180B5C223F90BA008C06C1 /* ELStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELStatusBar.m; sourceTree = "<group>"; };
 		D0180BD5224379EF008C06C1 /* ELBleDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBleDefines.h; sourceTree = "<group>"; };
 		D0180BD62244C7D2008C06C1 /* SCREENAdaptationTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCREENAdaptationTool.h; sourceTree = "<group>"; };
 		D0180BD72244C7D2008C06C1 /* SCREENAdaptationTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCREENAdaptationTool.m; sourceTree = "<group>"; };
@@ -131,12 +128,12 @@
 		D0771061224CC16700D0B993 /* ELSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSettingModel.m; sourceTree = "<group>"; };
 		D0771064224CCA6000D0B993 /* ELSuggestionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELSuggestionViewController.h; sourceTree = "<group>"; };
 		D0771065224CCA6000D0B993 /* ELSuggestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSuggestionViewController.m; sourceTree = "<group>"; };
-		D0771067224CCDA200D0B993 /* ELCouponAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCouponAlertView.h; sourceTree = "<group>"; };
-		D0771068224CCDA200D0B993 /* ELCouponAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELCouponAlertView.m; sourceTree = "<group>"; };
 		D077106A224CCECA00D0B993 /* ELCauseShowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCauseShowView.h; sourceTree = "<group>"; };
 		D077106B224CCECA00D0B993 /* ELCauseShowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELCauseShowView.m; sourceTree = "<group>"; };
 		D0771070224D172D00D0B993 /* CJXBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJXBarButtonItem.m; sourceTree = "<group>"; };
 		D0771071224D172D00D0B993 /* CJXBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJXBarButtonItem.h; sourceTree = "<group>"; };
+		D0771077224D253300D0B993 /* ELTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTextField.h; sourceTree = "<group>"; };
+		D0771078224D253300D0B993 /* ELTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTextField.m; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -379,10 +376,6 @@
 		D0180B5A223F908D008C06C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D0180B5B223F90BA008C06C1 /* ELStatusBar.h */,
-				D0180B5C223F90BA008C06C1 /* ELStatusBar.m */,
-				D0771067224CCDA200D0B993 /* ELCouponAlertView.h */,
-				D0771068224CCDA200D0B993 /* ELCouponAlertView.m */,
 				D077106A224CCECA00D0B993 /* ELCauseShowView.h */,
 				D077106B224CCECA00D0B993 /* ELCauseShowView.m */,
 			);
@@ -392,6 +385,7 @@
 		D0771054224CB48700D0B993 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				D0771073224D224F00D0B993 /* View */,
 				D0771055224CB4AB00D0B993 /* ELShopViewController.h */,
 				D0771056224CB4AB00D0B993 /* ELShopViewController.m */,
 			);
@@ -423,6 +417,15 @@
 				D0771065224CCA6000D0B993 /* ELSuggestionViewController.m */,
 			);
 			path = Suggestion;
+			sourceTree = "<group>";
+		};
+		D0771073224D224F00D0B993 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D0771077224D253300D0B993 /* ELTextField.h */,
+				D0771078224D253300D0B993 /* ELTextField.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D0DC66F822393AD90064C07A /* NetworkTools */ = {
@@ -882,7 +885,6 @@
 				D0EC1EF5223B7C040059BA1C /* ELBlueToothManager.m in Sources */,
 				D0F52B3022378E2000A26504 /* UIImage+Category.m in Sources */,
 				D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */,
-				D0771069224CCDA200D0B993 /* ELCouponAlertView.m in Sources */,
 				D0F52B07223788FD00A26504 /* UIGestureRecognizer+WDExtension.m in Sources */,
 				D0F52B3622378F7A00A26504 /* ELRootViewController.m in Sources */,
 				D0F52B102237892300A26504 /* UIView+Category.m in Sources */,
@@ -909,13 +911,13 @@
 				D0EC4B282238AB5400B5A74D /* ELMineViewController.m in Sources */,
 				D0EC4B332238B1C700B5A74D /* ELTextView.m in Sources */,
 				D0F52B04223788D500A26504 /* NSString+Category.m in Sources */,
-				D0180B5D223F90BA008C06C1 /* ELStatusBar.m in Sources */,
 				D0F52B2D22378BA000A26504 /* ELTabBarControllerConfig.m in Sources */,
 				D0771066224CCA6000D0B993 /* ELSuggestionViewController.m in Sources */,
 				D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */,
 				D0F52B1F22378A5800A26504 /* ELBaseView.m in Sources */,
 				D0F52B45223792C800A26504 /* ELPasswordViewController.m in Sources */,
 				D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */,
+				D0771079224D253300D0B993 /* ELTextField.m in Sources */,
 				D0771072224D172D00D0B993 /* CJXBarButtonItem.m in Sources */,
 				D0F52B03223788D400A26504 /* Foundation+Log.m in Sources */,
 				D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */,

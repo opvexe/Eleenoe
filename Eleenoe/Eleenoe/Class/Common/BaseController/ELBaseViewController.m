@@ -7,6 +7,8 @@
 //
 
 #import "ELBaseViewController.h"
+#import "ELTabBarControllerConfig.h"
+#import "AppDelegate.h"
 
 @interface ELBaseViewController ()<UIGestureRecognizerDelegate>
 @property(nonatomic,strong)UIView *placeholderView;
@@ -299,6 +301,13 @@
 
 
 -(void)reloadDataSoucre{}
+
+-(void)switchRootController{
+    ELTabBarControllerConfig  *tabBarControllerConfig = [ELTabBarControllerConfig new];
+    AppDelegate  *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    delegate.window.rootViewController = tabBarControllerConfig.tabBarController;
+}
+
 
 -(void)dealloc{
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));

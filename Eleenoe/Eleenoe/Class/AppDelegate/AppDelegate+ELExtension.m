@@ -19,12 +19,12 @@
     
 //    if ([ELUserDataSocure isNewVersion]) {
 //
-//        self.window.rootViewController = [[ELLoginViewController alloc]init];
+        self.window.rootViewController = [[ELLoginViewController alloc]init];
 //
 //    }else{
 //
-        ELTabBarControllerConfig  *tabBarControllerConfig = [[ELTabBarControllerConfig alloc]init];
-        self.window.rootViewController = tabBarControllerConfig.tabBarController;
+//        ELTabBarControllerConfig  *tabBarControllerConfig = [[ELTabBarControllerConfig alloc]init];
+//        self.window.rootViewController = tabBarControllerConfig.tabBarController;
 //    }
     
 }

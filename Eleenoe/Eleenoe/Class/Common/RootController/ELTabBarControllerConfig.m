@@ -99,7 +99,7 @@
     [tabBar setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
     // 设置背景图片
-    [[UITabBar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]]];
+    [[UITabBar appearance] setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0xFFFFFF)]];
     [[UITabBar appearance] setShadowImage:[UIImage new]];
 }
 

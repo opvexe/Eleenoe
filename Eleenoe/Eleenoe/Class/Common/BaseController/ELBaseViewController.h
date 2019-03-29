@@ -66,7 +66,7 @@ typedef NS_ENUM(NSUInteger, ToastPositionType) {
 ///MARK: TOOD
 -(void)dismissKeyBoard;
 -(void)reloadDataSoucre;
-
+-(void)switchRootController;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -19,8 +19,8 @@
 @property (nonatomic, strong) UILabel *tipLabel;
 @property (nonatomic,strong) UIView *iphoneView;
 @property (nonatomic,strong) UIView *authCodeView;
-@property (nonatomic,strong) UIView *leftLineView;
-@property (nonatomic,strong) UIView *rightLineView;
+//@property (nonatomic,strong) UIView *leftLineView;
+//@property (nonatomic,strong) UIView *rightLineView;
 @end
 
 @implementation ELLoginViewController
@@ -83,6 +83,17 @@
         }];
         iv;
     });
+    
+    UIView *spliteLine = [[UIView alloc] init];
+    spliteLine.backgroundColor = MainGrayBorderColor;
+    spliteLine.layer.zPosition = 10;
+    [self.view addSubview:spliteLine];
+    [spliteLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(self.messageEventButton.mas_left);
+        make.centerY.mas_equalTo(self.messageEventButton);
+        make.width.mas_equalTo(0.5);
+        make.height.mas_equalTo(kSAdap(15.0));
+    }];
     
     _authCodeTextField = ({
         UITextField *iv = [[UITextField alloc]init];
@@ -195,31 +206,25 @@
         iv;
     });
     
-    _leftLineView =({
-        UIView *iv = [[UIView alloc]init];
-        iv.backgroundColor = MainGrayBorderColor;
-        [self.view addSubview:iv];
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(self.tipLabel.mas_left).mas_offset(-kSAdap(20.0));
-            make.centerY.mas_equalTo(self.tipLabel);
-            make.height.mas_equalTo(0.5);
-            make.width.mas_equalTo(kSAdap(50.0));
-        }];
-        iv;
-    });
+    UIView *leftSpliteLine = [[UIView alloc] init];
+    leftSpliteLine.backgroundColor = MainGrayBorderColor;
+    [self.view addSubview:leftSpliteLine];
+    [leftSpliteLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(self.tipLabel.mas_left).mas_offset(-kSAdap(20.0));
+        make.centerY.mas_equalTo(self.tipLabel);
+        make.height.mas_equalTo(0.5);
+        make.width.mas_equalTo(kSAdap(60.0));
+    }];
     
-    _rightLineView =({
-        UIView *iv = [[UIView alloc]init];
-        iv.backgroundColor = MainGrayBorderColor;
-        [self.view addSubview:iv];
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.tipLabel.mas_right).mas_offset(kSAdap(20.0));
-            make.centerY.mas_equalTo(self.tipLabel);
-            make.height.mas_equalTo(0.5);
-            make.width.mas_equalTo(kSAdap(50.0));
-        }];
-        iv;
-    });
+    UIView *rightSpliteLine = [[UIView alloc] init];
+    rightSpliteLine.backgroundColor = MainGrayBorderColor;
+    [self.view addSubview:rightSpliteLine];
+    [rightSpliteLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.tipLabel.mas_right).mas_offset(kSAdap(20.0));
+        make.centerY.mas_equalTo(self.tipLabel);
+        make.height.mas_equalTo(0.5);
+        make.width.mas_equalTo(kSAdap(60.0));
+    }];
     
     _weixinButton = ({
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -279,9 +284,7 @@
 
 #pragma mark - loginActoion
 -(void)loginAction:(UIButton *)sender{
-    
-    ELHomeViewController *controller = [[ELHomeViewController alloc]init];
-    [self.navigationController pushViewController:controller animated:YES];
+    [self switchRootController];
 }
 /*
  #pragma mark - Navigation
