@@ -7,6 +7,7 @@
 //
 
 #import "ELHomeViewController.h"
+#import "ELBluetoothConnectionFloatingView.h"
 
 @interface ELHomeViewController ()
 
@@ -20,7 +21,6 @@
     self.navigationItem.title = @"肌筋膜放松仪";
     self.navigationRightView = [CJXBarButtonItem buttonWithImageNormal:@"home_nav_more" imageSelected:@"home_nav_more" imageHightlight:@"home_nav_more" target:self selector:@selector(Click)];
 }
-
 
 
 /*
