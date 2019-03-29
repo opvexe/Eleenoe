@@ -9,8 +9,15 @@
 #import "ELBaseCollectionReusableView.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@class ELBannerCollectionReusableView;
+@protocol ELCycleScrollViewDelegate <NSObject>
+@optional
+- (void)cycleScrollView:(ELBannerCollectionReusableView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index model:(id)model;
 
+@end
 @interface ELBannerCollectionReusableView : ELBaseCollectionReusableView
+
+@property (nonatomic, weak) id<ELCycleScrollViewDelegate> delegate;
 
 @end
 

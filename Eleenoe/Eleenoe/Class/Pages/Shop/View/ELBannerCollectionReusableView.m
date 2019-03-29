@@ -10,12 +10,13 @@
 #import "ELBannerCollectionViewCell.h"
 #import <TYCyclePagerView.h>
 #import <TYPageControl.h>
-
+#import "ELShopModel.h"
 @interface ELBannerCollectionReusableView ()<TYCyclePagerViewDataSource,TYCyclePagerViewDelegate>
-@property (nonatomic, strong) TYCyclePagerView *pagerView;
-@property (nonatomic, strong) TYPageControl *pageControl;
+@property (nonatomic,strong) UIView *backgroundView;
+@property (nonatomic,strong) TYCyclePagerView *pagerView;
+@property (nonatomic,strong) TYPageControl *pageControl;
 @property (nonatomic,strong) NSMutableArray *urls;
-@property (nonatomic,strong) ELBaseModel *model;
+@property (nonatomic,strong) ELShopModel *model;
 @property (nonatomic,strong) NSArray *imagePathsGroup;
 @end
 
@@ -23,17 +24,27 @@
 
 -(void)ELSinitConfingViews{
     
+    _backgroundView = ({
+        UIView *iv = [[UIView alloc]init];
+        iv.backgroundColor = [UIColor whiteColor];
+        [self addSubview:iv];
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(self);
+        }];
+        iv;
+    });
+    
     _pagerView = ({
         TYCyclePagerView *iv = [[TYCyclePagerView alloc]init];
         iv.isInfiniteLoop = YES;
-        iv.autoScrollInterval = 5.0;
+        iv.autoScrollInterval = 4.0;
         iv.dataSource = self;
         iv.delegate = self;
         [iv registerClass:[ELBannerCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELBannerCollectionViewCell class])];
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.mas_equalTo(self);
-            make.height.mas_equalTo(kSAdap_V(150.0));
+            make.bottom.mas_equalTo(-kSAdap_V(30.0));
         }];
         iv;
     });
@@ -47,22 +58,22 @@
         iv.pageIndicatorSpaing = kSAdap(8.0);
         [self.pagerView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
             make.bottom.mas_equalTo(kSAdap_V(15.0));
             make.height.mas_equalTo(kSAdap_V(10.0));
-            make.width.mas_equalTo(self.pagerView);
+            make.left.right.mas_equalTo(self.pagerView);
         }];
         iv;
     });
 }
 
--(void)InitDataWithModel:(ELBaseModel *)model{
+-(void)InitDataWithModel:(ELShopModel *)model{
     _model = model;
-    //    NSMutableArray *urls = [NSMutableArray arrayWithCapacity:0];
-    //    [model.goods_img enumerateObjectsUsingBlock:^(WDShopDetailBannerModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-    //        [urls addObject:obj.img_url];
-    //    }];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [self.urls removeAllObjects];
+    [model.goods_img enumerateObjectsUsingBlock:^(ELShopContentModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.urls addObject:obj.img_url];
+    }];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
         self.pageControl.numberOfPages = self.urls.count;
         [self.pagerView reloadData];
     });
@@ -100,7 +111,17 @@
 }
 
 - (void)pagerView:(TYCyclePagerView *)pageView didSelectedItemCell:(__kindof UICollectionViewCell *)cell atIndex:(NSInteger)index{
-    NSLog(@"%ld",index);
+    ELShopContentModel *model = _model.goods_img[index];
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(cycleScrollView:didSelectItemAtIndex:model:)]) {
+        [self.delegate cycleScrollView:self didSelectItemAtIndex:index model:model];
+    }
+}
+
+-(NSMutableArray *)urls{
+    if (!_urls) {
+        _urls = [NSMutableArray arrayWithCapacity:0];
+    }
+    return _urls;
 }
 
 @end
