@@ -1,0 +1,46 @@
+{
+    "code": 200,
+    "message": "success",
+    "data":{
+        "goods_img": [
+            {
+                "img_url": "banner1",
+                "jump_url": "http://www.baidu.com"
+            },
+            {
+                "img_url": "banner2",
+                "jump_url": "http://www.baidu.com"
+            }
+        ],
+        "goods_datas": [
+            {
+                "items_url": "shop_items1",
+                "title": "肩部按摩仪",
+                "describe_shop":"肩部按摩仪简要描述，肩部按摩仪简要描述",
+                "price_shop":"129.00",
+                "jump_url": "http://www.baidu.com"
+            },
+            {
+                "items_url": "shop_items2",
+                "title": "iPerMove筋膜放松仪",
+                "describe_shop":"iPerMove筋膜放松仪简要描述，筋膜放松仪简要描述",
+                "price_shop":"399.00",
+                "jump_url": "http://www.baidu.com"
+            },
+            {
+                "items_url": "shop_items3",
+                "title": "iPerMove筋膜贴",
+                "describe_shop":"iPerMove筋膜贴简要描述，筋膜贴简要描述",
+                "price_shop":"39.00",
+                "jump_url": "http://www.baidu.com"
+            },
+            {
+                "items_url": "shop_items4",
+                "title": "背部按摩仪",
+                "describe_shop":"背部按摩仪简要描述，背部按摩仪简要描述",
+                "price_shop":"599.00",
+                "jump_url": "http://www.baidu.com"
+            },
+        ],
+    },
+}
