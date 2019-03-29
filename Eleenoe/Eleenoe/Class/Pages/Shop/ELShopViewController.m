@@ -7,14 +7,11 @@
 //
 
 #import "ELShopViewController.h"
-#import "ELSearchViewController.h"
 #import "ELShopCollectionViewCell.h"
 #import "ELBannerCollectionReusableView.h"
 #import "ELShopModel.h"
-#import "ELTextField.h"
 
-@interface ELShopViewController ()<UITextFieldDelegate,UICollectionViewDelegate,UICollectionViewDataSource,ELCycleScrollViewDelegate>
-@property (nonatomic,strong) ELTextField *searchField;
+@interface ELShopViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,ELCycleScrollViewDelegate>
 @property (nonatomic,strong) UICollectionView *listCollectionView;
 @property (nonatomic,strong) NSMutableArray *lists;
 @property (nonatomic,strong) ELShopModel *model;
@@ -25,20 +22,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setNavigationBar];
     [self configView];
     [self loadDataSoucre];
 }
 
--(void)setNavigationBar{
-    @weakify(self);
-    self.navigationItem.titleView = self.searchField;
-    UITapGestureRecognizer   *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
-        @strongify(self);
-        [self.navigationController pushViewController:[ELSearchViewController new] animated:YES];
-    }];
-    [self.searchField addGestureRecognizer:tap];
+-(void)setSelectIndex:(NSInteger)selectIndex{
+    if (selectIndex!=0) {
+        [self createPlaceholderView:nil message:@"敬请期待" image:nil withView:self.view];
+        [self.listCollectionView setHidden:YES];
+    }else{
+        [self removePlaceholderView];
+        [self.listCollectionView setHidden:NO];
+    }
 }
+
 -(void)configView{
     
     _listCollectionView = ({
@@ -55,11 +52,7 @@
         [iv registerClass:[ELBannerCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([ELBannerCollectionReusableView class])];
         [self.view addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            if (iOS11) {
-                make.edges.mas_equalTo(self.view.safeAreaInsets);
-            }else{
-                make.edges.mas_equalTo(self.view);
-            }
+            make.edges.mas_equalTo(self.view);
         }];
         iv;
     });
@@ -127,34 +120,6 @@
     NSLog(@"%@",model);
 }
 
-#pragma mark - 懒加载
-- (ELTextField *)searchField{
-    if (!_searchField) {
-        _searchField = [[ELTextField alloc] initWithImage:[UIImage imageNamed:@"shop_search"] padding:SCREEN_WIDTH/2 - kSAdap(36.0)];
-        _searchField.frame = CGRectMake(kSAdap(18.0), 0, SCREEN_WIDTH - kSAdap(36.0), kSAdap_V(35.0));
-        _searchField.backgroundColor = UIColorFromRGB(0xf1f1f1);
-        _searchField.layer.cornerRadius = 5.0;
-        _searchField.clipsToBounds = YES;
-        _searchField.delegate = self;
-        _searchField.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(13.0)];
-        _searchField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"搜索" attributes:@{NSFontAttributeName:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(13.0)],NSForegroundColorAttributeName:UIColorFromRGB(0x777777)}];
-        _searchField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    }
-    return _searchField;
-}
-
-#pragma mark UITextFieldDelegate
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    [textField resignFirstResponder];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    return YES;
-}
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    return NO;
-}
 
 
 /*

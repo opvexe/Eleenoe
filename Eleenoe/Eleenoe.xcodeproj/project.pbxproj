@@ -30,7 +30,6 @@
 		D0771057224CB4AB00D0B993 /* ELShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771056224CB4AB00D0B993 /* ELShopViewController.m */; };
 		D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D077105B224CB95900D0B993 /* ELMineTableViewCell.m */; };
 		D0771062224CC16700D0B993 /* ELSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771061224CC16700D0B993 /* ELSettingModel.m */; };
-		D077106C224CCECA00D0B993 /* ELCauseShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = D077106B224CCECA00D0B993 /* ELCauseShowView.m */; };
 		D0771072224D172D00D0B993 /* CJXBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771070224D172D00D0B993 /* CJXBarButtonItem.m */; };
 		D0771079224D253300D0B993 /* ELTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771078224D253300D0B993 /* ELTextField.m */; };
 		D077107C224DA7B800D0B993 /* ELShopCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D077107B224DA7B800D0B993 /* ELShopCollectionViewCell.m */; };
@@ -40,6 +39,7 @@
 		D0771089224E1AB800D0B993 /* Shopping.json in Resources */ = {isa = PBXBuildFile; fileRef = D0771088224E1AB800D0B993 /* Shopping.json */; };
 		D077108D224E1D2200D0B993 /* ELShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D077108C224E1D2200D0B993 /* ELShopModel.m */; };
 		D0771091224E322500D0B993 /* ELSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771090224E322500D0B993 /* ELSearchViewController.m */; };
+		D0771094224E537200D0B993 /* ELDefaultContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771093224E537200D0B993 /* ELDefaultContentViewController.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -139,8 +139,6 @@
 		D077105B224CB95900D0B993 /* ELMineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMineTableViewCell.m; sourceTree = "<group>"; };
 		D0771060224CC16700D0B993 /* ELSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSettingModel.h; sourceTree = "<group>"; };
 		D0771061224CC16700D0B993 /* ELSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSettingModel.m; sourceTree = "<group>"; };
-		D077106A224CCECA00D0B993 /* ELCauseShowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCauseShowView.h; sourceTree = "<group>"; };
-		D077106B224CCECA00D0B993 /* ELCauseShowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELCauseShowView.m; sourceTree = "<group>"; };
 		D0771070224D172D00D0B993 /* CJXBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJXBarButtonItem.m; sourceTree = "<group>"; };
 		D0771071224D172D00D0B993 /* CJXBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJXBarButtonItem.h; sourceTree = "<group>"; };
 		D0771077224D253300D0B993 /* ELTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTextField.h; sourceTree = "<group>"; };
@@ -158,6 +156,8 @@
 		D077108C224E1D2200D0B993 /* ELShopModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELShopModel.m; sourceTree = "<group>"; };
 		D077108F224E322500D0B993 /* ELSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELSearchViewController.h; sourceTree = "<group>"; };
 		D0771090224E322500D0B993 /* ELSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSearchViewController.m; sourceTree = "<group>"; };
+		D0771092224E537200D0B993 /* ELDefaultContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELDefaultContentViewController.h; sourceTree = "<group>"; };
+		D0771093224E537200D0B993 /* ELDefaultContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELDefaultContentViewController.m; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -407,15 +407,6 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		D0180B5A223F908D008C06C1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D077106A224CCECA00D0B993 /* ELCauseShowView.h */,
-				D077106B224CCECA00D0B993 /* ELCauseShowView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		D0771054224CB48700D0B993 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +414,8 @@
 				D0771073224D224F00D0B993 /* View */,
 				D0771055224CB4AB00D0B993 /* ELShopViewController.h */,
 				D0771056224CB4AB00D0B993 /* ELShopViewController.m */,
+				D0771092224E537200D0B993 /* ELDefaultContentViewController.h */,
+				D0771093224E537200D0B993 /* ELDefaultContentViewController.m */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -496,7 +489,6 @@
 		D0EC4B212238AAD600B5A74D /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D0180B5A223F908D008C06C1 /* View */,
 				D0EC4B222238AAE800B5A74D /* ELHomeViewController.h */,
 				D0EC4B232238AAE800B5A74D /* ELHomeViewController.m */,
 			);
@@ -892,7 +884,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Eleenoe/Pods-Eleenoe-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Eleenoe/Pods-Eleenoe-frameworks.sh",
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-4/iOS/RevealServer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -903,7 +895,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Eleenoe/Pods-Eleenoe-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Eleenoe/Pods-Eleenoe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B21036B4EE42B4B900F0D154 /* [CP] Check Pods Manifest.lock */ = {
@@ -930,7 +922,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Eleenoe/Pods-Eleenoe-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Eleenoe/Pods-Eleenoe-resources.sh",
 				"${PODS_ROOT}/AXIndicatorView/AXIndicatorView/Classes/AXIndicatorView.bundle",
 				"${PODS_ROOT}/AXPracticalHUD/AXPracticalHUD/AXPracticalHUD/AXPracticalHUD.bundle",
 				"${PODS_ROOT}/AXWebViewController/AXWebViewController/AXWebViewController/AXWebViewController.bundle",
@@ -957,7 +949,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Eleenoe/Pods-Eleenoe-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Eleenoe/Pods-Eleenoe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -990,7 +982,6 @@
 				C2E6CE8B22369AA40049D54C /* main.m in Sources */,
 				D0F52B0A2237891000A26504 /* UIView+WDBlocksKit.m in Sources */,
 				D0180B03223F3915008C06C1 /* ELWebViewController.m in Sources */,
-				D077106C224CCECA00D0B993 /* ELCauseShowView.m in Sources */,
 				D0180B10223F399D008C06C1 /* CPProgressHUD.m in Sources */,
 				D0180B11223F399D008C06C1 /* NSObject+CPHUDExtension.m in Sources */,
 				D0EC4B2F2238AF3A00B5A74D /* ELTools.m in Sources */,
@@ -1006,6 +997,7 @@
 				D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */,
 				D0F52B1F22378A5800A26504 /* ELBaseView.m in Sources */,
 				D077107F224DA82700D0B993 /* ELBaseCollectionReusableView.m in Sources */,
+				D0771094224E537200D0B993 /* ELDefaultContentViewController.m in Sources */,
 				D0771085224E0F7F00D0B993 /* ELBannerCollectionViewCell.m in Sources */,
 				D0F52B45223792C800A26504 /* ELPasswordViewController.m in Sources */,
 				D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */,

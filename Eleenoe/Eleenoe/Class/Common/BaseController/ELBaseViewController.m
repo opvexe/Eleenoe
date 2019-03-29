@@ -142,8 +142,8 @@
         
         UILabel *lblTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, y, pf.size.width, height)];
         [lblTitle setText:title];
-        [lblTitle setFont:[UIFont ELPingFangSCLightFontOfSize:15.0]];
-        [lblTitle setTextColor:MainTitleColor];
+        [lblTitle setFont:[UIFont ELPingFangSCLightFontOfSize:kSAdap(16.0)]];
+        [lblTitle setTextColor:MainLightGrayTitleColor];
         [lblTitle setTextAlignment:NSTextAlignmentCenter];
         [lblTitle setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
         [lblTitle setNumberOfLines:0];
@@ -155,8 +155,8 @@
     if(message){
         UILabel *lblTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, y, pf.size.width, kSAdap_V(20))];
         [lblTitle setText:message];
-        [lblTitle setFont:[UIFont ELPingFangSCLightFontOfSize:16.0]];
-        [lblTitle setTextColor:MainTitleColor];
+        [lblTitle setFont:[UIFont ELPingFangSCLightFontOfSize:kSaFont(16.0)]];
+        [lblTitle setTextColor:MainLightGrayTitleColor];
         [lblTitle setTextAlignment:NSTextAlignmentCenter];
         [lblTitle setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
         [lblTitle setAutoresizesSubviews:YES];
@@ -232,8 +232,8 @@
         
         UILabel *lblTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, y, pf.size.width, height)];
         [lblTitle setText:title];
-        [lblTitle setFont:[UIFont ELPingFangSCLightFontOfSize:15.0] ];
-        [lblTitle setTextColor:MainTitleColor];
+        [lblTitle setFont:[UIFont ELPingFangSCLightFontOfSize:kSaFont(16.0)]];
+        [lblTitle setTextColor:MainLightGrayTitleColor];
         [lblTitle setTextAlignment:NSTextAlignmentCenter];
         [lblTitle setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
         [lblTitle setNumberOfLines:0];
@@ -245,8 +245,8 @@
     if(message){
         UILabel *lblTitle=[[UILabel alloc] initWithFrame:CGRectMake(0, y, pf.size.width, kSAdap_V(20))];
         [lblTitle setText:message];
-        [lblTitle setFont:[UIFont ELPingFangSCLightFontOfSize:15.0] ];
-        [lblTitle setTextColor:MainTitleColor];
+        [lblTitle setFont:[UIFont ELPingFangSCLightFontOfSize:kSaFont(16.0)]];
+        [lblTitle setTextColor:MainLightGrayTitleColor];
         [lblTitle setTextAlignment:NSTextAlignmentCenter];
         [lblTitle setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
         [lblTitle setAutoresizesSubviews:YES];
@@ -307,7 +307,6 @@
     AppDelegate  *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     delegate.window.rootViewController = tabBarControllerConfig.tabBarController;
 }
-
 
 -(void)dealloc{
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));

@@ -63,10 +63,7 @@ block();\
 
 #define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
 
-
-
 #define AutomaticallyAdjustsScrollViewInsetsNO(view) if (@available(iOS 11.0, *)) {view.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;}else{self.automaticallyAdjustsScrollViewInsets = NO;}
-
 
 #define UTF8Data(str) [str dataUsingEncoding:NSUTF8StringEncoding]
 

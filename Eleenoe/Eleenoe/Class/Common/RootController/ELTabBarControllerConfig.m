@@ -11,7 +11,7 @@
 #import "ELRootViewController.h"
 #import "ELHomeViewController.h"
 #import "ELMineViewController.h"
-#import "ELShopViewController.h"
+#import "ELDefaultContentViewController.h"
 
 @interface ELTabBarControllerConfig ()
 
@@ -40,7 +40,7 @@
     UIViewController *homeNavigationController = [[ELBaseNavigationViewController alloc]
                                                   initWithRootViewController:homeViewController];
     
-    ELShopViewController *shopViewController = [[ELShopViewController alloc]init];
+    ELDefaultContentViewController *shopViewController = [[ELDefaultContentViewController alloc]init];
     UIViewController *shopNavigationController = [[ELBaseNavigationViewController alloc]
                                                   initWithRootViewController:shopViewController];
     

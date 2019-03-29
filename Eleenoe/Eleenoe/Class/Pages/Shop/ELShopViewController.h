@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ELShopViewController : ELBaseViewController
 
+/**
+ * 选中下标
+ */
+@property(nonatomic, assign) NSInteger selectIndex;
+
 @end
 
 NS_ASSUME_NONNULL_END

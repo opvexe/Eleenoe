@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8564AA109219E3AE505BB62B91816540"
+               BlueprintIdentifier = "336B0051F63E5999DFF8C1233BB29F22"
                BuildableName = "libTYCyclePagerView.a"
                BlueprintName = "TYCyclePagerView"
                ReferencedContainer = "container:Pods.xcodeproj">

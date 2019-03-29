@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7809C1DC95BA77A38E84C93A18372252"
-               BuildableName = "libYYCache.a"
-               BlueprintName = "YYCache"
+               BlueprintIdentifier = "C2AF928984202DA90AE02461760C919B"
+               BuildableName = "libSGPagingView.a"
+               BlueprintName = "SGPagingView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

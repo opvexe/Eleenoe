@@ -6,6 +6,7 @@ target 'Eleenoe' do
   # use_frameworks!
 
 pod 'FMDB'
+pod 'Toast'
 pod 'Masonry'
 pod 'YYCache'
 pod 'KLCPopup'
@@ -20,10 +21,8 @@ pod 'CYLTabBarController'
 pod 'AXWebViewController'
 pod 'SVProgressHUD'
 pod 'TYCyclePagerView'
-pod 'Objection'
-pod 'Toast'
 pod 'UMCShare/Social/ReducedWeChat'
 pod 'MLEmojiLabel'
 pod 'Reveal-SDK','~>4', :configurations => ['Debug']
-pod'SGPagingView'
+pod 'SGPagingView'
 end
