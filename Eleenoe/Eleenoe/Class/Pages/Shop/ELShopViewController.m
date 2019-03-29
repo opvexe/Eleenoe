@@ -7,10 +7,14 @@
 //
 
 #import "ELShopViewController.h"
+#import "ELShopCollectionViewCell.h"
+#import "ELBannerCollectionReusableView.h"
 #import "ELTextField.h"
 
-@interface ELShopViewController ()<UITextFieldDelegate>
-@property(nonatomic,strong)ELTextField *searchField;
+@interface ELShopViewController ()<UITextFieldDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+@property (nonatomic,strong) ELTextField *searchField;
+@property (nonatomic,strong) UICollectionView *listCollectionView;
+@property (nonatomic,strong) NSMutableArray *lists;
 @end
 
 @implementation ELShopViewController
@@ -19,6 +23,85 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.titleView = self.searchField;
+    [self configView];
+}
+
+-(void)configView{
+    
+    _listCollectionView = ({
+        UICollectionViewFlowLayout *layout =[[UICollectionViewFlowLayout alloc]init];
+        layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        UICollectionView *iv =[[UICollectionView alloc] initWithFrame:CGRectZero
+                                                 collectionViewLayout:layout];
+        iv.backgroundColor = [UIColor whiteColor];
+        iv.showsHorizontalScrollIndicator = NO;
+        iv.showsVerticalScrollIndicator =NO;
+        iv.dataSource = self;
+        iv.delegate = self;
+        [iv registerClass:[ELShopCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELShopCollectionViewCell class])];
+        [iv registerClass:[ELBannerCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([ELBannerCollectionReusableView class])];
+        [self.view addSubview:iv];
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            if (iOS11) {
+                make.edges.mas_equalTo(self.view.safeAreaInsets);
+            }else{
+                make.edges.mas_equalTo(self.view);
+            }
+        }];
+        iv;
+    });
+    
+}
+
+-(void)loadDataSoucre{
+    
+    
+}
+
+#pragma mark UICollectionViewCellDelegate
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    ELShopCollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ELShopCollectionViewCell class]) forIndexPath:indexPath];
+    //    [cell InitDataWithModel:self.lists[indexPath.row]];
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.lists.count;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return  CGSizeMake(self.view.width/2,85);
+}
+//// 设置最小行间距，也就是前一行与后一行的中间最小间隔
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return kSAdap(8.0);
+}
+//// 设置最小列间距，也就是左行与右一行的中间最小间隔
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return kSAdap(0);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+#pragma mark - 区头
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    return (CGSize){[UIScreen mainScreen].bounds.size.width,kSAdap_V(150.0)};
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    UICollectionReusableView *reusable = nil;
+    if (kind == UICollectionElementKindSectionHeader) {
+        ELBannerCollectionReusableView *reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([ELBannerCollectionReusableView class]) forIndexPath:indexPath];
+//        [reusableView InitDataWithModel:nil];
+        reusable = reusableView;
+    }
+    return reusable;
 }
 
 

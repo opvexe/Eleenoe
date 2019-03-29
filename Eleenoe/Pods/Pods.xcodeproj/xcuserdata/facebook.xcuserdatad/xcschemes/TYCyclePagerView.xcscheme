@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8BE2058AAC0E870CECEEF30ABF454D0F"
-               BuildableName = "libSDWebImage.a"
-               BlueprintName = "SDWebImage"
+               BlueprintIdentifier = "8564AA109219E3AE505BB62B91816540"
+               BuildableName = "libTYCyclePagerView.a"
+               BlueprintName = "TYCyclePagerView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

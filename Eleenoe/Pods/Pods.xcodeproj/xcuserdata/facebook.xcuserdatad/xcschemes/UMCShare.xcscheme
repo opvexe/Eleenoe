@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE3C80B4498FEE38EA58AC70EAA74C57"
+               BlueprintIdentifier = "F01F00386FE2E9E4AF5F60E4B065D21A"
                BuildableName = "UMCShare"
                BlueprintName = "UMCShare"
                ReferencedContainer = "container:Pods.xcodeproj">

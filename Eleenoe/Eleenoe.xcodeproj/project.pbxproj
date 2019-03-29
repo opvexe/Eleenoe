@@ -28,10 +28,13 @@
 		D0771057224CB4AB00D0B993 /* ELShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771056224CB4AB00D0B993 /* ELShopViewController.m */; };
 		D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D077105B224CB95900D0B993 /* ELMineTableViewCell.m */; };
 		D0771062224CC16700D0B993 /* ELSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771061224CC16700D0B993 /* ELSettingModel.m */; };
-		D0771066224CCA6000D0B993 /* ELSuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771065224CCA6000D0B993 /* ELSuggestionViewController.m */; };
 		D077106C224CCECA00D0B993 /* ELCauseShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = D077106B224CCECA00D0B993 /* ELCauseShowView.m */; };
 		D0771072224D172D00D0B993 /* CJXBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771070224D172D00D0B993 /* CJXBarButtonItem.m */; };
 		D0771079224D253300D0B993 /* ELTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771078224D253300D0B993 /* ELTextField.m */; };
+		D077107C224DA7B800D0B993 /* ELShopCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D077107B224DA7B800D0B993 /* ELShopCollectionViewCell.m */; };
+		D077107F224DA82700D0B993 /* ELBaseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D077107E224DA82700D0B993 /* ELBaseCollectionReusableView.m */; };
+		D0771082224DFC6900D0B993 /* ELBannerCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771081224DFC6900D0B993 /* ELBannerCollectionReusableView.m */; };
+		D0771085224E0F7F00D0B993 /* ELBannerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771084224E0F7F00D0B993 /* ELBannerCollectionViewCell.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -126,14 +129,20 @@
 		D077105B224CB95900D0B993 /* ELMineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMineTableViewCell.m; sourceTree = "<group>"; };
 		D0771060224CC16700D0B993 /* ELSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSettingModel.h; sourceTree = "<group>"; };
 		D0771061224CC16700D0B993 /* ELSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSettingModel.m; sourceTree = "<group>"; };
-		D0771064224CCA6000D0B993 /* ELSuggestionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELSuggestionViewController.h; sourceTree = "<group>"; };
-		D0771065224CCA6000D0B993 /* ELSuggestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSuggestionViewController.m; sourceTree = "<group>"; };
 		D077106A224CCECA00D0B993 /* ELCauseShowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCauseShowView.h; sourceTree = "<group>"; };
 		D077106B224CCECA00D0B993 /* ELCauseShowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELCauseShowView.m; sourceTree = "<group>"; };
 		D0771070224D172D00D0B993 /* CJXBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJXBarButtonItem.m; sourceTree = "<group>"; };
 		D0771071224D172D00D0B993 /* CJXBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJXBarButtonItem.h; sourceTree = "<group>"; };
 		D0771077224D253300D0B993 /* ELTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTextField.h; sourceTree = "<group>"; };
 		D0771078224D253300D0B993 /* ELTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTextField.m; sourceTree = "<group>"; };
+		D077107A224DA7B800D0B993 /* ELShopCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELShopCollectionViewCell.h; sourceTree = "<group>"; };
+		D077107B224DA7B800D0B993 /* ELShopCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELShopCollectionViewCell.m; sourceTree = "<group>"; };
+		D077107D224DA82700D0B993 /* ELBaseCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBaseCollectionReusableView.h; sourceTree = "<group>"; };
+		D077107E224DA82700D0B993 /* ELBaseCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBaseCollectionReusableView.m; sourceTree = "<group>"; };
+		D0771080224DFC6900D0B993 /* ELBannerCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBannerCollectionReusableView.h; sourceTree = "<group>"; };
+		D0771081224DFC6900D0B993 /* ELBannerCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBannerCollectionReusableView.m; sourceTree = "<group>"; };
+		D0771083224E0F7F00D0B993 /* ELBannerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBannerCollectionViewCell.h; sourceTree = "<group>"; };
+		D0771084224E0F7F00D0B993 /* ELBannerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBannerCollectionViewCell.m; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -410,20 +419,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		D0771063224CCA4400D0B993 /* Suggestion */ = {
-			isa = PBXGroup;
-			children = (
-				D0771064224CCA6000D0B993 /* ELSuggestionViewController.h */,
-				D0771065224CCA6000D0B993 /* ELSuggestionViewController.m */,
-			);
-			path = Suggestion;
-			sourceTree = "<group>";
-		};
 		D0771073224D224F00D0B993 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				D0771077224D253300D0B993 /* ELTextField.h */,
 				D0771078224D253300D0B993 /* ELTextField.m */,
+				D077107A224DA7B800D0B993 /* ELShopCollectionViewCell.h */,
+				D077107B224DA7B800D0B993 /* ELShopCollectionViewCell.m */,
+				D0771083224E0F7F00D0B993 /* ELBannerCollectionViewCell.h */,
+				D0771084224E0F7F00D0B993 /* ELBannerCollectionViewCell.m */,
+				D0771080224DFC6900D0B993 /* ELBannerCollectionReusableView.h */,
+				D0771081224DFC6900D0B993 /* ELBannerCollectionReusableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -583,6 +589,8 @@
 			children = (
 				D0F52B2522378B2D00A26504 /* ELBaseCollectionViewCell.h */,
 				D0F52B2622378B2D00A26504 /* ELBaseCollectionViewCell.m */,
+				D077107D224DA82700D0B993 /* ELBaseCollectionReusableView.h */,
+				D077107E224DA82700D0B993 /* ELBaseCollectionReusableView.m */,
 			);
 			path = BaseCollectionView;
 			sourceTree = "<group>";
@@ -649,7 +657,6 @@
 		D0F52B37223790E400A26504 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				D0771063224CCA4400D0B993 /* Suggestion */,
 				D0771054224CB48700D0B993 /* Shop */,
 				D0180B00223F38A6008C06C1 /* WebView */,
 				D0EC4B342238B22C00B5A74D /* Guide */,
@@ -887,6 +894,7 @@
 				D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */,
 				D0F52B07223788FD00A26504 /* UIGestureRecognizer+WDExtension.m in Sources */,
 				D0F52B3622378F7A00A26504 /* ELRootViewController.m in Sources */,
+				D0771082224DFC6900D0B993 /* ELBannerCollectionReusableView.m in Sources */,
 				D0F52B102237892300A26504 /* UIView+Category.m in Sources */,
 				D0DC670722393DB20064C07A /* ELMessageEventButton.m in Sources */,
 				D0EC4B242238AAE800B5A74D /* ELHomeViewController.m in Sources */,
@@ -912,9 +920,10 @@
 				D0EC4B332238B1C700B5A74D /* ELTextView.m in Sources */,
 				D0F52B04223788D500A26504 /* NSString+Category.m in Sources */,
 				D0F52B2D22378BA000A26504 /* ELTabBarControllerConfig.m in Sources */,
-				D0771066224CCA6000D0B993 /* ELSuggestionViewController.m in Sources */,
 				D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */,
 				D0F52B1F22378A5800A26504 /* ELBaseView.m in Sources */,
+				D077107F224DA82700D0B993 /* ELBaseCollectionReusableView.m in Sources */,
+				D0771085224E0F7F00D0B993 /* ELBannerCollectionViewCell.m in Sources */,
 				D0F52B45223792C800A26504 /* ELPasswordViewController.m in Sources */,
 				D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */,
 				D0771079224D253300D0B993 /* ELTextField.m in Sources */,
@@ -926,6 +935,7 @@
 				D0771057224CB4AB00D0B993 /* ELShopViewController.m in Sources */,
 				D0EC4B382238D05900B5A74D /* ELUserDataSocure.m in Sources */,
 				D0F52B2A22378B5200A26504 /* ELBaseViewController.m in Sources */,
+				D077107C224DA7B800D0B993 /* ELShopCollectionViewCell.m in Sources */,
 				D0F52B422237921300A26504 /* ELLoginViewController.m in Sources */,
 				D0EC4B3E2238D3F700B5A74D /* ELGuideView.m in Sources */,
 			);
@@ -1083,7 +1093,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3NJC3EGBWR;
+				DEVELOPMENT_TEAM = CMH4BADJQ6;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Eleenoe/Class/Resources/EleenoePrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Eleenoe/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1106,7 +1116,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3NJC3EGBWR;
+				DEVELOPMENT_TEAM = CMH4BADJQ6;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Eleenoe/Class/Resources/EleenoePrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Eleenoe/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

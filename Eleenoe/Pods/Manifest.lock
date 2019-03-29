@@ -49,6 +49,7 @@ PODS:
     - SDWebImage/Core
   - SVProgressHUD (2.2.5)
   - Toast (4.0.0)
+  - TYCyclePagerView (1.1.2)
   - UMCCommon (2.0.0)
   - UMCShare/Core (6.9.5):
     - UMCCommon
@@ -73,6 +74,7 @@ DEPENDENCIES:
   - SDWebImage/GIF
   - SVProgressHUD
   - Toast
+  - TYCyclePagerView
   - UMCShare/Social/ReducedWeChat
   - YYCache
 
@@ -98,6 +100,7 @@ SPEC REPOS:
     - SDWebImage
     - SVProgressHUD
     - Toast
+    - TYCyclePagerView
     - UMCCommon
     - UMCShare
     - YYCache
@@ -123,10 +126,11 @@ SPEC CHECKSUMS:
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  TYCyclePagerView: 0f67b0986995fd614843e819bc974cadd7f98008
   UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 73500e6c9c8fd700afa48ced09cf1735bd802d50
+PODFILE CHECKSUM: 0d75ddd9477a79aa14eeb638442cfd7c60ef18bb
 
 COCOAPODS: 1.6.1
