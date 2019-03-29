@@ -120,6 +120,156 @@
 {
     return self.layer.cornerRadius;
 }
+
+
+
+
+
+
+
+
+
+- (CGFloat)left {
+    return self.frame.origin.x;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setLeft:(CGFloat)x {
+    CGRect frame = self.frame;
+    frame.origin.x = floor(x);
+    self.frame = frame;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGFloat)top {
+    return self.frame.origin.y;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setTop:(CGFloat)y {
+    CGRect frame = self.frame;
+    frame.origin.y = floor(y);
+    self.frame = frame;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGFloat)right {
+    return self.frame.origin.x + self.frame.size.width;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setRight:(CGFloat)right {
+    CGRect frame = self.frame;
+    frame.origin.x = floor(right - frame.size.width);
+    self.frame = frame;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGFloat)bottom {
+    return self.frame.origin.y + self.frame.size.height;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setBottom:(CGFloat)bottom {
+    CGRect frame = self.frame;
+    frame.origin.y = floor(bottom - frame.size.height);
+    self.frame = frame;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGFloat)ttScreenX {
+    CGFloat x = 0;
+    for (UIView* view = self; view; view = view.superview) {
+        x += view.left;
+    }
+    return x;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGFloat)ttScreenY {
+    CGFloat y = 0;
+    for (UIView* view = self; view; view = view.superview) {
+        y += view.top;
+    }
+    return y;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGFloat)screenViewX {
+    CGFloat x = 0;
+    for (UIView* view = self; view; view = view.superview) {
+        x += view.left;
+        
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            UIScrollView* scrollView = (UIScrollView*)view;
+            x -= scrollView.contentOffset.x;
+        }
+    }
+    
+    return x;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGFloat)screenViewY {
+    CGFloat y = 0;
+    for (UIView* view = self; view; view = view.superview) {
+        y += view.top;
+        
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            UIScrollView* scrollView = (UIScrollView*)view;
+            y -= scrollView.contentOffset.y;
+        }
+    }
+    return y;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGRect)screenFrame {
+    return CGRectMake(self.screenViewX, self.screenViewY, self.width, self.height);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)removeAllSubviews {
+    while (self.subviews.count) {
+        UIView* child = self.subviews.lastObject;
+        [child removeFromSuperview];
+    }
+}
+
+- (UIViewController *)viewController {
+    for (UIView *next = [self superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController*)nextResponder;
+        }
+    }
+    return nil;
+}
+
++ (instancetype) viewFromDefaultNibName {
+    NSArray* nibView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
+    return [nibView firstObject];
+}
+
+- (UITableView *)findSuperTabView {
+    id view = [self superview];
+    while (view && [view isKindOfClass:[UITableView class]] == NO) {
+        view = [view superview];
+    }
+    UITableView *tableView = (UITableView *)view;
+    return tableView;
+}
+
+
 - (void)addTopBorderWithColor:(UIColor *)color andWidth:(CGFloat) borderWidth {
     CGFloat pixelAdjustOffset = 0;
     if ((int)(borderWidth * [UIScreen mainScreen].scale + 1) % 2 == 0) {
@@ -293,4 +443,6 @@
         [self removeGestureRecognizer:tap];
     }
 }
+
+
 @end

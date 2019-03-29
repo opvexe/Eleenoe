@@ -22,15 +22,84 @@ typedef NS_ENUM(NSInteger,UILayoutCornerRadiusType) {
     UILayoutCornerRadiusAll    = 4,
 };
 @interface UIView (Category)
+
+/**
+ 
+ */
 @property (nonatomic, assign) CGFloat x;
+
+/**
+ 
+ */
 @property (nonatomic, assign) CGFloat y;
+
+/**
+ 
+ */
 @property (nonatomic, assign) CGFloat centerX;
+
+/**
+ 
+ */
 @property (nonatomic, assign) CGFloat centerY;
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) CGPoint origin;
 @property (nonatomic, assign) CGFloat cornerRadius;
+/**
+ * Shortcut for frame.origin.x.
+ *
+ * Sets frame.origin.x = left
+ */
+@property (nonatomic) CGFloat left;
+
+/**
+ * Shortcut for frame.origin.y
+ *
+ * Sets frame.origin.y = top
+ */
+@property (nonatomic) CGFloat top;
+
+/**
+ * Shortcut for frame.origin.x + frame.size.width
+ *
+ * Sets frame.origin.x = right - frame.size.width
+ */
+@property (nonatomic) CGFloat right;
+
+/**
+ * Shortcut for frame.origin.y + frame.size.height
+ *
+ * Sets frame.origin.y = bottom - frame.size.height
+ */
+@property (nonatomic) CGFloat bottom;
+
+/**
+ * Return the x coordinate on the screen.
+ */
+@property (nonatomic, readonly) CGFloat ttScreenX;
+
+/**
+ * Return the y coordinate on the screen.
+ */
+@property (nonatomic, readonly) CGFloat ttScreenY;
+
+/**
+ * Return the x coordinate on the screen, taking into account scroll views.
+ */
+@property (nonatomic, readonly) CGFloat screenViewX;
+
+/**
+ * Return the y coordinate on the screen, taking into account scroll views.
+ */
+@property (nonatomic, readonly) CGFloat screenViewY;
+
+/**
+ * Return the view frame on the screen, taking into account scroll views.
+ */
+@property (nonatomic, readonly) CGRect screenFrame;
+
 
 - (void)addBottomBorderWithColor: (UIColor *) color andWidth:(CGFloat) borderWidth;
 - (void)addBottomBorderWithColor:(UIColor *)color andWidth:(CGFloat) borderWidth andViewWidth:(CGFloat)viewWidth;
@@ -80,5 +149,15 @@ typedef NS_ENUM(NSInteger,UILayoutCornerRadiusType) {
  删除view上所有手势
  */
 - (void)removeAllGestureRecognizer;
+
+
+- (void)removeAllSubviews;
+
+- (UIViewController *)viewController;
+
++ (instancetype) viewFromDefaultNibName;
+
+- (UITableView *)findSuperTabView;
+
 
 @end
