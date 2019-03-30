@@ -9,6 +9,7 @@
 #import "ELLoginViewController.h"
 #import "ELMessageEventButton.h"
 #import "ELHomeViewController.h"
+#import "UITextField+ELFormatNumber.h"
 @interface ELLoginViewController ()<ELMessageEventButtonDelegate,UITextFieldDelegate>
 @property (nonatomic, strong) UIButton *loginButton;
 @property (nonatomic, strong) UITextField *iphoneTextField;
@@ -106,6 +107,7 @@
         iv.keyboardType = UIKeyboardTypeNumberPad;
         iv.borderStyle =UITextBorderStyleNone;
         iv.delegate =  self;
+        [iv addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         [self.authCodeView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(self.messageEventButton);
@@ -259,14 +261,15 @@
 }
 
 #pragma mark - TextFieldDelegate
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if([textField isEqual:self.iphoneTextField]) {
+        return [UITextField numberFormatTextField:self.iphoneTextField shouldChangeCharactersInRange:range replacementString:string textFieldType:kPhoneNumberTextFieldType];
+    }
+    return YES;
+}
+
 -(void)textFieldDidChange:(UITextField *)textField{
-    if ([textField isEqual:self.iphoneTextField]) {
-        if (textField.text.length >11) {
-            self.iphoneTextField.text = [textField.text substringToIndex:11];
-        }else{
-            self.iphoneTextField.text = textField.text;
-        }
-    }else if ([textField isEqual:self.authCodeTextField]){
+    if ([textField isEqual:self.authCodeTextField]){
         if (textField.text.length >6) {
             self.authCodeTextField.text = [textField.text substringToIndex:6];
         }else{
