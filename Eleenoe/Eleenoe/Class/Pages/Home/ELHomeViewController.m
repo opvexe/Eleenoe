@@ -24,7 +24,7 @@
 }
 
 -(void)Click{
-    [self.navigationController pushViewController:[ELElectrodeViewController new] animated:YES];
+  
 }
 
 /*

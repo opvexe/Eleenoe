@@ -24,6 +24,7 @@
 
 //Main Color
 #define MainThemColor           UIColorFromRGB(0x8EC31F)
+#define MainLightThemColor      UIColorFromRGB(0xC3E282)
 #define MainBackgroundColor     UIColorFromRGB(0xf4f4f4)
 //Text Color
 #define MainTitleColor          UIColorFromRGB(0x333333)

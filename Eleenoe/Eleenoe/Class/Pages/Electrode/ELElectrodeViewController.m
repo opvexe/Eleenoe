@@ -42,8 +42,9 @@
         [self.view addSubview:iv];
         iv;
     });
-
-    self.circleView.progress = 0.5;
+    
+    self.circleView.progress = 0.8;
+    
     _resetButton = ({
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
         [iv setImage:[UIImage imageNamed:@"reset_tie"] forState:UIControlStateNormal];
