@@ -9,5 +9,16 @@
 #import "ELHomeTableViewCell.h"
 
 @implementation ELHomeTableViewCell
-
++(ELHomeTableViewCell *)CellWithTableView:(UITableView *)tableview{
+    
+    static NSString *ID =@"ELHomeTableViewCell";
+    
+    ELHomeTableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:ID];
+    
+    if (!cell) {
+        cell = [[ELHomeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        
+    }
+    return cell;
+}
 @end

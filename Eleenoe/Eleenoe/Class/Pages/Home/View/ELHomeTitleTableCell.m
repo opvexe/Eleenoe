@@ -10,4 +10,17 @@
 
 @implementation ELHomeTitleTableCell
 
++(ELHomeTitleTableCell *)CellWithTableView:(UITableView *)tableview{
+    
+    static NSString *ID =@"ELHomeTitleTableCell";
+    
+    ELHomeTitleTableCell *cell = [tableview dequeueReusableCellWithIdentifier:ID];
+    
+    if (!cell) {
+        cell = [[ELHomeTitleTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        
+    }
+    return cell;
+}
+
 @end

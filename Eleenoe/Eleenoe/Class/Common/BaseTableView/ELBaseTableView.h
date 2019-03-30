@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface ELBaseTableView : UITableView<UIScrollViewDelegate>
+@interface ELBaseTableView : UITableView<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) id<ELBaseTableViewDelegate> baseDelegate;
 
 - (void)setMJRefreshHeaderFooter;
