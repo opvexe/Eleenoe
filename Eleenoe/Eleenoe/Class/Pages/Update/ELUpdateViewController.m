@@ -26,7 +26,7 @@
 }
 
 -(void)configView{
-
+    
     _topView = ({
         UIView *iv = [[UIView alloc]init];
         iv.backgroundColor = MainThemColor;
@@ -37,7 +37,7 @@
         }];
         iv;
     });
-
+    
     _icon = ({
         FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]initWithFrame:CGRectZero];
         iv.clipsToBounds = YES;
@@ -50,7 +50,7 @@
         }];
         iv;
     });
-
+    
     _titleLabel = ({
         UILabel *iv = [[UILabel alloc]init];
         iv.textColor = MainWhiteTitleColor;
@@ -66,7 +66,7 @@
         }];
         iv;
     });
-
+    
     _veseionLabel = ({
         UILabel *iv = [[UILabel alloc]init];
         iv.textColor = MainLightThemColor;
@@ -82,7 +82,7 @@
         }];
         iv;
     });
-
+    
     _checkButton = ({
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
         [iv setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
@@ -110,7 +110,7 @@
 }
 
 -(void)Click:(UIButton *)sender{
-
+    
 }
 /*
  #pragma mark - Navigation
