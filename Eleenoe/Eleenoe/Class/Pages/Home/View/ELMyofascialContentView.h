@@ -6,11 +6,11 @@
 //  Copyright © 2019 FaceBook. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ELBaseView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ELMyofascialContentView : GMBaseView
+@interface ELMyofascialContentView : ELBaseView
 
 @end
 
