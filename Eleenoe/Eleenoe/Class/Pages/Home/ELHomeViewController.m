@@ -30,16 +30,21 @@
 }
 -(void)settupView{
 
-    
     _titleListView = ({
-        ELHomeTitleListView *iv = [[ELHomeTitleListView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-        [self.view addSubview:iv];
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+        UICollectionViewFlowLayout *  flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.minimumInteritemSpacing = 0;
+        flowLayout.minimumLineSpacing = kSAdap(15);
+        flowLayout.sectionInset = UIEdgeInsetsMake(0,kSAdap(12), 0, kSAdap(12));
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        ELHomeTitleListView*collectionView = [[ELHomeTitleListView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        collectionView.bounces = NO;
+        [self.view addSubview:collectionView];
+        [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(0);
             make.height.mas_equalTo(kSAdap(82));
             make.left.and.right.mas_equalTo(0);
         }];
-        iv;
+        collectionView;
     });
     
     
@@ -55,16 +60,19 @@
     });
     
     _homelistView = ({
-        ELHomeListView *iv = [[ELHomeListView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-        [self.view addSubview:iv];
-        iv.backgroundColor = [UIColor whiteColor];
-        iv.layer.cornerRadius  =5;
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+        UICollectionViewFlowLayout *  flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.minimumInteritemSpacing = 0;
+        flowLayout.minimumLineSpacing = kSAdap(0);
+        flowLayout.sectionInset = UIEdgeInsetsMake(0,kSAdap(0), 0, kSAdap(0));
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        ELHomeListView*collectionView = [[ELHomeListView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        collectionView.bounces = NO;
+        [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.titleListView.mas_bottom);
             make.left.and.right.mas_equalTo(0);
             make.bottom.mas_equalTo(self.bottomView.mas_top);
         }];
-        iv;
+        collectionView;
     });
 }
 -(void)Click{

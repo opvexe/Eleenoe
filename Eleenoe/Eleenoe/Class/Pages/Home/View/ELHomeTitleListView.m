@@ -19,6 +19,7 @@
         self.dataSource = self;
         self.delegate = self;
         self.backgroundColor = [UIColor whiteColor];
+        [self registerClass:[ELHomeTitleCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([ELHomeTitleCollectionCell class])];
     }
     return self;
 }
@@ -29,7 +30,7 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.titleList.count;
+    return 4;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(kSAdap(47),kSAdap(51));

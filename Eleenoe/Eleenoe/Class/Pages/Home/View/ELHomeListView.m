@@ -20,6 +20,7 @@
         self.dataSource = self;
         self.delegate = self;
         self.backgroundColor = [UIColor whiteColor];
+        [self registerClass:[ELHomeCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELHomeCollectionViewCell class])];
     }
     return self;
 }
