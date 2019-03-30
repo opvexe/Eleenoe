@@ -9,8 +9,20 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol ELBaseTableViewDelegate <NSObject>
 
-@interface ELBaseTableView : UITableView
+- (void)refreshDataSyn;
+
+- (void)refreshLoadMoreData;
+
+@end
+
+@interface ELBaseTableView : UITableView<UIScrollViewDelegate>
+@property (nonatomic, weak) id<ELBaseTableViewDelegate> baseDelegate;
+
+- (void)setMJRefreshHeaderFooter;
+
+- (void)endRefreshing;
 
 @end
 
