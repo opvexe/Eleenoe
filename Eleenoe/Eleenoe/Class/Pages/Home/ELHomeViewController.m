@@ -62,7 +62,6 @@
         iv;
     });
     
-<<<<<<< HEAD
     _homelistView = ({
         UICollectionViewFlowLayout *  flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.minimumInteritemSpacing = 0;
@@ -75,20 +74,11 @@
             make.top.mas_equalTo(self.titleListView.mas_bottom);
             make.left.and.right.mas_equalTo(0);
             make.bottom.mas_equalTo(self.bottomView.mas_top);
-=======
-    //    _homelistView = ({
-    //        ELHomeListView *iv = [[ELHomeListView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    //        [self.view addSubview:iv];
-    //        iv.backgroundColor = [UIColor whiteColor];
-    //        iv.layer.cornerRadius  =5;
-    //        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-    //            make.top.mas_equalTo(self.titleListView.mas_bottom);
-    //            make.left.and.right.mas_equalTo(0);
-    //            make.bottom.mas_equalTo(self.bottomView.mas_top);
-    //        }];
-    //        iv;
-    //    });
+        }];
+        collectionView;
+        });
     
+         
     _menuScrolloView = ({
         ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]init];
         iv.backgroundColor = [UIColor clearColor];
@@ -98,9 +88,8 @@
             make.left.mas_equalTo(kSAdap(41.0));
             make.height.mas_equalTo(kSAdap_V(200.0));
             make.width.mas_equalTo(kSAdap(80.0));
->>>>>>> 4e27afa632311136f7ec3ab404538d8e95bb7a9a
         }];
-        collectionView;
+        iv;
     });
     NSMutableArray *list = [NSMutableArray arrayWithCapacity:0];
     for (NSInteger i = 0; i< 10; i++) {
@@ -110,6 +99,9 @@
     }
     [self.menuScrolloView initWithSouce:list];
 }
+         
+         
+         
 -(void)Click{
     
     
