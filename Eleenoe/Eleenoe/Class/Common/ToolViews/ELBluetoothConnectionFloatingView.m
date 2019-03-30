@@ -17,7 +17,7 @@
 @property(nonatomic,strong) UIButton *closeButton;
 @end
 @implementation ELBluetoothConnectionFloatingView
-+(instancetype)showComplete:(void(^)(ConnectionStatusType))complete{
++(instancetype)showComplete:(void(^)(ConnectionStatusType status))complete{
     
     ELBluetoothConnectionFloatingView *view = [[ELBluetoothConnectionFloatingView alloc] initWithFrame:CGRectZero];
     
@@ -28,7 +28,7 @@
                             dismissOnBackgroundTouch:YES
                                dismissOnContentTouch:NO];
     
-    [popup  show];
+    [popup  showWithLayout:KLCPopupLayoutMake(KLCPopupHorizontalLayoutCenter, KLCPopupVerticalLayoutBottom)];
     
     view.CompleteBlock = complete;
     

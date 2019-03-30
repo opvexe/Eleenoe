@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ELBluetoothConnectionFloatingView : ELBaseView
 
-+(instancetype)showComplete:(void(^)(ConnectionStatusType))complete;
++(instancetype)showComplete:(void(^)(ConnectionStatusType status))complete;
 
 +(void)updateStatus:(ConnectionStatusType)status;
 

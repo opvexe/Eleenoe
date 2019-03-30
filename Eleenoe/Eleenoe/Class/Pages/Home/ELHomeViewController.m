@@ -9,7 +9,7 @@
 #import "ELHomeViewController.h"
 #import "ELBluetoothConnectionFloatingView.h"
 #import "ELElectrodeViewController.h"
-
+#import "ELBluetoothConnectionFloatingView.h"
 @interface ELHomeViewController ()
 
 @end
@@ -24,7 +24,10 @@
 }
 
 -(void)Click{
-  
+    
+    [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
+        
+    }];
 }
 
 /*
