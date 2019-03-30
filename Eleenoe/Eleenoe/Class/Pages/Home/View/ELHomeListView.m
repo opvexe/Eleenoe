@@ -19,7 +19,7 @@
         self.showsHorizontalScrollIndicator = NO;
         self.dataSource = self;
         self.delegate = self;
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = MainThemColor;
         [self registerClass:[ELHomeCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELHomeCollectionViewCell class])];
     }
     return self;
@@ -31,7 +31,7 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.homeLists.count;
+    return 4;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(SCREEN_WIDTH,kSAdap(self.height));
