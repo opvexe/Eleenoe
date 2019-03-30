@@ -44,6 +44,7 @@
 		D07710A2224EE3CC00D0B993 /* ELElectrodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07710A1224EE3CC00D0B993 /* ELElectrodeViewController.m */; };
 		D07710A6224EF32B00D0B993 /* ELCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07710A5224EF32B00D0B993 /* ELCircularProgressView.m */; };
 		D07710AE224F0CD700D0B993 /* ELUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07710AD224F0CD700D0B993 /* ELUpdateViewController.m */; };
+		D0A0DB94224F1BE1000F9048 /* UITextField+ELFormatNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DB93224F1BE1000F9048 /* UITextField+ELFormatNumber.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -170,6 +171,8 @@
 		D07710A5224EF32B00D0B993 /* ELCircularProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELCircularProgressView.m; sourceTree = "<group>"; };
 		D07710AC224F0CD700D0B993 /* ELUpdateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELUpdateViewController.h; sourceTree = "<group>"; };
 		D07710AD224F0CD700D0B993 /* ELUpdateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELUpdateViewController.m; sourceTree = "<group>"; };
+		D0A0DB92224F1BE1000F9048 /* UITextField+ELFormatNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+ELFormatNumber.h"; sourceTree = "<group>"; };
+		D0A0DB93224F1BE1000F9048 /* UITextField+ELFormatNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ELFormatNumber.m"; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -670,6 +673,8 @@
 				D0F52B092237891000A26504 /* UIView+WDBlocksKit.m */,
 				D0F52B0C2237891800A26504 /* UIViewController+WDNavigatonBarAppearance.h */,
 				D0F52B0B2237891800A26504 /* UIViewController+WDNavigatonBarAppearance.m */,
+				D0A0DB92224F1BE1000F9048 /* UITextField+ELFormatNumber.h */,
+				D0A0DB93224F1BE1000F9048 /* UITextField+ELFormatNumber.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1034,6 +1039,7 @@
 				D0EC4B2B2238AE3300B5A74D /* AppDelegate+ELExtension.m in Sources */,
 				D0F52AFA2237869D00A26504 /* ELAPIConstant.m in Sources */,
 				C2E6CE8B22369AA40049D54C /* main.m in Sources */,
+				D0A0DB94224F1BE1000F9048 /* UITextField+ELFormatNumber.m in Sources */,
 				D0F52B0A2237891000A26504 /* UIView+WDBlocksKit.m in Sources */,
 				D0180B03223F3915008C06C1 /* ELWebViewController.m in Sources */,
 				D0180B10223F399D008C06C1 /* CPProgressHUD.m in Sources */,
