@@ -14,6 +14,14 @@
     self = [super initWithFrame:frame style:style];
     if (self) {
         self.separatorStyle =  UITableViewCellSeparatorStyleNone;
+        self.showsVerticalScrollIndicator = NO;
+        self.showsHorizontalScrollIndicator = NO;
+        if (@available(iOS 11.0, *)) {
+            self.estimatedSectionFooterHeight = 0.01;
+            self.estimatedSectionHeaderHeight = 0.01;
+        }
+        self.backgroundColor = [UIColor whiteColor];
+        self.tableFooterView =[UIView new];
     }
     return self;
 }
