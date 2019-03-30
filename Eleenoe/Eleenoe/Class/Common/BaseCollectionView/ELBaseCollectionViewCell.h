@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ELBaseCollectionViewCell : UICollectionViewCell<ELBaseCollectionViewCellProtocol>
 
+
++(instancetype)cellWithCollectionView:(UICollectionView*)collectionView indexpath:(NSIndexPath *)indexPath;
+
 @end
 
 NS_ASSUME_NONNULL_END
