@@ -41,6 +41,7 @@
 		D0771091224E322500D0B993 /* ELSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771090224E322500D0B993 /* ELSearchViewController.m */; };
 		D0771094224E537200D0B993 /* ELDefaultContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771093224E537200D0B993 /* ELDefaultContentViewController.m */; };
 		D077109E224E84AC00D0B993 /* UIButton+ButtonStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D077109C224E84AC00D0B993 /* UIButton+ButtonStyle.m */; };
+		D07710A2224EE3CC00D0B993 /* ELElectrodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07710A1224EE3CC00D0B993 /* ELElectrodeViewController.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -161,6 +162,8 @@
 		D0771093224E537200D0B993 /* ELDefaultContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELDefaultContentViewController.m; sourceTree = "<group>"; };
 		D077109C224E84AC00D0B993 /* UIButton+ButtonStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ButtonStyle.m"; sourceTree = "<group>"; };
 		D077109D224E84AC00D0B993 /* UIButton+ButtonStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ButtonStyle.h"; sourceTree = "<group>"; };
+		D07710A0224EE3CC00D0B993 /* ELElectrodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELElectrodeViewController.h; sourceTree = "<group>"; };
+		D07710A1224EE3CC00D0B993 /* ELElectrodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELElectrodeViewController.m; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -481,6 +484,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D077109F224EE3A600D0B993 /* Electrode */ = {
+			isa = PBXGroup;
+			children = (
+				D07710A0224EE3CC00D0B993 /* ELElectrodeViewController.h */,
+				D07710A1224EE3CC00D0B993 /* ELElectrodeViewController.m */,
+			);
+			path = Electrode;
+			sourceTree = "<group>";
+		};
 		D0DC66F822393AD90064C07A /* NetworkTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +722,7 @@
 		D0F52B37223790E400A26504 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				D077109F224EE3A600D0B993 /* Electrode */,
 				D077108E224E321100D0B993 /* Search */,
 				D0771054224CB48700D0B993 /* Shop */,
 				D0180B00223F38A6008C06C1 /* WebView */,
@@ -1025,6 +1038,7 @@
 				D0EC4B382238D05900B5A74D /* ELUserDataSocure.m in Sources */,
 				D0F52B2A22378B5200A26504 /* ELBaseViewController.m in Sources */,
 				D077107C224DA7B800D0B993 /* ELShopCollectionViewCell.m in Sources */,
+				D07710A2224EE3CC00D0B993 /* ELElectrodeViewController.m in Sources */,
 				D0F52B422237921300A26504 /* ELLoginViewController.m in Sources */,
 				D0EC4B3E2238D3F700B5A74D /* ELGuideView.m in Sources */,
 				D077108D224E1D2200D0B993 /* ELShopModel.m in Sources */,

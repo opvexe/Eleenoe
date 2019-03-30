@@ -8,6 +8,7 @@
 
 #import "ELHomeViewController.h"
 #import "ELBluetoothConnectionFloatingView.h"
+#import "ELElectrodeViewController.h"
 
 @interface ELHomeViewController ()
 
@@ -22,6 +23,9 @@
     self.navigationRightView = [CJXBarButtonItem buttonWithImageNormal:@"home_nav_more" imageSelected:@"home_nav_more" imageHightlight:@"home_nav_more" target:self selector:@selector(Click)];
 }
 
+-(void)Click{
+    [self.navigationController pushViewController:[ELElectrodeViewController new] animated:YES];
+}
 
 /*
  #pragma mark - Navigation
