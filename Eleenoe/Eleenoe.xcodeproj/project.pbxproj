@@ -10,6 +10,8 @@
 		00034EB8224E3AE100CE83AB /* ELButtonExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 00034EB7224E3AE100CE83AB /* ELButtonExtention.m */; };
 		00034EC2224E42FA00CE83AB /* ELBluetoothConnectionFloatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00034EC1224E42FA00CE83AB /* ELBluetoothConnectionFloatingView.m */; };
 		18B4B3A9224F7DA900EA9404 /* ELMyofascialBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3A8224F7DA900EA9404 /* ELMyofascialBottomView.m */; };
+		18B4B3AC224FB6B800EA9404 /* ELMyofascialContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3AB224FB6B800EA9404 /* ELMyofascialContentView.m */; };
+		18B4B3AF224FB92800EA9404 /* ELBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3AE224FB92800EA9404 /* ELBaseTableView.m */; };
 		2E4B5557E019085BA72F7373 /* libPods-Eleenoe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BD9D29E12BC7CF7674A550 /* libPods-Eleenoe.a */; };
 		C2E6CE7D22369AA30049D54C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E6CE7C22369AA30049D54C /* AppDelegate.m */; };
 		C2E6CE8522369AA40049D54C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2E6CE8422369AA40049D54C /* Assets.xcassets */; };
@@ -107,6 +109,10 @@
 		00034EC1224E42FA00CE83AB /* ELBluetoothConnectionFloatingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBluetoothConnectionFloatingView.m; sourceTree = "<group>"; };
 		18B4B3A7224F7DA900EA9404 /* ELMyofascialBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMyofascialBottomView.h; sourceTree = "<group>"; };
 		18B4B3A8224F7DA900EA9404 /* ELMyofascialBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMyofascialBottomView.m; sourceTree = "<group>"; };
+		18B4B3AA224FB6B800EA9404 /* ELMyofascialContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMyofascialContentView.h; sourceTree = "<group>"; };
+		18B4B3AB224FB6B800EA9404 /* ELMyofascialContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMyofascialContentView.m; sourceTree = "<group>"; };
+		18B4B3AD224FB92800EA9404 /* ELBaseTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBaseTableView.h; sourceTree = "<group>"; };
+		18B4B3AE224FB92800EA9404 /* ELBaseTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBaseTableView.m; sourceTree = "<group>"; };
 		7150EA626360CE617E43344D /* Pods-Eleenoe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eleenoe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Eleenoe/Pods-Eleenoe.debug.xcconfig"; sourceTree = "<group>"; };
 		A3C6CF43DD0FF20A3589551D /* Pods-Eleenoe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eleenoe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eleenoe/Pods-Eleenoe.release.xcconfig"; sourceTree = "<group>"; };
 		C2E6CE7822369AA30049D54C /* Eleenoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eleenoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -494,6 +500,8 @@
 			children = (
 				18B4B3A7224F7DA900EA9404 /* ELMyofascialBottomView.h */,
 				18B4B3A8224F7DA900EA9404 /* ELMyofascialBottomView.m */,
+				18B4B3AA224FB6B800EA9404 /* ELMyofascialContentView.h */,
+				18B4B3AB224FB6B800EA9404 /* ELMyofascialContentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -750,6 +758,8 @@
 			children = (
 				D0F52B2222378AF300A26504 /* ELBaseTableViewCell.h */,
 				D0F52B2322378AF300A26504 /* ELBaseTableViewCell.m */,
+				18B4B3AD224FB92800EA9404 /* ELBaseTableView.h */,
+				18B4B3AE224FB92800EA9404 /* ELBaseTableView.m */,
 			);
 			path = BaseTableView;
 			sourceTree = "<group>";
@@ -1051,6 +1061,7 @@
 				D0180B11223F399D008C06C1 /* NSObject+CPHUDExtension.m in Sources */,
 				D0EC4B2F2238AF3A00B5A74D /* ELTools.m in Sources */,
 				C2E6CE7D22369AA30049D54C /* AppDelegate.m in Sources */,
+				18B4B3AC224FB6B800EA9404 /* ELMyofascialContentView.m in Sources */,
 				D0F52B0D2237891800A26504 /* UIViewController+WDNavigatonBarAppearance.m in Sources */,
 				D0180AFA223F3604008C06C1 /* ELLocationManger.m in Sources */,
 				D0EC4B3B2238D38000B5A74D /* ELGuideViewController.m in Sources */,
@@ -1079,6 +1090,7 @@
 				D07710A2224EE3CC00D0B993 /* ELElectrodeViewController.m in Sources */,
 				D0F52B422237921300A26504 /* ELLoginViewController.m in Sources */,
 				D0EC4B3E2238D3F700B5A74D /* ELGuideView.m in Sources */,
+				18B4B3AF224FB92800EA9404 /* ELBaseTableView.m in Sources */,
 				18B4B3A9224F7DA900EA9404 /* ELMyofascialBottomView.m in Sources */,
 				D077108D224E1D2200D0B993 /* ELShopModel.m in Sources */,
 				D07710AE224F0CD700D0B993 /* ELUpdateViewController.m in Sources */,
