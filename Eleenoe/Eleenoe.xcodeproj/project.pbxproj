@@ -53,6 +53,7 @@
 		D07710AE224F0CD700D0B993 /* ELUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07710AD224F0CD700D0B993 /* ELUpdateViewController.m */; };
 		D0A0DB94224F1BE1000F9048 /* UITextField+ELFormatNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DB93224F1BE1000F9048 /* UITextField+ELFormatNumber.m */; };
 		D0A0DB9A224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DB99224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m */; };
+		D0A0DB9D224FBF14000F9048 /* ELBaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DB9C224FBF14000F9048 /* ELBaseCollectionView.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -197,6 +198,8 @@
 		D0A0DB93224F1BE1000F9048 /* UITextField+ELFormatNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ELFormatNumber.m"; sourceTree = "<group>"; };
 		D0A0DB98224FBCDF000F9048 /* ELMyofascialMenuScrolloView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMyofascialMenuScrolloView.h; sourceTree = "<group>"; };
 		D0A0DB99224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMyofascialMenuScrolloView.m; sourceTree = "<group>"; };
+		D0A0DB9B224FBF14000F9048 /* ELBaseCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBaseCollectionView.h; sourceTree = "<group>"; };
+		D0A0DB9C224FBF14000F9048 /* ELBaseCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBaseCollectionView.m; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -724,6 +727,8 @@
 				D0F52B2622378B2D00A26504 /* ELBaseCollectionViewCell.m */,
 				D077107D224DA82700D0B993 /* ELBaseCollectionReusableView.h */,
 				D077107E224DA82700D0B993 /* ELBaseCollectionReusableView.m */,
+				D0A0DB9B224FBF14000F9048 /* ELBaseCollectionView.h */,
+				D0A0DB9C224FBF14000F9048 /* ELBaseCollectionView.m */,
 			);
 			path = BaseCollectionView;
 			sourceTree = "<group>";
@@ -1082,6 +1087,7 @@
 				18B4B3B2224FBB8300EA9404 /* ELHomeListView.m in Sources */,
 				C2E6CE8B22369AA40049D54C /* main.m in Sources */,
 				D0A0DB94224F1BE1000F9048 /* UITextField+ELFormatNumber.m in Sources */,
+				D0A0DB9D224FBF14000F9048 /* ELBaseCollectionView.m in Sources */,
 				D0F52B0A2237891000A26504 /* UIView+WDBlocksKit.m in Sources */,
 				D0180B03223F3915008C06C1 /* ELWebViewController.m in Sources */,
 				D0180B10223F399D008C06C1 /* CPProgressHUD.m in Sources */,
