@@ -6,12 +6,13 @@
 //  Copyright © 2019 FaceBook. All rights reserved.
 //
 
-#import "ELBaseView.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ELCircularProgressView : ELBaseView
+@interface ELCircularProgressView : UIView
 
+- (instancetype)initWithFrame:(CGRect)frame lineWidth:(CGFloat)lineWidth;
 /**
  * 进度
  */
@@ -21,6 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
  * 圆环宽度
  */
 @property (assign,nonatomic) CGFloat lineWidth;
+
+/**
+ * 原点大小
+ */
+@property (assign,nonatomic) CGFloat pointWidth;
+
 @end
 
 NS_ASSUME_NONNULL_END

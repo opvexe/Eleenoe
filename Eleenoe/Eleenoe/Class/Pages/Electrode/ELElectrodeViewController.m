@@ -37,12 +37,13 @@
 -(void)configView{
     
     _circleView = ({
-        ELCircularProgressView *iv = [[ELCircularProgressView alloc] init];
-        iv.frame = CGRectMake(kSAdap(80.0), kSAdap_V(80.0), SCREEN_WIDTH-kSAdap(160.0), kSAdap_V(210.0));
+        ELCircularProgressView *iv = [[ELCircularProgressView alloc] initWithFrame:CGRectMake(kSAdap(80.0), kSAdap_V(80.0), SCREEN_WIDTH-kSAdap(160.0), kSAdap_V(210.0)) lineWidth:kSAdap(10.0)];
+        iv.backgroundColor = [UIColor clearColor];
         [self.view addSubview:iv];
         iv;
     });
-    
+
+    self.circleView.progress = 0.5;
     _resetButton = ({
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
         [iv setImage:[UIImage imageNamed:@"reset_tie"] forState:UIControlStateNormal];
