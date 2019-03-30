@@ -548,6 +548,26 @@ static inline CGFloat TTTFlushFactorForTextAlignment(NSTextAlignment textAlignme
     //这里直接调用父类私有方法，好处能内部只会setNeedDisplay一次。一次更新所有添加的链接
     [super addLinksWithTextCheckingResults:results attributes:self.linkAttributes];
 }
+-(void)setLinkColor:(UIColor *)color{
+    //链接默认样式重新设置
+    NSMutableDictionary *mutableLinkAttributes = [@{(NSString *)kCTUnderlineStyleAttributeName:@(NO)}mutableCopy];
+    
+    NSMutableDictionary *mutableActiveLinkAttributes = [@{(NSString *)kCTUnderlineStyleAttributeName:@(NO)}mutableCopy];
+    
+    //点击时候的背景色
+    [mutableActiveLinkAttributes setValue:(__bridge id)[[UIColor clearColor] CGColor] forKey:(NSString *)kTTTBackgroundFillColorAttributeName];
+    
+    if ([NSMutableParagraphStyle class]) {
+        [mutableLinkAttributes setObject:color forKey:(NSString *)kCTForegroundColorAttributeName];
+        [mutableActiveLinkAttributes setObject:color forKey:(NSString *)kCTForegroundColorAttributeName];
+    } else {
+        [mutableLinkAttributes setObject:(__bridge id)[color CGColor] forKey:(NSString *)kCTForegroundColorAttributeName];
+        [mutableActiveLinkAttributes setObject:(__bridge id)[color CGColor] forKey:(NSString *)kCTForegroundColorAttributeName];
+    }
+    
+    self.linkAttributes = [NSDictionary dictionaryWithDictionary:mutableLinkAttributes];
+    self.activeLinkAttributes = [NSDictionary dictionaryWithDictionary:mutableActiveLinkAttributes];
+}
 
 #pragma mark - size fit result
 - (CGSize)preferredSizeWithMaxWidth:(CGFloat)maxWidth

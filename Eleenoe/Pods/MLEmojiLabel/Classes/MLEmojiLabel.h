@@ -45,6 +45,8 @@ typedef NS_OPTIONS(NSUInteger, MLEmojiLabelLinkType) {
 
 @property (nonatomic, copy, readonly) id emojiText; //外部能获取text的原始副本
 
+-(void)setLinkColor:(UIColor *) color;
+
 - (CGSize)preferredSizeWithMaxWidth:(CGFloat)maxWidth;
 
 @end

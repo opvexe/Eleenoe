@@ -8,12 +8,13 @@
 
 #import "ELBluetoothConnectionFloatingView.h"
 #import <KLCPopup.h>
-
+#import "ELButtonExtention.h"
+#import <MLEmojiLabel.h>
 @interface ELBluetoothConnectionFloatingView()
 @property(nonatomic,strong) KLCPopup *popup;
 @property(nonatomic,copy)void(^CompleteBlock)(ConnectionStatusType);
 @property(nonatomic,strong) FLAnimatedImageView *bluetoothImageView;
-@property(nonatomic,strong) UILabel *statueLabel;
+@property(nonatomic,strong) MLEmojiLabel *statueLabel;
 @property(nonatomic,strong) UIButton *closeButton;
 @end
 @implementation ELBluetoothConnectionFloatingView
@@ -62,17 +63,28 @@
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(kSAdap(15.0), kSAdap_V(17.0)));
-            make.left.mas_equalTo(kSAdap(20.0));
+            make.left.mas_equalTo(kSAdap(78.0));
             make.centerY.mas_equalTo(self);
         }];
         iv;
     });
     
     _statueLabel = ({
-        UILabel *iv = [[UILabel alloc]init];
+        MLEmojiLabel *iv = [[MLEmojiLabel alloc] initWithFrame:CGRectZero];
         iv.textColor = MainBlackTitleColor;
         iv.textAlignment = NSTextAlignmentCenter;
-        [iv setFont:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(14.0)]];
+        UIFont *contenFont =[UIFont ELPingFangSCRegularFontOfSize:kSaFont(14.0)];
+        iv.font = contenFont;
+        iv.disableThreeCommon = YES;
+        iv.shadowOffset = CGSizeMake(0.0f, 1.0f);
+        iv.maximumLineHeight = contenFont.lineHeight;
+        iv.minimumLineHeight = contenFont.lineHeight;
+        iv.lineSpacing = kSAdap(2);
+        iv.customEmojiRegex = @"#";
+        iv.lineBreakMode = NSLineBreakByCharWrapping;
+        iv.isNeedAtAndPoundSign = YES;
+        [iv setLinkColor:MainThemColor];
+        iv.text = @"设备连接失败、是#否重新连接?#";
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(self.bluetoothImageView);
@@ -83,11 +95,12 @@
     });
     
     _closeButton = ({
-        UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
+        ELButtonExtention *iv = [ELButtonExtention buttonWithType:UIButtonTypeCustom];
         [iv setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
         [iv setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
-        iv.adjustsImageWhenHighlighted =NO;
-        iv.showsTouchWhenHighlighted =NO;
+        iv.adjustsImageWhenHighlighted = NO;
+        iv.showsTouchWhenHighlighted = NO;
+        iv.isExpandClick = YES;
         [iv addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -103,20 +116,20 @@
     switch (status) {
         case ConnectionStatusTypeNone:{
             
-        }
             break;
+        }
         case ConnectionStatusTypeLoading:{
             
-        }
             break;
+        }
         case ConnectionStatusTypeFailure:{
             
-        }
             break;
+        }
         case ConnectionStatusTypeSuccess:{
             
-        }
             break;
+        }
         default:
             break;
     }
