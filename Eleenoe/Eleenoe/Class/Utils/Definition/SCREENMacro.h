@@ -32,7 +32,7 @@
 /** 设置默认 iPhone X 底部导航栏 安全高度 */
 #define iPhoneX_Bottom_Bar_Safe_Height (iS_IPhoneX_All ? 34  : 0)
 /** 设置默认 iPhone X 导航栏 高度 88xp  普通 64xp */
-#define iPhone_X_Navigation_Bar_Heigth  (iS_IPhoneX_All ? iPhoneX_Bottom_Bar_Safe_Height + 64 : 64)
+#define iPhone_X_Navigation_Bar_Heigth  (iS_IPhoneX_All ? iPhoneX_Navigation_Safe_Height + 64 : 64)
 /** 设置默认 iPhone X 底部导航栏 高度 83xp  普通 49xp */
 #define iPhoneX_Bottom_Navigation_Bar_Height (iS_IPhoneX_All ? iPhoneX_Bottom_Bar_Safe_Height + 49 : 49)
 /** 设置默认 iPhone X 状态栏高度 */

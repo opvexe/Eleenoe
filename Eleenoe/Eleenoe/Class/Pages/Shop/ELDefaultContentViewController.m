@@ -45,13 +45,13 @@
     configure.titleColor = MainLightGrayTitleColor;
     configure.indicatorHeight = 3.0;
     configure.indicatorCornerRadius = 2.0;
-    configure.indicatorToBottomDistance = 15.0;
+    configure.indicatorToBottomDistance = 0.0;
     configure.titleSelectedFont = [UIFont ELPingFangSCRegularFontOfSize:16.0];
     configure.titleSelectedColor = MainThemColor;
     configure.indicatorColor =  MainThemColor;
     configure.indicatorStyle = SGIndicatorStyleFixed;
     configure.bottomSeparatorColor = [UIColor whiteColor];
-    self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0,0, self.view.frame.size.width, 70.0) delegate:self titleNames:titleArr configure:configure];
+    self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0,0, self.view.frame.size.width, 44.0) delegate:self titleNames:titleArr configure:configure];
     [self.view addSubview:_pageTitleView];
     
     self.childArr = [NSMutableArray array];
@@ -60,7 +60,7 @@
         [self.childArr addObject:controller];
     }
     
-    CGFloat contentViewHeight = SCREEN_HEIGHT - CGRectGetMaxY(_pageTitleView.frame) -iPhoneX_Bottom_Navigation_Bar_Height -iPhone_X_Navigation_Bar_Heigth;
+    CGFloat contentViewHeight = self.view.frame.size.height - CGRectGetMaxY(_pageTitleView.frame) -iPhoneX_Bottom_Navigation_Bar_Height -iPhone_X_Navigation_Bar_Heigth;
     self.pageContentScrollView = [[SGPageContentScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_pageTitleView.frame),SCREEN_WIDTH, contentViewHeight) parentVC:self childVCs:_childArr];
     _pageContentScrollView.delegatePageContentScrollView = self;
     [self.view addSubview:_pageContentScrollView];

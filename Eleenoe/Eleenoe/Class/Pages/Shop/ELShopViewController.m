@@ -43,7 +43,7 @@
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
         UICollectionView *iv =[[UICollectionView alloc] initWithFrame:CGRectZero
                                                  collectionViewLayout:layout];
-        iv.backgroundColor = [UIColor whiteColor];
+        iv.backgroundColor = MainTableViewColor;
         iv.showsHorizontalScrollIndicator = NO;
         iv.showsVerticalScrollIndicator =NO;
         iv.dataSource = self;

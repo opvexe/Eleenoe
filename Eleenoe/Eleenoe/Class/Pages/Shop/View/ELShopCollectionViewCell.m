@@ -19,10 +19,11 @@
 
 -(void)ELSinitConfingViews{
     
+    self.contentView.backgroundColor = [UIColor whiteColor];
+    
     _shopImageView = ({
         FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]initWithFrame:CGRectZero];
         iv.clipsToBounds = YES;
-        iv.layer.cornerRadius = 3.0f;
         iv.contentMode = UIViewContentModeScaleAspectFill;
         [self.contentView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {

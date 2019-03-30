@@ -26,7 +26,7 @@
     
     _backgroundView = ({
         UIView *iv = [[UIView alloc]init];
-        iv.backgroundColor = [UIColor whiteColor];
+        iv.backgroundColor = MainTableViewColor;
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(self);
@@ -43,7 +43,8 @@
         [iv registerClass:[ELBannerCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELBannerCollectionViewCell class])];
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.right.mas_equalTo(self);
+            make.left.right.mas_equalTo(self);
+            make.top.mas_equalTo(kSAdap_V(15.0));
             make.bottom.mas_equalTo(-kSAdap_V(30.0));
         }];
         iv;
