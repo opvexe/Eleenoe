@@ -54,6 +54,8 @@
 		D0A0DB94224F1BE1000F9048 /* UITextField+ELFormatNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DB93224F1BE1000F9048 /* UITextField+ELFormatNumber.m */; };
 		D0A0DB9A224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DB99224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m */; };
 		D0A0DB9D224FBF14000F9048 /* ELBaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DB9C224FBF14000F9048 /* ELBaseCollectionView.m */; };
+		D0A0DBA0224FC1C2000F9048 /* ELMyofascialMenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DB9F224FC1C2000F9048 /* ELMyofascialMenuCollectionViewCell.m */; };
+		D0A0DBA4224FC69E000F9048 /* ELMyofascialMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DBA3224FC69E000F9048 /* ELMyofascialMenuModel.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -200,6 +202,10 @@
 		D0A0DB99224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMyofascialMenuScrolloView.m; sourceTree = "<group>"; };
 		D0A0DB9B224FBF14000F9048 /* ELBaseCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBaseCollectionView.h; sourceTree = "<group>"; };
 		D0A0DB9C224FBF14000F9048 /* ELBaseCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBaseCollectionView.m; sourceTree = "<group>"; };
+		D0A0DB9E224FC1C2000F9048 /* ELMyofascialMenuCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMyofascialMenuCollectionViewCell.h; sourceTree = "<group>"; };
+		D0A0DB9F224FC1C2000F9048 /* ELMyofascialMenuCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMyofascialMenuCollectionViewCell.m; sourceTree = "<group>"; };
+		D0A0DBA2224FC69E000F9048 /* ELMyofascialMenuModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMyofascialMenuModel.h; sourceTree = "<group>"; };
+		D0A0DBA3224FC69E000F9048 /* ELMyofascialMenuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMyofascialMenuModel.m; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -530,6 +536,8 @@
 				18B4B3BA224FBBC600EA9404 /* ELHomeTitleTableCell.m */,
 				D0A0DB98224FBCDF000F9048 /* ELMyofascialMenuScrolloView.h */,
 				D0A0DB99224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m */,
+				D0A0DB9E224FC1C2000F9048 /* ELMyofascialMenuCollectionViewCell.h */,
+				D0A0DB9F224FC1C2000F9048 /* ELMyofascialMenuCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -562,6 +570,15 @@
 			path = Update;
 			sourceTree = "<group>";
 		};
+		D0A0DBA1224FC679000F9048 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D0A0DBA2224FC69E000F9048 /* ELMyofascialMenuModel.h */,
+				D0A0DBA3224FC69E000F9048 /* ELMyofascialMenuModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D0DC66F822393AD90064C07A /* NetworkTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +597,7 @@
 		D0EC4B212238AAD600B5A74D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D0A0DBA1224FC679000F9048 /* Model */,
 				D0771098224E828E00D0B993 /* View */,
 				D0EC4B222238AAE800B5A74D /* ELHomeViewController.h */,
 				D0EC4B232238AAE800B5A74D /* ELHomeViewController.m */,
@@ -1074,6 +1092,7 @@
 				D0F52B3622378F7A00A26504 /* ELRootViewController.m in Sources */,
 				D0771082224DFC6900D0B993 /* ELBannerCollectionReusableView.m in Sources */,
 				D0F52B102237892300A26504 /* UIView+Category.m in Sources */,
+				D0A0DBA0224FC1C2000F9048 /* ELMyofascialMenuCollectionViewCell.m in Sources */,
 				D0DC670722393DB20064C07A /* ELMessageEventButton.m in Sources */,
 				D0EC4B242238AAE800B5A74D /* ELHomeViewController.m in Sources */,
 				18B4B3B5224FBB9B00EA9404 /* ELHomeTitleListView.m in Sources */,
@@ -1117,6 +1136,7 @@
 				D0F52B03223788D400A26504 /* Foundation+Log.m in Sources */,
 				D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */,
 				D0180BD82244C7D2008C06C1 /* SCREENAdaptationTool.m in Sources */,
+				D0A0DBA4224FC69E000F9048 /* ELMyofascialMenuModel.m in Sources */,
 				D0180AFD223F367A008C06C1 /* ELPlacemark.m in Sources */,
 				D0771057224CB4AB00D0B993 /* ELShopViewController.m in Sources */,
 				D0EC4B382238D05900B5A74D /* ELUserDataSocure.m in Sources */,
