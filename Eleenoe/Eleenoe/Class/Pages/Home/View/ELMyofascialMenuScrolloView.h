@@ -9,6 +9,14 @@
 #import "ELBaseView.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+
+/**
+ * 滚动方向
+ 
+ - MyofascialMenuTypeHorizontal: 水平方向
+ - MyofascialMenuTypeVertical: 垂直方向
+ */
 typedef NS_ENUM(NSInteger, MyofascialMenuType) {
     MyofascialMenuTypeHorizontal,
     MyofascialMenuTypeVertical,
@@ -16,6 +24,24 @@ typedef NS_ENUM(NSInteger, MyofascialMenuType) {
 
 @interface ELMyofascialMenuScrolloView : ELBaseView
 
+/**
+ * 默认选中垂直方向
+ 
+ */
+@property(nonatomic, assign) MyofascialMenuType type;
+
+/**
+ * 默认选中
+ 
+ */
+@property(nonatomic, assign) NSInteger defaultChoice;
+
+/**
+ * 赋值
+ 
+ @param lists 数组数据
+ */
+-(void)initWithSouce:(NSArray *)lists;
 
 @end
 
