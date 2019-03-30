@@ -7,10 +7,12 @@
 //
 
 #import "ELElectrodeViewController.h"
+#import "ELCircularProgressView.h"
 
 @interface ELElectrodeViewController ()
 @property (nonatomic, strong) UIButton *changeButton;
 @property (nonatomic, strong) UIButton *resetButton;
+@property (nonatomic,strong) ELCircularProgressView *circleView;
 @end
 
 @implementation ELElectrodeViewController
@@ -33,6 +35,13 @@
 
 
 -(void)configView{
+    
+    _circleView = ({
+        ELCircularProgressView *iv = [[ELCircularProgressView alloc] init];
+        iv.frame = CGRectMake(kSAdap(80.0), kSAdap_V(80.0), SCREEN_WIDTH-kSAdap(160.0), kSAdap_V(210.0));
+        [self.view addSubview:iv];
+        iv;
+    });
     
     _resetButton = ({
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
