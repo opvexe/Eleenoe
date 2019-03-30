@@ -18,10 +18,8 @@
 @property (nonatomic, strong) ELMessageEventButton *messageEventButton;
 @property (nonatomic, strong) UIButton *weixinButton;
 @property (nonatomic, strong) UILabel *tipLabel;
-@property (nonatomic,strong) UIView *iphoneView;
-@property (nonatomic,strong) UIView *authCodeView;
-//@property (nonatomic,strong) UIView *leftLineView;
-//@property (nonatomic,strong) UIView *rightLineView;
+@property (nonatomic, strong) UIView *iphoneView;
+@property (nonatomic, strong) UIView *authCodeView;
 @end
 
 @implementation ELLoginViewController
