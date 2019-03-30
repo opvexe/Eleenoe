@@ -7,57 +7,44 @@
 //
 
 #import "ELHomeTitleListView.h"
-#import "ELHomeTitleTableCell.h"
+#import "ELHomeTitleCollectionCell.h"
 @interface ELHomeTitleListView()
 @property(nonatomic,strong)NSMutableArray *titleList;
 @end
 @implementation ELHomeTitleListView
--(instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
-    if (self = [super initWithFrame:frame
-                              style:style]) {
+-(instancetype)initWithFrame:(CGRect)frame  collectionViewLayout:(nonnull UICollectionViewLayout *)layout{
+    if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
         self.showsVerticalScrollIndicator = NO;
         self.showsHorizontalScrollIndicator = NO;
-        self.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.rowHeight = kSAdap(298);
         self.dataSource = self;
         self.delegate = self;
-        if (@available(iOS 11.0, *)) {
-            self.estimatedSectionFooterHeight = 0.01;
-            self.estimatedSectionHeaderHeight = 0.01;
-        }
         self.backgroundColor = [UIColor whiteColor];
-        self.tableFooterView =[UIView new];
     }
     return self;
 }
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//设置分区
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView
+{
     return 1;
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     return self.titleList.count;
 }
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return  ;
-//}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ELHomeTitleTableCell *cell  = [ELHomeTitleTableCell CellWithTableView:tableView];
-    return cell;
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(kSAdap(47),kSAdap(51));
 }
 
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    return nil;
-}
--(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return nil;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.01f;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 0.01f;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ELHomeTitleCollectionCell *cell =  [ELHomeTitleCollectionCell cellWithCollectionView:collectionView indexpath:indexPath];
     
+    return cell;
+}
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+
 }
 @end

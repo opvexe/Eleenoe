@@ -6,11 +6,11 @@
 //  Copyright © 2019 FaceBook. All rights reserved.
 //
 
-#import "ELBaseTableViewCell.h"
+#import "ELBaseCollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ELHomeTitleTableCell : ELBaseTableViewCell
+@interface ELHomeTitleCollectionCell : ELBaseCollectionViewCell
 
 @end
 

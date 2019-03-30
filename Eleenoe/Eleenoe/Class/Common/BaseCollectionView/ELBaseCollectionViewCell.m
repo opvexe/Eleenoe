@@ -10,6 +10,13 @@
 
 @implementation ELBaseCollectionViewCell
 
++(instancetype)cellWithCollectionView:(UICollectionView*)collectionView indexpath:(NSIndexPath *)indexPath{
+    ELBaseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ELBaseCollectionViewCell class]) forIndexPath:indexPath];
+    
+    return cell;
+}
+
+
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self =[super initWithFrame:frame]) {
         

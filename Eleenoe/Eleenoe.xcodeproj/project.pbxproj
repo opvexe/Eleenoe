@@ -14,8 +14,8 @@
 		18B4B3AF224FB92800EA9404 /* ELBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3AE224FB92800EA9404 /* ELBaseTableView.m */; };
 		18B4B3B2224FBB8300EA9404 /* ELHomeListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3B1224FBB8300EA9404 /* ELHomeListView.m */; };
 		18B4B3B5224FBB9B00EA9404 /* ELHomeTitleListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3B4224FBB9B00EA9404 /* ELHomeTitleListView.m */; };
-		18B4B3B8224FBBB300EA9404 /* ELHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3B7224FBBB300EA9404 /* ELHomeTableViewCell.m */; };
-		18B4B3BB224FBBC600EA9404 /* ELHomeTitleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3BA224FBBC600EA9404 /* ELHomeTitleTableCell.m */; };
+		18B4B3B8224FBBB300EA9404 /* ELHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3B7224FBBB300EA9404 /* ELHomeCollectionViewCell.m */; };
+		18B4B3BB224FBBC600EA9404 /* ELHomeTitleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3BA224FBBC600EA9404 /* ELHomeTitleCollectionCell.m */; };
 		2E4B5557E019085BA72F7373 /* libPods-Eleenoe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BD9D29E12BC7CF7674A550 /* libPods-Eleenoe.a */; };
 		C2E6CE7D22369AA30049D54C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E6CE7C22369AA30049D54C /* AppDelegate.m */; };
 		C2E6CE8522369AA40049D54C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2E6CE8422369AA40049D54C /* Assets.xcassets */; };
@@ -123,10 +123,10 @@
 		18B4B3B1224FBB8300EA9404 /* ELHomeListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELHomeListView.m; sourceTree = "<group>"; };
 		18B4B3B3224FBB9B00EA9404 /* ELHomeTitleListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELHomeTitleListView.h; sourceTree = "<group>"; };
 		18B4B3B4224FBB9B00EA9404 /* ELHomeTitleListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELHomeTitleListView.m; sourceTree = "<group>"; };
-		18B4B3B6224FBBB300EA9404 /* ELHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELHomeTableViewCell.h; sourceTree = "<group>"; };
-		18B4B3B7224FBBB300EA9404 /* ELHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELHomeTableViewCell.m; sourceTree = "<group>"; };
-		18B4B3B9224FBBC600EA9404 /* ELHomeTitleTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELHomeTitleTableCell.h; sourceTree = "<group>"; };
-		18B4B3BA224FBBC600EA9404 /* ELHomeTitleTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELHomeTitleTableCell.m; sourceTree = "<group>"; };
+		18B4B3B6224FBBB300EA9404 /* ELHomeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELHomeCollectionViewCell.h; sourceTree = "<group>"; };
+		18B4B3B7224FBBB300EA9404 /* ELHomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELHomeCollectionViewCell.m; sourceTree = "<group>"; };
+		18B4B3B9224FBBC600EA9404 /* ELHomeTitleCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELHomeTitleCollectionCell.h; sourceTree = "<group>"; };
+		18B4B3BA224FBBC600EA9404 /* ELHomeTitleCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELHomeTitleCollectionCell.m; sourceTree = "<group>"; };
 		7150EA626360CE617E43344D /* Pods-Eleenoe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eleenoe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Eleenoe/Pods-Eleenoe.debug.xcconfig"; sourceTree = "<group>"; };
 		A3C6CF43DD0FF20A3589551D /* Pods-Eleenoe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eleenoe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eleenoe/Pods-Eleenoe.release.xcconfig"; sourceTree = "<group>"; };
 		C2E6CE7822369AA30049D54C /* Eleenoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eleenoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -524,10 +524,10 @@
 				18B4B3B1224FBB8300EA9404 /* ELHomeListView.m */,
 				18B4B3B3224FBB9B00EA9404 /* ELHomeTitleListView.h */,
 				18B4B3B4224FBB9B00EA9404 /* ELHomeTitleListView.m */,
-				18B4B3B6224FBBB300EA9404 /* ELHomeTableViewCell.h */,
-				18B4B3B7224FBBB300EA9404 /* ELHomeTableViewCell.m */,
-				18B4B3B9224FBBC600EA9404 /* ELHomeTitleTableCell.h */,
-				18B4B3BA224FBBC600EA9404 /* ELHomeTitleTableCell.m */,
+				18B4B3B6224FBBB300EA9404 /* ELHomeCollectionViewCell.h */,
+				18B4B3B7224FBBB300EA9404 /* ELHomeCollectionViewCell.m */,
+				18B4B3B9224FBBC600EA9404 /* ELHomeTitleCollectionCell.h */,
+				18B4B3BA224FBBC600EA9404 /* ELHomeTitleCollectionCell.m */,
 				D0A0DB98224FBCDF000F9048 /* ELMyofascialMenuScrolloView.h */,
 				D0A0DB99224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m */,
 			);
@@ -1112,7 +1112,7 @@
 				D0F52B45223792C800A26504 /* ELPasswordViewController.m in Sources */,
 				D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */,
 				D0771079224D253300D0B993 /* ELTextField.m in Sources */,
-				18B4B3BB224FBBC600EA9404 /* ELHomeTitleTableCell.m in Sources */,
+				18B4B3BB224FBBC600EA9404 /* ELHomeTitleCollectionCell.m in Sources */,
 				D0771072224D172D00D0B993 /* CJXBarButtonItem.m in Sources */,
 				D0F52B03223788D400A26504 /* Foundation+Log.m in Sources */,
 				D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */,
@@ -1129,7 +1129,7 @@
 				18B4B3A9224F7DA900EA9404 /* ELMyofascialBottomView.m in Sources */,
 				D077108D224E1D2200D0B993 /* ELShopModel.m in Sources */,
 				D07710AE224F0CD700D0B993 /* ELUpdateViewController.m in Sources */,
-				18B4B3B8224FBBB300EA9404 /* ELHomeTableViewCell.m in Sources */,
+				18B4B3B8224FBBB300EA9404 /* ELHomeCollectionViewCell.m in Sources */,
 				D0771091224E322500D0B993 /* ELSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
