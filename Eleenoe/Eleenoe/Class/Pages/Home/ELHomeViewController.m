@@ -43,7 +43,6 @@
         collectionView.bounces = NO;
         collectionView.delegatePageContentCollectionView  = self;
         [self.view addSubview:collectionView];
-        
         [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(0);
             make.height.mas_equalTo(kSAdap(82));

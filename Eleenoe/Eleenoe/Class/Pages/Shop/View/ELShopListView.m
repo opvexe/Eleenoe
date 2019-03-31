@@ -25,13 +25,10 @@
         self.backgroundColor = MainTableViewColor;
         [self registerClass:[ELShopCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELShopCollectionViewCell class])];
         [self registerClass:[ELBannerCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([ELBannerCollectionReusableView class])];
+        NSDictionary *shop =  [NSString readJson2DicWithFileName:@"Shopping"];
+        self.model = [ELShopModel mj_objectWithKeyValues:shop[@"data"]];
     }
     return self;
-}
-
--(void)initWithSouce:(ELShopModel *)model{
-    _model = model;
-    [self reloadData];
 }
 
 #pragma mark UICollectionViewCellDelegate

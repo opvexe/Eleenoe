@@ -19,7 +19,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self configView];
-    [self loadDataSoucre];
 }
 
 -(void)setSelectIndex:(NSInteger)selectIndex{
@@ -44,12 +43,6 @@
         }];
         iv;
     });
-}
-
--(void)loadDataSoucre{
-    NSDictionary *shop =  [NSString readJson2DicWithFileName:@"Shopping"];
-    ELShopModel *model = [ELShopModel mj_objectWithKeyValues:shop[@"data"]];
-    [self.listView initWithSouce:model];
 }
 
 

@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ELMineListView : ELBaseTableView
 
--(void)initWithSouce:(NSArray *)souce;
 
 @end
 

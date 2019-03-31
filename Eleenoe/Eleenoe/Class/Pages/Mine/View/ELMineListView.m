@@ -20,15 +20,15 @@
         self.dataSource = self;
         self.delegate = self;
         self.rowHeight = kSAdap_V(60.0);
+        NSArray *settings = @[@{@"sections":@[
+                                        @{@"icon":@"mine_instructions",@"title":@"使用说明",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"},
+                                        @{@"icon":@"mine_suggestion",@"title":@"意见反馈",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"},
+                                        @{@"icon":@"mine_announcements",@"title":@"注意事项",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"}]},
+                              @{@"sections":@[
+                                        @{@"icon":@"mine_service",@"title":@"售后服务",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"}]}];
+        self.lists = [ELSettingModel mj_objectArrayWithKeyValuesArray:settings];
     }
     return self;
-}
-
--(void)initWithSouce:(NSArray *)souce{
-    if (souce.count) {
-        [self.lists addObjectsFromArray:souce];
-        [self reloadData];
-    }
 }
 
 #pragma mark UITableViewDelegate,UITableViewDataSource

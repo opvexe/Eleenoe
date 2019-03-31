@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ELShopListView : ELBaseCollectionView
 
--(void)initWithSouce:(ELBaseModel *)model;
 
 @end
 

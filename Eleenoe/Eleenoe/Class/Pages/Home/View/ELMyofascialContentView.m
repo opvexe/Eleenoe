@@ -22,7 +22,7 @@
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self);
-            make.top.mas_equalTo(kSAdap_V(30.0));
+            make.top.mas_equalTo(kSAdap_V(60.0));
             make.size.mas_equalTo(icon.size);
         }];
         iv;
