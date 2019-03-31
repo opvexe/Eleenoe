@@ -37,7 +37,7 @@
         UICollectionViewFlowLayout *  flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.minimumInteritemSpacing = 0;
         flowLayout.minimumLineSpacing = kSAdap(45);
-        flowLayout.sectionInset = UIEdgeInsetsMake(0,kSAdap(15), 0, kSAdap(15));
+        flowLayout.sectionInset = UIEdgeInsetsMake(0,kSAdap(15), kSAdap(10), kSAdap(15));
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         ELHomeTitleListView*collectionView = [[ELHomeTitleListView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         collectionView.bounces = NO;
@@ -89,8 +89,8 @@
 -(void)pageContentCollectionView:(ELHomeListView *)pageContentCollectionView index:(NSInteger)index{
     [self.titleListView setELHomeTitleListViewCurrentIndex:index];
 }
+
 -(void)Click{
-    
     
 }
 

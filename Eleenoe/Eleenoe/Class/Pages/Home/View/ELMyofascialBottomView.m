@@ -260,8 +260,9 @@
     [super layoutSubviews];
     [self.rightContentView UILayoutCornerRadiusType:UILayoutCornerRadiusLeft withCornerRadius:kSAdap_V(12)];
 }
+
 -(void)Click:(UIButton *)sender{
-    
-    
+    sender.selected = !sender.selected;
+    NSLog(@"Click 连接");
 }
 @end

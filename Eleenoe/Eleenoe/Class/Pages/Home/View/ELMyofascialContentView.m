@@ -7,9 +7,12 @@
 //
 
 #import "ELMyofascialContentView.h"
-
+#import "ELMyofascialMenuScrolloView.h"
+#import "ELMyofascialMenuModel.h"
 @interface ELMyofascialContentView()
 @property(nonatomic,strong)UIImageView *contentImageView;
+@property (nonatomic,strong) ELMyofascialMenuScrolloView *bodyListView;
+@property (nonatomic,strong) ELMyofascialMenuScrolloView *rankListView;
 @end
 
 @implementation ELMyofascialContentView
@@ -28,5 +31,59 @@
         iv;
     });
     
+    _bodyListView = ({
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        flowLayout.minimumInteritemSpacing = 0.f;
+        flowLayout.minimumLineSpacing = kSAdap(15);
+        flowLayout.sectionInset = UIEdgeInsetsMake(kSAdap_V(10), 0, kSAdap_V(10), 0);
+        flowLayout.itemSize = CGSizeMake(kSAdap(50), kSAdap_V(32));
+        ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        [self addSubview:iv];
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(kSAdap_V(55.0));
+            make.right.mas_equalTo(-kSAdap(15));
+            make.bottom.mas_equalTo(-kSAdap_V(52));
+            make.width.mas_equalTo(kSAdap(80));
+        }];
+        iv;
+    });
+    
+    NSMutableArray *list = [NSMutableArray arrayWithCapacity:0];
+    for (NSInteger i = 0; i< 10; i++) {
+        ELMyofascialMenuModel *model = [[ELMyofascialMenuModel alloc]init];
+        model.title = [NSString stringWithFormat:@"肩部%ld",i];
+        [list addObject:model];
+    }
+    [self.bodyListView initWithSouce:list];
+    
+    
+    _rankListView = ({
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        flowLayout.minimumInteritemSpacing = 0.f;
+        flowLayout.minimumLineSpacing = kSAdap(15);
+        flowLayout.sectionInset = UIEdgeInsetsMake(kSAdap_V(10), 0, kSAdap_V(10), 0);
+        flowLayout.itemSize = CGSizeMake(kSAdap(50), kSAdap_V(32));
+        ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        [self addSubview:iv];
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(kSAdap_V(55.0));
+            make.left.mas_equalTo(kSAdap(15));
+            make.bottom.mas_equalTo(-kSAdap_V(52));
+            make.width.mas_equalTo(kSAdap(80));
+        }];
+        iv;
+    });
+    
+    NSMutableArray *rank = [NSMutableArray arrayWithCapacity:0];
+    for (NSInteger i = 0; i< 10; i++) {
+        ELMyofascialMenuModel *model = [[ELMyofascialMenuModel alloc]init];
+        model.title = [NSString stringWithFormat:@"%ld级",i];
+        [rank addObject:model];
+    }
+    [self.rankListView initWithSouce:rank];
+    
 }
+
 @end
