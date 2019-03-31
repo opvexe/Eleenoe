@@ -7,7 +7,9 @@
 //
 
 #import "ELMyofascialBottomView.h"
+#import "ELMyofascialMenuScrolloView.h"
 #import "ELButtonExtention.h"
+#import "ELMyofascialMenuModel.h"
 @interface ELMyofascialBottomView()
 @property(nonatomic,strong)UIImageView *MyofascialBottomImageView;
 @property(nonatomic,strong) ELButtonExtention *determineButton;
@@ -20,6 +22,8 @@
 @property(nonatomic,strong)UIView *rightContentView;
 @property(nonatomic,strong)UIImageView *rightIconImageView;
 @property(nonatomic,strong)UILabel *rightTitle;
+@property(nonatomic,strong) ELMyofascialMenuScrolloView *timeListView;
+@property (nonatomic,strong) ELMyofascialMenuScrolloView *gearListView;
 @end
 
 @implementation ELMyofascialBottomView
@@ -71,7 +75,7 @@
             make.top.mas_equalTo(self.MyofascialBottomImageView.mas_top).offset(kSAdap_V(10));
             make.left.mas_equalTo(self.MyofascialBottomImageView.mas_left).mas_offset(kSAdap(35));
             make.height.mas_equalTo(kSAdap_V(18.5));
-            make.width.mas_equalTo(kSAdap(26));
+            make.width.mas_equalTo(kSAdap(30.0));
         }];
         iv;
     });
@@ -102,7 +106,7 @@
             make.top.mas_equalTo(self.MyofascialBottomImageView.mas_top).offset(kSAdap_V(10));
             make.right.mas_equalTo(self.MyofascialBottomImageView.mas_right).mas_offset(-kSAdap(35));
             make.height.mas_equalTo(kSAdap_V(18.5));
-            make.width.mas_equalTo(kSAdap(26));
+            make.width.mas_equalTo(kSAdap(30.0));
         }];
         iv;
     });
@@ -155,6 +159,59 @@
         iv;
     });
     
+    _timeListView = ({
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        flowLayout.minimumInteritemSpacing = 0.f;
+        flowLayout.minimumLineSpacing = 0.f;
+        flowLayout.sectionInset = UIEdgeInsetsMake(0,kSAdap(0), 0, kSAdap(0));
+        flowLayout.itemSize = CGSizeMake(kSAdap(20.0), kSAdap_V(32.0));
+        ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        [self.MyofascialBottomImageView addSubview:iv];
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.mas_equalTo(self.timeLabel.mas_centerX);
+            make.top.mas_equalTo(self.timeLabel.mas_bottom).mas_offset(kSAdap_V(12.0));
+            make.width.mas_equalTo(kSAdap(70.0));
+            make.height.mas_equalTo(kSAdap_V(32.0));
+        }];
+        iv;
+    });
+    
+    NSMutableArray *list = [NSMutableArray arrayWithCapacity:0];
+    for (NSInteger i = 0; i< 10; i++) {
+        ELMyofascialMenuModel *model = [[ELMyofascialMenuModel alloc]init];
+        model.title = [NSString stringWithFormat:@"%ld",i];
+        [list addObject:model];
+    }
+    [self.timeListView initWithSouce:list];
+    
+    _gearListView = ({
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        flowLayout.minimumInteritemSpacing = 0.f;
+        flowLayout.minimumLineSpacing = 0.f;
+        flowLayout.sectionInset = UIEdgeInsetsMake(0,kSAdap(0), 0, kSAdap(0));
+        flowLayout.itemSize = CGSizeMake(kSAdap(20.0), kSAdap_V(32.0));
+        ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        [self.MyofascialBottomImageView addSubview:iv];
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.mas_equalTo(self.titleLabel.mas_centerX);
+            make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(kSAdap_V(12.0));
+            make.width.mas_equalTo(kSAdap(70.0));
+            make.height.mas_equalTo(kSAdap_V(32.0));
+        }];
+        iv;
+    });
+    
+    NSMutableArray *gers = [NSMutableArray arrayWithCapacity:0];
+    for (NSInteger i = 0; i< 10; i++) {
+        ELMyofascialMenuModel *model = [[ELMyofascialMenuModel alloc]init];
+        model.title = [NSString stringWithFormat:@"%ld",i];
+        [gers addObject:model];
+    }
+    [self.gearListView initWithSouce:gers];
+    
+    
     _rightContentView = ({
         UIView *iv = [[UIView alloc] init];
         [self addSubview:iv];
@@ -197,7 +254,6 @@
         }];
         iv;
     });
-    
 }
 -(void)layoutSubviews{
     [super layoutSubviews];

@@ -19,7 +19,7 @@
 @property(nonatomic,strong)ELMyofascialBottomView *bottomView;
 @property(nonatomic,strong)ELHomeListView *homelistView;
 @property(nonatomic,strong)ELHomeTitleListView *titleListView;
-@property(nonatomic,strong) ELMyofascialMenuScrolloView *menuScrolloView;
+@property(nonatomic,strong) ELMyofascialMenuScrolloView *pickListView;
 @end
 
 @implementation ELHomeViewController
@@ -77,32 +77,11 @@
             make.bottom.mas_equalTo(self.bottomView.mas_top);
         }];
         collectionView;
-        });
-    
-         
-//    _menuScrolloView = ({
-//        ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]init];
-//        iv.backgroundColor = [UIColor clearColor];
-//        [self.view addSubview:iv];
-//        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.mas_equalTo(self.titleListView.mas_bottom).mas_offset(kSAdap_V(54.0));
-//            make.left.mas_equalTo(kSAdap(41.0));
-//            make.height.mas_equalTo(kSAdap_V(200.0));
-//            make.width.mas_equalTo(kSAdap(80.0));
-//        }];
-//        iv;
-//    });
-//    NSMutableArray *list = [NSMutableArray arrayWithCapacity:0];
-//    for (NSInteger i = 0; i< 10; i++) {
-//        ELMyofascialMenuModel *model = [[ELMyofascialMenuModel alloc]init];
-//        model.title = [NSString stringWithFormat:@"%ld",i];
-//        [list addObject:model];
-//    }
-//    [self.menuScrolloView initWithSouce:list];
+    });
 }
-         
-         
-         
+
+
+
 -(void)Click{
     
     
