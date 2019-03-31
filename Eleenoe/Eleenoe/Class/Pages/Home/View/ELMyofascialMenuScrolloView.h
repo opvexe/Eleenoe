@@ -43,6 +43,8 @@ typedef NS_ENUM(NSInteger, MyofascialMenuType) {
  */
 -(void)initWithSouce:(NSArray *)lists;
 
+
+- (void)setPageContentCollectionViewCurrentIndex:(NSInteger)currentIndex;
 @end
 
 NS_ASSUME_NONNULL_END

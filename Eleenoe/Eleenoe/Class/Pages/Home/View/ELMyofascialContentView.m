@@ -13,6 +13,8 @@
 @property(nonatomic,strong)UIImageView *contentImageView;
 @property (nonatomic,strong) ELMyofascialMenuScrolloView *bodyListView;
 @property (nonatomic,strong) ELMyofascialMenuScrolloView *rankListView;
+@property(nonatomic,strong)UIView *bodyCircleView;
+@property(nonatomic,strong)UIView *rankCircleView;
 @end
 
 @implementation ELMyofascialContentView
@@ -83,6 +85,37 @@
         [rank addObject:model];
     }
     [self.rankListView initWithSouce:rank];
+    
+    
+    _bodyCircleView = ({
+        UIView *iv = [[UIView alloc] init];
+        [self addSubview:iv];
+        iv.cornerRadius = kSAdap(14);
+        iv.clipsToBounds = YES;
+        iv.layer.borderColor = [UIColor whiteColor].CGColor;
+        iv.layer.borderWidth = 1;
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(kSAdap_V(28));
+            make.width.mas_equalTo(kSAdap(55));
+            make.center.mas_equalTo(self.bodyListView);
+        }];
+        iv;
+    });
+    
+    _rankCircleView = ({
+        UIView *iv = [[UIView alloc] init];
+        [self addSubview:iv];
+        iv.cornerRadius = kSAdap(14);
+        iv.clipsToBounds = YES;
+        iv.layer.borderColor = [UIColor whiteColor].CGColor;
+        iv.layer.borderWidth = 1;
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(kSAdap_V(28));
+            make.width.mas_equalTo(kSAdap(55));
+            make.center.mas_equalTo(self.rankListView);
+        }];
+        iv;
+    });
     
 }
 

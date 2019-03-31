@@ -30,8 +30,15 @@
         [self.lists addObjectsFromArray:lists];
         [self reloadData];
     }
+
+    
 }
 
+- (void)setPageContentCollectionViewCurrentIndex:(NSInteger)currentIndex{
+    
+
+//    [self setContentOffset:CGPointMake(self.contentOffset.x, contentOffset) animated:YES];
+}
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ELMyofascialMenuCollectionViewCell *cell = [ELMyofascialMenuCollectionViewCell cellWithCollectionView:collectionView indexpath:indexPath];
     [cell InitDataWithModel:self.lists[indexPath.row]];
@@ -41,11 +48,9 @@
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView{
     return 1;
 }
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.lists.count;
 }
-
 -(NSMutableArray *)lists{
     if (!_lists) {
         _lists = [NSMutableArray arrayWithCapacity:0];
