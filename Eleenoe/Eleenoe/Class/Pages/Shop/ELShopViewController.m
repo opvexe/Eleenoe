@@ -66,7 +66,7 @@
 
 #pragma mark UICollectionViewCellDelegate
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    ELShopCollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ELShopCollectionViewCell class]) forIndexPath:indexPath];
+    ELShopCollectionViewCell *cell =  [ELShopCollectionViewCell cellWithCollectionView:collectionView indexpath:indexPath];
     [cell InitDataWithModel:_model.goods_datas[indexPath.row]];
     return cell;
 }

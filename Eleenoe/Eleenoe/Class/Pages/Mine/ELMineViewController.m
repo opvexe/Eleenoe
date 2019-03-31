@@ -7,11 +7,10 @@
 //
 
 #import "ELMineViewController.h"
-#import "ELMineTableViewCell.h"
-
-@interface ELMineViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) UITableView *tableListView;
-@property (nonatomic, strong) NSMutableArray *lists;
+#import "ELSettingModel.h"
+#import "ELMineListView.h"
+@interface ELMineViewController ()
+@property (nonatomic,strong) ELMineListView *listView;
 @property (nonatomic, strong) UIButton *logoutButton;
 @end
 
@@ -45,17 +44,10 @@
         iv;
     });
     
-    _tableListView = ({
-        UITableView *iv = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];;
+    _listView = ({
+        ELMineListView *iv = [[ELMineListView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        iv.tableFooterView = footView;
         [self.view addSubview:iv];
-        iv.showsVerticalScrollIndicator =NO;
-        iv.showsHorizontalScrollIndicator =NO;
-        iv.separatorStyle = UITableViewCellSeparatorStyleNone;
-        iv.backgroundColor = MainTableViewColor;
-        iv.dataSource = self;
-        iv.delegate = self;
-        iv.rowHeight = kSAdap_V(60.0);
-        iv.tableFooterView  = footView;
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             if (iOS11) {
                 make.edges.mas_equalTo(self.view.safeAreaInsets);
@@ -75,52 +67,14 @@
                            @{@"icon":@"mine_announcements",@"title":@"注意事项",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"}]},
                  @{@"sections":@[
                            @{@"icon":@"mine_service",@"title":@"售后服务",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"}]}];
-    self.lists = [ELSettingModel mj_objectArrayWithKeyValuesArray:settings];
-    [self.tableListView reloadData];
+    NSArray *souce = [ELSettingModel mj_objectArrayWithKeyValuesArray:settings];
+    [self.listView initWithSouce:souce];
 }
 
-#pragma mark - 退出
 -(void)logoutAction:(UIButton *)sender{
     NSLog(@"退出");
 }
 
-#pragma mark UITableViewDelegate,UITableViewDataSource
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    ELSettingModel *model = self.lists[section];
-    return model.sections.count;
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.lists.count;;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ELMineTableViewCell *cell = [ELMineTableViewCell CellWithTableView:tableView];
-    ELSettingModel *model = self.lists[indexPath.section];
-    [cell InitDataWithModel:model.sections[indexPath.row]];
-    return cell;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
-
-#pragma mark 适配ios11
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    return nil;
-}
-
--(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return nil;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.01f;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return kSAdap_V(10.0);
-}
 
 
 /*

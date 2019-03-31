@@ -17,6 +17,11 @@
 
 @implementation ELShopCollectionViewCell
 
++(instancetype)cellWithCollectionView:(UICollectionView*)collectionView indexpath:(NSIndexPath *)indexPath{
+    ELShopCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ELShopCollectionViewCell class]) forIndexPath:indexPath];
+    return cell;
+}
+
 -(void)ELSinitConfingViews{
     
     self.contentView.backgroundColor = [UIColor whiteColor];
