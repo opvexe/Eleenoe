@@ -24,6 +24,8 @@
 @property(nonatomic,strong)UILabel *rightTitle;
 @property(nonatomic,strong) ELMyofascialMenuScrolloView *timeListView;
 @property(nonatomic,strong) ELMyofascialMenuScrolloView *gearListView;
+@property(nonatomic,strong)UIView *gearCircleView;
+@property(nonatomic,strong)UIView *timeCircleView;
 @end
 
 @implementation ELMyofascialBottomView
@@ -211,7 +213,38 @@
         [gers addObject:model];
     }
     [self.gearListView initWithSouce:gers];
+ 
     
+    _gearCircleView = ({
+        UIView *iv = [[UIView alloc] init];
+        [self.MyofascialBottomImageView addSubview:iv];
+        iv.cornerRadius = kSAdap(10);
+        iv.clipsToBounds = YES;
+        iv.layer.borderColor = MainThemColor.CGColor;
+        iv.layer.borderWidth = 1;
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(kSAdap_V(32));
+            make.width.mas_equalTo(kSAdap(20));
+            make.center.mas_equalTo(self.gearListView);
+        }];
+        iv;
+    });
+    
+    
+    _timeCircleView = ({
+        UIView *iv = [[UIView alloc] init];
+        [self.MyofascialBottomImageView addSubview:iv];
+        iv.cornerRadius = kSAdap(10);
+        iv.clipsToBounds = YES;
+        iv.layer.borderColor = MainThemColor.CGColor;
+        iv.layer.borderWidth = 1;
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(kSAdap_V(32));
+            make.width.mas_equalTo(kSAdap(20));
+            make.center.mas_equalTo(self.timeListView);
+        }];
+        iv;
+    });
     
     _rightContentView = ({
         UIView *iv = [[UIView alloc] init];
@@ -259,8 +292,8 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     [self.rightContentView UILayoutCornerRadiusType:UILayoutCornerRadiusLeft withCornerRadius:kSAdap_V(12)];
-}
 
+}
 -(void)Click:(UIButton *)sender{
     sender.selected = !sender.selected;
     NSLog(@"Click 连接");
