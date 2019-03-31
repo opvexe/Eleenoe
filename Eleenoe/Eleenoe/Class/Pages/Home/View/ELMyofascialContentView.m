@@ -7,18 +7,34 @@
 //
 
 #import "ELMyofascialContentView.h"
+#import "ELMarqueLabel.h"
 #import "ELMyofascialMenuScrolloView.h"
 #import "ELMyofascialMenuModel.h"
 @interface ELMyofascialContentView()
 @property(nonatomic,strong)UIImageView *contentImageView;
-@property (nonatomic,strong) ELMyofascialMenuScrolloView *bodyListView;
-@property (nonatomic,strong) ELMyofascialMenuScrolloView *rankListView;
+@property(nonatomic,strong) ELMyofascialMenuScrolloView *bodyListView;
+@property(nonatomic,strong) ELMyofascialMenuScrolloView *rankListView;
 @property(nonatomic,strong)UIView *bodyCircleView;
 @property(nonatomic,strong)UIView *rankCircleView;
+@property(nonatomic,strong) ELMarqueLabel *marqueLabel;
 @end
 
 @implementation ELMyofascialContentView
 -(void)ELSinitConfingViews{
+    
+    _marqueLabel = ({
+        ELMarqueLabel *iv = [[ELMarqueLabel alloc]init];
+        iv.backgroundColor = MainLightThemColor;
+        iv.text = @"【四级】明显痛，如被人打耳光，或者被热水烫了一引发的一度烫伤。";
+        [self addSubview:iv];
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.mas_equalTo(0);
+            make.top.mas_equalTo(15);
+            make.height.mas_equalTo(20);
+        }];
+        iv;
+    });
+    
     _contentImageView = ({
         UIImageView *iv = [[UIImageView alloc]init];
         iv.clipsToBounds = YES;
