@@ -28,6 +28,7 @@
     
     UIView *footView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kSAdap_V(170.0))];
     footView.backgroundColor = [UIColor clearColor];
+    
     _logoutButton =({
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
         iv.frame = CGRectMake(0, kSAdap_V(120.0), SCREEN_WIDTH, kSAdap_V(50.0));

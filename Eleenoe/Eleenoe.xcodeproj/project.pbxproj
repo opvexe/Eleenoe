@@ -57,6 +57,7 @@
 		D0A0DBA0224FC1C2000F9048 /* ELMyofascialMenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DB9F224FC1C2000F9048 /* ELMyofascialMenuCollectionViewCell.m */; };
 		D0A0DBA4224FC69E000F9048 /* ELMyofascialMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DBA3224FC69E000F9048 /* ELMyofascialMenuModel.m */; };
 		D0A0DBA7225039A1000F9048 /* ELMineListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DBA6225039A1000F9048 /* ELMineListView.m */; };
+		D0A0DBAA22503E37000F9048 /* ELShopListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DBA922503E37000F9048 /* ELShopListView.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -209,6 +210,8 @@
 		D0A0DBA3224FC69E000F9048 /* ELMyofascialMenuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMyofascialMenuModel.m; sourceTree = "<group>"; };
 		D0A0DBA5225039A1000F9048 /* ELMineListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMineListView.h; sourceTree = "<group>"; };
 		D0A0DBA6225039A1000F9048 /* ELMineListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMineListView.m; sourceTree = "<group>"; };
+		D0A0DBA822503E37000F9048 /* ELShopListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELShopListView.h; sourceTree = "<group>"; };
+		D0A0DBA922503E37000F9048 /* ELShopListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELShopListView.m; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -502,6 +505,8 @@
 				D0771084224E0F7F00D0B993 /* ELBannerCollectionViewCell.m */,
 				D0771080224DFC6900D0B993 /* ELBannerCollectionReusableView.h */,
 				D0771081224DFC6900D0B993 /* ELBannerCollectionReusableView.m */,
+				D0A0DBA822503E37000F9048 /* ELShopListView.h */,
+				D0A0DBA922503E37000F9048 /* ELShopListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1127,6 +1132,7 @@
 				D0F52B2722378B2D00A26504 /* ELBaseCollectionViewCell.m in Sources */,
 				D0EC4B282238AB5400B5A74D /* ELMineViewController.m in Sources */,
 				D0EC4B332238B1C700B5A74D /* ELTextView.m in Sources */,
+				D0A0DBAA22503E37000F9048 /* ELShopListView.m in Sources */,
 				D0F52B04223788D500A26504 /* NSString+Category.m in Sources */,
 				D0F52B2D22378BA000A26504 /* ELTabBarControllerConfig.m in Sources */,
 				D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */,
