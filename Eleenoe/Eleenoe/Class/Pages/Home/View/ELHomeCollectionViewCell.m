@@ -10,6 +10,7 @@
 #import "ELMyofascialContentView.h"
 @interface ELHomeCollectionViewCell()
 @property(nonatomic,strong)ELMyofascialContentView *contentImageView;
+
 @end
 
 @implementation ELHomeCollectionViewCell

@@ -7,6 +7,7 @@
 //
 
 #import "ELHomeTitleCollectionCell.h"
+#import "ELMyofascialMenuModel.h"
 
 
 @interface ELHomeTitleCollectionCell()
@@ -52,6 +53,15 @@
         }];
         iv;
     });
-    
+}
+-(void)InitDataWithModel:(ELMyofascialTitleModel *)model{
+    self.titleLabel.text = model.title;
+    if (model.choose) {
+    self.titleLabel.textColor = CellSelectedColor;
+    self.imageView.image = [UIImage imageNamed:model.selectedImageName];
+    }else{
+    self.imageView.image = [UIImage imageNamed:model.imageName];
+    self.titleLabel.textColor = CellNormallColor;
+    }
 }
 @end

@@ -10,8 +10,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ELHomeTitleListView : ELBaseCollectionView
 
+@class ELHomeTitleListView;
+@protocol ELHomeTitleListViewDelegate <NSObject>
+@optional
+- (void)pageTitleListView:(ELHomeTitleListView *)pageContentCollectionView index:(NSInteger)index;
+@end
+
+@interface ELHomeTitleListView : ELBaseCollectionView
+/** ELHomeTitleListViewDelegate */
+@property (nonatomic, weak) id<ELHomeTitleListViewDelegate> delegatePageContentCollectionView;
+
+- (void)setELHomeTitleListViewCurrentIndex:(NSInteger)currentIndex ;
 @end
 
 NS_ASSUME_NONNULL_END

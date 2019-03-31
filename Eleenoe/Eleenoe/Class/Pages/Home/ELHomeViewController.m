@@ -15,7 +15,7 @@
 #import "ELHomeTitleListView.h"
 #import "ELMyofascialMenuScrolloView.h"
 #import "ELMyofascialMenuModel.h"
-@interface ELHomeViewController ()
+@interface ELHomeViewController ()<ELHomeListViewDelegate,ELHomeTitleListViewDelegate>
 @property(nonatomic,strong)ELMyofascialBottomView *bottomView;
 @property(nonatomic,strong)ELHomeListView *homelistView;
 @property(nonatomic,strong)ELHomeTitleListView *titleListView;
@@ -41,7 +41,9 @@
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         ELHomeTitleListView*collectionView = [[ELHomeTitleListView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         collectionView.bounces = NO;
+        collectionView.delegatePageContentCollectionView  = self;
         [self.view addSubview:collectionView];
+        
         [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(0);
             make.height.mas_equalTo(kSAdap(82));
@@ -70,6 +72,7 @@
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         ELHomeListView*collectionView = [[ELHomeListView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         collectionView.bounces = NO;
+        collectionView.delegatePageContentCollectionView = self;
         [self.view addSubview:collectionView];
         [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.titleListView.mas_bottom);
@@ -79,9 +82,14 @@
         collectionView;
     });
 }
-
-
-
+#pragma mark ELHomeTitleListViewDelegate
+-(void)pageTitleListView:(ELHomeTitleListView *)pageContentCollectionView index:(NSInteger)index{
+    [self.homelistView setPageContentCollectionViewCurrentIndex:index];
+}
+#pragma  mark ELHomeListViewDelegate
+-(void)pageContentCollectionView:(ELHomeListView *)pageContentCollectionView index:(NSInteger)index{
+    [self.titleListView setELHomeTitleListViewCurrentIndex:index];
+}
 -(void)Click{
     
     

@@ -8,6 +8,11 @@
 
 #import "ELMyofascialMenuModel.h"
 
+@implementation ELMyofascialTitleModel
+
+@end
+
+
 @implementation ELMyofascialMenuModel
 
 @end

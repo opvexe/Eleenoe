@@ -38,6 +38,7 @@
 
 //TableView Color
 #define MainTableViewColor      UIColorFromRGB(0xF3F3F3)
-
-
+//
+#define   CellNormallColor     UIColorFromRGB(0xDDDDDD)
+#define   CellSelectedColor     UIColorFromRGB(0x666666)
 #endif /* ELColorDefines_h */
