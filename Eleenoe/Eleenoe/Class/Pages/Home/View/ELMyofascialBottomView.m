@@ -23,7 +23,7 @@
 @property(nonatomic,strong)UIImageView *rightIconImageView;
 @property(nonatomic,strong)UILabel *rightTitle;
 @property(nonatomic,strong) ELMyofascialMenuScrolloView *timeListView;
-@property (nonatomic,strong) ELMyofascialMenuScrolloView *gearListView;
+@property(nonatomic,strong) ELMyofascialMenuScrolloView *gearListView;
 @end
 
 @implementation ELMyofascialBottomView
@@ -33,6 +33,7 @@
     _MyofascialBottomImageView = ({
         UIImageView *iv = [[UIImageView alloc]init];
         iv.clipsToBounds = YES;
+        iv.userInteractionEnabled = YES;
         iv.image = [UIImage imageNamed:@"ELMyofascialBottom_icon"];
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -163,15 +164,15 @@
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         flowLayout.minimumInteritemSpacing = 0.f;
-        flowLayout.minimumLineSpacing = 0.f;
-        flowLayout.sectionInset = UIEdgeInsetsMake(0,kSAdap(0), 0, kSAdap(0));
+        flowLayout.minimumLineSpacing = kSAdap(5.0);
+        flowLayout.sectionInset = UIEdgeInsetsZero;
         flowLayout.itemSize = CGSizeMake(kSAdap(20.0), kSAdap_V(32.0));
         ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.timeLabel.mas_centerX);
             make.top.mas_equalTo(self.timeLabel.mas_bottom).mas_offset(kSAdap_V(12.0));
-            make.width.mas_equalTo(kSAdap(70.0));
+            make.width.mas_equalTo(kSAdap(65.0));
             make.height.mas_equalTo(kSAdap_V(32.0));
         }];
         iv;
@@ -189,15 +190,15 @@
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         flowLayout.minimumInteritemSpacing = 0.f;
-        flowLayout.minimumLineSpacing = 0.f;
-        flowLayout.sectionInset = UIEdgeInsetsMake(0,kSAdap(0), 0, kSAdap(0));
+        flowLayout.minimumLineSpacing = kSAdap(5.0);
+        flowLayout.sectionInset = UIEdgeInsetsZero;
         flowLayout.itemSize = CGSizeMake(kSAdap(20.0), kSAdap_V(32.0));
         ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.titleLabel.mas_centerX);
             make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(kSAdap_V(12.0));
-            make.width.mas_equalTo(kSAdap(70.0));
+            make.width.mas_equalTo(kSAdap(65.0));
             make.height.mas_equalTo(kSAdap_V(32.0));
         }];
         iv;
