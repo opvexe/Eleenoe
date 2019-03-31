@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ELMyofascialBottomView : ELBaseView
 
+@property (nonatomic, copy) void(^CompleteBlock)();
 @end
 
 NS_ASSUME_NONNULL_END

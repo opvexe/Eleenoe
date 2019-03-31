@@ -15,7 +15,7 @@
 #import "ELHomeTitleListView.h"
 #import "ELMyofascialMenuScrolloView.h"
 #import "ELMyofascialMenuModel.h"
-#import "ELTriggerAnalyzeFloatingView.h"
+#import "ELUpdateViewController.h"
 @interface ELHomeViewController ()<ELHomeListViewDelegate,ELHomeTitleListViewDelegate>
 @property(nonatomic,strong)ELMyofascialBottomView *bottomView;
 @property(nonatomic,strong)ELHomeListView *homelistView;
@@ -81,7 +81,14 @@
         }];
         collectionView;
     });
+    
+    @weakify(self);
+    self.bottomView.CompleteBlock = ^{
+        @strongify(self);
+        [self.navigationController pushViewController:[ELElectrodeViewController new] animated:YES];
+    };
 }
+
 #pragma mark ELHomeTitleListViewDelegate
 -(void)pageTitleListView:(ELHomeTitleListView *)pageContentCollectionView index:(NSInteger)index{
     [self.homelistView setPageContentCollectionViewCurrentIndex:index];
@@ -92,15 +99,9 @@
 }
 
 -(void)Click{
-    
+    [self.navigationController pushViewController:[ELUpdateViewController new] animated:YES];
 }
 
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [ELTriggerAnalyzeFloatingView  showInitDataModel:nil Complete:^(ELBaseModel * _Nonnull model) {
-        
-    }];
-}
 
 /*
  #pragma mark - Navigation

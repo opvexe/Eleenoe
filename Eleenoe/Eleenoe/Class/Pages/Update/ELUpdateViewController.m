@@ -7,11 +7,10 @@
 //
 
 #import "ELUpdateViewController.h"
-
 @interface ELUpdateViewController ()
 @property (nonatomic,strong) UIButton *checkButton;
 @property (nonatomic,strong) UIView *topView;
-@property (nonatomic,strong) FLAnimatedImageView *icon;
+@property (nonatomic,strong) FLAnimatedImageView *updateImageView;
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *veseionLabel;
 @end
@@ -26,7 +25,7 @@
 }
 
 -(void)configView{
-    
+
     _topView = ({
         UIView *iv = [[UIView alloc]init];
         iv.backgroundColor = MainThemColor;
@@ -37,20 +36,20 @@
         }];
         iv;
     });
-    
-    _icon = ({
+
+    _updateImageView = ({
         FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]initWithFrame:CGRectZero];
-        iv.clipsToBounds = YES;
-        iv.contentMode = UIViewContentModeScaleAspectFill;
+        UIImage *icon  = [UIImage imageNamed:@"update_white"];
+        iv.image = icon;
         [self.topView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.view);
             make.top.mas_equalTo(kSAdap_V(48.0));
-            make.size.mas_equalTo(CGSizeMake(kSAdap(13.0), kSAdap_V(13.0)));
+            make.size.mas_equalTo(icon.size);
         }];
         iv;
     });
-    
+
     _titleLabel = ({
         UILabel *iv = [[UILabel alloc]init];
         iv.textColor = MainWhiteTitleColor;
@@ -59,14 +58,13 @@
         iv.text = @"已经是最新版本";
         [self.topView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.icon.mas_bottom).mas_offset(kSAdap_V(25.0));
-            make.centerX.mas_equalTo(self);
+            make.top.mas_equalTo(self.updateImageView.mas_bottom).mas_offset(kSAdap_V(25.0));
+            make.centerX.mas_equalTo(self.topView);
             make.height.mas_equalTo(kSaFont(20.0));
-            make.left.right.mas_equalTo(self.view);
         }];
         iv;
     });
-    
+
     _veseionLabel = ({
         UILabel *iv = [[UILabel alloc]init];
         iv.textColor = MainLightThemColor;
@@ -75,14 +73,13 @@
         iv.text = @"V1.2.0 稳定版";
         [self.topView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.icon.mas_bottom).mas_offset(kSAdap_V(25.0));
-            make.centerX.mas_equalTo(self);
+            make.top.mas_equalTo(self.titleLabel.mas_bottom);
+            make.centerX.mas_equalTo(self.topView);
             make.height.mas_equalTo(kSaFont(20.0));
-            make.left.right.mas_equalTo(self.view);
         }];
         iv;
     });
-    
+
     _checkButton = ({
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
         [iv setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
@@ -95,7 +92,7 @@
         iv.showsTouchWhenHighlighted=NO;
         iv.layer.masksToBounds = YES;
         iv.layer.borderColor = MainTableViewColor.CGColor;
-        iv.layer.borderWidth = 0.5f;
+        iv.layer.borderWidth = 1.0f;
         iv.layer.cornerRadius = kSAdap_V(22.0);
         [iv addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:iv];
@@ -110,7 +107,7 @@
 }
 
 -(void)Click:(UIButton *)sender{
-    
+
 }
 /*
  #pragma mark - Navigation

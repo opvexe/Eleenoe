@@ -10,6 +10,7 @@
 #import "ELMyofascialMenuScrolloView.h"
 #import "ELButtonExtention.h"
 #import "ELMyofascialMenuModel.h"
+#import "ELTriggerAnalyzeFloatingView.h"
 @interface ELMyofascialBottomView()
 @property(nonatomic,strong)UIImageView *MyofascialBottomImageView;
 @property(nonatomic,strong) ELButtonExtention *determineButton;
@@ -288,6 +289,14 @@
         }];
         iv;
     });
+    
+    @weakify(self);
+    [self.rightContentView WH_whenTapped:^{
+        @strongify(self);
+        if (self.CompleteBlock) {
+            self.CompleteBlock();
+        }
+    }];
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
@@ -296,6 +305,10 @@
 }
 -(void)Click:(UIButton *)sender{
     sender.selected = !sender.selected;
-    NSLog(@"Click 连接");
+    [ELTriggerAnalyzeFloatingView showInitDataModel:nil Complete:^(ELBaseModel * _Nonnull model) {
+        
+    }];
 }
+
+
 @end
