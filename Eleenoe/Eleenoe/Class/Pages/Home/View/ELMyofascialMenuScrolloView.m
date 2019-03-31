@@ -46,6 +46,11 @@
     return self.lists.count;
 }
 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+}
+
 -(NSMutableArray *)lists{
     if (!_lists) {
         _lists = [NSMutableArray arrayWithCapacity:0];

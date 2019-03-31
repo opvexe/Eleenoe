@@ -79,7 +79,7 @@
     NSMutableArray *rank = [NSMutableArray arrayWithCapacity:0];
     for (NSInteger i = 0; i< 10; i++) {
         ELMyofascialMenuModel *model = [[ELMyofascialMenuModel alloc]init];
-        model.title = [NSString stringWithFormat:@"%ld级",i];
+        model.title = [NSString stringWithFormat:@"%ld",i];
         [rank addObject:model];
     }
     [self.rankListView initWithSouce:rank];
