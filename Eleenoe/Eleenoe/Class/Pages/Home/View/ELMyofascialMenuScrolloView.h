@@ -6,7 +6,7 @@
 //  Copyright © 2019 FaceBook. All rights reserved.
 //
 
-#import "ELBaseView.h"
+#import "ELBaseCollectionView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, MyofascialMenuType) {
     MyofascialMenuTypeVertical,
 };
 
-@interface ELMyofascialMenuScrolloView : ELBaseView
+@interface ELMyofascialMenuScrolloView : ELBaseCollectionView
 
 /**
  * 默认选中垂直方向

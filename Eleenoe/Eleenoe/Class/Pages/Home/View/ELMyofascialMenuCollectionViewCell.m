@@ -13,6 +13,11 @@
 @end
 @implementation ELMyofascialMenuCollectionViewCell
 
++(instancetype)cellWithCollectionView:(UICollectionView*)collectionView indexpath:(NSIndexPath *)indexPath{
+    ELMyofascialMenuCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ELMyofascialMenuCollectionViewCell class]) forIndexPath:indexPath];
+    return cell;
+}
+
 -(void)ELSinitConfingViews{
     
     _titleLabel = ({

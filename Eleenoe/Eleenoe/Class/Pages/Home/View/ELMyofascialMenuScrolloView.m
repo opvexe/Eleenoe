@@ -8,63 +8,32 @@
 
 #import "ELMyofascialMenuScrolloView.h"
 #import "ELMyofascialMenuCollectionViewCell.h"
-
-@interface ELMyofascialMenuScrolloView()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-@property (nonatomic,strong) UICollectionView *listCollectionView;
-@property (nonatomic,strong) UICollectionViewFlowLayout *layout;
+@interface ELMyofascialMenuScrolloView()
 @property (nonatomic,strong) NSMutableArray *lists;
 @end
 @implementation ELMyofascialMenuScrolloView
 
--(void)ELSinitConfingViews{
-    
-    _listCollectionView = ({
-        _layout =[[UICollectionViewFlowLayout alloc]init];
-        _layout.minimumInteritemSpacing = 0.f;
-        _layout.minimumLineSpacing = kSAdap_V(15.0);
-        _layout.itemSize = CGSizeMake(kSAdap(80.0), kSAdap_V(15.0));
-        _layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        UICollectionView *iv =[[UICollectionView alloc] initWithFrame:CGRectZero
-                                                 collectionViewLayout:_layout];
-        iv.backgroundColor = [UIColor clearColor];
-        iv.showsHorizontalScrollIndicator = NO;
-        iv.showsVerticalScrollIndicator =NO;
-        iv.dataSource = self;
-        iv.delegate = self;
-        [iv registerClass:[ELMyofascialMenuCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELMyofascialMenuCollectionViewCell class])];
-        [self addSubview:iv];
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(self);
-        }];
-        iv;
-    });
-}
-
--(void)setType:(MyofascialMenuType)type{
-    _type = type;
-    switch (type) {
-        case MyofascialMenuTypeVertical:{
-            _layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        }
-            break;
-        case MyofascialMenuTypeHorizontal:{
-            _layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        }
-            break;
-        default:
-            break;
+-(instancetype)initWithFrame:(CGRect)frame  collectionViewLayout:(nonnull UICollectionViewLayout *)layout{
+    if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
+        self.showsVerticalScrollIndicator = NO;
+        self.showsHorizontalScrollIndicator = NO;
+        self.dataSource = self;
+        self.delegate = self;
+        self.backgroundColor = [UIColor clearColor];
+        [self registerClass:[ELMyofascialMenuCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELMyofascialMenuCollectionViewCell class])];
     }
+    return self;
 }
 
 -(void)initWithSouce:(NSArray *)lists{
     if (lists.count) {
         [self.lists addObjectsFromArray:lists];
-        [self.listCollectionView reloadData];
+        [self reloadData];
     }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    ELMyofascialMenuCollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ELMyofascialMenuCollectionViewCell class]) forIndexPath:indexPath];
+    ELMyofascialMenuCollectionViewCell *cell = [ELMyofascialMenuCollectionViewCell cellWithCollectionView:collectionView indexpath:indexPath];
     [cell InitDataWithModel:self.lists[indexPath.row]];
     return cell;
 }
