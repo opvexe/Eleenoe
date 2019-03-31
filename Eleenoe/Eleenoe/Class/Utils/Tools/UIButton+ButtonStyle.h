@@ -13,7 +13,7 @@
  
  - LayoutTextUnderImageButton: LayoutTextUnderImageButton  图片在上 ， 文字在下
  - LayoutTextUnderImageButton: layoutTextLeftImageButton   文字在左 ， 图片在右
- - LayoutTextUnderImageButton: layoutTextRightImageButton  文字在右 ， 图片在左
+ - : layoutTextRightImageButton  文字在右 ， 图片在左
  - LayoutTextUnderImageButton: layoutTextUpImageButton     图片在下，文字在上
  */
 typedef NS_ENUM(NSUInteger, layoutTextWithImageButtonStyle) {

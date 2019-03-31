@@ -96,15 +96,17 @@
     
     _closeButton = ({
         ELButtonExtention *iv = [ELButtonExtention buttonWithType:UIButtonTypeCustom];
-        [iv setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-        [iv setImage:[UIImage imageNamed:@""] forState:UIControlStateHighlighted];
+        UIImage *icon = [UIImage imageNamed:@"shop_close"];
+        [iv setImage:icon forState:UIControlStateNormal];
+        [iv setImage:icon forState:UIControlStateSelected];
+        [iv setImage:icon forState:UIControlStateHighlighted];
         iv.adjustsImageWhenHighlighted = NO;
         iv.showsTouchWhenHighlighted = NO;
         iv.isExpandClick = YES;
         [iv addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(kSAdap(19.0), kSAdap_V(19.0)));
+            make.size.mas_equalTo(icon.size);
             make.centerY.mas_equalTo(self.statueLabel);
             make.right.mas_equalTo(kSAdap(20.0));
         }];

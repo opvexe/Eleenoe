@@ -15,6 +15,7 @@
 #import "ELHomeTitleListView.h"
 #import "ELMyofascialMenuScrolloView.h"
 #import "ELMyofascialMenuModel.h"
+#import "ELTriggerAnalyzeFloatingView.h"
 @interface ELHomeViewController ()<ELHomeListViewDelegate,ELHomeTitleListViewDelegate>
 @property(nonatomic,strong)ELMyofascialBottomView *bottomView;
 @property(nonatomic,strong)ELHomeListView *homelistView;
@@ -92,6 +93,13 @@
 
 -(void)Click{
     
+}
+
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [ELTriggerAnalyzeFloatingView  showInitDataModel:nil Complete:^(ELBaseModel * _Nonnull model) {
+        
+    }];
 }
 
 /*

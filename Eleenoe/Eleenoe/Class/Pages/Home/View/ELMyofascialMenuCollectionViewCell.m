@@ -24,7 +24,7 @@
         UILabel *iv = [[UILabel alloc]init];
         iv.textColor = MainLightThemColor;
         iv.textAlignment = NSTextAlignmentCenter;
-        iv.font = [UIFont ELPingFangSCMediumFontOfSize:kSaFont(18.0)];
+        iv.font = [UIFont ELPingFangSCMediumFontOfSize:kSaFont(16.0)];
         [iv sizeToFit];
         [self.contentView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -36,11 +36,16 @@
 
 -(void)InitDataWithModel:(ELMyofascialMenuModel *)model{
     self.titleLabel.text = model.title;
-    if (model.choice) {
-        self.titleLabel.textColor = MainWhiteTitleColor;
-    }else{
-        self.titleLabel.textColor = MainLightThemColor;
-    }
 }
 
+-(void)setSelected:(BOOL)selected{
+    [super setSelected:selected];
+    if (selected) {
+         self.titleLabel.textColor = MainWhiteTitleColor;
+          self.titleLabel.font = [UIFont ELPingFangSCMediumFontOfSize:kSaFont(16.0)];
+    }else{
+        self.titleLabel.textColor = MainLightThemColor;
+         self.titleLabel.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)];
+    }
+}
 @end
