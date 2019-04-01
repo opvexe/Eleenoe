@@ -12,6 +12,7 @@
 @property (nonatomic,strong) NSMutableArray *lists;
 @property (nonatomic,strong) NSIndexPath *currentIndex;
 @property (nonatomic,strong) UIView *bodyCircleView;
+@property(nonatomic, assign) CGSize itemSize;
 @end
 @implementation ELMyofascialMenuScrolloView
 
@@ -21,6 +22,7 @@
         self.showsHorizontalScrollIndicator = NO;
         self.dataSource = self;
         self.delegate = self;
+        _itemSize = layout.itemSize;
         self.backgroundColor = [UIColor clearColor];
         [self registerClass:[ELMyofascialMenuCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELMyofascialMenuCollectionViewCell class])];
         self.decelerationRate = UIScrollViewDecelerationRateFast;
@@ -84,6 +86,7 @@
 }
 
 #pragma mark - UIScrollView delegate
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self scrollViewDidFinishScrolling:scrollView];
 }
@@ -95,22 +98,26 @@
 }
 
 - (void)scrollViewDidFinishScrolling:(UIScrollView *)scrollView {
-    CGPoint point = [self convertPoint:CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0) toView:self];
     
-    NSLog(@"%@",NSStringFromCGPoint(point));
+    CGFloat itemWidth = _itemSize.width;
     
-    //    CGPoint point = [self convertPoint:CGPointMake(self.frame.size.width / 2.0, self.frame.size.height) toView:self];
-    //    NSIndexPath *centerIndexPath = [self indexPathForItemAtPoint:CGPointMake(point.x, 0)];
-    //    if (centerIndexPath.row != _currentIndex.row) {
-    //        if (self.pickDelegate&&[self.pickDelegate respondsToSelector:@selector(myofascialMenuView:willSelectItems:)]) {
-    //            [self.pickDelegate myofascialMenuView:self willSelectItems:self.lists[centerIndexPath.row]];
-    //        }
-    //        _currentIndex = centerIndexPath;
-    //    }else{
-    //        UICollectionViewCell *cell = [self cellForItemAtIndexPath:_currentIndex];
-    //        CGFloat contentOffset = cell.center.x - (self.frame.size.width / 2);
-    //        [self setContentOffset:CGPointMake(contentOffset, self.contentOffset.y) animated:YES];
-    //    }
+    //item的宽度+行间距 = 页码的宽度
+    NSInteger pageWidth = itemWidth ;
+    
+    //根据偏移量计算是第几页
+    NSInteger pageNum = (scrollView.contentOffset.x+pageWidth/2)/pageWidth;
+    NSIndexPath *centerIndexPath = [NSIndexPath indexPathForRow:pageNum inSection:0];
+    if (centerIndexPath.row != _currentIndex.row) {
+        if (self.pickDelegate&&[self.pickDelegate respondsToSelector:@selector(myofascialMenuView:didSelectItems:)]) {
+            [self.pickDelegate myofascialMenuView:self didSelectItems:self.lists[centerIndexPath.row]];
+        }
+        UICollectionViewCell *cell = [self cellForItemAtIndexPath:centerIndexPath];
+        CGFloat contentOffset = cell.center.x - (self.frame.size.width / 2);
+        [self setContentOffset:CGPointMake(contentOffset, self.contentOffset.y) animated:YES];
+        _currentIndex = centerIndexPath;
+    }
+    
+    [self reloadData];
 }
 
 -(NSMutableArray *)lists{
