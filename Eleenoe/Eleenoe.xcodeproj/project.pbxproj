@@ -16,6 +16,13 @@
 		18B4B3B5224FBB9B00EA9404 /* ELHomeTitleListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3B4224FBB9B00EA9404 /* ELHomeTitleListView.m */; };
 		18B4B3B8224FBBB300EA9404 /* ELHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3B7224FBBB300EA9404 /* ELHomeCollectionViewCell.m */; };
 		18B4B3BB224FBBC600EA9404 /* ELHomeTitleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3BA224FBBC600EA9404 /* ELHomeTitleCollectionCell.m */; };
+		18B4B3BF225265CA00EA9404 /* ELSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3BE225265CA00EA9404 /* ELSearchTableViewCell.m */; };
+		18B4B3C3225265F000EA9404 /* ELSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3C2225265F000EA9404 /* ELSearchModel.m */; };
+		18B4B3C82252668500EA9404 /* SLTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3C52252668500EA9404 /* SLTagView.m */; };
+		18B4B3C92252668500EA9404 /* Tag.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18B4B3C62252668500EA9404 /* Tag.bundle */; };
+		18B4B3CC2252699000EA9404 /* ELSearchListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3CB2252699000EA9404 /* ELSearchListView.m */; };
+		18B4B3CF225269A000EA9404 /* ELSearchResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3CE225269A000EA9404 /* ELSearchResultView.m */; };
+		18B4B3D222526B2500EA9404 /* ELSearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3D122526B2500EA9404 /* ELSearchResultTableViewCell.m */; };
 		2E4B5557E019085BA72F7373 /* libPods-Eleenoe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BD9D29E12BC7CF7674A550 /* libPods-Eleenoe.a */; };
 		C2E6CE7D22369AA30049D54C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E6CE7C22369AA30049D54C /* AppDelegate.m */; };
 		C2E6CE8B22369AA40049D54C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E6CE8A22369AA40049D54C /* main.m */; };
@@ -134,6 +141,19 @@
 		18B4B3B7224FBBB300EA9404 /* ELHomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELHomeCollectionViewCell.m; sourceTree = "<group>"; };
 		18B4B3B9224FBBC600EA9404 /* ELHomeTitleCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELHomeTitleCollectionCell.h; sourceTree = "<group>"; };
 		18B4B3BA224FBBC600EA9404 /* ELHomeTitleCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELHomeTitleCollectionCell.m; sourceTree = "<group>"; };
+		18B4B3BD225265CA00EA9404 /* ELSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELSearchTableViewCell.h; sourceTree = "<group>"; };
+		18B4B3BE225265CA00EA9404 /* ELSearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSearchTableViewCell.m; sourceTree = "<group>"; };
+		18B4B3C1225265F000EA9404 /* ELSearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELSearchModel.h; sourceTree = "<group>"; };
+		18B4B3C2225265F000EA9404 /* ELSearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSearchModel.m; sourceTree = "<group>"; };
+		18B4B3C52252668500EA9404 /* SLTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTagView.m; sourceTree = "<group>"; };
+		18B4B3C62252668500EA9404 /* Tag.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Tag.bundle; sourceTree = "<group>"; };
+		18B4B3C72252668500EA9404 /* SLTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTagView.h; sourceTree = "<group>"; };
+		18B4B3CA2252699000EA9404 /* ELSearchListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELSearchListView.h; sourceTree = "<group>"; };
+		18B4B3CB2252699000EA9404 /* ELSearchListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSearchListView.m; sourceTree = "<group>"; };
+		18B4B3CD225269A000EA9404 /* ELSearchResultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELSearchResultView.h; sourceTree = "<group>"; };
+		18B4B3CE225269A000EA9404 /* ELSearchResultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSearchResultView.m; sourceTree = "<group>"; };
+		18B4B3D022526B2500EA9404 /* ELSearchResultTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELSearchResultTableViewCell.h; sourceTree = "<group>"; };
+		18B4B3D122526B2500EA9404 /* ELSearchResultTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSearchResultTableViewCell.m; sourceTree = "<group>"; };
 		7150EA626360CE617E43344D /* Pods-Eleenoe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eleenoe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Eleenoe/Pods-Eleenoe.debug.xcconfig"; sourceTree = "<group>"; };
 		A3C6CF43DD0FF20A3589551D /* Pods-Eleenoe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eleenoe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eleenoe/Pods-Eleenoe.release.xcconfig"; sourceTree = "<group>"; };
 		C2E6CE7822369AA30049D54C /* Eleenoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eleenoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -338,6 +358,40 @@
 			path = ToolViews;
 			sourceTree = "<group>";
 		};
+		18B4B3BC225265AF00EA9404 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18B4B3BD225265CA00EA9404 /* ELSearchTableViewCell.h */,
+				18B4B3BE225265CA00EA9404 /* ELSearchTableViewCell.m */,
+				18B4B3CA2252699000EA9404 /* ELSearchListView.h */,
+				18B4B3CB2252699000EA9404 /* ELSearchListView.m */,
+				18B4B3CD225269A000EA9404 /* ELSearchResultView.h */,
+				18B4B3CE225269A000EA9404 /* ELSearchResultView.m */,
+				18B4B3D022526B2500EA9404 /* ELSearchResultTableViewCell.h */,
+				18B4B3D122526B2500EA9404 /* ELSearchResultTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18B4B3C0225265E100EA9404 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18B4B3C1225265F000EA9404 /* ELSearchModel.h */,
+				18B4B3C2225265F000EA9404 /* ELSearchModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18B4B3C42252668500EA9404 /* TagView */ = {
+			isa = PBXGroup;
+			children = (
+				18B4B3C52252668500EA9404 /* SLTagView.m */,
+				18B4B3C62252668500EA9404 /* Tag.bundle */,
+				18B4B3C72252668500EA9404 /* SLTagView.h */,
+			);
+			path = TagView;
+			sourceTree = "<group>";
+		};
 		C1BD30B112BB2AF10B1D4819 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +590,8 @@
 		D077108E224E321100D0B993 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				18B4B3C0225265E100EA9404 /* Model */,
+				18B4B3BC225265AF00EA9404 /* View */,
 				D077108F224E322500D0B993 /* ELSearchViewController.h */,
 				D0771090224E322500D0B993 /* ELSearchViewController.m */,
 			);
@@ -661,6 +717,7 @@
 		D0EC4B302238B12D00B5A74D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18B4B3C42252668500EA9404 /* TagView */,
 				D0EC4B312238B1C700B5A74D /* ELTextView.h */,
 				D0EC4B322238B1C700B5A74D /* ELTextView.m */,
 				D0DC670522393DB20064C07A /* ELMessageEventButton.h */,
@@ -996,6 +1053,7 @@
 				D0180B16223F399D008C06C1 /* HUD_info@2x.png in Resources */,
 				D0180B14223F399D008C06C1 /* HUD_error@3x.png in Resources */,
 				D0180B12223F399D008C06C1 /* HUD_success@2x.png in Resources */,
+				18B4B3C92252668500EA9404 /* Tag.bundle in Resources */,
 				D0180B13223F399D008C06C1 /* HUD_success@3x.png in Resources */,
 				D0771089224E1AB800D0B993 /* Shopping.json in Resources */,
 				D0180B15223F399D008C06C1 /* HUD_info@3x.png in Resources */,
@@ -1138,9 +1196,11 @@
 				D0180B03223F3915008C06C1 /* ELWebViewController.m in Sources */,
 				D0180B10223F399D008C06C1 /* CPProgressHUD.m in Sources */,
 				D0180B11223F399D008C06C1 /* NSObject+CPHUDExtension.m in Sources */,
+				18B4B3C3225265F000EA9404 /* ELSearchModel.m in Sources */,
 				D0EC4B2F2238AF3A00B5A74D /* ELTools.m in Sources */,
 				D0A0DB9A224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m in Sources */,
 				C2E6CE7D22369AA30049D54C /* AppDelegate.m in Sources */,
+				18B4B3D222526B2500EA9404 /* ELSearchResultTableViewCell.m in Sources */,
 				D0A0DC4322520587000F9048 /* ELBatteryView.m in Sources */,
 				18B4B3AC224FB6B800EA9404 /* ELMyofascialContentView.m in Sources */,
 				D0F52B0D2237891800A26504 /* UIViewController+WDNavigatonBarAppearance.m in Sources */,
@@ -1151,7 +1211,9 @@
 				D0EC4B332238B1C700B5A74D /* ELTextView.m in Sources */,
 				D0A0DBAA22503E37000F9048 /* ELShopListView.m in Sources */,
 				D0F52B04223788D500A26504 /* NSString+Category.m in Sources */,
+				18B4B3CC2252699000EA9404 /* ELSearchListView.m in Sources */,
 				D0F52B2D22378BA000A26504 /* ELTabBarControllerConfig.m in Sources */,
+				18B4B3BF225265CA00EA9404 /* ELSearchTableViewCell.m in Sources */,
 				D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */,
 				D0F52B1F22378A5800A26504 /* ELBaseView.m in Sources */,
 				D077107F224DA82700D0B993 /* ELBaseCollectionReusableView.m in Sources */,
@@ -1165,6 +1227,7 @@
 				D0F52B03223788D400A26504 /* Foundation+Log.m in Sources */,
 				D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */,
 				D0180BD82244C7D2008C06C1 /* SCREENAdaptationTool.m in Sources */,
+				18B4B3CF225269A000EA9404 /* ELSearchResultView.m in Sources */,
 				D0A0DBA4224FC69E000F9048 /* ELMyofascialMenuModel.m in Sources */,
 				D0180AFD223F367A008C06C1 /* ELPlacemark.m in Sources */,
 				D0771057224CB4AB00D0B993 /* ELShopViewController.m in Sources */,
@@ -1178,6 +1241,7 @@
 				D0A0DC382250DCD3000F9048 /* ELMarqueLabel.m in Sources */,
 				18B4B3A9224F7DA900EA9404 /* ELMyofascialBottomView.m in Sources */,
 				D077108D224E1D2200D0B993 /* ELShopModel.m in Sources */,
+				18B4B3C82252668500EA9404 /* SLTagView.m in Sources */,
 				D07710AE224F0CD700D0B993 /* ELUpdateViewController.m in Sources */,
 				18B4B3B8224FBBB300EA9404 /* ELHomeCollectionViewCell.m in Sources */,
 				D0771091224E322500D0B993 /* ELSearchViewController.m in Sources */,
