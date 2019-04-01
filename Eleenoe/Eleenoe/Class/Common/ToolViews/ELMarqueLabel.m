@@ -46,7 +46,7 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    [self beReadyToAnimateFrame:self.bounds];
+    [self beReadyToAnimateFrame:CGRectMake(0, 0, self.width, self.height)];
 }
 
 - (void)beReadyToAnimateFrame:(CGRect)frame {

@@ -98,7 +98,7 @@
         iv.backgroundColor = [UIColor colorWithRed:249.0/255.0f green:254.0/255.0f blue:236.0/255.0f alpha:1.0];
         iv.layer.borderColor = MainThemColor.CGColor;
         iv.layer.borderWidth = 0.5f;
-        iv.layer.cornerRadius = kSAdap(12);
+        iv.cornerRadius = kSAdap(12);
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(kSAdap(20.0));

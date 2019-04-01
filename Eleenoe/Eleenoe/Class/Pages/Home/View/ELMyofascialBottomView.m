@@ -181,14 +181,6 @@
         iv;
     });
     
-    NSMutableArray *list = [NSMutableArray arrayWithCapacity:0];
-    for (NSInteger i = 0; i< 10; i++) {
-        ELMyofascialMenuModel *model = [[ELMyofascialMenuModel alloc]init];
-        model.title = [NSString stringWithFormat:@"%ld",i];
-        [list addObject:model];
-    }
-    [self.timeListView initWithSouce:list];
-    
     _gearListView = ({
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -206,14 +198,6 @@
         }];
         iv;
     });
-    
-    NSMutableArray *gers = [NSMutableArray arrayWithCapacity:0];
-    for (NSInteger i = 0; i< 10; i++) {
-        ELMyofascialMenuModel *model = [[ELMyofascialMenuModel alloc]init];
-        model.title = [NSString stringWithFormat:@"%ld",i];
-        [gers addObject:model];
-    }
-    [self.gearListView initWithSouce:gers];
  
     
     _gearCircleView = ({

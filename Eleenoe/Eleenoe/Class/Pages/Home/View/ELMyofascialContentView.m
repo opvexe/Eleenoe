@@ -29,7 +29,7 @@
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.mas_equalTo(0);
-            make.top.mas_equalTo(0);
+            make.top.mas_equalTo(-kSAdap_V(2));
             make.height.mas_equalTo(30);
         }];
         iv;
@@ -67,14 +67,6 @@
         iv;
     });
     
-    NSMutableArray *list = [NSMutableArray arrayWithCapacity:0];
-    for (NSInteger i = 0; i< 10; i++) {
-        ELMyofascialMenuModel *model = [[ELMyofascialMenuModel alloc]init];
-        model.title = [NSString stringWithFormat:@"肩部%ld",i];
-        [list addObject:model];
-    }
-    [self.bodyListView initWithSouce:list];
-    
     
     _rankListView = ({
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -94,29 +86,22 @@
         iv;
     });
     
-    NSMutableArray *rank = [NSMutableArray arrayWithCapacity:0];
-    for (NSInteger i = 0; i< 10; i++) {
-        ELMyofascialMenuModel *model = [[ELMyofascialMenuModel alloc]init];
-        model.title = [NSString stringWithFormat:@"%ld",i];
-        [rank addObject:model];
-    }
-    [self.rankListView initWithSouce:rank];
     
-    
-    _bodyCircleView = ({
-        UIView *iv = [[UIView alloc] init];
-        [self addSubview:iv];
-        iv.cornerRadius = kSAdap(14);
-        iv.clipsToBounds = YES;
-        iv.layer.borderColor = [UIColor whiteColor].CGColor;
-        iv.layer.borderWidth = 1;
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(kSAdap_V(28));
-            make.width.mas_equalTo(kSAdap(55));
-            make.center.mas_equalTo(self.bodyListView);
-        }];
-        iv;
-    });
+//    _bodyCircleView = ({
+//        UIView *iv = [[UIView alloc] init];
+//        [self addSubview:iv];
+//        iv.cornerRadius = kSAdap(14);
+//        iv.clipsToBounds = YES;
+//        iv.userInteractionEnabled = YES;
+//        iv.layer.borderColor = [UIColor whiteColor].CGColor;
+//        iv.layer.borderWidth = 1;
+//        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_equalTo(kSAdap_V(28));
+//            make.width.mas_equalTo(kSAdap(55));
+//            make.center.mas_equalTo(self.bodyListView);
+//        }];
+//        iv;
+//    });
     
     _rankCircleView = ({
         UIView *iv = [[UIView alloc] init];

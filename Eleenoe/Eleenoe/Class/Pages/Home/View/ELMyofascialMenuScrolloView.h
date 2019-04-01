@@ -10,8 +10,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class ELBaseModel;
+@class ELMyofascialMenuScrolloView;
+@protocol ELMyofascialMenuPickerDelegate <NSObject>
+
+- (void)myofascialMenuView:(ELMyofascialMenuScrolloView *)pickView willSelectItems:(ELBaseModel *)model;
+
+
+@end
+
 @interface ELMyofascialMenuScrolloView : ELBaseCollectionView
 
+@property (nonatomic, weak) id<ELMyofascialMenuPickerDelegate> pickDelegate;
 /**
  * 赋值
  
@@ -20,6 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)initWithSouce:(NSArray *)lists;
 
 
+/**
+ * 设置当前显示的位置
+
+ @param currentIndex 当前IndexPath位置
+ */
 - (void)setCurrentIndex:(NSIndexPath *)currentIndex;
 
 @end

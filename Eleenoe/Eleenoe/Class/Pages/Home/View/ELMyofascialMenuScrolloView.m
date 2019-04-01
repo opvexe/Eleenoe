@@ -10,8 +10,8 @@
 #import "ELMyofascialMenuCollectionViewCell.h"
 @interface ELMyofascialMenuScrolloView()
 @property (nonatomic,strong) NSMutableArray *lists;
-@property(nonatomic, assign) CGSize cellSize;
 @property (nonatomic,strong) NSIndexPath *currentIndex;
+@property (nonatomic,strong) UIView *bodyCircleView;
 @end
 @implementation ELMyofascialMenuScrolloView
 
@@ -21,12 +21,32 @@
         self.showsHorizontalScrollIndicator = NO;
         self.dataSource = self;
         self.delegate = self;
-        _cellSize = layout.itemSize;
         self.backgroundColor = [UIColor clearColor];
         [self registerClass:[ELMyofascialMenuCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELMyofascialMenuCollectionViewCell class])];
         self.decelerationRate = UIScrollViewDecelerationRateFast;
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGestureRecognizer:)];
         [self addGestureRecognizer:tapGesture];
+        
+        for (NSInteger i = 1; i<10; i++) {
+            [self.lists addObject:[NSString stringWithFormat:@"%ld",i]];
+        }
+        
+        _bodyCircleView = ({
+            UIView *iv = [[UIView alloc] init];
+            [self addSubview:iv];
+            iv.cornerRadius = kSAdap(14);
+            iv.clipsToBounds = YES;
+            iv.userInteractionEnabled = YES;
+            iv.layer.borderColor = [UIColor whiteColor].CGColor;
+            iv.layer.borderWidth = 1;
+            [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo(kSAdap_V(28));
+                make.width.mas_equalTo(kSAdap(55));
+                make.center.mas_equalTo(self);
+            }];
+            iv;
+        });
+        
     }
     return self;
 }
@@ -44,6 +64,9 @@
         CGPoint     location = [tapGesture locationInView:tapGesture.view];
         NSIndexPath *indexPath = [self indexPathForItemAtPoint:location];
         if (indexPath.row != self.currentIndex.row) {
+            if (self.pickDelegate&&[self.pickDelegate respondsToSelector:@selector(myofascialMenuView:willSelectItems:)]) {
+                [self.pickDelegate myofascialMenuView:self willSelectItems:self.lists[indexPath.row]];
+            }
             [self setCurrentIndex:indexPath];
         }
     }
@@ -52,19 +75,18 @@
 - (void)setCurrentIndex:(NSIndexPath *)currentIndex {
     _currentIndex = currentIndex;
     UICollectionViewCell *cell = [self cellForItemAtIndexPath:currentIndex];
-    CGFloat contentOffset = cell.center.y - (self.frame.size.width / 2);
-    [self setContentOffset:CGPointMake(self.contentOffset.x, contentOffset) animated:YES];
+    CGFloat contentOffset = cell.center.x - (self.frame.size.width / 2);
+    [self setContentOffset:CGPointMake(contentOffset, self.contentOffset.y) animated:YES];
 }
-
-
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ELMyofascialMenuCollectionViewCell *cell = [ELMyofascialMenuCollectionViewCell cellWithCollectionView:collectionView indexpath:indexPath];
     [cell setUserInteractionEnabled:NO];
+    cell.titleLabel.text = self.lists[indexPath.row];
     if (indexPath.row == _currentIndex.row) {
         cell.titleLabel.font = [UIFont ELPingFangSCMediumFontOfSize:kSaFont(16.0)];
     }else{
-        cell.titleLabel.font =  [UIFont ELPingFangSCMediumFontOfSize:kSaFont(16.0)];
+        cell.titleLabel.font =  [UIFont ELPingFangSCMediumFontOfSize:kSaFont(14.0)];
     }
     return cell;
 }
@@ -77,11 +99,6 @@
 }
 
 #pragma mark - UIScrollView delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    
-}
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self scrollViewDidFinishScrolling:scrollView];
 }
@@ -93,14 +110,17 @@
 }
 
 - (void)scrollViewDidFinishScrolling:(UIScrollView *)scrollView {
-    CGPoint point = [self convertPoint:CGPointMake(self.frame.size.width / 2.0, self.cellSize.height / 2.0) toView:self];
-    NSIndexPath *centerIndexPath = [self indexPathForItemAtPoint:CGPointMake(0, point.y)];
-    if (centerIndexPath.row != self.currentIndex.row) {
-        self.currentIndex = centerIndexPath;
+    CGPoint point = [self convertPoint:CGPointMake(self.frame.size.width / 2.0, self.frame.size.height) toView:self];
+    NSIndexPath *centerIndexPath = [self indexPathForItemAtPoint:CGPointMake(point.x, 0)];
+    if (centerIndexPath.row != _currentIndex.row) {
+        if (self.pickDelegate&&[self.pickDelegate respondsToSelector:@selector(myofascialMenuView:willSelectItems:)]) {
+            [self.pickDelegate myofascialMenuView:self willSelectItems:self.lists[centerIndexPath.row]];
+        }
+        _currentIndex = centerIndexPath;
     }else{
         UICollectionViewCell *cell = [self cellForItemAtIndexPath:_currentIndex];
-        CGFloat contentOffset = cell.center.y - (self.frame.size.width / 2);
-        [self setContentOffset:CGPointMake(self.contentOffset.x, contentOffset) animated:YES];
+        CGFloat contentOffset = cell.center.x - (self.frame.size.width / 2);
+        [self setContentOffset:CGPointMake(contentOffset, self.contentOffset.y) animated:YES];
     }
 }
 
