@@ -231,6 +231,8 @@
         iv;
     });
     
+    [self sendSubviewToBack:self.gearCircleView];
+    [self sendSubviewToBack:self.timeCircleView];
     _rightContentView = ({
         UIView *iv = [[UIView alloc] init];
         [self addSubview:iv];

@@ -118,6 +118,8 @@
         iv;
     });
     
+    [self sendSubviewToBack:self.rankCircleView];
+    [self sendSubviewToBack:self.bodyCircleView];
 }
 
 @end
