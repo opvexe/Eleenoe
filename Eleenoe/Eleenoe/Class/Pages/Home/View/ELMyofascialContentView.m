@@ -97,7 +97,8 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(kSAdap_V(28));
             make.width.mas_equalTo(kSAdap(55));
-            make.center.mas_equalTo(self.bodyListView);
+            make.centerY.mas_equalTo(self.bodyListView).mas_offset(kSAdap(15));
+            make.centerX.mas_equalTo(self.bodyListView);
         }];
         iv;
     });
@@ -112,7 +113,8 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(kSAdap_V(28));
             make.width.mas_equalTo(kSAdap(55));
-            make.center.mas_equalTo(self.rankListView);
+            make.centerY.mas_equalTo(self.rankListView).mas_offset(kSAdap(15));
+            make.centerX.mas_equalTo(self.rankListView);
         }];
         iv;
     });
