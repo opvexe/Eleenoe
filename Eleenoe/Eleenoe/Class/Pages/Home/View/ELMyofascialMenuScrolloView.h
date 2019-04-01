@@ -18,10 +18,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @end
+typedef NS_ENUM(NSUInteger, MenuScrollDirectionType) {
+    MenuScrollDirectionTypeHorizontal,
+    MenuScrollDirectionTypeVertical,
+};
 
 @interface ELMyofascialMenuScrolloView : ELBaseCollectionView
 
 @property (nonatomic, weak) id<ELMyofascialMenuPickerDelegate> pickDelegate;
+/**
+ * 方向
+ */
+@property(nonatomic, assign) MenuScrollDirectionType directionType;
 /**
  * 赋值
  
