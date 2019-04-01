@@ -18,7 +18,6 @@
 		18B4B3BB224FBBC600EA9404 /* ELHomeTitleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3BA224FBBC600EA9404 /* ELHomeTitleCollectionCell.m */; };
 		2E4B5557E019085BA72F7373 /* libPods-Eleenoe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BD9D29E12BC7CF7674A550 /* libPods-Eleenoe.a */; };
 		C2E6CE7D22369AA30049D54C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E6CE7C22369AA30049D54C /* AppDelegate.m */; };
-		C2E6CE8522369AA40049D54C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2E6CE8422369AA40049D54C /* Assets.xcassets */; };
 		C2E6CE8B22369AA40049D54C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E6CE8A22369AA40049D54C /* main.m */; };
 		C2E6CE9522369AA40049D54C /* EleenoeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E6CE9422369AA40049D54C /* EleenoeTests.m */; };
 		C2E6CEA022369AA40049D54C /* EleenoeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E6CE9F22369AA40049D54C /* EleenoeUITests.m */; };
@@ -60,6 +59,7 @@
 		D0A0DBAA22503E37000F9048 /* ELShopListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DBA922503E37000F9048 /* ELShopListView.m */; };
 		D0A0DC352250B618000F9048 /* ELTriggerAnalyzeFloatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DC342250B618000F9048 /* ELTriggerAnalyzeFloatingView.m */; };
 		D0A0DC382250DCD3000F9048 /* ELMarqueLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DC372250DCD3000F9048 /* ELMarqueLabel.m */; };
+		D0A0DC3A2251AF6A000F9048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A0DC392251AF6A000F9048 /* Assets.xcassets */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -138,7 +138,6 @@
 		C2E6CE7822369AA30049D54C /* Eleenoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eleenoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2E6CE7B22369AA30049D54C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C2E6CE7C22369AA30049D54C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C2E6CE8422369AA40049D54C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2E6CE8922369AA40049D54C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2E6CE8A22369AA40049D54C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C2E6CE9022369AA40049D54C /* EleenoeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EleenoeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +217,7 @@
 		D0A0DC342250B618000F9048 /* ELTriggerAnalyzeFloatingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTriggerAnalyzeFloatingView.m; sourceTree = "<group>"; };
 		D0A0DC362250DCD3000F9048 /* ELMarqueLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMarqueLabel.h; sourceTree = "<group>"; };
 		D0A0DC372250DCD3000F9048 /* ELMarqueLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMarqueLabel.m; sourceTree = "<group>"; };
+		D0A0DC392251AF6A000F9048 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -407,8 +407,8 @@
 		C2E6CEAE22369BAB0049D54C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C2E6CE8422369AA40049D54C /* Assets.xcassets */,
 				C2E6CEB322369C3E0049D54C /* EleenoePrefixHeader.pch */,
+				D0A0DC392251AF6A000F9048 /* Assets.xcassets */,
 				D0771088224E1AB800D0B993 /* Shopping.json */,
 			);
 			path = Resources;
@@ -992,9 +992,9 @@
 				D0180B14223F399D008C06C1 /* HUD_error@3x.png in Resources */,
 				D0180B12223F399D008C06C1 /* HUD_success@2x.png in Resources */,
 				D0180B13223F399D008C06C1 /* HUD_success@3x.png in Resources */,
-				C2E6CE8522369AA40049D54C /* Assets.xcassets in Resources */,
 				D0771089224E1AB800D0B993 /* Shopping.json in Resources */,
 				D0180B15223F399D008C06C1 /* HUD_info@3x.png in Resources */,
+				D0A0DC3A2251AF6A000F9048 /* Assets.xcassets in Resources */,
 				D0180B17223F399D008C06C1 /* HUD_error@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

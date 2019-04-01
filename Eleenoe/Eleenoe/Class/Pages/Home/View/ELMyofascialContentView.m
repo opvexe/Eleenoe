@@ -25,12 +25,12 @@
     _marqueLabel = ({
         ELMarqueLabel *iv = [[ELMarqueLabel alloc]init];
         iv.backgroundColor = MainLightThemColor;
-        iv.text = @"【四级】明显痛，如被人打耳光，或者被热水烫了一引发的一度烫伤。";
+        iv.text = @"【四级】明显痛，如被人打耳光，或者被热水烫了一引发的一度烫伤。一引发的一度烫伤。一引发的一度烫伤。";
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.mas_equalTo(0);
             make.top.mas_equalTo(15);
-            make.height.mas_equalTo(20);
+            make.height.mas_equalTo(30);
         }];
         iv;
     });
