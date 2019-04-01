@@ -9,7 +9,7 @@
 #import "ELMyofascialMenuCollectionViewCell.h"
 #import "ELMyofascialMenuModel.h"
 @interface ELMyofascialMenuCollectionViewCell()
-@property (nonatomic,strong) UILabel *titleLabel;
+
 @end
 @implementation ELMyofascialMenuCollectionViewCell
 
@@ -34,18 +34,18 @@
     });
 }
 
--(void)InitDataWithModel:(ELMyofascialMenuModel *)model{
-    self.titleLabel.text = model.title;
-}
-
--(void)setSelected:(BOOL)selected{
-    [super setSelected:selected];
-    if (selected) {
-         self.titleLabel.textColor = MainWhiteTitleColor;
-          self.titleLabel.font = [UIFont ELPingFangSCMediumFontOfSize:kSaFont(16.0)];
-    }else{
-        self.titleLabel.textColor = MainLightThemColor;
-         self.titleLabel.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)];
-    }
-}
+//-(void)InitDataWithModel:(ELMyofascialMenuModel *)model{
+//    self.titleLabel.text = model.title;
+//}
+//
+//-(void)setSelected:(BOOL)selected{
+//    [super setSelected:selected];
+//    if (selected) {
+//         self.titleLabel.textColor = MainWhiteTitleColor;
+//          self.titleLabel.font = [UIFont ELPingFangSCMediumFontOfSize:kSaFont(16.0)];
+//    }else{
+//        self.titleLabel.textColor = MainLightThemColor;
+//         self.titleLabel.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)];
+//    }
+//}
 @end

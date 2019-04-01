@@ -10,31 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
-/**
- * 滚动方向
- 
- - MyofascialMenuTypeHorizontal: 水平方向
- - MyofascialMenuTypeVertical: 垂直方向
- */
-typedef NS_ENUM(NSInteger, MyofascialMenuType) {
-    MyofascialMenuTypeHorizontal,
-    MyofascialMenuTypeVertical,
-};
-
 @interface ELMyofascialMenuScrolloView : ELBaseCollectionView
-
-/**
- * 默认选中垂直方向
- 
- */
-@property(nonatomic, assign) MyofascialMenuType type;
-
-/**
- * 默认选中
- 
- */
-@property(nonatomic, assign) NSInteger defaultChoice;
 
 /**
  * 赋值
@@ -44,7 +20,8 @@ typedef NS_ENUM(NSInteger, MyofascialMenuType) {
 -(void)initWithSouce:(NSArray *)lists;
 
 
-- (void)setPageContentCollectionViewCurrentIndex:(NSInteger)currentIndex;
+- (void)setCurrentIndex:(NSIndexPath *)currentIndex;
+
 @end
 
 NS_ASSUME_NONNULL_END

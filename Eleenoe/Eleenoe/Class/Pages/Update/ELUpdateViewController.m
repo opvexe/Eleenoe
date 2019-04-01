@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"固件更新";
-    [self configView];
+        [self configView];
 }
 
 -(void)configView{
@@ -107,7 +107,7 @@
 }
 
 -(void)Click:(UIButton *)sender{
-
+    
 }
 /*
  #pragma mark - Navigation
