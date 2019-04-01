@@ -52,13 +52,12 @@
 - (void)beReadyToAnimateFrame:(CGRect)frame {
     
     CGRect rect = [self.animationLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont ELPingFangSCRegularFontOfSize:12]} context:nil];
-    
     if (rect.size.width <= frame.size.width) {
         _animationLabel.frame = frame;
         [_containerView.layer removeAnimationForKey:@"containerView animation"];
         
     } else {
-        _animationLabel.frame = CGRectMake(0, 0, rect.size.width, self.frame.size.height);
+        _animationLabel.frame = CGRectMake(0, 0, frame.size.width, self.frame.size.height);
         [self startToAnimate];
     }
 }
