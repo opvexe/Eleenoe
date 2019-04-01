@@ -28,24 +28,8 @@
         [self addGestureRecognizer:tapGesture];
         
         for (NSInteger i = 1; i<10; i++) {
-            [self.lists addObject:[NSString stringWithFormat:@"%ld",i]];
+            [self.lists addObject:[NSString stringWithFormat:@"%ld",(long)i]];
         }
-        
-        _bodyCircleView = ({
-            UIView *iv = [[UIView alloc] init];
-            [self addSubview:iv];
-            iv.cornerRadius = kSAdap(14);
-            iv.clipsToBounds = YES;
-            iv.userInteractionEnabled = YES;
-            iv.layer.borderColor = [UIColor whiteColor].CGColor;
-            iv.layer.borderWidth = 1;
-            [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_equalTo(kSAdap_V(28));
-                make.width.mas_equalTo(kSAdap(55));
-                make.center.mas_equalTo(self);
-            }];
-            iv;
-        });
         
     }
     return self;
@@ -64,8 +48,8 @@
         CGPoint     location = [tapGesture locationInView:tapGesture.view];
         NSIndexPath *indexPath = [self indexPathForItemAtPoint:location];
         if (indexPath.row != self.currentIndex.row) {
-            if (self.pickDelegate&&[self.pickDelegate respondsToSelector:@selector(myofascialMenuView:willSelectItems:)]) {
-                [self.pickDelegate myofascialMenuView:self willSelectItems:self.lists[indexPath.row]];
+            if (self.pickDelegate&&[self.pickDelegate respondsToSelector:@selector(myofascialMenuView:didSelectItems:)]) {
+                [self.pickDelegate myofascialMenuView:self didSelectItems:self.lists[indexPath.row]];
             }
             [self setCurrentIndex:indexPath];
         }
@@ -77,6 +61,7 @@
     UICollectionViewCell *cell = [self cellForItemAtIndexPath:currentIndex];
     CGFloat contentOffset = cell.center.x - (self.frame.size.width / 2);
     [self setContentOffset:CGPointMake(contentOffset, self.contentOffset.y) animated:YES];
+    [self reloadData];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -86,7 +71,7 @@
     if (indexPath.row == _currentIndex.row) {
         cell.titleLabel.font = [UIFont ELPingFangSCMediumFontOfSize:kSaFont(16.0)];
     }else{
-        cell.titleLabel.font =  [UIFont ELPingFangSCMediumFontOfSize:kSaFont(14.0)];
+        cell.titleLabel.font =  [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)];
     }
     return cell;
 }
@@ -110,18 +95,22 @@
 }
 
 - (void)scrollViewDidFinishScrolling:(UIScrollView *)scrollView {
-    CGPoint point = [self convertPoint:CGPointMake(self.frame.size.width / 2.0, self.frame.size.height) toView:self];
-    NSIndexPath *centerIndexPath = [self indexPathForItemAtPoint:CGPointMake(point.x, 0)];
-    if (centerIndexPath.row != _currentIndex.row) {
-        if (self.pickDelegate&&[self.pickDelegate respondsToSelector:@selector(myofascialMenuView:willSelectItems:)]) {
-            [self.pickDelegate myofascialMenuView:self willSelectItems:self.lists[centerIndexPath.row]];
-        }
-        _currentIndex = centerIndexPath;
-    }else{
-        UICollectionViewCell *cell = [self cellForItemAtIndexPath:_currentIndex];
-        CGFloat contentOffset = cell.center.x - (self.frame.size.width / 2);
-        [self setContentOffset:CGPointMake(contentOffset, self.contentOffset.y) animated:YES];
-    }
+    CGPoint point = [self convertPoint:CGPointMake(self.frame.size.width / 2.0, self.frame.size.height / 2.0) toView:self];
+    
+    NSLog(@"%@",NSStringFromCGPoint(point));
+    
+    //    CGPoint point = [self convertPoint:CGPointMake(self.frame.size.width / 2.0, self.frame.size.height) toView:self];
+    //    NSIndexPath *centerIndexPath = [self indexPathForItemAtPoint:CGPointMake(point.x, 0)];
+    //    if (centerIndexPath.row != _currentIndex.row) {
+    //        if (self.pickDelegate&&[self.pickDelegate respondsToSelector:@selector(myofascialMenuView:willSelectItems:)]) {
+    //            [self.pickDelegate myofascialMenuView:self willSelectItems:self.lists[centerIndexPath.row]];
+    //        }
+    //        _currentIndex = centerIndexPath;
+    //    }else{
+    //        UICollectionViewCell *cell = [self cellForItemAtIndexPath:_currentIndex];
+    //        CGFloat contentOffset = cell.center.x - (self.frame.size.width / 2);
+    //        [self setContentOffset:CGPointMake(contentOffset, self.contentOffset.y) animated:YES];
+    //    }
 }
 
 -(NSMutableArray *)lists{

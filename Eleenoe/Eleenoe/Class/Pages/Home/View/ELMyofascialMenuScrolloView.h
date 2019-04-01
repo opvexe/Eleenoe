@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class ELMyofascialMenuScrolloView;
 @protocol ELMyofascialMenuPickerDelegate <NSObject>
 
-- (void)myofascialMenuView:(ELMyofascialMenuScrolloView *)pickView willSelectItems:(ELBaseModel *)model;
+- (void)myofascialMenuView:(ELMyofascialMenuScrolloView *)pickView didSelectItems:(ELBaseModel *)model;
 
 
 @end

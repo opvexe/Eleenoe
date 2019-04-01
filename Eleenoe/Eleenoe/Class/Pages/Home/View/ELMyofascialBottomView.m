@@ -205,6 +205,7 @@
         [self.MyofascialBottomImageView addSubview:iv];
         iv.cornerRadius = kSAdap(10);
         iv.clipsToBounds = YES;
+        iv.userInteractionEnabled = YES;
         iv.layer.borderColor = MainThemColor.CGColor;
         iv.layer.borderWidth = 1;
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -223,6 +224,7 @@
         iv.clipsToBounds = YES;
         iv.layer.borderColor = MainThemColor.CGColor;
         iv.layer.borderWidth = 1;
+        iv.userInteractionEnabled = YES;
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(kSAdap_V(32));
             make.width.mas_equalTo(kSAdap(20));
