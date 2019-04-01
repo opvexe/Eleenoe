@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, assign) float progress;
 
+@property (nonatomic,strong) NSMutableArray *lists;
+
 @end
 
 NS_ASSUME_NONNULL_END

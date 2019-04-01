@@ -10,32 +10,58 @@
 
 @implementation ELBatteryView
 
+-(void)ELSinitConfingViews{
+    
+    UIView * lastView ;
+    for (NSInteger index = 0; index<5; index++) {
+        UIView *iv = [[UIView alloc]init];
+        iv.backgroundColor = UIColorFromRGB(0xC3E282);
+        [self addSubview:iv];
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(3);
+            make.bottom.mas_equalTo(-3);
+            if (lastView) {
+                make.left.mas_equalTo(lastView.mas_right).offset(2);
+            }else{
+                make.left.mas_equalTo(2);
+            }
+            make.width.mas_equalTo(1);
+        }];
+        lastView = iv;
+        [self.lists addObject:iv];
+    }
+}
+
 -(void)setProgress:(float)progress{
     _progress = progress;
     NSInteger currentIndex = 5;
     if (0<=progress<0.2) {
-        currentIndex = 1;
+        currentIndex = 0;
     }else if (0.2<=progress<=0.4){
-        currentIndex = 2;
+        currentIndex = 1;
     }else if (0.4<=progress<=0.6){
-        currentIndex = 3;
+        currentIndex = 2;
     }else if (0.6<=progress<=0.8){
-        currentIndex = 4;
+        currentIndex = 3;
     }else if (0.8<=progress<=1.0){
-        currentIndex = 5;
+        currentIndex = 4;
     }
     
-    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj removeFromSuperview];
+    [self.lists enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (currentIndex<=idx) {
+            [obj setHidden:YES];
+        }else{
+            [obj setHidden:NO];
+        }
     }];
-    
-    for (NSInteger index = 1; index<currentIndex+1; index++) {
-        UIView *iv = [[UIView alloc]initWithFrame:CGRectMake(2*index+1, 3, 1, self.frame.size.height-6)];
-        iv.backgroundColor = UIColorFromRGB(0xC3E282);
-        [self addSubview:iv];
-    }
 }
 
+-(NSMutableArray *)lists{
+    if (!_lists) {
+        _lists = [NSMutableArray array];
+    }
+    return _lists;
+}
 
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];

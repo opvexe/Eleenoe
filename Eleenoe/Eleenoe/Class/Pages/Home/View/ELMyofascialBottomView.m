@@ -93,11 +93,12 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.timeLabel.mas_right).offset(kSAdap(45.6));
             make.centerY.mas_equalTo(self.timeLabel);
-            make.size.mas_equalTo(CGSizeMake(15, 11));
+            make.size.mas_equalTo(CGSizeMake(17, 11));
         }];
         iv;
     });
     
+    self.batteryView.progress = 0.7;
     
     _titleLabel = ({
         UILabel *iv = [[UILabel alloc] init];
