@@ -116,7 +116,6 @@
         [self setContentOffset:CGPointMake(contentOffset, self.contentOffset.y) animated:YES];
         _currentIndex = centerIndexPath;
     }
-    
     [self reloadData];
 }
 

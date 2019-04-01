@@ -289,8 +289,8 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     [self.rightContentView UILayoutCornerRadiusType:UILayoutCornerRadiusLeft withCornerRadius:kSAdap_V(12)];
-
 }
+
 -(void)Click:(UIButton *)sender{
     sender.selected = !sender.selected;
     [ELTriggerAnalyzeFloatingView showInitDataModel:nil Complete:^(ELBaseModel * _Nonnull model) {
