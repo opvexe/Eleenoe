@@ -24,7 +24,7 @@
         [self.contentView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.mas_equalTo(0);
-            make.top.mas_equalTo(kSAdap(0));
+            make.top.mas_equalTo(0);
             make.bottom.mas_equalTo(kSAdap(-8));
         }];
         iv;
