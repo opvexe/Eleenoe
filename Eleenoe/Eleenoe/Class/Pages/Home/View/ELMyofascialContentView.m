@@ -23,15 +23,10 @@
 -(void)ELSinitConfingViews{
     
     _marqueLabel = ({
-        ELMarqueLabel *iv = [[ELMarqueLabel alloc]init];
+        ELMarqueLabel *iv = [[ELMarqueLabel alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20) font:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12)] textColor:MainThemColor];
         iv.backgroundColor = MainLightThemColor;
         iv.text = @"【四级】明显痛，如被人打耳光，或者被热水烫了一引发的一度烫伤。一引发的一度烫伤。一引发的一度烫伤。";
         [self addSubview:iv];
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.mas_equalTo(0);
-            make.top.mas_equalTo(0);
-            make.height.mas_equalTo(30);
-        }];
         iv;
     });
     
@@ -57,6 +52,7 @@
         flowLayout.sectionInset = UIEdgeInsetsMake(kSAdap_V(10), 0, kSAdap_V(10), 0);
         flowLayout.itemSize = CGSizeMake(kSAdap(50), kSAdap_V(32));
         ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        iv.directionType = MenuScrollDirectionTypeVertical;
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(kSAdap_V(55.0));
@@ -75,6 +71,7 @@
         flowLayout.sectionInset = UIEdgeInsetsMake(kSAdap_V(10), 0, kSAdap_V(10), 0);
         flowLayout.itemSize = CGSizeMake(kSAdap(50), kSAdap_V(32));
         ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        iv.directionType = MenuScrollDirectionTypeVertical;
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(kSAdap_V(55.0));
@@ -97,7 +94,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(kSAdap_V(28));
             make.width.mas_equalTo(kSAdap(55));
-            make.centerY.mas_equalTo(self.bodyListView).mas_offset(kSAdap(15));
+            make.centerY.mas_equalTo(self.bodyListView).mas_offset(-kSAdap(31));
             make.centerX.mas_equalTo(self.bodyListView);
         }];
         iv;

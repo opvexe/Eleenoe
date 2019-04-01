@@ -7,70 +7,99 @@
 //
 
 #import "ELMarqueLabel.h"
-#define labelMargin  20
-@interface ELMarqueLabel ()
-@property (nonatomic,strong) UILabel *animationLabel;
-@property (strong, nonatomic) UIView * containerView;
+@interface ELMarqueLabel (){
+    UILabel *_rollLabel;
+    NSTimer *_timer;
+    CGRect totalRect; // 计算出来的Label的总rect
+    BOOL _isCanRoll; // 是否能滚动
+}
+@property(nonatomic,assign) NSTimeInterval timeInterval;
 @end
 @implementation ELMarqueLabel
 
--(void)ELSinitConfingViews{
-    
-    _speed = 20.0;
-    
-    _containerView = ({
-        UIView *iv = [[UIView alloc]initWithFrame:self.bounds];
-        iv.backgroundColor = [UIColor clearColor];
-        [self addSubview:iv];
-        iv;
-    });
-    
-    _animationLabel = ({
-        UILabel *iv = [[UILabel alloc]init];
-        iv.textAlignment = NSTextAlignmentLeft;
-        iv.textColor =  UIColorFromRGB(0x8EC31F);
-        iv.font = [UIFont ELPingFangSCRegularFontOfSize:12];
-        [self.containerView addSubview:iv];
-        iv;
-    });
+-(void)dealloc{
+    [_timer invalidate];
+    _timer = nil;
 }
 
--(void)setText:(NSString *)text{
-    _text = text;
-    self.animationLabel.text = text;
+-(instancetype)initWithFrame:(CGRect)frame font:(UIFont *)font textColor:(UIColor *)color{
+    self = [super initWithFrame:frame];
+    if (self) {
+        _rollLabel = [[UILabel alloc] init];
+        _rollLabel.textColor = color;
+        _rollLabel.font = font;
+        [self addSubview:_rollLabel];
+    }
+    return self;
 }
 
--(void)setSpeed:(CGFloat)speed{
-    _speed = speed;
-}
-
-- (void)layoutSubviews{
-    [super layoutSubviews];
-    [self beReadyToAnimateFrame:CGRectMake(0, 0, self.width, self.height)];
-}
-
-- (void)beReadyToAnimateFrame:(CGRect)frame {
+- (void)setText:(NSString *)text{
+    _rollLabel.text = text;
     
-    CGRect rect = [self.animationLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont ELPingFangSCRegularFontOfSize:12]} context:nil];
-    if (rect.size.width <= frame.size.width) {
-        _animationLabel.frame = frame;
-        [_containerView.layer removeAnimationForKey:@"containerView animation"];
-        
-    } else {
-        _animationLabel.frame = CGRectMake(0, 0, frame.size.width, self.frame.size.height);
-        [self startToAnimate];
+    CGSize size = [self getFontSize:_rollLabel.font withSize:CGSizeMake(MAXFLOAT, 10) withText:text];
+    if (size.width > self.frame.size.width) {
+        _isCanRoll = YES;
+        if (_timer) {
+            [_timer invalidate];
+            _timer = nil;
+        }
+        _timer = [NSTimer scheduledTimerWithTimeInterval:_timeInterval <= 0 ? 0.01 : _timeInterval target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+        [_timer setFireDate:[NSDate distantFuture]];
+    }else{
+        size.width = self.frame.size.width;
+    }
+    totalRect = CGRectMake(0, 0, size.width, self.frame.size.height);
+    [self resetStart];
+}
+
+
+-(void)timerAction{
+    CGRect r = _rollLabel.frame;
+    r.origin.x = r.origin.x - (_rollSpeed <= 0 ? 0.5:_rollSpeed);
+    _rollLabel.frame = r;
+    if (-r.origin.x > _rollLabel.frame.size.width - self.frame.size.width) {
+        r.origin.x = 0;
+        [self pauseRoll];
+        [self performSelector:@selector(resetStart) withObject:nil afterDelay:0.5];
     }
 }
 
-- (void)startToAnimate{
-    CABasicAnimation * animate = [CABasicAnimation animation];
-    animate.fromValue = @(0);
-    animate.toValue=@( - _animationLabel.frame.size.width - labelMargin);
-    animate.keyPath = @"transform.translation.x";
-    animate.duration = (_animationLabel.frame.size.width + labelMargin) / _speed;
-    animate.removedOnCompletion = YES;
-    animate.repeatCount = MAXFLOAT;
-    [_containerView.layer addAnimation:animate forKey:@"containerView animation"];
+// 从头开始滚动
+- (void)resetStart{
+    _rollLabel.frame = totalRect;
+    [self startRoll];
+}
+
+// 开始滚动
+-(void)startRoll{
+    if (_isCanRoll && _timer && [_timer isValid]) {
+        [self performSelector:@selector(start) withObject:nil afterDelay:1];
+    }
+}
+
+- (void)start{
+    [_timer setFireDate:[NSDate date]];
+}
+
+// 暂停
+-(void)pauseRoll{
+    if (_isCanRoll && _timer && [_timer isValid]) {
+        [_timer setFireDate:[NSDate distantFuture]];
+    }
+}
+
+// 获取文字size
+-(CGSize)getFontSize:(UIFont *)font withSize:(CGSize)cgSize withText:(NSString *)text{
+    if (![text isKindOfClass:[NSNull class]]) {
+        CGRect textRect = [text boundingRectWithSize:cgSize
+                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                          attributes:@{NSFontAttributeName:font}
+                                             context:nil];
+        CGSize size = textRect.size;
+        return size;
+    }
+    return CGSizeZero;
 }
 
 @end

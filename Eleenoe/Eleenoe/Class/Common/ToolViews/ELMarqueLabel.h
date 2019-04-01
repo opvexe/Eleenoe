@@ -6,21 +6,17 @@
 //  Copyright © 2019 FaceBook. All rights reserved.
 //
 
-#import "ELBaseView.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ELMarqueLabel : ELBaseView
+@interface ELMarqueLabel : UIScrollView
 
-/**
- * 速度（默认）
- */
-@property(nonatomic, assign) CGFloat speed;
+@property (nonatomic, strong) NSString *text; // 设置文字
 
-/**
- * 滚动内容
- */
-@property (nonatomic, copy) NSString *text;
+@property(nonatomic,assign) float rollSpeed; // 滚动速度，默认0.5
+
+-(instancetype)initWithFrame:(CGRect)frame font:(UIFont *)font textColor:(UIColor *)color;
 
 @end
 
