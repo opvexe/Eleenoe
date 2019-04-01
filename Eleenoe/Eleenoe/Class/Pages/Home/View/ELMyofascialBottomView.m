@@ -11,11 +11,13 @@
 #import "ELButtonExtention.h"
 #import "ELMyofascialMenuModel.h"
 #import "ELTriggerAnalyzeFloatingView.h"
+#import "ELBatteryView.h"
 @interface ELMyofascialBottomView()
 @property(nonatomic,strong)UIImageView *MyofascialBottomImageView;
 @property(nonatomic,strong) ELButtonExtention *determineButton;
 @property(nonatomic,strong)UILabel *timeLabel;
 @property(nonatomic,strong)UIImageView *timeIcon;
+@property(nonatomic,strong)ELBatteryView *batteryView;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UIImageView *bluetoothImageView;
 @property(nonatomic,strong)UILabel *minutesLabel;
@@ -84,19 +86,18 @@
         iv;
     });
     
-    _timeIcon = ({
-        UIImageView *iv = [[UIImageView alloc]init];
-        iv.clipsToBounds = YES;
-        UIImage *icon  = [UIImage imageNamed:@"MyofascialTimeIcon"];
-        iv.image = icon ;
+    _batteryView = ({
+        ELBatteryView *iv = [[ELBatteryView alloc]init];
+        iv.backgroundColor = [UIColor clearColor];
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.timeLabel.mas_right).offset(kSAdap(45.6));
             make.centerY.mas_equalTo(self.timeLabel);
-            make.size.mas_equalTo(icon.size);
+            make.size.mas_equalTo(CGSizeMake(15, 11));
         }];
         iv;
     });
+    
     
     _titleLabel = ({
         UILabel *iv = [[UILabel alloc] init];
@@ -198,7 +199,7 @@
         }];
         iv;
     });
- 
+    
     
     _gearCircleView = ({
         UIView *iv = [[UIView alloc] init];

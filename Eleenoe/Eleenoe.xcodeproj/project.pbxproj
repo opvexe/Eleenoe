@@ -60,6 +60,7 @@
 		D0A0DC352250B618000F9048 /* ELTriggerAnalyzeFloatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DC342250B618000F9048 /* ELTriggerAnalyzeFloatingView.m */; };
 		D0A0DC382250DCD3000F9048 /* ELMarqueLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DC372250DCD3000F9048 /* ELMarqueLabel.m */; };
 		D0A0DC3A2251AF6A000F9048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A0DC392251AF6A000F9048 /* Assets.xcassets */; };
+		D0A0DC4322520587000F9048 /* ELBatteryView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DC4222520587000F9048 /* ELBatteryView.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -218,6 +219,8 @@
 		D0A0DC362250DCD3000F9048 /* ELMarqueLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMarqueLabel.h; sourceTree = "<group>"; };
 		D0A0DC372250DCD3000F9048 /* ELMarqueLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMarqueLabel.m; sourceTree = "<group>"; };
 		D0A0DC392251AF6A000F9048 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0A0DC4122520587000F9048 /* ELBatteryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBatteryView.h; sourceTree = "<group>"; };
+		D0A0DC4222520587000F9048 /* ELBatteryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBatteryView.m; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -664,6 +667,8 @@
 				D0DC670622393DB20064C07A /* ELMessageEventButton.m */,
 				00034EB6224E3AE100CE83AB /* ELButtonExtention.h */,
 				00034EB7224E3AE100CE83AB /* ELButtonExtention.m */,
+				D0A0DC4122520587000F9048 /* ELBatteryView.h */,
+				D0A0DC4222520587000F9048 /* ELBatteryView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1136,6 +1141,7 @@
 				D0EC4B2F2238AF3A00B5A74D /* ELTools.m in Sources */,
 				D0A0DB9A224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m in Sources */,
 				C2E6CE7D22369AA30049D54C /* AppDelegate.m in Sources */,
+				D0A0DC4322520587000F9048 /* ELBatteryView.m in Sources */,
 				18B4B3AC224FB6B800EA9404 /* ELMyofascialContentView.m in Sources */,
 				D0F52B0D2237891800A26504 /* UIViewController+WDNavigatonBarAppearance.m in Sources */,
 				D0180AFA223F3604008C06C1 /* ELLocationManger.m in Sources */,
