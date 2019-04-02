@@ -106,6 +106,10 @@
         
     }];
 }
+-(void)clearSearchBarView:(ELSearchBarView *)searchBarView{
+    self.resullistView.hidden =!searchBarView.text.length;
+    self.listView.hidden = searchBarView.text.length;
+}
 /*
 #pragma mark - Navigation
 
