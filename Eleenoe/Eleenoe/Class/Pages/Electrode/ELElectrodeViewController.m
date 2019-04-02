@@ -55,9 +55,9 @@
         [iv addTarget:self action:@selector(Cick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(self.view.mas_centerX).mas_offset(kSAdap(12.0));
-            make.bottom.mas_equalTo(-kSAdap_V(80.0));
-            make.size.mas_equalTo(CGSizeMake(kSAdap(160.0), kSAdap_V(65.0)));
+            make.right.mas_equalTo(self.view.mas_centerX).mas_offset(8);
+            make.bottom.mas_equalTo(-kSAdap_V(80));
+            make.size.mas_equalTo(CGSizeMake(160, 65));
         }];
         iv;
     });
@@ -72,9 +72,9 @@
         [iv addTarget:self action:@selector(Cick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.view.mas_centerX).mas_offset(-kSAdap(12.0));
+            make.left.mas_equalTo(self.view.mas_centerX).mas_offset(-8);
             make.bottom.mas_equalTo(-kSAdap_V(80.0));
-            make.size.mas_equalTo(CGSizeMake(kSAdap(160.0), kSAdap_V(65.0)));
+            make.size.mas_equalTo(CGSizeMake(160,65));
         }];
         iv;
     });

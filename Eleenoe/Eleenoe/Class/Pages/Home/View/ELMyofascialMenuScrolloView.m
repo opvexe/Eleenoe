@@ -7,116 +7,108 @@
 //
 
 #import "ELMyofascialMenuScrolloView.h"
+#import "ELCollectionViewFlowLayout.h"
 #import "ELMyofascialMenuCollectionViewCell.h"
-@interface ELMyofascialMenuScrolloView()
+@interface ELMyofascialMenuScrolloView()<UICollectionViewDelegate,UICollectionViewDataSource,MKJCollectionViewFlowLayoutDelegate>
 @property (nonatomic,strong) NSMutableArray *lists;
-@property (nonatomic,strong) NSIndexPath *currentIndex;
-@property (nonatomic,strong) UIView *bodyCircleView;
-@property(nonatomic, assign) CGSize itemSize;
+@property (nonatomic,strong) UICollectionView *collectionView;
+@property (nonatomic,strong) UIView *circleView;
 @end
 @implementation ELMyofascialMenuScrolloView
 
--(instancetype)initWithFrame:(CGRect)frame  collectionViewLayout:(nonnull UICollectionViewFlowLayout *)layout{
-    if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
-        self.showsVerticalScrollIndicator = NO;
-        self.showsHorizontalScrollIndicator = NO;
-        self.dataSource = self;
-        self.delegate = self;
-        _itemSize = layout.itemSize;
-        self.backgroundColor = [UIColor clearColor];
-        [self registerClass:[ELMyofascialMenuCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELMyofascialMenuCollectionViewCell class])];
-        self.decelerationRate = UIScrollViewDecelerationRateFast;
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGestureRecognizer:)];
-        [self addGestureRecognizer:tapGesture];
-        
-        for (NSInteger i = 1; i<10; i++) {
-            [self.lists addObject:[NSString stringWithFormat:@"%ld",(long)i]];
-        }
-        
+-(void)ELSinitConfingViews{
+    
+    _collectionView = ({
+        ELCollectionViewFlowLayout *  flowLayout = [[ELCollectionViewFlowLayout alloc] init];
+        flowLayout.minimumInteritemSpacing = 0;
+        flowLayout.itemSize = CGSizeMake(kSAdap(20), kSAdap_V(32));
+        flowLayout.needAlpha = YES;
+        flowLayout.delegate = self;
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        UICollectionView*collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        collectionView.showsHorizontalScrollIndicator = NO;
+        collectionView.showsVerticalScrollIndicator = NO;
+        collectionView.backgroundColor = [UIColor clearColor];
+        collectionView.delegate = self;
+        collectionView.dataSource = self;
+        [self addSubview:collectionView];
+        [collectionView registerClass:[ELMyofascialMenuCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELMyofascialMenuCollectionViewCell class])];
+        [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(self);
+        }];
+        collectionView;
+    });
+    
+    
+    _circleView = ({
+        UIView *iv = [[UIView alloc] init];
+        [self addSubview:iv];
+        iv.cornerRadius = kSAdap(10);
+        iv.clipsToBounds = YES;
+        iv.layer.borderColor = MainThemColor.CGColor;
+        iv.layer.borderWidth = 1;
+        iv.userInteractionEnabled = YES;
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(kSAdap_V(32));
+            make.width.mas_equalTo(kSAdap(22));
+            make.center.mas_equalTo(self.collectionView);
+        }];
+        iv;
+    });
+    
+    [self sendSubviewToBack:self.circleView];
+    
+    for (NSInteger i = 1; i<20; i++) {
+        [self.lists addObject:[NSString stringWithFormat:@"%ld",(long)i]];
     }
-    return self;
+    [self.collectionView reloadData];
 }
 
--(void)initWithSouce:(NSArray *)lists{
-    if (lists.count) {
-        [self.lists addObjectsFromArray:lists];
-        [self reloadData];
-    }
+- (void)setCurrentIndex:(NSInteger )row{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    [self.collectionView reloadData];
 }
 
-#pragma mark - handleTapGestureRecognizer
-- (void)handleTapGestureRecognizer:(UITapGestureRecognizer *)tapGesture {
-    if (tapGesture.state == UIGestureRecognizerStateEnded) {
-        CGPoint     location = [tapGesture locationInView:tapGesture.view];
-        NSIndexPath *indexPath = [self indexPathForItemAtPoint:location];
-        if (indexPath.row != self.currentIndex.row) {
-            if (self.pickDelegate&&[self.pickDelegate respondsToSelector:@selector(myofascialMenuView:didSelectItems:)]) {
-                [self.pickDelegate myofascialMenuView:self didSelectItems:self.lists[indexPath.row]];
-            }
-            [self setCurrentIndex:indexPath];
-        }
-    }
+- (void)collectioViewScrollToIndex:(NSInteger)index
+{
+    
+    NSLog(@"%ld",index);
 }
 
-- (void)setCurrentIndex:(NSIndexPath *)currentIndex {
-    _currentIndex = currentIndex;
-    UICollectionViewCell *cell = [self cellForItemAtIndexPath:currentIndex];
-    CGFloat contentOffset = cell.center.x - (self.frame.size.width / 2);
-    [self setContentOffset:CGPointMake(contentOffset, self.contentOffset.y) animated:YES];
-    [self reloadData];
-}
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    ELMyofascialMenuCollectionViewCell *cell = [ELMyofascialMenuCollectionViewCell cellWithCollectionView:collectionView indexpath:indexPath];
-    [cell setUserInteractionEnabled:NO];
-    cell.titleLabel.text = self.lists[indexPath.row];
-    if (indexPath.row == _currentIndex.row) {
-        cell.titleLabel.font = [UIFont ELPingFangSCMediumFontOfSize:kSaFont(16.0)];
-    }else{
-        cell.titleLabel.font =  [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)];
-    }
-    return cell;
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView{
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
     return 1;
 }
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
     return self.lists.count;
 }
 
-#pragma mark - UIScrollView delegate
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self scrollViewDidFinishScrolling:scrollView];
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if (!decelerate) {
-        [self scrollViewDidFinishScrolling:scrollView];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ELMyofascialMenuCollectionViewCell *cell = [ELMyofascialMenuCollectionViewCell cellWithCollectionView:collectionView indexpath:indexPath];
+    if (indexPath.row ==0 ||indexPath.row ==self.lists.count-1) {
+        cell.titleLabel.text = @"";
+    }else{
+        cell.titleLabel.text = self.lists[indexPath.row];
     }
+    
+    return cell;
 }
 
-- (void)scrollViewDidFinishScrolling:(UIScrollView *)scrollView {
-    
-    CGFloat itemWidth = _itemSize.width;
-    
-    //item的宽度+行间距 = 页码的宽度
-    NSInteger pageWidth = itemWidth ;
-    
-    //根据偏移量计算是第几页
-    NSInteger pageNum = (scrollView.contentOffset.x+pageWidth/2)/pageWidth;
-    NSIndexPath *centerIndexPath = [NSIndexPath indexPathForRow:pageNum inSection:0];
-    if (centerIndexPath.row != _currentIndex.row) {
-        if (self.pickDelegate&&[self.pickDelegate respondsToSelector:@selector(myofascialMenuView:didSelectItems:)]) {
-            [self.pickDelegate myofascialMenuView:self didSelectItems:self.lists[centerIndexPath.row]];
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.collectionView.collectionViewLayout isKindOfClass:[ELCollectionViewFlowLayout class]]) {
+        CGPoint pInUnderView = [self convertPoint:collectionView.center toView:collectionView];
+        NSIndexPath *indexpathNew = [collectionView indexPathForItemAtPoint:pInUnderView];
+        if (indexPath.row == indexpathNew.row){
+            return;
+        }else{
+            [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
         }
-        UICollectionViewCell *cell = [self cellForItemAtIndexPath:centerIndexPath];
-        CGFloat contentOffset = cell.center.x - (self.frame.size.width / 2);
-        [self setContentOffset:CGPointMake(contentOffset, self.contentOffset.y) animated:YES];
-        _currentIndex = centerIndexPath;
     }
-    [self reloadData];
 }
 
 -(NSMutableArray *)lists{

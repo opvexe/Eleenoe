@@ -6,7 +6,7 @@
 //  Copyright © 2019 FaceBook. All rights reserved.
 //
 
-#import "ELBaseCollectionView.h"
+#import "ELBaseView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,35 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol ELMyofascialMenuPickerDelegate <NSObject>
 
 - (void)myofascialMenuView:(ELMyofascialMenuScrolloView *)pickView didSelectItems:(ELBaseModel *)model;
-
-
 @end
-typedef NS_ENUM(NSUInteger, MenuScrollDirectionType) {
-    MenuScrollDirectionTypeHorizontal,
-    MenuScrollDirectionTypeVertical,
-};
 
-@interface ELMyofascialMenuScrolloView : ELBaseCollectionView
+@interface ELMyofascialMenuScrolloView : ELBaseView
 
-@property (nonatomic, weak) id<ELMyofascialMenuPickerDelegate> pickDelegate;
-/**
- * 方向
- */
-@property(nonatomic, assign) MenuScrollDirectionType directionType;
-/**
- * 赋值
- 
- @param lists 数组数据
- */
--(void)initWithSouce:(NSArray *)lists;
+- (void)setCurrentIndex:(NSInteger )row;
 
-
-/**
- * 设置当前显示的位置
-
- @param currentIndex 当前IndexPath位置
- */
-- (void)setCurrentIndex:(NSIndexPath *)currentIndex;
 
 @end
 

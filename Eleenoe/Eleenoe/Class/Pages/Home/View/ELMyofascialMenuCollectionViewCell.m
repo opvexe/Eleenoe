@@ -24,7 +24,7 @@
         UILabel *iv = [[UILabel alloc]init];
         iv.textColor = MainLightThemColor;
         iv.textAlignment = NSTextAlignmentCenter;
-        iv.font = [UIFont ELPingFangSCMediumFontOfSize:kSaFont(16.0)];
+        iv.font = [UIFont ELPingFangSCMediumFontOfSize:kSaFont(12.0)];
         [iv sizeToFit];
         [self.contentView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {

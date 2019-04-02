@@ -8,12 +8,11 @@
 
 #import "ELMyofascialContentView.h"
 #import "ELMarqueLabel.h"
-#import "ELMyofascialMenuScrolloView.h"
-#import "ELMyofascialMenuModel.h"
+//#import "ELBodyPickerView.h"
 @interface ELMyofascialContentView()
 @property(nonatomic,strong)UIImageView *contentImageView;
-@property(nonatomic,strong) ELMyofascialMenuScrolloView *bodyListView;
-@property(nonatomic,strong) ELMyofascialMenuScrolloView *rankListView;
+//@property(nonatomic,strong) ELBodyPickerView *bodyListView;
+//@property(nonatomic,strong) ELBodyPickerView *rankListView;
 @property(nonatomic,strong) ELMarqueLabel *marqueLabel;
 @property (nonatomic,strong) UIView *bodyCircleView;
 @property (nonatomic,strong) UIView *rankCircleView;
@@ -23,7 +22,7 @@
 -(void)ELSinitConfingViews{
     
     _marqueLabel = ({
-        ELMarqueLabel *iv = [[ELMarqueLabel alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20) font:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12)] textColor:MainThemColor];
+        ELMarqueLabel *iv = [[ELMarqueLabel alloc]initWithFrame:CGRectMake(0, kSAdap(17), SCREEN_WIDTH, 30) font:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12)] textColor:MainThemColor];
         iv.backgroundColor = MainLightThemColor;
         iv.text = @"【四级】明显痛，如被人打耳光，或者被热水烫了一引发的一度烫伤。一引发的一度烫伤。一引发的一度烫伤。";
         [self addSubview:iv];
@@ -44,80 +43,72 @@
         iv;
     });
     
-    _bodyListView = ({
-        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        flowLayout.minimumInteritemSpacing = 0.f;
-        flowLayout.minimumLineSpacing = kSAdap(15);
-        flowLayout.sectionInset = UIEdgeInsetsMake(kSAdap_V(10), 0, kSAdap_V(10), 0);
-        flowLayout.itemSize = CGSizeMake(kSAdap(50), kSAdap_V(32));
-        ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-        iv.directionType = MenuScrollDirectionTypeVertical;
-        [self addSubview:iv];
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(kSAdap_V(55.0));
-            make.right.mas_equalTo(-kSAdap(15));
-            make.bottom.mas_equalTo(-kSAdap_V(52));
-            make.width.mas_equalTo(kSAdap(80));
-        }];
-        iv;
-    });
+//    _bodyListView = ({
+//        ELBodyPickerView *iv = [[ELBodyPickerView alloc]init];
+////        iv.forceItemTypeText = YES;
+////        iv.selectionIndicatorStyle = STDPickerViewSelectionIndicatorStyleNone;
+////        iv.showVerticalDivisionLine = NO;
+//        [self addSubview:iv];
+//        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.mas_equalTo(kSAdap_V(55.0));
+//            make.right.mas_equalTo(-kSAdap(15));
+//            make.bottom.mas_equalTo(-kSAdap_V(52));
+//            make.width.mas_equalTo(kSAdap(80));
+//        }];
+//        iv;
+//    });
     
-    _rankListView = ({
-        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        flowLayout.minimumInteritemSpacing = 0.f;
-        flowLayout.minimumLineSpacing = kSAdap(15);
-        flowLayout.sectionInset = UIEdgeInsetsMake(kSAdap_V(10), 0, kSAdap_V(10), 0);
-        flowLayout.itemSize = CGSizeMake(kSAdap(50), kSAdap_V(32));
-        ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-        iv.directionType = MenuScrollDirectionTypeVertical;
-        [self addSubview:iv];
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(kSAdap_V(55.0));
-            make.left.mas_equalTo(kSAdap(15));
-            make.bottom.mas_equalTo(-kSAdap_V(52));
-            make.width.mas_equalTo(kSAdap(80));
-        }];
-        iv;
-    });
+//    _rankListView = ({
+//        ELBodyPickerView *iv = [[ELBodyPickerView alloc]init];
+////        iv.forceItemTypeText = YES;
+////        iv.selectionIndicatorStyle = STDPickerViewSelectionIndicatorStyleNone;
+////        iv.showVerticalDivisionLine = NO;
+//        [self addSubview:iv];
+//        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.mas_equalTo(kSAdap_V(55.0));
+//            make.left.mas_equalTo(kSAdap(15));
+//            make.bottom.mas_equalTo(-kSAdap_V(52));
+//            make.width.mas_equalTo(kSAdap(80));
+//        }];
+//        iv;
+//    });
     
     
-    _bodyCircleView = ({
-        UIView *iv = [[UIView alloc] init];
-        [self addSubview:iv];
-        iv.cornerRadius = kSAdap(14);
-        iv.clipsToBounds = YES;
-        iv.userInteractionEnabled = YES;
-        iv.layer.borderColor = [UIColor whiteColor].CGColor;
-        iv.layer.borderWidth = 1;
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(kSAdap_V(28));
-            make.width.mas_equalTo(kSAdap(55));
-            make.centerY.mas_equalTo(self.bodyListView).mas_offset(-kSAdap(31));
-            make.centerX.mas_equalTo(self.bodyListView);
-        }];
-        iv;
-    });
+//    _bodyCircleView = ({
+//        UIView *iv = [[UIView alloc] init];
+//        [self addSubview:iv];
+//        iv.cornerRadius = kSAdap(14);
+//        iv.clipsToBounds = YES;
+//        iv.userInteractionEnabled = YES;
+//        iv.layer.borderColor = [UIColor whiteColor].CGColor;
+//        iv.layer.borderWidth = 1;
+//        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_equalTo(kSAdap_V(28));
+//            make.width.mas_equalTo(kSAdap(55));
+//            make.centerY.mas_equalTo(self.bodyListView).mas_offset(-kSAdap(31));
+//            make.centerX.mas_equalTo(self.bodyListView);
+//        }];
+//        iv;
+//    });
+//
+//    _rankCircleView = ({
+//        UIView *iv = [[UIView alloc] init];
+//        [self addSubview:iv];
+//        iv.cornerRadius = kSAdap(14);
+//        iv.clipsToBounds = YES;
+//        iv.layer.borderColor = [UIColor whiteColor].CGColor;
+//        iv.layer.borderWidth = 1;
+//        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.height.mas_equalTo(kSAdap_V(28));
+//            make.width.mas_equalTo(kSAdap(55));
+//            make.centerY.mas_equalTo(self.rankListView).mas_offset(kSAdap(15));
+//            make.centerX.mas_equalTo(self.rankListView);
+//        }];
+//        iv;
+//    });
     
-    _rankCircleView = ({
-        UIView *iv = [[UIView alloc] init];
-        [self addSubview:iv];
-        iv.cornerRadius = kSAdap(14);
-        iv.clipsToBounds = YES;
-        iv.layer.borderColor = [UIColor whiteColor].CGColor;
-        iv.layer.borderWidth = 1;
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(kSAdap_V(28));
-            make.width.mas_equalTo(kSAdap(55));
-            make.centerY.mas_equalTo(self.rankListView).mas_offset(kSAdap(15));
-            make.centerX.mas_equalTo(self.rankListView);
-        }];
-        iv;
-    });
-    
-    [self sendSubviewToBack:self.rankCircleView];
-    [self sendSubviewToBack:self.bodyCircleView];
+//    [self sendSubviewToBack:self.rankCircleView];
+//    [self sendSubviewToBack:self.bodyCircleView];
 }
 
 @end

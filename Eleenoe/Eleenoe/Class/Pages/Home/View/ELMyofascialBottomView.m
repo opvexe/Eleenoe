@@ -27,8 +27,6 @@
 @property(nonatomic,strong)UILabel *rightTitle;
 @property(nonatomic,strong) ELMyofascialMenuScrolloView *timeListView;
 @property(nonatomic,strong) ELMyofascialMenuScrolloView *gearListView;
-@property(nonatomic,strong)UIView *gearCircleView;
-@property(nonatomic,strong)UIView *timeCircleView;
 @end
 
 @implementation ELMyofascialBottomView
@@ -166,77 +164,30 @@
     });
     
     _timeListView = ({
-        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        flowLayout.minimumInteritemSpacing = 0.f;
-        flowLayout.minimumLineSpacing = kSAdap(5.0);
-        flowLayout.sectionInset = UIEdgeInsetsZero;
-        flowLayout.itemSize = CGSizeMake(kSAdap(20.0), kSAdap_V(32.0));
-        ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]init];
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.timeLabel.mas_centerX);
             make.top.mas_equalTo(self.timeLabel.mas_bottom).mas_offset(kSAdap_V(12.0));
-            make.width.mas_equalTo(kSAdap(65.0));
-            make.height.mas_equalTo(kSAdap_V(32.0));
+            make.width.mas_equalTo(kSAdap(70));
+            make.height.mas_equalTo(kSAdap_V(32));
         }];
         iv;
     });
     
+    
     _gearListView = ({
-        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        flowLayout.minimumInteritemSpacing = 0.f;
-        flowLayout.minimumLineSpacing = kSAdap(5.0);
-        flowLayout.sectionInset = UIEdgeInsetsZero;
-        flowLayout.itemSize = CGSizeMake(kSAdap(20.0), kSAdap_V(32.0));
-        ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]init];
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.titleLabel.mas_centerX);
             make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(kSAdap_V(12.0));
-            make.width.mas_equalTo(kSAdap(65.0));
-            make.height.mas_equalTo(kSAdap_V(32.0));
-        }];
-        iv;
-    });
-    
-    
-    _gearCircleView = ({
-        UIView *iv = [[UIView alloc] init];
-        [self.MyofascialBottomImageView addSubview:iv];
-        iv.cornerRadius = kSAdap(10);
-        iv.clipsToBounds = YES;
-        iv.userInteractionEnabled = YES;
-        iv.layer.borderColor = MainThemColor.CGColor;
-        iv.layer.borderWidth = 1;
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(kSAdap(70));
             make.height.mas_equalTo(kSAdap_V(32));
-            make.width.mas_equalTo(kSAdap(20));
-            make.center.mas_equalTo(self.gearListView);
         }];
         iv;
     });
     
-    
-    _timeCircleView = ({
-        UIView *iv = [[UIView alloc] init];
-        [self.MyofascialBottomImageView addSubview:iv];
-        iv.cornerRadius = kSAdap(10);
-        iv.clipsToBounds = YES;
-        iv.layer.borderColor = MainThemColor.CGColor;
-        iv.layer.borderWidth = 1;
-        iv.userInteractionEnabled = YES;
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(kSAdap_V(32));
-            make.width.mas_equalTo(kSAdap(20));
-            make.center.mas_equalTo(self.timeListView);
-        }];
-        iv;
-    });
-    
-    [self sendSubviewToBack:self.gearCircleView];
-    [self sendSubviewToBack:self.timeCircleView];
     _rightContentView = ({
         UIView *iv = [[UIView alloc] init];
         [self addSubview:iv];

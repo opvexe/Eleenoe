@@ -59,6 +59,7 @@
 		D07710A2224EE3CC00D0B993 /* ELElectrodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07710A1224EE3CC00D0B993 /* ELElectrodeViewController.m */; };
 		D07710A6224EF32B00D0B993 /* ELCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07710A5224EF32B00D0B993 /* ELCircularProgressView.m */; };
 		D07710AE224F0CD700D0B993 /* ELUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07710AD224F0CD700D0B993 /* ELUpdateViewController.m */; };
+		D093EB012253C0C900215901 /* ELCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D093EB002253C0C900215901 /* ELCollectionViewFlowLayout.m */; };
 		D0A0DB94224F1BE1000F9048 /* UITextField+ELFormatNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DB93224F1BE1000F9048 /* UITextField+ELFormatNumber.m */; };
 		D0A0DB9A224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DB99224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m */; };
 		D0A0DB9D224FBF14000F9048 /* ELBaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DB9C224FBF14000F9048 /* ELBaseCollectionView.m */; };
@@ -226,6 +227,8 @@
 		D07710A5224EF32B00D0B993 /* ELCircularProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELCircularProgressView.m; sourceTree = "<group>"; };
 		D07710AC224F0CD700D0B993 /* ELUpdateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELUpdateViewController.h; sourceTree = "<group>"; };
 		D07710AD224F0CD700D0B993 /* ELUpdateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELUpdateViewController.m; sourceTree = "<group>"; };
+		D093EAFF2253C0C900215901 /* ELCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		D093EB002253C0C900215901 /* ELCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		D0A0DB92224F1BE1000F9048 /* UITextField+ELFormatNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+ELFormatNumber.h"; sourceTree = "<group>"; };
 		D0A0DB93224F1BE1000F9048 /* UITextField+ELFormatNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ELFormatNumber.m"; sourceTree = "<group>"; };
 		D0A0DB98224FBCDF000F9048 /* ELMyofascialMenuScrolloView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMyofascialMenuScrolloView.h; sourceTree = "<group>"; };
@@ -625,6 +628,8 @@
 				18B4B3BA224FBBC600EA9404 /* ELHomeTitleCollectionCell.m */,
 				D0A0DB98224FBCDF000F9048 /* ELMyofascialMenuScrolloView.h */,
 				D0A0DB99224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m */,
+				D093EAFF2253C0C900215901 /* ELCollectionViewFlowLayout.h */,
+				D093EB002253C0C900215901 /* ELCollectionViewFlowLayout.m */,
 				D0A0DB9E224FC1C2000F9048 /* ELMyofascialMenuCollectionViewCell.h */,
 				D0A0DB9F224FC1C2000F9048 /* ELMyofascialMenuCollectionViewCell.m */,
 			);
@@ -1249,6 +1254,7 @@
 				D07710A2224EE3CC00D0B993 /* ELElectrodeViewController.m in Sources */,
 				D0F52B422237921300A26504 /* ELLoginViewController.m in Sources */,
 				D0EC4B3E2238D3F700B5A74D /* ELGuideView.m in Sources */,
+				D093EB012253C0C900215901 /* ELCollectionViewFlowLayout.m in Sources */,
 				18B4B3AF224FB92800EA9404 /* ELBaseTableView.m in Sources */,
 				D0A0DC382250DCD3000F9048 /* ELMarqueLabel.m in Sources */,
 				18B4B3A9224F7DA900EA9404 /* ELMyofascialBottomView.m in Sources */,
