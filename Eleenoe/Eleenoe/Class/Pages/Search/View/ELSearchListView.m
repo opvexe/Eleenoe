@@ -9,10 +9,11 @@
 #import "ELSearchListView.h"
 #import "ELSearchTableViewCell.h"
 #import "ELSearchModel.h"
-@interface ELSearchListView()
+@interface ELSearchListView()<ELSearchTableViewCellDelegate>
 @property(nonatomic,strong)NSMutableArray *lists;
 @property(nonatomic,assign)NSInteger currentPage;
 @property(nonatomic,copy)void (^CompleteBlock)( BOOL isData);
+@property(nonatomic,copy)void(^Block)(ELSearchListView*listView ,id model);
 @property(nonatomic,assign)BOOL isLoading;
 @end
 
@@ -90,6 +91,15 @@
     }
     [self reloadData];
 }
+-(void)didSelectRowAtModelCompleteBlock:(void(^)(ELSearchListView*listView ,id model))completeBlock{
+    self.Block = completeBlock;
+}
+#pragma mark ELSearchTableViewCellDelegate
+-(void)cell:(ELSearchTableViewCell *)cell didSelectRowAtModel:(ELBaseModel *)model{
+    if (self.Block) {
+        self.Block(self,model);
+    }
+}
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -99,6 +109,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ELSearchTableViewCell *cell  = [ELSearchTableViewCell CellWithTableView:tableView];
+    cell.delegate = self;
     [cell InitDataWithModel:self.lists[indexPath.row]];
     return cell;
 }

@@ -13,6 +13,7 @@
 @property(nonatomic,assign)NSInteger currentPage;
 @property(nonatomic,copy)void (^CompleteBlock)( BOOL isData);
 @property(nonatomic,assign)BOOL isLoading;
+@property(nonatomic,copy)void(^Block)(ELSearchResultView*listView ,id model);
 @end
 @implementation ELSearchResultView
 
@@ -82,6 +83,9 @@
     self.lists  =  [ELSearchModel mj_objectArrayWithKeyValuesArray:list];
     [self reloadData];
 }
+-(void)didSelectRowAtModelCompleteBlock:(void(^)(ELSearchResultView*listView ,id model))completeBlock{
+    self.Block = completeBlock;
+}
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -113,7 +117,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ELSearchResultTableViewCell *cell =  [tableView cellForRowAtIndexPath:indexPath];
-
+    if (self.Block) {
+        self.Block(self,self.lists[indexPath.row]);
+    }
 }
 
 @end

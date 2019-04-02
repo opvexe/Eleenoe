@@ -69,7 +69,11 @@
     });
 }
 -(void)tagView:(SLTagView *)tagView didSelectTagAtIndex:(NSUInteger)index{
-   
+    if (self.model.dataSoucre.count>index) {
+        if (self.delegate &&[self.delegate respondsToSelector:@selector(cell:didSelectRowAtModel:)]) {
+            [self.delegate cell:self didSelectRowAtModel:self.model.dataSoucre[index]];
+        }
+    }
 }
 -(void)InitDataWithModel:(ELSearchModel *)model{
     self.titleLabel.text = model.title;

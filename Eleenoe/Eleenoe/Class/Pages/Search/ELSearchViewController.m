@@ -76,6 +76,14 @@
             [self createPlaceholderView:nil message:nil image:[UIImage imageNamed:@"UGCPushTopicEmpty"] withView:self.view];
         }
     }];
+    
+    [self.listView didSelectRowAtModelCompleteBlock:^(ELSearchListView * _Nonnull listView, id  _Nonnull model) {
+        
+    }];
+    
+    [self.resullistView didSelectRowAtModelCompleteBlock:^(ELSearchResultView * _Nonnull listView, id  _Nonnull model) {
+        
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

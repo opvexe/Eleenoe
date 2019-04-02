@@ -9,8 +9,16 @@
 #import "ELBaseTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@class ELSearchTableViewCell;
+@protocol ELSearchTableViewCellDelegate <NSObject>
+@optional
+- (void)cell:(ELSearchTableViewCell *)cell didSelectRowAtModel:(ELBaseModel *)model;
+@end
+
 
 @interface ELSearchTableViewCell : ELBaseTableViewCell
+
+@property(nonatomic,weak)id<ELSearchTableViewCellDelegate>delegate;
 
 @end
 

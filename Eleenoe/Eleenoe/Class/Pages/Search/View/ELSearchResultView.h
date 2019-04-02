@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ELSearchResultView : ELBaseTableView
 -(void)refreshDataSyn:(void (^)( BOOL isData))comlete;
+
+-(void)didSelectRowAtModelCompleteBlock:(void(^)(ELSearchResultView*listView ,id model))completeBlock;
 @end
 
 NS_ASSUME_NONNULL_END
