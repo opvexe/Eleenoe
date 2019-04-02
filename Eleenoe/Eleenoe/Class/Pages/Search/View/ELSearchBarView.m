@@ -23,10 +23,10 @@
         ELButtonExtention *btn = [ELButtonExtention buttonWithType:UIButtonTypeCustom];
         btn.size = CGSizeMake(18, 18);
         btn.isExpandClick = YES;
-        [btn setBackgroundImage:[UIImage imageNamed:@"shop_search"] forState:UIControlStateNormal];
-        [btn setBackgroundImage:[UIImage imageNamed:@"shop_search"] forState:UIControlStateSelected];
-        [btn setBackgroundImage:[UIImage imageNamed:@"shop_search"]  forState:UIControlStateDisabled];
-        [btn setBackgroundImage:[UIImage imageNamed:@"shop_search"]  forState:UIControlStateHighlighted];
+        [btn setBackgroundImage:[UIImage imageNamed:@"Clear"] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageNamed:@"Clear"] forState:UIControlStateSelected];
+        [btn setBackgroundImage:[UIImage imageNamed:@"Clear"]  forState:UIControlStateDisabled];
+        [btn setBackgroundImage:[UIImage imageNamed:@"Clear"]  forState:UIControlStateHighlighted];
         btn.adjustsImageWhenHighlighted = NO;
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
