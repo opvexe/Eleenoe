@@ -8,7 +8,7 @@
 
 #import "ELSearchListView.h"
 #import "ELSearchTableViewCell.h"
-
+#import "ELSearchModel.h"
 @interface ELSearchListView()
 @property(nonatomic,strong)NSMutableArray *lists;
 @property(nonatomic,assign)NSInteger currentPage;
@@ -77,6 +77,10 @@
 //        }
 //        [self reloadData];
 //    }];
+    NSArray *list = @[@{@"title":@"大家都在看",@"dataSoucre":@[@{@"title":@"护膝"},@{@"title":@"球鞋子"},@{@"title":@"护膝fdafdfd"}]},
+                      @{@"title":@"我看过的",@"dataSoucre":@[@{@"title":@"护膝"},@{@"title":@"球鞋子"},@{@"title":@"护膝fdafdfd"}]}];
+    self.lists = [ELSearchModel mj_objectArrayWithKeyValuesArray:list];
+    [self reloadData];
 }
 -(void)InitDataSoucre:(NSArray *)dataSoucre{
     if (self.currentPage==1) {

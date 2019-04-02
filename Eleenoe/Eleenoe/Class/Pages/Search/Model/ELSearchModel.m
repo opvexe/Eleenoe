@@ -9,5 +9,7 @@
 #import "ELSearchModel.h"
 
 @implementation ELSearchModel
-
++(NSDictionary *)mj_objectClassInArray{
+    return @{@"dataSoucre":@"ELSearchModel"};
+}
 @end

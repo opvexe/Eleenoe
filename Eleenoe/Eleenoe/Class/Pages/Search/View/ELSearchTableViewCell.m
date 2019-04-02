@@ -24,7 +24,7 @@
     return cell;
 }
 
--(void)WHSinitConfingViews{
+-(void)ELSinitConfingViews{
     _titleLabel= ({
         UILabel *iv = [[UILabel alloc] init];
         iv.font = [UIFont ELPingFangSCRegularFontOfSize:12];
@@ -82,7 +82,7 @@
 }
 
 +(CGFloat)getCellHeight:(ELSearchModel *)model{
-    SLTagView *iv = [[SLTagView alloc] initWithFrame:CGRectZero];
+    SLTagView *iv = [[SLTagView alloc] initWithFrame:CGRectMake(0, 0,SCREEN_WIDTH, 0)];
     iv.tagFont = [UIFont ELPingFangSCRegularFontOfSize:12];
     iv.tagSelectedFont = [UIFont ELPingFangSCRegularFontOfSize:12];
     iv.tagHeight = 25;

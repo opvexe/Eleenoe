@@ -7,6 +7,7 @@
 //
 
 #import "ELSearchResultView.h"
+#import "ELSearchModel.h"
 @interface ELSearchResultView()
 @property(nonatomic,strong)NSMutableArray *lists;
 @property(nonatomic,assign)NSInteger currentPage;
@@ -77,6 +78,9 @@
     //        }
     //        [self reloadData];
     //    }];
+    NSArray *list = @[@{@"title":@"护膝"},@{@"title":@"球鞋子"},@{@"title":@"护膝fdafdfd"}];
+    self.lists  =  [ELSearchModel mj_objectArrayWithKeyValuesArray:list];
+    [self reloadData];
 }
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -109,9 +113,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ELSearchResultTableViewCell *cell =  [tableView cellForRowAtIndexPath:indexPath];
-    if (self.resultDelegate &&[self.resultDelegate respondsToSelector:@selector(searchResultView:cell:model:)]) {
-        [self.resultDelegate searchResultView:self cell:cell model:self.lists[indexPath.row]];
-    }
+
 }
 
 @end

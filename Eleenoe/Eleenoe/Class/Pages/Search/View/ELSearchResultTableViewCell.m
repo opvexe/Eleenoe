@@ -7,6 +7,7 @@
 //
 
 #import "ELSearchResultTableViewCell.h"
+#import "ELSearchModel.h"
 @interface ELSearchResultTableViewCell()
 @property(nonatomic,strong)UILabel *searchTitle;
 @property(nonatomic,strong)UIView *bottonLineView;
@@ -22,7 +23,7 @@
     cell.selectionStyle              = UITableViewCellSelectionStyleNone;
     return cell;
 }
--(void)SYSinitConfingViews{
+-(void)ELSinitConfingViews{
     self.contentView.backgroundColor   = [UIColor whiteColor];
     _searchTitle = ({
         UILabel *iv = [[UILabel alloc] init];
@@ -49,8 +50,8 @@
         iv;
     });
 }
--(void)InitDataWithModel:(ELBaseModel *)model{
-    
+-(void)InitDataWithModel:(ELSearchModel *)model{
+    self.searchTitle.text = convertToString(model.title);
 }
 +(CGFloat)getCellHeight:(ELBaseModel *)model{
     return 50;
