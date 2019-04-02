@@ -14,6 +14,36 @@
 #define DATE_COMPONENTS (NSYearCalendarUnit| NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekCalendarUnit |  NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit | NSWeekdayCalendarUnit | NSWeekdayOrdinalCalendarUnit)
 @implementation NSString (Category)
 
+
++ (ELTitleInfo)ELgetInfoWithText:(NSString *)text maxLength:(NSInteger)maxLength{
+    
+    ELTitleInfo title;
+    
+    int length = 0;
+    int singleNum = 0;
+    int totalNum = 0;
+    char  *p = (char *)[text cStringUsingEncoding:NSUnicodeStringEncoding];
+    for (int i = 0; i < [text lengthOfBytesUsingEncoding:NSUnicodeStringEncoding]; i++) {
+        if (*p) {
+            length++;
+            if (length <= maxLength) {
+                totalNum++;
+            }
+        }
+        else {
+            if (length <= maxLength) {
+                singleNum++;
+            }
+        }
+        p++;
+    }
+    
+    title.length = length;
+    
+    title.number = (totalNum - singleNum) / 2 + singleNum;
+    
+    return title;
+}
 BOOL is_null(id object) {
     return (nil == object || [@"" isEqual:object] || [object isKindOfClass:[NSNull class]]);
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		00034EB8224E3AE100CE83AB /* ELButtonExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 00034EB7224E3AE100CE83AB /* ELButtonExtention.m */; };
 		00034EC2224E42FA00CE83AB /* ELBluetoothConnectionFloatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00034EC1224E42FA00CE83AB /* ELBluetoothConnectionFloatingView.m */; };
+		003AC70A2252FDAD0013BD9F /* ELSearchNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 003AC7092252FDAD0013BD9F /* ELSearchNavigationView.m */; };
+		003AC70D225307510013BD9F /* ELSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 003AC70C225307510013BD9F /* ELSearchBarView.m */; };
 		18B4B3A9224F7DA900EA9404 /* ELMyofascialBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3A8224F7DA900EA9404 /* ELMyofascialBottomView.m */; };
 		18B4B3AC224FB6B800EA9404 /* ELMyofascialContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3AB224FB6B800EA9404 /* ELMyofascialContentView.m */; };
 		18B4B3AF224FB92800EA9404 /* ELBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B4B3AE224FB92800EA9404 /* ELBaseTableView.m */; };
@@ -127,6 +129,10 @@
 		00034EBA224E3E6600CE83AB /* SCREENMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCREENMacro.h; sourceTree = "<group>"; };
 		00034EC0224E42FA00CE83AB /* ELBluetoothConnectionFloatingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBluetoothConnectionFloatingView.h; sourceTree = "<group>"; };
 		00034EC1224E42FA00CE83AB /* ELBluetoothConnectionFloatingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBluetoothConnectionFloatingView.m; sourceTree = "<group>"; };
+		003AC7082252FDAD0013BD9F /* ELSearchNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELSearchNavigationView.h; sourceTree = "<group>"; };
+		003AC7092252FDAD0013BD9F /* ELSearchNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSearchNavigationView.m; sourceTree = "<group>"; };
+		003AC70B225307510013BD9F /* ELSearchBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELSearchBarView.h; sourceTree = "<group>"; };
+		003AC70C225307510013BD9F /* ELSearchBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSearchBarView.m; sourceTree = "<group>"; };
 		18B4B3A7224F7DA900EA9404 /* ELMyofascialBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMyofascialBottomView.h; sourceTree = "<group>"; };
 		18B4B3A8224F7DA900EA9404 /* ELMyofascialBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMyofascialBottomView.m; sourceTree = "<group>"; };
 		18B4B3AA224FB6B800EA9404 /* ELMyofascialContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMyofascialContentView.h; sourceTree = "<group>"; };
@@ -369,6 +375,10 @@
 				18B4B3CE225269A000EA9404 /* ELSearchResultView.m */,
 				18B4B3D022526B2500EA9404 /* ELSearchResultTableViewCell.h */,
 				18B4B3D122526B2500EA9404 /* ELSearchResultTableViewCell.m */,
+				003AC7082252FDAD0013BD9F /* ELSearchNavigationView.h */,
+				003AC7092252FDAD0013BD9F /* ELSearchNavigationView.m */,
+				003AC70B225307510013BD9F /* ELSearchBarView.h */,
+				003AC70C225307510013BD9F /* ELSearchBarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1183,6 +1193,7 @@
 				D0A0DC352250B618000F9048 /* ELTriggerAnalyzeFloatingView.m in Sources */,
 				00034EB8224E3AE100CE83AB /* ELButtonExtention.m in Sources */,
 				D0DC670422393BCD0064C07A /* ELSessionManager.m in Sources */,
+				003AC70D225307510013BD9F /* ELSearchBarView.m in Sources */,
 				D0F52B3322378F5200A26504 /* ELBaseNavigationViewController.m in Sources */,
 				D0EC4B4822390BD300B5A74D /* ELTools+ELAuthorization.m in Sources */,
 				D0EC4B2B2238AE3300B5A74D /* AppDelegate+ELExtension.m in Sources */,
@@ -1199,6 +1210,7 @@
 				18B4B3C3225265F000EA9404 /* ELSearchModel.m in Sources */,
 				D0EC4B2F2238AF3A00B5A74D /* ELTools.m in Sources */,
 				D0A0DB9A224FBCDF000F9048 /* ELMyofascialMenuScrolloView.m in Sources */,
+				003AC70A2252FDAD0013BD9F /* ELSearchNavigationView.m in Sources */,
 				C2E6CE7D22369AA30049D54C /* AppDelegate.m in Sources */,
 				18B4B3D222526B2500EA9404 /* ELSearchResultTableViewCell.m in Sources */,
 				D0A0DC4322520587000F9048 /* ELBatteryView.m in Sources */,

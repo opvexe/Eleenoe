@@ -9,7 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+struct ELTitleInfo {
+    NSInteger length;
+    NSInteger number;
+};
+
+typedef struct ELTitleInfo ELTitleInfo;
+
+
 @interface NSString (Category)
+
+///判断中英混合的的字符串长度及字符个数
++ (ELTitleInfo)ELgetInfoWithText:(NSString *)text maxLength:(NSInteger)maxLength;
+
 /**
  * 判断对象是否为空
 

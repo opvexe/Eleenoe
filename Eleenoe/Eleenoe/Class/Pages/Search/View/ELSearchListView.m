@@ -12,16 +12,71 @@
 @interface ELSearchListView()
 @property(nonatomic,strong)NSMutableArray *lists;
 @property(nonatomic,assign)NSInteger currentPage;
+@property(nonatomic,copy)void (^CompleteBlock)( BOOL isData);
+@property(nonatomic,assign)BOOL isLoading;
 @end
 
 @implementation ELSearchListView
--(void)loadMoreDataSoucre{
-    self.currentPage++;
-
+-(instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
+    if (self = [super initWithFrame:frame
+                              style:style]) {
+        self.showsVerticalScrollIndicator = NO;
+        self.showsHorizontalScrollIndicator = NO;
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+        self.dataSource = self;
+        self.delegate = self;
+        if (@available(iOS 11.0, *)) {
+        self.estimatedSectionFooterHeight = 0.01;
+        self.estimatedSectionHeaderHeight = 0.01;
+        }
+        self.backgroundColor =[UIColor whiteColor];
+        self.tableFooterView =[UIView new];
+        [self setMJRefreshHeaderFooter];
+        self.mj_footer.hidden  = YES;
+        self.currentPage = 1;
+        self.isLoading = YES;
+    }
+    return self;
 }
--(void)refreshLoadDataSoucre{
-    self.currentPage = 1;
- 
+-(void)refreshLoadMoreData {
+//    if (_currentPage>self.focusListModel.totalPage) {
+//        [self.mj_footer endRefreshing];
+//        return;
+//    }
+    [self loadData:NO];
+}
+-(void)refreshDataSyn:(void (^)( BOOL isData))comlete {
+    self.CompleteBlock  = comlete;
+    [self refreshDataSyn];
+}
+-(void)refreshDataSyn{
+    _currentPage = 1;
+    [self loadData:YES];
+}
+- (void)loadData:(BOOL)isRefresh {
+    if (self.isLoading) {
+        self.isLoading  = NO;
+    }
+//    [NetworkRequestManger  GetHotTopicListPage:self.currentPage time:FormatString(@"%lf",[[NSDate date] timeIntervalSince1970]) type:@"1" limit:10 Compelet:^(BOOL result, NSDictionary *lists) {
+//        if (self.currentPage==1) {
+//            [self.searchLists removeAllObjects];
+//            self.listsModel = [GMUHotTopList parseJSON:lists];
+//            self.searchLists = [NSMutableArray arrayWithCapacity:0];
+//            [self.searchLists addObject:self.listsModel];
+//            if (self.CompleteBlock&&! self.listsModel.topics.count) {
+//                self.CompleteBlock(NO);
+//            }else if(self.CompleteBlock&&self.listsModel.topics.count){
+//                self.CompleteBlock(YES);
+//            }
+//        }
+//        if (isRefresh) {
+//            [self.mj_header endRefreshing];
+//        }else{
+//            [self.mj_footer endRefreshing];
+//        }
+//        [self reloadData];
+//    }];
 }
 -(void)InitDataSoucre:(NSArray *)dataSoucre{
     if (self.currentPage==1) {
