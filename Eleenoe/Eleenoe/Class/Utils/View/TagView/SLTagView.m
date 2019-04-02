@@ -46,7 +46,7 @@ static NSString * const CollectionViewCellID = @"TagViewCollectionViewCell";
     
     CGSize textSize = [_title boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 1000)
                                            options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:tagFont} context:nil].size;
-    _tagContentSize = CGSizeMake(ceil(textSize.width+20), ceil(textSize.height));
+    _tagContentSize = CGSizeMake(ceil(textSize.width+32), ceil(textSize.height));
 }
 @end
 
@@ -98,10 +98,9 @@ static NSString * const CollectionViewCellID = @"TagViewCollectionViewCell";
     [super layoutSubviews];
     CGRect bounds = self.contentView.bounds;
     CGFloat width = bounds.size.width - self.contentInsets.left - self.contentInsets.right;
-    CGRect frame = CGRectMake(0, 0, width, bounds.size.height-5);
+    CGRect frame = CGRectMake(0, 0, width, bounds.size.height);
     self.tagLabel.frame = frame;
     self.tagLabel.center = self.contentView.center;
-    
     [self.deleBT setFrame:CGRectMake(width - 5, 0, 12,12)];
 }
 
@@ -135,9 +134,9 @@ static NSString * const CollectionViewCellID = @"TagViewCollectionViewCell";
         
         self.scrollDirection  =UICollectionViewScrollDirectionVertical;
         
-        self.minimumLineSpacing  = 5;
+        self.minimumLineSpacing  = 7;
         
-        self.minimumInteritemSpacing  = 5;
+        self.minimumInteritemSpacing  = 15;
         
         self.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     }
@@ -301,12 +300,6 @@ static NSString * const CollectionViewCellID = @"TagViewCollectionViewCell";
     ;
     UICollectionView *collectionView = self.subviews.firstObject;
     collectionView.translatesAutoresizingMaskIntoConstraints = NO;
-    //
-    //    NSLayoutConstraint *leftContraint = [NSLayoutConstraint constraintWithItem:collectionView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
-    //    NSLayoutConstraint *rightContraint = [NSLayoutConstraint constraintWithItem:collectionView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
-    //    NSLayoutConstraint *topContraint = [NSLayoutConstraint constraintWithItem:collectionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
-    //    NSLayoutConstraint *bottomContraint = [NSLayoutConstraint constraintWithItem:collectionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
-    //    [self addConstraints:@[leftContraint,rightContraint,topContraint,bottomContraint]];
     
     NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(collectionView);
     //约束1 横向
@@ -335,6 +328,7 @@ static NSString * const CollectionViewCellID = @"TagViewCollectionViewCell";
     }];
     [self.collectionView reloadData];
 }
+
 - (void)lonePressMoving:(UILongPressGestureRecognizer *)longPress
 {
     switch (_longPress.state) {
@@ -456,7 +450,6 @@ static NSString * const CollectionViewCellID = @"TagViewCollectionViewCell";
     return YES;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (self.delegate&&[self.delegate respondsToSelector:@selector(tagView:didSelectTagAtIndex:)]) {
         [self.delegate tagView:self didSelectTagAtIndex:indexPath.row];
     }
@@ -535,7 +528,7 @@ static NSString * const CollectionViewCellID = @"TagViewCollectionViewCell";
     cell.tagLabel.layer.masksToBounds = self.tagcornerRadius > 0;
     cell.contentInsets = self.tagInsets;
     cell.tagLabel.layer.borderWidth = self.tagBorderWidth;
-    cell.deleBT.hidden =YES;
+    cell.deleBT.hidden = YES;
     [cell.deleBT setBackgroundImage:self.deleteImage.length?[UIImage imageNamed:self.deleteImage]:BundleImageName(@"img-guanbi") forState:UIControlStateNormal];
     [cell.deleBT setBackgroundImage:self.deleteImage.length?[UIImage imageNamed:self.deleteImage]:BundleImageName(@"img-guanbi") forState:UIControlStateHighlighted];
     [cell.deleBT setBackgroundImage:self.deleteImage.length?[UIImage imageNamed:self.deleteImage]:BundleImageName(@"img-guanbi") forState:UIControlStateDisabled];
@@ -548,8 +541,6 @@ static NSString * const CollectionViewCellID = @"TagViewCollectionViewCell";
     return cell;
 }
 - (void)setCell:(TagViewCollectionViewCell *)cell selected:(BOOL)selected {
-    
-    
     
     if (selected) {
         cell.tagLabel.backgroundColor = self.tagSelectedBackgroundColor;
@@ -690,7 +681,7 @@ static NSString * const CollectionViewCellID = @"TagViewCollectionViewCell";
     
     if (!_tagSelectedTextColor) {
         
-        return  [UIColor whiteColor];
+        return [UIColor whiteColor];
     }
     return _tagSelectedTextColor;
 }

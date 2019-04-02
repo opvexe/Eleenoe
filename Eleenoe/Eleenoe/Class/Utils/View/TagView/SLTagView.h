@@ -20,6 +20,7 @@
 - (void)tagView:(SLTagView *)tagView didDeselectTagAtIndex:(NSUInteger)index;
 
 - (void)tagView:(SLTagView *)tagView moveItemAtTagAtIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex;
+
 @end
 
 
@@ -37,7 +38,6 @@ IB_DESIGNABLE
  *  数据源
  */
 @property (nonatomic,strong) NSArray <NSString *> *tags;
-
 /**
  * 行间距
  */
