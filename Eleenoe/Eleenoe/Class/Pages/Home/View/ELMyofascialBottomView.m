@@ -42,7 +42,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.mas_equalTo(0);
             make.bottom.mas_equalTo(0);
-            make.height.mas_equalTo(kSAdap_V(106));
+            make.height.mas_equalTo(kSAdap(106));
         }];
         iv;
     });
@@ -76,7 +76,7 @@
         iv.text = @"时间";
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.MyofascialBottomImageView.mas_top).offset(kSAdap_V(10));
+            make.top.mas_equalTo(self.MyofascialBottomImageView.mas_top).offset(kSAdap(10));
             make.left.mas_equalTo(self.MyofascialBottomImageView.mas_left).mas_offset(kSAdap(35));
             make.height.mas_equalTo(kSAdap_V(18.5));
             make.width.mas_equalTo(kSAdap(30.0));
@@ -107,7 +107,7 @@
         iv.text = @"强度";
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.MyofascialBottomImageView.mas_top).offset(kSAdap_V(10));
+            make.top.mas_equalTo(self.MyofascialBottomImageView.mas_top).offset(kSAdap(10));
             make.right.mas_equalTo(self.MyofascialBottomImageView.mas_right).mas_offset(-kSAdap(35));
             make.height.mas_equalTo(kSAdap_V(18.5));
             make.width.mas_equalTo(kSAdap(30.0));
@@ -140,7 +140,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_equalTo(self.MyofascialBottomImageView.mas_bottom).offset(kSAdap(-10));
             make.left.mas_equalTo(self.MyofascialBottomImageView.mas_left).mas_offset(kSAdap(36));
-            make.height.mas_equalTo(kSAdap_V(18.5));
+            make.height.mas_equalTo(kSAdap(18.5));
             make.width.mas_equalTo(kSAdap(26));
         }];
         iv;
@@ -168,7 +168,7 @@
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.timeLabel.mas_centerX);
-            make.top.mas_equalTo(self.timeLabel.mas_bottom).mas_offset(kSAdap_V(12.0));
+            make.top.mas_equalTo(self.timeLabel.mas_bottom).mas_offset(kSAdap(12.0));
             make.width.mas_equalTo(kSAdap(70));
             make.height.mas_equalTo(kSAdap_V(32));
         }];
@@ -181,7 +181,7 @@
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.titleLabel.mas_centerX);
-            make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(kSAdap_V(12.0));
+            make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(kSAdap(12.0));
             make.width.mas_equalTo(kSAdap(70));
             make.height.mas_equalTo(kSAdap_V(32));
         }];
@@ -196,7 +196,7 @@
             make.height.mas_equalTo(kSAdap_V(24));
             make.width.mas_equalTo(kSAdap(74));
             make.right.mas_equalTo(self.MyofascialBottomImageView.mas_right);
-            make.bottom.mas_equalTo(self.MyofascialBottomImageView.mas_top).offset(-kSAdap_V(5));
+            make.bottom.mas_equalTo(self.MyofascialBottomImageView.mas_top).offset(-kSAdap(5));
         }];
         iv;
     });
@@ -226,7 +226,7 @@
             make.centerY.mas_equalTo(self.rightContentView);
             make.right.mas_equalTo(self.rightContentView.mas_right);
             make.left.mas_equalTo(self.rightIconImageView.mas_right).offset(kSAdap(5));
-            make.height.mas_equalTo(kSAdap_V(20));
+            make.height.mas_equalTo(kSAdap(20));
         }];
         iv;
     });
@@ -241,7 +241,7 @@
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
-    [self.rightContentView UILayoutCornerRadiusType:UILayoutCornerRadiusLeft withCornerRadius:kSAdap_V(12)];
+    [self.rightContentView UILayoutCornerRadiusType:UILayoutCornerRadiusLeft withCornerRadius:kSAdap(12)];
 }
 
 -(void)Click:(UIButton *)sender{
