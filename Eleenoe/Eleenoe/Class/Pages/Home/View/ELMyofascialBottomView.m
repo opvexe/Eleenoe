@@ -196,7 +196,7 @@
             make.height.mas_equalTo(kSAdap_V(24));
             make.width.mas_equalTo(kSAdap(74));
             make.right.mas_equalTo(self.MyofascialBottomImageView.mas_right);
-            make.top.mas_equalTo(self.determineButton.mas_top).offset(1);
+            make.bottom.mas_equalTo(self.MyofascialBottomImageView.mas_top).offset(-kSAdap_V(5));
         }];
         iv;
     });
