@@ -14,8 +14,6 @@
 @property(nonatomic,strong) ELPickerContainerView *bodyListView;
 @property(nonatomic,strong) ELPickerContainerView *rankListView;
 @property(nonatomic,strong) ELMarqueLabel *marqueLabel;
-@property (nonatomic,strong) UIView *bodyCircleView;
-@property (nonatomic,strong) UIView *rankCircleView;
 @end
 
 @implementation ELMyofascialContentView
@@ -46,69 +44,21 @@
     });
     
     _bodyListView = ({
-        ELPickerContainerView *iv = [[ELPickerContainerView alloc]initWithFrame:CGRectZero itemsSize:CGSizeMake(kSAdap(60), kSAdap_V(32))];
+        ELPickerContainerView *iv = [[ELPickerContainerView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-kSAdap(70), kSAdap_V(60), kSAdap(55), kSAdap_V(210)) itemsSize:CGSizeMake(kSAdap(60), kSAdap_V(32))];
         iv.backgroundColor = [UIColor clearColor];
         [self addSubview:iv];
-//        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.mas_equalTo(kSAdap_V(55.0));
-//            make.right.mas_equalTo(-kSAdap(15));
-//            make.bottom.mas_equalTo(-kSAdap_V(52));
-//            make.width.mas_equalTo(kSAdap(80));
-//        }];
         iv;
     });
     
-//    _rankListView = ({
-//        ELBodyPickerView *iv = [[ELBodyPickerView alloc]init];
-////        iv.forceItemTypeText = YES;
-////        iv.selectionIndicatorStyle = STDPickerViewSelectionIndicatorStyleNone;
-////        iv.showVerticalDivisionLine = NO;
-//        [self addSubview:iv];
-//        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.mas_equalTo(kSAdap_V(55.0));
-//            make.left.mas_equalTo(kSAdap(15));
-//            make.bottom.mas_equalTo(-kSAdap_V(52));
-//            make.width.mas_equalTo(kSAdap(80));
-//        }];
-//        iv;
-//    });
+    [self.bodyListView selectRow:3 animated:YES];
     
-    
-//    _bodyCircleView = ({
-//        UIView *iv = [[UIView alloc] init];
-//        [self addSubview:iv];
-//        iv.cornerRadius = kSAdap(14);
-//        iv.clipsToBounds = YES;
-//        iv.userInteractionEnabled = YES;
-//        iv.layer.borderColor = [UIColor whiteColor].CGColor;
-//        iv.layer.borderWidth = 1;
-//        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.height.mas_equalTo(kSAdap_V(28));
-//            make.width.mas_equalTo(kSAdap(55));
-//            make.centerY.mas_equalTo(self.bodyListView).mas_offset(-kSAdap(31));
-//            make.centerX.mas_equalTo(self.bodyListView);
-//        }];
-//        iv;
-//    });
-//
-//    _rankCircleView = ({
-//        UIView *iv = [[UIView alloc] init];
-//        [self addSubview:iv];
-//        iv.cornerRadius = kSAdap(14);
-//        iv.clipsToBounds = YES;
-//        iv.layer.borderColor = [UIColor whiteColor].CGColor;
-//        iv.layer.borderWidth = 1;
-//        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.height.mas_equalTo(kSAdap_V(28));
-//            make.width.mas_equalTo(kSAdap(55));
-//            make.centerY.mas_equalTo(self.rankListView).mas_offset(kSAdap(15));
-//            make.centerX.mas_equalTo(self.rankListView);
-//        }];
-//        iv;
-//    });
-    
-//    [self sendSubviewToBack:self.rankCircleView];
-//    [self sendSubviewToBack:self.bodyCircleView];
+    _rankListView= ({
+        ELPickerContainerView *iv = [[ELPickerContainerView alloc]initWithFrame:CGRectMake(kSAdap(15), kSAdap_V(60), kSAdap(55), kSAdap_V(210)) itemsSize:CGSizeMake(kSAdap(60), kSAdap_V(32))];
+        iv.backgroundColor = [UIColor clearColor];
+        [self addSubview:iv];
+        iv;
+    });
+    [self.rankListView selectRow:3 animated:YES];
 }
 
 @end
