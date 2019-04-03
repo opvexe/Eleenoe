@@ -46,7 +46,7 @@
         iv.font = contenFont;
         [self.contentView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(kSAdap_V(17));
+            make.height.mas_equalTo(kSAdap(17));
             make.right.and.left.mas_equalTo(0);
             make.top.mas_equalTo(self.imageView.mas_bottom).offset(kSAdap(7));
         }];
