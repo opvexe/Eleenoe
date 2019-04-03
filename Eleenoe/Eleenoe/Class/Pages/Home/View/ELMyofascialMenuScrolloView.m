@@ -58,10 +58,13 @@
     
     [self sendSubviewToBack:self.circleView];
     
-    for (NSInteger i = 1; i<20; i++) {
+    for (NSInteger i = 0; i<21; i++) {
         [self.lists addObject:[NSString stringWithFormat:@"%ld",(long)i]];
     }
     [self.collectionView reloadData];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.collectionView setContentOffset:CGPointMake(5, 0)];
+    });
 }
 
 - (void)setCurrentIndex:(NSInteger )row{
