@@ -59,7 +59,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.mas_equalTo(0);
             make.bottom.mas_equalTo(0);
-            make.height.mas_equalTo(kSAdap_V(146));
+            make.height.mas_equalTo(kSAdap(146));
         }];
         iv;
     });
