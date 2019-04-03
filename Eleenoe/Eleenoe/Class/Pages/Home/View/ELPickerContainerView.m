@@ -62,10 +62,10 @@ UICollectionViewDelegateFlowLayout
             iv.cornerRadius =  kSAdap(14);
             iv.clipsToBounds = YES;
             iv.layer.borderColor = [UIColor whiteColor].CGColor;
-            iv.layer.borderWidth = 1;
+            iv.layer.borderWidth = .5;
             [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_equalTo(kSAdap_V(28));
-                make.width.mas_equalTo(kSAdap(55));
+                make.height.mas_equalTo(kSAdap_V(30));
+                make.width.mas_equalTo(kSAdap(70));
                 make.center.mas_equalTo(self.collectionView);
             }];
             iv;
@@ -85,8 +85,14 @@ UICollectionViewDelegateFlowLayout
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ELMyofascialMenuCollectionViewCell *cell = [ELMyofascialMenuCollectionViewCell cellWithCollectionView:collectionView indexpath:indexPath];
-    cell.titleLabel.textColor = [UIColor whiteColor];
     cell.titleLabel.text = self.lists[indexPath.row];
+    if (self.currentRow == indexPath.row) {
+        cell.titleLabel.textColor = [UIColor whiteColor];
+        cell.titleLabel.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(16)];
+    }else{
+         cell.titleLabel.textColor = MainLightThemColor;
+        cell.titleLabel.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12)];
+    }
     return cell;
 }
 
@@ -109,6 +115,7 @@ UICollectionViewDelegateFlowLayout
         UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:currentIndex];
         CGFloat contentOffsetY = cell.center.y - (self.frame.size.height / 2);
         [self.collectionView setContentOffset:CGPointMake(0, contentOffsetY) animated:animated];
+        [self.collectionView reloadData];
     });
 }
 
