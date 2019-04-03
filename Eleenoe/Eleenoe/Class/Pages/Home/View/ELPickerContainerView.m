@@ -18,6 +18,7 @@ UICollectionViewDelegateFlowLayout
 @property (nonatomic,assign) CGSize itemsSize;
 @property (nonatomic,strong) NSMutableArray *lists;
 @property (nonatomic, assign) NSInteger currentRow;
+@property (nonatomic,strong) UIView *circleView;
 @end
 @implementation ELPickerContainerView
 
@@ -55,6 +56,21 @@ UICollectionViewDelegateFlowLayout
             [self.lists addObject:[NSString stringWithFormat:@"肩部%ld",(long)i]];
         }
         
+        _circleView = ({
+            UIView *iv = [[UIView alloc] init];
+            [self addSubview:iv];
+            iv.cornerRadius =  kSAdap(14);
+            iv.clipsToBounds = YES;
+            iv.layer.borderColor = [UIColor whiteColor].CGColor;
+            iv.layer.borderWidth = 1;
+            [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo(kSAdap_V(28));
+                make.width.mas_equalTo(kSAdap(55));
+                make.center.mas_equalTo(self.collectionView);
+            }];
+            iv;
+        });
+          [self sendSubviewToBack:self.circleView];
     }
     return self;
 }
@@ -95,6 +111,31 @@ UICollectionViewDelegateFlowLayout
         [self.collectionView setContentOffset:CGPointMake(0, contentOffsetY) animated:animated];
     });
 }
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate) {
+        [self scrollViewDidFinishScrolling:scrollView];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self scrollViewDidFinishScrolling:scrollView];
+}
+
+- (void)scrollViewDidFinishScrolling:(UIScrollView *)scrollView {
+    
+    CGFloat targetOffset = scrollView.contentOffset.y + scrollView.contentInset.top;
+    CGFloat partialRow = targetOffset / self.itemsSize.height;
+    NSInteger roundedRow = lroundf(partialRow);
+    if (roundedRow < 0) {
+        roundedRow = 0;
+    }
+    self.currentRow = roundedRow;
+    [self selectRow:self.currentRow animated:YES];
+}
+
 
 -(NSMutableArray *)lists{
     if (!_lists) {

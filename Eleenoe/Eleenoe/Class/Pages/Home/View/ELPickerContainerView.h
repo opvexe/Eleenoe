@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithFrame:(CGRect)frame itemsSize:(CGSize)itemsSize;
 
+- (void)selectRow:(NSInteger)row animated:(BOOL)animated;
+
 @end
 
 NS_ASSUME_NONNULL_END
