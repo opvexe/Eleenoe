@@ -63,7 +63,7 @@
     }
     [self.collectionView reloadData];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.collectionView setContentOffset:CGPointMake(kSAdap(6), 0)];
+        [self.collectionView setContentOffset:CGPointMake(5, 0)];
     });
 }
 
