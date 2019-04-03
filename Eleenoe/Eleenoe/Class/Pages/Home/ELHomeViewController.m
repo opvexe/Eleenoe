@@ -68,7 +68,7 @@
         UICollectionViewFlowLayout *  flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.minimumInteritemSpacing = 0;
         flowLayout.minimumLineSpacing = kSAdap(0);
-        flowLayout.sectionInset = UIEdgeInsetsMake(0,kSAdap(0), 0, kSAdap(0));
+        flowLayout.sectionInset = UIEdgeInsetsZero;
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         ELHomeListView*collectionView = [[ELHomeListView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         collectionView.bounces = NO;
