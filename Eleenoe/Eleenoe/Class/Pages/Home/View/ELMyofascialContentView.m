@@ -37,14 +37,14 @@
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self);
-            make.top.mas_equalTo(kSAdap_V(40));
+            make.top.mas_equalTo(kSAdap(40));
             make.size.mas_equalTo(icon.size);
         }];
         iv;
     });
     
     _bodyListView = ({
-        ELPickerContainerView *iv = [[ELPickerContainerView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-kSAdap(70), kSAdap_V(60), kSAdap(55), kSAdap_V(210)) itemsSize:CGSizeMake(kSAdap(60), kSAdap_V(32))];
+        ELPickerContainerView *iv = [[ELPickerContainerView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-kSAdap(70), kSAdap(60), kSAdap(55), kSAdap(210)) itemsSize:CGSizeMake(kSAdap(60), kSAdap(32))];
         iv.backgroundColor = [UIColor clearColor];
         [self addSubview:iv];
         iv;
@@ -53,7 +53,7 @@
     [self.bodyListView selectRow:3 animated:YES];
     
     _rankListView= ({
-        ELPickerContainerView *iv = [[ELPickerContainerView alloc]initWithFrame:CGRectMake(kSAdap(15), kSAdap_V(60), kSAdap(55), kSAdap_V(210)) itemsSize:CGSizeMake(kSAdap(60), kSAdap_V(32))];
+        ELPickerContainerView *iv = [[ELPickerContainerView alloc]initWithFrame:CGRectMake(kSAdap(15), kSAdap(60), kSAdap(55), kSAdap(210)) itemsSize:CGSizeMake(kSAdap(60), kSAdap(32))];
         iv.backgroundColor = [UIColor clearColor];
         [self addSubview:iv];
         iv;

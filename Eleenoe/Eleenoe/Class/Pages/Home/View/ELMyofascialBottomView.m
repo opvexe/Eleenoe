@@ -37,6 +37,8 @@
         UIImageView *iv = [[UIImageView alloc]init];
         iv.clipsToBounds = YES;
         iv.userInteractionEnabled = YES;
+        iv.contentMode = UIViewContentModeScaleAspectFit;
+        iv.clipsToBounds = YES;
         iv.image = [UIImage imageNamed:@"ELMyofascialBottom_icon"];
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
