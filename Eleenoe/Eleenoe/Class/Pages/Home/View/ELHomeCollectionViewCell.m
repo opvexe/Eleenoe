@@ -25,7 +25,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.mas_equalTo(0);
             make.top.mas_equalTo(0);
-            make.bottom.mas_equalTo(kSAdap(-8));
+            make.bottom.mas_equalTo(kSAdap_V(-8));
         }];
         iv;
     });

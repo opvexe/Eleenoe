@@ -38,7 +38,7 @@
         UICollectionViewFlowLayout *  flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.minimumInteritemSpacing = 0;
         flowLayout.minimumLineSpacing = kSAdap(45);
-        flowLayout.sectionInset = UIEdgeInsetsMake(0,kSAdap(15), kSAdap(10), kSAdap(15));
+        flowLayout.sectionInset = UIEdgeInsetsMake(0,kSAdap(15), kSAdap_V(10), kSAdap(15));
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         ELHomeTitleListView*collectionView = [[ELHomeTitleListView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         collectionView.bounces = NO;
@@ -46,7 +46,7 @@
         [self.view addSubview:collectionView];
         [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(0);
-            make.height.mas_equalTo(kSAdap(82));
+            make.height.mas_equalTo(kSAdap_V(82));
             make.left.and.right.mas_equalTo(0);
         }];
         collectionView;
@@ -59,7 +59,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.mas_equalTo(0);
             make.bottom.mas_equalTo(0);
-            make.height.mas_equalTo(kSAdap(146));
+            make.height.mas_equalTo(kSAdap_V(146));
         }];
         iv;
     });

@@ -36,7 +36,7 @@
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self);
-            make.top.mas_equalTo(kSAdap(40));
+            make.top.mas_equalTo(kSAdap_V(40));
             make.width.mas_equalTo(icon.size.width);
             make.bottom.mas_equalTo(0);
         }];
