@@ -28,10 +28,10 @@ method="development"
 
 #  下面两个参数只是在手动指定Pofile文件的时候用到，如果使用Xcode自动管理Profile,直接留空就好
 # (跟method对应的)mobileprovision文件名，需要先双击安装.mobileprovision文件.手动管理Profile时必填（只填写devcomcebbankebank,而不是填写devcomcebbankebank.mobileprovision）
-mobileprovision_name=""
+mobileprovision_name="dev_iPerMove"
 
 # 项目的bundleID，手动管理Profile时必填
-bundle_identifier=""
+bundle_identifier="com.Eleenoe.move"
 
 
 echo "--------------------脚本配置参数检查--------------------"

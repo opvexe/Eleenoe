@@ -31,7 +31,7 @@
     _contentImageView = ({
         UIImageView *iv = [[UIImageView alloc]init];
         iv.clipsToBounds = YES;
-        UIImage *icon  = [UIImage imageNamed:@"mysofac_body"];
+        UIImage *icon  = [UIImage imageNamed:@"mysofac_newbody"];
         iv.image = icon ;
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
