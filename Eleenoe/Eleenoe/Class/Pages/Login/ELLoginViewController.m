@@ -231,17 +231,18 @@
     
     _weixinButton = ({
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
-        [iv setBackgroundImage:[UIImage imageNamed:@"weixin"] forState:UIControlStateNormal];
-        [iv setBackgroundImage:[UIImage imageNamed:@"weixin"] forState:UIControlStateHighlighted];
-        [iv setBackgroundImage:[UIImage imageNamed:@"weixin"] forState:UIControlStateDisabled];
-        [iv setBackgroundImage:[UIImage imageNamed:@"weixin"] forState:UIControlStateSelected];
+        UIImage *icon  = [UIImage imageNamed:@"weixin"];
+        [iv setBackgroundImage:icon forState:UIControlStateNormal];
+        [iv setBackgroundImage:icon forState:UIControlStateHighlighted];
+        [iv setBackgroundImage:icon forState:UIControlStateDisabled];
+        [iv setBackgroundImage:icon forState:UIControlStateSelected];
         [iv addTarget:self action:@selector(weixinAction:) forControlEvents:UIControlEventTouchUpInside];
         iv.showsTouchWhenHighlighted = NO;
         [self.view addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.view);
             make.top.mas_equalTo(self.tipLabel.mas_bottom).mas_offset(kSAdap_V(15.0));
-            make.size.mas_equalTo(CGSizeMake(kSAdap(34.0), kSAdap_V(34.0)));
+            make.size.mas_equalTo(icon.size);
         }];
         iv;
     });
