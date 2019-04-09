@@ -35,6 +35,7 @@
 }
 
 -(void)umengTrack{
+    
     [MobClick setLogEnabled:YES];
 
     [MobClick setAppVersion:XcodeAppVersion];
@@ -42,10 +43,14 @@
     UMConfigInstance.ePolicy = REALTIME;
 
     UMConfigInstance.appKey  = UMENG_APPKEY;
-
-    [[UMSocialManager defaultManager]setUmSocialAppkey:UMENG_APPKEY];
+    
+    UMConfigInstance.channelId = @"App Store";
+    
+    UMConfigInstance.eSType  = E_UM_NORMAL;
 
     [MobClick startWithConfigure:UMConfigInstance];
+    
+    [[UMSocialManager defaultManager]setUmSocialAppkey:UMENG_APPKEY];
     
     [[UMSocialManager defaultManager] openLog:YES];
     

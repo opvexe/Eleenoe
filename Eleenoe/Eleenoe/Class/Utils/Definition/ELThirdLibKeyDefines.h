@@ -12,7 +12,7 @@
 #define  PlaceholdImageNAME @"place_placehold"
 
 //友盟
-#define UMENG_APPKEY @"5a4c3c1df43e48683300003a"
+#define UMENG_APPKEY @"5cac66e30cafb26bed000f36"
 
 #define WEIXIN_APPKEY @"wxec1013de270b5899"
 
