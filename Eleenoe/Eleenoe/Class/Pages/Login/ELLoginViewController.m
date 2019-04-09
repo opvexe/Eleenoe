@@ -9,6 +9,8 @@
 #import "ELLoginViewController.h"
 #import "ELMessageEventButton.h"
 #import "ELHomeViewController.h"
+#import <UMCommon/UMCommon.h>
+#import <UMShare/UMShare.h>
 #import "UITextField+ELFormatNumber.h"
 @interface ELLoginViewController ()<ELMessageEventButtonDelegate,UITextFieldDelegate>
 @property (nonatomic, strong) UIButton *loginButton;
@@ -236,7 +238,7 @@
         [iv setBackgroundImage:icon forState:UIControlStateHighlighted];
         [iv setBackgroundImage:icon forState:UIControlStateDisabled];
         [iv setBackgroundImage:icon forState:UIControlStateSelected];
-        [iv addTarget:self action:@selector(weixinAction:) forControlEvents:UIControlEventTouchUpInside];
+        [iv addTarget:self action:@selector(weiXinAction:) forControlEvents:UIControlEventTouchUpInside];
         iv.showsTouchWhenHighlighted = NO;
         [self.view addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -248,7 +250,17 @@
     });
     
 }
+-(void)weiXinAction:(UIButton *)sender{
+    @weakify(self);
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:self completion:^(UMSocialUserInfoResponse * result, NSError *error) {
+        @strongify(self);
+        if (error) {
+            
+        }
 
+    }];
+    
+}
 #pragma mark - ELMessageEventButtonDelegate
 -(void)ClickedWithMessageButton:(ELMessageEventButton*)messageButton{
     if (![NSString phoneNumberValidity:self.iphoneTextField.text]) {
@@ -282,10 +294,6 @@
     return YES;
 }
 
-#pragma mark - Weixin
--(void)weixinAction:(UIButton *)sender{
-    
-}
 
 #pragma mark - loginActoion
 -(void)loginAction:(UIButton *)sender{
