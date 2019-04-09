@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B1B8AD04721FDFA3726541C5ACA11D30"
-               BuildableName = "libAXIndicatorView.a"
+               BlueprintIdentifier = "9FCCAAE8E1225874F8C964FB3AB0CDCE"
                BlueprintName = "AXIndicatorView"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libAXIndicatorView.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -60,6 +60,7 @@ PODS:
   - UMCShare/Social/ReducedWeChat (6.9.5):
     - UMCCommon
     - UMCShare/Core
+  - UMengAnalytics-NO-IDFA (4.2.5)
   - YYCache (1.0.4)
 
 DEPENDENCIES:
@@ -82,6 +83,7 @@ DEPENDENCIES:
   - Toast
   - TYCyclePagerView
   - UMCShare/Social/ReducedWeChat
+  - UMengAnalytics-NO-IDFA
   - YYCache
 
 SPEC REPOS:
@@ -112,6 +114,7 @@ SPEC REPOS:
     - TYCyclePagerView
     - UMCCommon
     - UMCShare
+    - UMengAnalytics-NO-IDFA
     - YYCache
 
 SPEC CHECKSUMS:
@@ -141,8 +144,9 @@ SPEC CHECKSUMS:
   TYCyclePagerView: 0f67b0986995fd614843e819bc974cadd7f98008
   UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
   UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
+  UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: f38598f630c30a1078070da1f9a8bffd99aecfa7
+PODFILE CHECKSUM: 48765580a427546423b1c83340c93a325b74dee1
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.5.3

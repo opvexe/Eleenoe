@@ -573,6 +573,11 @@ Copyright 2011 - 2019 umeng.com. All rights reserved.
 Copyright 2011 - 2018 umeng.com. All rights reserved.
 
 
+## UMengAnalytics-NO-IDFA
+
+Copyright 2011 - 2015 UMeng.com. All rights reserved.
+
+
 ## YYCache
 
 The MIT License (MIT)
