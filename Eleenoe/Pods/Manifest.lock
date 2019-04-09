@@ -54,12 +54,12 @@ PODS:
   - Toast (4.0.0)
   - TTTAttributedLabel (1.13.4)
   - TYCyclePagerView (1.1.2)
-  - UMCCommon (2.0.0)
-  - UMCShare/Core (6.9.5):
-    - UMCCommon
-  - UMCShare/Social/ReducedWeChat (6.9.5):
-    - UMCCommon
-    - UMCShare/Core
+  - UMengAnalytics-NO-IDFA (4.2.5)
+  - UMengUShare/Core (6.4.8.2):
+    - UMengUShare/Network
+  - UMengUShare/Network (6.4.8.2)
+  - UMengUShare/Social/ReducedWeChat (6.4.8.2):
+    - UMengUShare/Core
   - YYCache (1.0.4)
 
 DEPENDENCIES:
@@ -81,7 +81,8 @@ DEPENDENCIES:
   - SVProgressHUD
   - Toast
   - TYCyclePagerView
-  - UMCShare/Social/ReducedWeChat
+  - UMengAnalytics-NO-IDFA
+  - UMengUShare/Social/ReducedWeChat
   - YYCache
 
 SPEC REPOS:
@@ -110,8 +111,8 @@ SPEC REPOS:
     - Toast
     - TTTAttributedLabel
     - TYCyclePagerView
-    - UMCCommon
-    - UMCShare
+    - UMengAnalytics-NO-IDFA
+    - UMengUShare
     - YYCache
 
 SPEC CHECKSUMS:
@@ -139,10 +140,10 @@ SPEC CHECKSUMS:
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
   TYCyclePagerView: 0f67b0986995fd614843e819bc974cadd7f98008
-  UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
-  UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
+  UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
+  UMengUShare: 370d180101e13ee0227ae657ab119ba97243d2b3
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: f38598f630c30a1078070da1f9a8bffd99aecfa7
+PODFILE CHECKSUM: 487674731a6e37e63dc601583fc76f344a72daca
 
 COCOAPODS: 1.5.3

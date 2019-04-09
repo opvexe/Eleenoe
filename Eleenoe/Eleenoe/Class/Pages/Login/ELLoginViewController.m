@@ -9,8 +9,6 @@
 #import "ELLoginViewController.h"
 #import "ELMessageEventButton.h"
 #import "ELHomeViewController.h"
-#import <UMCommon/UMCommon.h>
-#import <UMShare/UMShare.h>
 #import "UITextField+ELFormatNumber.h"
 @interface ELLoginViewController ()<ELMessageEventButtonDelegate,UITextFieldDelegate>
 @property (nonatomic, strong) UIButton *loginButton;

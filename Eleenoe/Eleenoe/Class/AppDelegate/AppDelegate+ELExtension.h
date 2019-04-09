@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <UMCommon/UMCommon.h>
-#import <UMShare/UMShare.h>
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AppDelegate (ELExtension)

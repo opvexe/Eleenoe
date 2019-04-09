@@ -714,23 +714,23 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2011 - 2019 umeng.com. All rights reserved.
+			<string>Copyright 2011 - 2015 UMeng.com. All rights reserved.
 </string>
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
-			<string>UMCCommon</string>
+			<string>UMengAnalytics-NO-IDFA</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2011 - 2018 umeng.com. All rights reserved.
+			<string>Copyright 2011 - 2018 UMeng.com. All rights reserved.
 </string>
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
-			<string>UMCShare</string>
+			<string>UMengUShare</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

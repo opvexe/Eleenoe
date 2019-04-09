@@ -563,14 +563,14 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-## UMCCommon
+## UMengAnalytics-NO-IDFA
 
-Copyright 2011 - 2019 umeng.com. All rights reserved.
+Copyright 2011 - 2015 UMeng.com. All rights reserved.
 
 
-## UMCShare
+## UMengUShare
 
-Copyright 2011 - 2018 umeng.com. All rights reserved.
+Copyright 2011 - 2018 UMeng.com. All rights reserved.
 
 
 ## YYCache

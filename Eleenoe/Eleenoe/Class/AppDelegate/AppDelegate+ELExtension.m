@@ -12,7 +12,6 @@
 #import "ELHomeViewController.h"
 #import "ELGuideViewController.h"
 #import "ELLoginViewController.h"
-#import <UMMobClick/MobClick.h>
 @implementation AppDelegate (ELExtension)
 
 -(void)switchRootController{
@@ -31,25 +30,26 @@
 
 -(void)registrationThirdLib{
     
+    [self umengTrack];
+    
 }
 
 -(void)umengTrack{
-//    [MobClick setLogEnabled:YES];
-//
-//    [MobClick setAppVersion:XcodeAppVersion];
-//
-//    UMConfigInstance.ePolicy = REALTIME;
-//
-//    UMConfigInstance.appKey  = UMENG_APPKEY;
-//
-//    [[UMSocialManager defaultManager]setUmSocialAppkey:UMENG_APPKEY];
-//
-//    [MobClick startWithConfigure:UMConfigInstance];
-//    
-//    [[UMSocialManager defaultManager] openLog:YES];
-//    
-//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WEIXIN_APPKEY appSecret:WEXIN_SECRET redirectURL:nil];
-//    
+    [MobClick setLogEnabled:YES];
+
+    [MobClick setAppVersion:XcodeAppVersion];
+
+    UMConfigInstance.ePolicy = REALTIME;
+
+    UMConfigInstance.appKey  = UMENG_APPKEY;
+
+    [[UMSocialManager defaultManager]setUmSocialAppkey:UMENG_APPKEY];
+
+    [MobClick startWithConfigure:UMConfigInstance];
+    
+    [[UMSocialManager defaultManager] openLog:YES];
+    
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WEIXIN_APPKEY appSecret:WEXIN_SECRET redirectURL:nil];
 }
 
 
