@@ -80,7 +80,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.MyofascialBottomImageView.mas_top).offset(kSAdap(10));
             make.left.mas_equalTo(self.MyofascialBottomImageView.mas_left).mas_offset(kSAdap(35));
-            make.height.mas_equalTo(kSAdap_V(18.5));
+            make.height.mas_equalTo(kSAdap(18.5));
             make.width.mas_equalTo(kSAdap(30.0));
         }];
         iv;
@@ -111,7 +111,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.MyofascialBottomImageView.mas_top).offset(kSAdap(10));
             make.right.mas_equalTo(self.MyofascialBottomImageView.mas_right).mas_offset(-kSAdap(35));
-            make.height.mas_equalTo(kSAdap_V(18.5));
+            make.height.mas_equalTo(kSAdap(18.5));
             make.width.mas_equalTo(kSAdap(30.0));
         }];
         iv;
@@ -170,9 +170,9 @@
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.timeLabel.mas_centerX);
-            make.top.mas_equalTo(self.timeLabel.mas_bottom).mas_offset(kSAdap(12.0));
+            make.top.mas_equalTo(self.timeLabel.mas_bottom).mas_offset(kSAdap(10));
             make.width.mas_equalTo(kSAdap(70));
-            make.height.mas_equalTo(kSAdap_V(32));
+            make.height.mas_equalTo(kSAdap(32));
         }];
         iv;
     });
@@ -183,9 +183,9 @@
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.titleLabel.mas_centerX);
-            make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(kSAdap(12.0));
+            make.top.mas_equalTo(self.titleLabel.mas_bottom).mas_offset(kSAdap(10));
             make.width.mas_equalTo(kSAdap(70));
-            make.height.mas_equalTo(kSAdap_V(32));
+            make.height.mas_equalTo(kSAdap(32));
         }];
         iv;
     });
@@ -195,7 +195,7 @@
         [self addSubview:iv];
         iv.backgroundColor = [UIColor whiteColor];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(kSAdap_V(24));
+            make.height.mas_equalTo(kSAdap(24));
             make.width.mas_equalTo(kSAdap(74));
             make.right.mas_equalTo(self.MyofascialBottomImageView.mas_right);
             make.bottom.mas_equalTo(self.MyofascialBottomImageView.mas_top).offset(-kSAdap(5));

@@ -263,7 +263,8 @@
 }
 #pragma mark - ELMessageEventButtonDelegate
 -(void)ClickedWithMessageButton:(ELMessageEventButton*)messageButton{
-    if (![NSString phoneNumberValidity:self.iphoneTextField.text]) {
+    
+    if (![NSString phoneNumberValidity:[self.iphoneTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]) {
         [self makeToast:@"请输入正确的手机号"];
         return;
     }
