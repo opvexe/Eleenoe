@@ -253,9 +253,11 @@
     [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:self completion:^(UMSocialUserInfoResponse * result, NSError *error) {
         @strongify(self);
         if (error) {
-            
+         
+            return ;
         }
-
+        UMSocialUserInfoResponse *resp = result;
+        NSLog(@"%@",resp);
     }];
     
 }

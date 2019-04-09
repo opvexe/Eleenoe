@@ -1418,7 +1418,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Eleenoe.move;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = dev_iPerMove;
+				PROVISIONING_PROFILE_SPECIFIER = dev_Eleenoe;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1431,7 +1431,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = CMH4BADJQ6;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Eleenoe/Class/Resources/EleenoePrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Eleenoe/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1441,7 +1441,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Eleenoe.move;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = dev_iPerMove;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
