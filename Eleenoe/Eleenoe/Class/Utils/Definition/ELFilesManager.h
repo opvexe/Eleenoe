@@ -46,5 +46,6 @@
 #import <UIButton+WebCache.h>
 #import <IQKeyboardManager.h>
 #import <YYCache.h>
+#import <UMMobClick/MobClick.h>
 
 #endif /* ELFilesManager_h */
