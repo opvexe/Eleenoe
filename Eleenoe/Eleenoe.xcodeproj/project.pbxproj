@@ -105,7 +105,6 @@
 		D0F52B3322378F5200A26504 /* ELBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52B3222378F5200A26504 /* ELBaseNavigationViewController.m */; };
 		D0F52B3622378F7A00A26504 /* ELRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52B3522378F7A00A26504 /* ELRootViewController.m */; };
 		D0F52B422237921300A26504 /* ELLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52B412237921300A26504 /* ELLoginViewController.m */; };
-		D0F52B45223792C800A26504 /* ELPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52B44223792C800A26504 /* ELPasswordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -326,8 +325,6 @@
 		D0F52B3522378F7A00A26504 /* ELRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELRootViewController.m; sourceTree = "<group>"; };
 		D0F52B402237921300A26504 /* ELLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELLoginViewController.h; sourceTree = "<group>"; };
 		D0F52B412237921300A26504 /* ELLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELLoginViewController.m; sourceTree = "<group>"; };
-		D0F52B43223792C800A26504 /* ELPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELPasswordViewController.h; sourceTree = "<group>"; };
-		D0F52B44223792C800A26504 /* ELPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELPasswordViewController.m; sourceTree = "<group>"; };
 		F9BD9D29E12BC7CF7674A550 /* libPods-Eleenoe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Eleenoe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -925,7 +922,6 @@
 				D0EC4B342238B22C00B5A74D /* Guide */,
 				D0EC4B252238AB4700B5A74D /* Mine */,
 				D0EC4B212238AAD600B5A74D /* Home */,
-				D0F52B3B2237911C00A26504 /* Password */,
 				D0F52B3A2237911300A26504 /* Login */,
 			);
 			path = Pages;
@@ -938,15 +934,6 @@
 				D0F52B412237921300A26504 /* ELLoginViewController.m */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		D0F52B3B2237911C00A26504 /* Password */ = {
-			isa = PBXGroup;
-			children = (
-				D0F52B43223792C800A26504 /* ELPasswordViewController.h */,
-				D0F52B44223792C800A26504 /* ELPasswordViewController.m */,
-			);
-			path = Password;
 			sourceTree = "<group>";
 		};
 		DE90C60AD093B74A6FD497A2 /* Pods */ = {
@@ -1242,7 +1229,6 @@
 				D077107F224DA82700D0B993 /* ELBaseCollectionReusableView.m in Sources */,
 				D0771094224E537200D0B993 /* ELDefaultContentViewController.m in Sources */,
 				D0771085224E0F7F00D0B993 /* ELBannerCollectionViewCell.m in Sources */,
-				D0F52B45223792C800A26504 /* ELPasswordViewController.m in Sources */,
 				D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */,
 				D0771079224D253300D0B993 /* ELTextField.m in Sources */,
 				18B4B3BB224FBBC600EA9404 /* ELHomeTitleCollectionCell.m in Sources */,
