@@ -16,7 +16,7 @@
 - (void)yc_trackHooks{
     
     [self hookViewAppear];
-    [self hookClickEventAction];
+//    [self hookClickEventAction];
 }
 
 /**
