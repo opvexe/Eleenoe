@@ -21,6 +21,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
+
 #pragma mark 关闭键盘
 - (void)dismissKeyBoard{
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeTextField)];

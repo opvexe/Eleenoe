@@ -12,6 +12,7 @@
 #import "ELHomeViewController.h"
 #import "ELGuideViewController.h"
 #import "ELLoginViewController.h"
+#import "ELTrackCollectTool.h"
 @implementation AppDelegate (ELExtension)
 
 -(void)switchRootController{
@@ -55,6 +56,8 @@
     [[UMSocialManager defaultManager] openLog:YES];
     
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WEIXIN_APPKEY appSecret:WEXIN_SECRET redirectURL:nil];
+    
+    [[[ELTrackCollectTool alloc]init] yc_trackHooks];
 }
 
 
