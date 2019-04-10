@@ -19,7 +19,7 @@
         self.backgroundColor = MainTableViewColor;
         self.dataSource = self;
         self.delegate = self;
-        self.rowHeight = kSAdap_V(60.0);
+        self.rowHeight = 60.0;
         NSArray *settings = @[@{@"sections":@[
                                         @{@"icon":@"mine_instructions",@"title":@"使用说明",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"},
                                         @{@"icon":@"mine_suggestion",@"title":@"意见反馈",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"},
