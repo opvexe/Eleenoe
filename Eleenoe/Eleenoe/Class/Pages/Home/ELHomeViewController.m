@@ -24,7 +24,7 @@
 @property(nonatomic,strong) ELMyofascialMenuScrolloView *pickListView;
 @property(nonatomic,strong)ELTriggerAnalyzeFloatingView *analyzeView;
 @property(nonatomic,strong)ELMyofascialContentModel *model;
-@property(nonatomic,strong)NSMutableArray *lists;
+@property(nonatomic,strong)NSMutableArray *homeLists;
 @end
 
 @implementation ELHomeViewController
@@ -125,11 +125,11 @@
 
 
 #pragma mark 懒加载
--(NSMutableArray *)lists{
-    if (!_lists) {
-        _lists =[NSMutableArray array];
+-(NSMutableArray *)homeLists{
+    if (!_homeLists) {
+        _homeLists =[NSMutableArray array];
     }
-    return _lists;
+    return _homeLists;
 }
 
 -(void)Click{

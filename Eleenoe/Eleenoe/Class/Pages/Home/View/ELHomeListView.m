@@ -186,7 +186,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ELHomeCollectionViewCell *cell =  [ELHomeCollectionViewCell cellWithCollectionView:collectionView indexpath:indexPath];
-    [cell InitDataWithModel:self.homeLists[indexPath.row] Atindex:indexPath.row];
+    [cell InitDataWithModel:self.homeLists[indexPath.row]];
     return cell;
 }
 #pragma mark - UICollectionViewDelegate
