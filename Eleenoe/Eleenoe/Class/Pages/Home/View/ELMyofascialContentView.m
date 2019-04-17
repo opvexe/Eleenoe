@@ -10,7 +10,7 @@
 #import "ELMyofascialContentModel.h"
 #import "ELPickerContainerView.h"
 #import "ELMarqueLabel.h"
-@interface ELMyofascialContentView()<ELPickerContainerChioceDelegate>
+@interface ELMyofascialContentView()
 @property(nonatomic,strong)UIImageView *contentImageView;
 @property(nonatomic,strong) ELPickerContainerView *bodyListView;
 @property(nonatomic,strong) ELPickerContainerView *rankListView;
@@ -27,8 +27,6 @@
         [self addSubview:iv];
         iv;
     });
-    
-    self.marqueLabel.text = @"【四级】明显痛，如被人打耳光，或者被热水烫了一引发的一度烫伤。一引发的一度烫伤。一引发的一度烫伤。";
     
     _contentImageView = ({
         UIImageView *iv = [[UIImageView alloc]init];
@@ -48,7 +46,6 @@
     _bodyListView = ({
         ELPickerContainerView *iv = [[ELPickerContainerView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-kSAdap(70), kSAdap_V(60), kSAdap(55), kSAdap_V(210)) itemsSize:CGSizeMake(kSAdap(60), kSAdap_V(32))];
         iv.backgroundColor = [UIColor clearColor];
-        iv.delegate = self;
         [self addSubview:iv];
         iv;
     });
@@ -56,10 +53,21 @@
     _rankListView= ({
         ELPickerContainerView *iv = [[ELPickerContainerView alloc]initWithFrame:CGRectMake(kSAdap(15), kSAdap_V(60), kSAdap(55), kSAdap_V(210)) itemsSize:CGSizeMake(kSAdap(60), kSAdap_V(32))];
         iv.backgroundColor = [UIColor clearColor];
-        iv.delegate = self;
+        iv.type = PickCircleTypeRank;
         [self addSubview:iv];
         iv;
     });
+    
+    @weakify(self);
+    self.bodyListView.ContainerChioceBlock = ^(ELPickerContainerView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
+        @strongify(self);
+        self.contentImageView.image = ELImageNamed(model.selectedImageName);
+    };
+    
+    self.rankListView.ContainerChioceBlock = ^(ELPickerContainerView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
+        @strongify(self);
+        self.marqueLabel.text = model.ads;
+    };
 }
 
 -(void)InitDataWithModel:(ELMyofascialContentModel *)model{
@@ -70,11 +78,6 @@
     if (model.isShow) {
         [self.rankListView InitDataSouce:model.pains];
     }
-}
-
--(void)pickView:(ELPickerContainerView *)pickview AtIndex:(NSInteger)index model:(ELMyofascialContentListModel *)model{
-    
-    self.contentImageView.image = ELImageNamed(model.selectedImageName);
 }
 
 @end

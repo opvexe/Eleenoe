@@ -7,24 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ELMyofascialContentModel.h"
 NS_ASSUME_NONNULL_BEGIN
-@class ELPickerContainerView;
-@protocol ELPickerContainerChioceDelegate <NSObject>
-@optional
 
--(void)pickView:(ELPickerContainerView *)pickview AtIndex:(NSInteger)index model:(ELBaseModel *)model;
-
-@end
+typedef NS_ENUM(NSInteger, PickCircleType) {
+    PickCircleTypeBody,
+    PickCircleTypeRank,
+};
 
 @interface ELPickerContainerView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame itemsSize:(CGSize)itemsSize;
 
+@property(nonatomic,assign)PickCircleType type;
 
 -(void)InitDataSouce:(NSArray *)souce;
 
-@property(nonatomic,weak) id <ELPickerContainerChioceDelegate>delegate;
+@property(nonatomic,copy)void(^ContainerChioceBlock)(ELPickerContainerView *pickview,NSInteger index,ELMyofascialContentListModel *model);
+
 
 @end
 

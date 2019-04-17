@@ -23,12 +23,22 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface ELMyofascialContentListModel : ELBaseModel
-
+/**
+ *  标题
+ */
 @property(nonatomic,copy)NSString *title;
-
+/**
+ *  图片
+ */
 @property(nonatomic,copy)NSString *selectedImageName;
-
+/**
+ *  选中
+ */
 @property (nonatomic, assign) BOOL choose;
+/**
+ *  跑马灯
+ */
+@property(nonatomic,strong)NSString *ads;
 
 @end
 

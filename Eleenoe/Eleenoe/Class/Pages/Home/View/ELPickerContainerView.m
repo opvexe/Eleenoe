@@ -68,9 +68,17 @@ UICollectionViewDelegateFlowLayout
             }];
             iv;
         });
-          [self sendSubviewToBack:self.circleView];
+        [self sendSubviewToBack:self.circleView];
     }
     return self;
+}
+
+-(void)setType:(PickCircleType)type{
+    if (type == PickCircleTypeRank) {
+        [self.circleView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(kSAdap(60));
+        }];
+    }
 }
 
 -(void)InitDataSouce:(NSArray *)souce{
@@ -100,10 +108,10 @@ UICollectionViewDelegateFlowLayout
     cell.titleLabel.text = model.title;
     if (self.currentRow == indexPath.row) {
         cell.titleLabel.textColor = [UIColor whiteColor];
-        cell.titleLabel.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(16)];
+        cell.titleLabel.font = [UIFont ELPingFangSCRegularFontOfSize:14];
     }else{
-         cell.titleLabel.textColor = MainLightThemColor;
-        cell.titleLabel.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12)];
+        cell.titleLabel.textColor = MainLightThemColor;
+        cell.titleLabel.font = [UIFont ELPingFangSCRegularFontOfSize:12];
     }
     return cell;
 }
@@ -128,8 +136,8 @@ UICollectionViewDelegateFlowLayout
         CGFloat contentOffsetY = cell.center.y - (self.frame.size.height / 2);
         [self.collectionView setContentOffset:CGPointMake(0, contentOffsetY) animated:animated];
         [self.collectionView reloadData];
-        if (self.delegate&&[self.delegate respondsToSelector:@selector(pickView:AtIndex:model:)]) {
-            [self.delegate pickView:self AtIndex:row model:self.lists[row]];
+        if (self.ContainerChioceBlock) {
+            self.ContainerChioceBlock(self, row, self.lists[row]);
         }
     });
 }
