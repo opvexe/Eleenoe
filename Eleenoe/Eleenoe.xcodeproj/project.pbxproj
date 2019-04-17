@@ -72,6 +72,7 @@
 		D0A0DC382250DCD3000F9048 /* ELMarqueLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DC372250DCD3000F9048 /* ELMarqueLabel.m */; };
 		D0A0DC3A2251AF6A000F9048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A0DC392251AF6A000F9048 /* Assets.xcassets */; };
 		D0A0DC4322520587000F9048 /* ELBatteryView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DC4222520587000F9048 /* ELBatteryView.m */; };
+		D0D7BFD92266CAA800DE21E6 /* ELMyofascialContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D7BFD82266CAA800DE21E6 /* ELMyofascialContentModel.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
 		D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC670022393BAA0064C07A /* ELNetworkHelper.m */; };
@@ -252,6 +253,8 @@
 		D0A0DC392251AF6A000F9048 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0A0DC4122520587000F9048 /* ELBatteryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBatteryView.h; sourceTree = "<group>"; };
 		D0A0DC4222520587000F9048 /* ELBatteryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBatteryView.m; sourceTree = "<group>"; };
+		D0D7BFD72266CAA800DE21E6 /* ELMyofascialContentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMyofascialContentModel.h; sourceTree = "<group>"; };
+		D0D7BFD82266CAA800DE21E6 /* ELMyofascialContentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMyofascialContentModel.m; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
 		D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBusinessNetworkTool.m; sourceTree = "<group>"; };
 		D0DC66FC22393B990064C07A /* ELNetworkCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELNetworkCache.h; sourceTree = "<group>"; };
@@ -671,6 +674,8 @@
 			children = (
 				D0A0DBA2224FC69E000F9048 /* ELMyofascialMenuModel.h */,
 				D0A0DBA3224FC69E000F9048 /* ELMyofascialMenuModel.m */,
+				D0D7BFD72266CAA800DE21E6 /* ELMyofascialContentModel.h */,
+				D0D7BFD82266CAA800DE21E6 /* ELMyofascialContentModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1243,6 +1248,7 @@
 				D077107C224DA7B800D0B993 /* ELShopCollectionViewCell.m in Sources */,
 				D07710A2224EE3CC00D0B993 /* ELElectrodeViewController.m in Sources */,
 				D0F52B422237921300A26504 /* ELLoginViewController.m in Sources */,
+				D0D7BFD92266CAA800DE21E6 /* ELMyofascialContentModel.m in Sources */,
 				D0EC4B3E2238D3F700B5A74D /* ELGuideView.m in Sources */,
 				D093EB012253C0C900215901 /* ELCollectionViewFlowLayout.m in Sources */,
 				18B4B3AF224FB92800EA9404 /* ELBaseTableView.m in Sources */,
@@ -1407,8 +1413,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = CMH4BADJQ6;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NJC3EGBWR;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Eleenoe/Class/Resources/EleenoePrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Eleenoe/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1416,9 +1422,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Eleenoe.move;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Eleenoe.cn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = dev_iPerMove;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1430,8 +1436,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = CMH4BADJQ6;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NJC3EGBWR;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Eleenoe/Class/Resources/EleenoePrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Eleenoe/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1439,9 +1445,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Eleenoe.move;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Eleenoe.cn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = dev_iPerMove;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -7,13 +7,15 @@
 //
 
 #import "ELMyofascialContentView.h"
+#import "ELMyofascialContentModel.h"
 #import "ELPickerContainerView.h"
 #import "ELMarqueLabel.h"
-@interface ELMyofascialContentView()
+@interface ELMyofascialContentView()<ELPickerContainerChioceDelegate>
 @property(nonatomic,strong)UIImageView *contentImageView;
 @property(nonatomic,strong) ELPickerContainerView *bodyListView;
 @property(nonatomic,strong) ELPickerContainerView *rankListView;
 @property(nonatomic,strong) ELMarqueLabel *marqueLabel;
+@property(nonatomic,strong) ELMyofascialContentModel *model;
 @end
 
 @implementation ELMyofascialContentView
@@ -46,19 +48,33 @@
     _bodyListView = ({
         ELPickerContainerView *iv = [[ELPickerContainerView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-kSAdap(70), kSAdap_V(60), kSAdap(55), kSAdap_V(210)) itemsSize:CGSizeMake(kSAdap(60), kSAdap_V(32))];
         iv.backgroundColor = [UIColor clearColor];
+        iv.delegate = self;
         [self addSubview:iv];
         iv;
     });
-    
-    [self.bodyListView selectRow:3 animated:YES];
     
     _rankListView= ({
         ELPickerContainerView *iv = [[ELPickerContainerView alloc]initWithFrame:CGRectMake(kSAdap(15), kSAdap_V(60), kSAdap(55), kSAdap_V(210)) itemsSize:CGSizeMake(kSAdap(60), kSAdap_V(32))];
         iv.backgroundColor = [UIColor clearColor];
+        iv.delegate = self;
         [self addSubview:iv];
         iv;
     });
-    [self.rankListView selectRow:3 animated:YES];
+}
+
+-(void)InitDataWithModel:(ELMyofascialContentModel *)model{
+    _model = model;
+    [self.rankListView setHidden:!model.isShow];
+    [self.marqueLabel setHidden:!model.isShow];
+    [self.bodyListView InitDataSouce:model.datas];
+    if (model.isShow) {
+        [self.rankListView InitDataSouce:model.pains];
+    }
+}
+
+-(void)pickView:(ELPickerContainerView *)pickview AtIndex:(NSInteger)index model:(ELMyofascialContentListModel *)model{
+    
+    self.contentImageView.image = ELImageNamed(model.selectedImageName);
 }
 
 @end

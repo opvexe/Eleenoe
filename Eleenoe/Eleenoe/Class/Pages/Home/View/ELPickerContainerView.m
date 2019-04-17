@@ -8,6 +8,7 @@
 
 #import "ELPickerContainerView.h"
 #import "ELMyofascialMenuCollectionViewCell.h"
+#import "ELMyofascialContentModel.h"
 @interface ELPickerContainerView()<
 UICollectionViewDataSource,
 UICollectionViewDelegate,
@@ -52,9 +53,6 @@ UICollectionViewDelegateFlowLayout
         [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(self);
         }];
-        for (NSInteger i = 1; i<10; i++) {
-            [self.lists addObject:[NSString stringWithFormat:@"肩部%ld",(long)i]];
-        }
         
         _circleView = ({
             UIView *iv = [[UIView alloc] init];
@@ -75,6 +73,19 @@ UICollectionViewDelegateFlowLayout
     return self;
 }
 
+-(void)InitDataSouce:(NSArray *)souce{
+    [self.lists removeAllObjects];
+    if (souce.count) {
+        [self.lists addObjectsFromArray:souce];
+    }
+    [self.lists enumerateObjectsUsingBlock:^(ELMyofascialContentListModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.choose == YES) {
+            [self selectRow:idx animated:YES];
+            *stop = YES;
+        }
+    }];
+}
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -85,7 +96,8 @@ UICollectionViewDelegateFlowLayout
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ELMyofascialMenuCollectionViewCell *cell = [ELMyofascialMenuCollectionViewCell cellWithCollectionView:collectionView indexpath:indexPath];
-    cell.titleLabel.text = self.lists[indexPath.row];
+    ELMyofascialContentListModel *model = self.lists[indexPath.row];
+    cell.titleLabel.text = model.title;
     if (self.currentRow == indexPath.row) {
         cell.titleLabel.textColor = [UIColor whiteColor];
         cell.titleLabel.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(16)];
@@ -116,6 +128,9 @@ UICollectionViewDelegateFlowLayout
         CGFloat contentOffsetY = cell.center.y - (self.frame.size.height / 2);
         [self.collectionView setContentOffset:CGPointMake(0, contentOffsetY) animated:animated];
         [self.collectionView reloadData];
+        if (self.delegate&&[self.delegate respondsToSelector:@selector(pickView:AtIndex:model:)]) {
+            [self.delegate pickView:self AtIndex:row model:self.lists[row]];
+        }
     });
 }
 

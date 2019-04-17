@@ -7,6 +7,7 @@
 //
 
 #import "ELHomeCollectionViewCell.h"
+#import "ELMyofascialContentModel.h"
 #import "ELMyofascialContentView.h"
 @interface ELHomeCollectionViewCell()
 @property(nonatomic,strong)ELMyofascialContentView *contentImageView;
@@ -30,4 +31,9 @@
         iv;
     });
 }
+
+-(void)InitDataWithModel:(ELMyofascialContentModel *)model{
+    [self.contentImageView InitDataWithModel:model];
+}
+
 @end

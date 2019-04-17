@@ -7,6 +7,7 @@
 //
 
 #import "ELHomeListView.h"
+#import "ELMyofascialContentModel.h"
 #import "ELHomeCollectionViewCell.h"
 @interface ELHomeListView()
 @property(nonatomic,strong)NSMutableArray *homeLists;
@@ -26,9 +27,74 @@
         [self registerClass:[ELHomeCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELHomeCollectionViewCell class])];
         _startOffsetX = 0;
         _previousCVCIndex = -1;
+        [self loadDataSoucre];
     }
     return self;
 }
+
+-(void)loadDataSoucre{
+    
+    NSArray *lists =  @[
+                        //肌肉放松
+                        @{@"datas":@[
+                                  @{@"title":@"肩部",@"selectedImageName":@"relax_shoulders",@"choose":@(NO)},
+                                  @{@"title":@"背部",@"selectedImageName":@"relax_back",@"choose":@(NO)},
+                                  @{@"title":@"臀部",@"selectedImageName":@"relax_thigh",@"choose":@(YES)},
+                                  @{@"title":@"大腿",@"selectedImageName":@"relax_haunch",@"choose":@(NO)},
+                                  @{@"title":@"小腿",@"selectedImageName":@"relax_shank",@"choose":@(NO)},
+                                  @{@"title":@"手臂",@"selectedImageName":@"relax_arm",@"choose":@(NO)}],
+                          @"isShow":@(NO)},
+                        //筋膜松懈
+                        @{@"datas":@[
+                                  @{@"title":@"头前倾",@"selectedImageName":@""},
+                                  @{@"title":@"腰肌劳损",@"selectedImageName":@""},
+                                  @{@"title":@"背部松懈",@"selectedImageName":@""},
+                                  @{@"title":@"颈椎劳损",@"selectedImageName":@""},
+                                  @{@"title":@"驼背",@"selectedImageName":@""},
+                                  @{@"title":@"O型腿",@"selectedImageName":@""},
+                                  @{@"title":@"X型腿",@"selectedImageName":@""},
+                                  @{@"title":@"盆骨前倾",@"selectedImageName":@""}],
+                          @"isShow":@(NO)},
+                        //疼痛
+                        @{@"datas":@[
+                                  @{@"title":@"痛经",@"selectedImageName":@""},
+                                  @{@"title":@"肩痛",@"selectedImageName":@""},
+                                  @{@"title":@"背痛",@"selectedImageName":@""},
+                                  @{@"title":@"肘痛",@"selectedImageName":@""},
+                                  @{@"title":@"脖子痛",@"selectedImageName":@""},
+                                  @{@"title":@"腰痛",@"selectedImageName":@""},
+                                  @{@"title":@"脚踝痛",@"selectedImageName":@""},
+                                  @{@"title":@"足底痛",@"selectedImageName":@""},
+                                  @{@"title":@"手术后疼痛",@"selectedImageName":@""},
+                                  @{@"title":@"烧伤疼痛",@"selectedImageName":@""}],
+                          @"pains":@[
+                                  @{@"title":@"1"},
+                                  @{@"title":@"2"},
+                                  @{@"title":@"3"},
+                                  @{@"title":@"4"},
+                                  @{@"title":@"5"},
+                                  @{@"title":@"6"},
+                                  @{@"title":@"7"},
+                                  @{@"title":@"8"},
+                                  @{@"title":@"9"},
+                                  @{@"title":@"10"}],
+                          @"isShow":@(YES)},
+                        //损伤康复
+                        @{@"datas":@[
+                                  @{@"title":@"鼠标手",@"selectedImageName":@""},
+                                  @{@"title":@"足底筋膜炎",@"selectedImageName":@""},
+                                  @{@"title":@"跟腱炎",@"selectedImageName":@""},
+                                  @{@"title":@"胫骨骨膜炎",@"selectedImageName":@""},
+                                  @{@"title":@"膝关节炎",@"selectedImageName":@""},
+                                  @{@"title":@"客胫综合征",@"selectedImageName":@""},
+                                  @{@"title":@"梨状肌综合性",@"selectedImageName":@""},
+                                  @{@"title":@"网球肘",@"selectedImageName":@""},
+                                  @{@"title":@"肩周炎",@"selectedImageName":@""}],
+                          @"isShow":@(NO)},
+                        ];
+    self.homeLists = [ELMyofascialContentModel mj_objectArrayWithKeyValuesArray:lists];
+}
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     _startOffsetX = scrollView.contentOffset.x;
     _isScroll = YES;
@@ -42,7 +108,7 @@
     CGFloat offsetX = scrollView.contentOffset.x;
     // 1、记录上个子控制器下标
     _previousCVCIndex = offsetX / scrollView.frame.size.width;
-
+    
     if (self.delegatePageContentCollectionView && [self.delegatePageContentCollectionView respondsToSelector:@selector(pageContentCollectionView:index:)]) {
         [self.delegatePageContentCollectionView pageContentCollectionView:self index:_previousCVCIndex];
     }
@@ -116,7 +182,7 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 4;
+    return self.homeLists.count;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(SCREEN_WIDTH,self.height);
@@ -124,7 +190,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ELHomeCollectionViewCell *cell =  [ELHomeCollectionViewCell cellWithCollectionView:collectionView indexpath:indexPath];
-    
+    [cell InitDataWithModel:self.homeLists[indexPath.row]];
     return cell;
 }
 #pragma mark - UICollectionViewDelegate

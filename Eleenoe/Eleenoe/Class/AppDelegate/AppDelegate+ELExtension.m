@@ -12,20 +12,19 @@
 #import "ELHomeViewController.h"
 #import "ELGuideViewController.h"
 #import "ELLoginViewController.h"
-#import "ELTrackCollectTool.h"
 @implementation AppDelegate (ELExtension)
 
 -(void)switchRootController{
     
-//    if ([ELUserDataSocure isNewVersion]) {
-//
-        self.window.rootViewController = [[ELLoginViewController alloc]init];
-//
-//    }else{
-//
-//        ELTabBarControllerConfig  *tabBarControllerConfig = [[ELTabBarControllerConfig alloc]init];
-//        self.window.rootViewController = tabBarControllerConfig.tabBarController;
-//    }
+    //    if ([ELUserDataSocure isNewVersion]) {
+    //
+    self.window.rootViewController = [[ELLoginViewController alloc]init];
+    //
+    //    }else{
+    //
+    //        ELTabBarControllerConfig  *tabBarControllerConfig = [[ELTabBarControllerConfig alloc]init];
+    //        self.window.rootViewController = tabBarControllerConfig.tabBarController;
+    //    }
     
 }
 
@@ -38,26 +37,31 @@
 -(void)umengTrack{
     
     [MobClick setLogEnabled:YES];
-
+    
     [MobClick setAppVersion:XcodeAppVersion];
-
+    
     UMConfigInstance.ePolicy = REALTIME;
-
+    
     UMConfigInstance.appKey  = UMENG_APPKEY;
     
     UMConfigInstance.channelId = @"App Store";
     
     UMConfigInstance.eSType  = E_UM_NORMAL;
-
+    
     [MobClick startWithConfigure:UMConfigInstance];
     
     [[UMSocialManager defaultManager]setUmSocialAppkey:UMENG_APPKEY];
     
+#if kReleaseAPI
+    [[UMSocialManager defaultManager] openLog:NO];
+#elif kTestAPI
     [[UMSocialManager defaultManager] openLog:YES];
+#else
+    [[UMSocialManager defaultManager] openLog:NO];
+#endif
     
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WEIXIN_APPKEY appSecret:WEXIN_SECRET redirectURL:nil];
     
-    [[[ELTrackCollectTool alloc]init] yc_trackHooks];
 }
 
 

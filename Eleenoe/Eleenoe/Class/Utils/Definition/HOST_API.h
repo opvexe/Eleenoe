@@ -16,11 +16,11 @@
 /**
  * 开发
  */
-#define kDevAPI 0
+#define kDevAPI 1
 /**
  * 测试
  */
-#define kTestAPI 1
+#define kTestAPI 0
 
 
 #import "ELAPIConstant.h"
