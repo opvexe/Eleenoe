@@ -16,7 +16,6 @@
 @property(nonatomic,strong) UIView *analyzeView;
 @property(nonatomic,strong) UIButton *downloadButton;
 @property(nonatomic,strong) UIButton *close;
-@property (nonatomic,strong) ELBaseModel *model;
 @property (nonatomic,strong) UILabel *analyzeLabel;
 @property (nonatomic,strong) UILabel *treatLabel;
 @property (nonatomic,strong) UILabel *placeLabel;
@@ -24,7 +23,7 @@
 @end
 @implementation ELTriggerAnalyzeFloatingView
 
-+ (instancetype)showInitDataModel:(ELBaseModel *)model Complete:(void(^)(ELBaseModel *model))complete{
++ (instancetype)showComplete:(void(^)(ELBaseModel *model))complete{
     
     ELTriggerAnalyzeFloatingView *view = [[ELTriggerAnalyzeFloatingView alloc] initWithFrame:CGRectZero];
     
@@ -41,7 +40,6 @@
     
     view.popup = popup;
     
-    view.model = model;
     
     return view;
 }
@@ -50,7 +48,7 @@
     frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-kSAdap(82) - iPhone_X_Navigation_Bar_Heigth);
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = MainThemColor;
         [self setupViews];
     }
     return self;
@@ -82,13 +80,13 @@
     
     _triggerImageView = ({
         FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]initWithFrame:CGRectZero];
-        UIImage *icon  = [UIImage imageNamed:@"body_main"];
+        UIImage *icon  = [UIImage imageNamed:@"body_downwhite"];
         iv.image = icon ;
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(kSAdap_V(30.0));
             make.centerX.mas_equalTo(self);
-            make.size.mas_equalTo(icon.size);
+            make.size.mas_equalTo(CGSizeMake(167, 264));
         }];
         iv;
     });
@@ -194,9 +192,9 @@
         [iv setTitle:@"程序下载" forState:UIControlStateNormal];
         [iv setTitle:@"程序下载" forState:UIControlStateSelected];
         [iv setTitle:@"程序下载" forState:UIControlStateHighlighted];
-        [iv setTitleColor:MainThemColor forState:UIControlStateNormal];
-        [iv setTitleColor:MainThemColor forState:UIControlStateSelected];
-        [iv setTitleColor:MainThemColor forState:UIControlStateHighlighted];
+        [iv setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [iv setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+        [iv setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         iv.adjustsImageWhenHighlighted =NO;
         iv.showsTouchWhenHighlighted =NO;
         [iv.titleLabel setFont:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(16.0)]];
@@ -214,6 +212,10 @@
     });
 }
 
+-(void)InitDataWithModel:(ELMyofascialContentListModel *)model{
+    self.triggerImageView.image = ELImageNamed(model.selectedImageName);
+}
+
 -(void)Click:(UIButton *)sender{
     switch (sender.tag) {
         case TriggerAnalyzeTypeClose:{
@@ -222,7 +224,7 @@
             break;
         case TriggerAnalyzeTypeDownload:{
             if (self.CompleteBlock) {
-                self.CompleteBlock(_model);
+             
             }
         }
             break;

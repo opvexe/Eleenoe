@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ELAPIConstant : NSObject
 
+FOUNDATION_EXTERN NSString * const TriggerAnalyzeNotificationCenter;
+
 //域名
 FOUNDATION_EXTERN NSString *const HOST_API ;
 

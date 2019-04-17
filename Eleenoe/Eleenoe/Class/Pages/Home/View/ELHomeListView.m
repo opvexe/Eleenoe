@@ -67,8 +67,8 @@
                                   @{@"title":@"1",@"choose":@(NO),@"ads":@"【一级】明显痛"},
                                   @{@"title":@"2",@"choose":@(NO),@"ads":@"【二级】明显痛"},
                                   @{@"title":@"3",@"choose":@(NO),@"ads":@"【三级】明显痛"},
-                                  @{@"title":@"4",@"choose":@(NO),@"ads":@"【四级】明显痛"},
-                                  @{@"title":@"5",@"choose":@(YES),@"ads":@"【五级】明显痛"},
+                                  @{@"title":@"4",@"choose":@(YES),@"ads":@"【四级】明显痛"},
+                                  @{@"title":@"5",@"choose":@(NO),@"ads":@"【五级】明显痛"},
                                   @{@"title":@"6",@"choose":@(NO),@"ads":@"【六级】明显痛"},
                                   @{@"title":@"7",@"choose":@(NO),@"ads":@"【七级】明显痛"},
                                   @{@"title":@"8",@"choose":@(NO),@"ads":@"【八级】明显痛"},
@@ -186,7 +186,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ELHomeCollectionViewCell *cell =  [ELHomeCollectionViewCell cellWithCollectionView:collectionView indexpath:indexPath];
-    [cell InitDataWithModel:self.homeLists[indexPath.row]];
+    [cell InitDataWithModel:self.homeLists[indexPath.row] Atindex:indexPath.row];
     return cell;
 }
 #pragma mark - UICollectionViewDelegate

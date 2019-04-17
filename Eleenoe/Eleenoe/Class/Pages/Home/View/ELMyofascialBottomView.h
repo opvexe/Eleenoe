@@ -9,10 +9,17 @@
 #import "ELBaseView.h"
 
 NS_ASSUME_NONNULL_BEGIN
+typedef NS_ENUM(NSInteger, BottomViewClickType) {
+    BottomViewClickTypeElectrode,
+    BottomViewClickTypeDownload,
+};
+
+typedef void(^BottomBlock)(BottomViewClickType type);
 
 @interface ELMyofascialBottomView : ELBaseView
 
-@property (nonatomic, copy) void(^CompleteBlock)();
+@property(nonatomic,copy)BottomBlock complete;
+
 @end
 
 NS_ASSUME_NONNULL_END

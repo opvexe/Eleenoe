@@ -32,8 +32,8 @@
     });
 }
 
--(void)InitDataWithModel:(ELMyofascialContentModel *)model{
-    [self.contentImageView InitDataWithModel:model];
+-(void)InitDataWithModel:(ELMyofascialContentModel *)model Atindex:(NSInteger)index{
+    [self.contentImageView InitDataWithModel:model Atindex:index];
 }
 
 @end

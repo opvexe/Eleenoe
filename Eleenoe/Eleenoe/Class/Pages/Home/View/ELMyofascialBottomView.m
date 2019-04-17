@@ -10,7 +10,6 @@
 #import "ELMyofascialMenuScrolloView.h"
 #import "ELButtonExtention.h"
 #import "ELMyofascialMenuModel.h"
-#import "ELTriggerAnalyzeFloatingView.h"
 #import "ELBatteryView.h"
 @interface ELMyofascialBottomView()
 @property(nonatomic,strong)UIImageView *MyofascialBottomImageView;
@@ -236,9 +235,7 @@
     @weakify(self);
     [self.rightContentView WH_whenTapped:^{
         @strongify(self);
-        if (self.CompleteBlock) {
-            self.CompleteBlock();
-        }
+        self.complete(BottomViewClickTypeElectrode);
     }];
 }
 -(void)layoutSubviews{
@@ -248,7 +245,7 @@
 
 -(void)Click:(UIButton *)sender{
     sender.selected = !sender.selected;
-
+    self.complete(BottomViewClickTypeDownload);
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "ELBaseView.h"
+#import "ELMyofascialContentModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSUInteger, TriggerAnalyzeType) {
@@ -16,7 +17,7 @@ typedef NS_ENUM(NSUInteger, TriggerAnalyzeType) {
 
 @interface ELTriggerAnalyzeFloatingView : ELBaseView
 
-+ (instancetype)showInitDataModel:(ELBaseModel *)model Complete:(void(^)(ELBaseModel *model))complete;
++ (instancetype)showComplete:(void(^)(ELBaseModel *_Nonnull model))complete;
 
 @end
 

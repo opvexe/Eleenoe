@@ -16,6 +16,7 @@
 @property(nonatomic,strong) ELPickerContainerView *rankListView;
 @property(nonatomic,strong) ELMarqueLabel *marqueLabel;
 @property(nonatomic,strong) ELMyofascialContentModel *model;
+@property(nonatomic,assign)NSInteger atIndex;
 @end
 
 @implementation ELMyofascialContentView
@@ -62,6 +63,7 @@
     self.bodyListView.ContainerChioceBlock = ^(ELPickerContainerView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
         @strongify(self);
         self.contentImageView.image = ELImageNamed(model.selectedImageName);
+        [ELNotificationCenter postNotificationName:TriggerAnalyzeNotificationCenter object:nil userInfo:@{@"page":@(self.atIndex),@"model":model}];
     };
     
     self.rankListView.ContainerChioceBlock = ^(ELPickerContainerView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
@@ -70,8 +72,9 @@
     };
 }
 
--(void)InitDataWithModel:(ELMyofascialContentModel *)model{
-    _model = model;
+-(void)InitDataWithModel:(ELMyofascialContentModel *)model Atindex:(NSInteger)index{
+     _model = model;
+    _atIndex = index;
     [self.rankListView setHidden:!model.isShow];
     [self.marqueLabel setHidden:!model.isShow];
     [self.bodyListView InitDataSouce:model.datas];

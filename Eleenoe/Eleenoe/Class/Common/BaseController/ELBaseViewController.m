@@ -310,6 +310,7 @@
 }
 
 -(void)dealloc{
+    [ELNotificationCenter removeObserver:self];
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
 }
 

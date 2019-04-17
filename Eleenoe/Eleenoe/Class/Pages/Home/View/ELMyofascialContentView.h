@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ELMyofascialContentView : ELBaseView
 
+-(void)InitDataWithModel:(ELBaseModel *)model Atindex:(NSInteger)index;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -16,11 +16,14 @@
 #import "ELMyofascialMenuScrolloView.h"
 #import "ELMyofascialMenuModel.h"
 #import "ELUpdateViewController.h"
+#import "ELTriggerAnalyzeFloatingView.h"
 @interface ELHomeViewController ()<ELHomeListViewDelegate,ELHomeTitleListViewDelegate>
 @property(nonatomic,strong)ELMyofascialBottomView *bottomView;
 @property(nonatomic,strong)ELHomeListView *homelistView;
 @property(nonatomic,strong)ELHomeTitleListView *titleListView;
 @property(nonatomic,strong) ELMyofascialMenuScrolloView *pickListView;
+@property(nonatomic,strong)ELTriggerAnalyzeFloatingView *analyzeView;
+@property(nonatomic,strong)ELMyofascialContentModel *model;
 @property(nonatomic,strong)NSMutableArray *lists;
 @end
 
@@ -31,54 +34,8 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"肌筋膜放松仪";
     self.navigationRightView = [CJXBarButtonItem buttonWithImageNormal:@"home_nav_more" imageSelected:@"home_nav_more" imageHightlight:@"home_nav_more" target:self selector:@selector(Click)];
-    [self loadDataSoucre];
+    [ELNotificationCenter addObserver:self selector:@selector(Analyze:) name:TriggerAnalyzeNotificationCenter object:nil];
     [self settupView];
-}
-
-
--(void)loadDataSoucre{
-    
-    NSArray *lists =  @[
-                        //肌肉放松
-                        @[@{@"title":@"肩部",@"imageName":@""},
-                          @{@"title":@"背部",@"imageName":@""},
-                          @{@"title":@"臀部",@"imageName":@""},
-                          @{@"title":@"大腿",@"imageName":@""},
-                          @{@"title":@"小腿",@"imageName":@""},
-                          @{@"title":@"颈部",@"imageName":@""},
-                          @{@"title":@"手臂",@"imageName":@""},],
-                        //筋膜松懈
-                        @[@{@"title":@"头前倾",@"imageName":@""},
-                          @{@"title":@"腰肌劳损",@"imageName":@""},
-                          @{@"title":@"背部松懈",@"imageName":@""},
-                          @{@"title":@"颈椎劳损",@"imageName":@""},
-                          @{@"title":@"驼背",@"imageName":@""},
-                          @{@"title":@"O型腿",@"imageName":@""},
-                          @{@"title":@"X型腿",@"imageName":@""},
-                          @{@"title":@"盆骨前倾",@"imageName":@""},],
-                        //疼痛
-                        @[@{@"title":@"痛经",@"imageName":@""},
-                          @{@"title":@"肩痛",@"imageName":@""},
-                          @{@"title":@"背痛",@"imageName":@""},
-                          @{@"title":@"肘痛",@"imageName":@""},
-                          @{@"title":@"脖子痛",@"imageName":@""},
-                          @{@"title":@"腰痛",@"imageName":@""},
-                          @{@"title":@"脚踝痛",@"imageName":@""},
-                          @{@"title":@"足底痛",@"imageName":@""},
-                          @{@"title":@"手术后疼痛",@"imageName":@""},
-                          @{@"title":@"烧伤疼痛",@"imageName":@""},],
-                        //损伤康复
-                        @[@{@"title":@"鼠标手",@"imageName":@""},
-                          @{@"title":@"足底筋膜炎",@"imageName":@""},
-                          @{@"title":@"跟腱炎",@"imageName":@""},
-                          @{@"title":@"胫骨骨膜炎",@"imageName":@""},
-                          @{@"title":@"膝关节炎",@"imageName":@""},
-                          @{@"title":@"客胫综合征",@"imageName":@""},
-                          @{@"title":@"梨状肌综合性",@"imageName":@""},
-                          @{@"title":@"网球肘",@"imageName":@""},
-                          @{@"title":@"肩周炎",@"imageName":@""},],
-                        ];
-    
 }
 
 -(void)settupView{
@@ -132,10 +89,30 @@
     });
     
     @weakify(self);
-    self.bottomView.CompleteBlock = ^{
+    self.bottomView.complete = ^(BottomViewClickType type) {
         @strongify(self);
-        [self.navigationController pushViewController:[ELElectrodeViewController new] animated:YES];
+        switch (type) {
+            case BottomViewClickTypeElectrode:{
+                [self.navigationController pushViewController:[ELElectrodeViewController new] animated:YES];
+            }
+                break;
+            case BottomViewClickTypeDownload:{
+               self.analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
+                    
+                }];
+                [self.analyzeView InitDataWithModel:self.model];
+            }
+                break;
+            default:
+                break;
+        }
     };
+}
+
+-(void)Analyze:(NSNotification*)notification{
+    NSLog(@"%@===%@",[notification.userInfo objectForKey:@"page"],[notification.userInfo objectForKey:@"model"]);
+    ELMyofascialContentModel *model = [notification.userInfo objectForKey:@"model"];
+    _model = model;
 }
 
 #pragma mark ELHomeTitleListViewDelegate
