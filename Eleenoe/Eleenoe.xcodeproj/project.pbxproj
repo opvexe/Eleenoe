@@ -42,9 +42,6 @@
 		D0180B16223F399D008C06C1 /* HUD_info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0180B0C223F399D008C06C1 /* HUD_info@2x.png */; };
 		D0180B17223F399D008C06C1 /* HUD_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0180B0D223F399D008C06C1 /* HUD_error@2x.png */; };
 		D0180BD82244C7D2008C06C1 /* SCREENAdaptationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0180BD72244C7D2008C06C1 /* SCREENAdaptationTool.m */; };
-		D03EC7D2225DD94800DA9919 /* ELTrackCollectTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D03EC7D1225DD94800DA9919 /* ELTrackCollectTool.m */; };
-		D03EC7DB225DDD7C00DA9919 /* ELTrackDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D03EC7DA225DDD7C00DA9919 /* ELTrackDataHandler.m */; };
-		D03EC7DD225DDFA800DA9919 /* TrackCollect.json in Resources */ = {isa = PBXBuildFile; fileRef = D03EC7DC225DDFA800DA9919 /* TrackCollect.json */; };
 		D0771057224CB4AB00D0B993 /* ELShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771056224CB4AB00D0B993 /* ELShopViewController.m */; };
 		D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D077105B224CB95900D0B993 /* ELMineTableViewCell.m */; };
 		D0771062224CC16700D0B993 /* ELSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771061224CC16700D0B993 /* ELSettingModel.m */; };
@@ -197,11 +194,6 @@
 		D0180BD5224379EF008C06C1 /* ELBleDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBleDefines.h; sourceTree = "<group>"; };
 		D0180BD62244C7D2008C06C1 /* SCREENAdaptationTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCREENAdaptationTool.h; sourceTree = "<group>"; };
 		D0180BD72244C7D2008C06C1 /* SCREENAdaptationTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCREENAdaptationTool.m; sourceTree = "<group>"; };
-		D03EC7D0225DD94800DA9919 /* ELTrackCollectTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTrackCollectTool.h; sourceTree = "<group>"; };
-		D03EC7D1225DD94800DA9919 /* ELTrackCollectTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTrackCollectTool.m; sourceTree = "<group>"; };
-		D03EC7D9225DDD7C00DA9919 /* ELTrackDataHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTrackDataHandler.h; sourceTree = "<group>"; };
-		D03EC7DA225DDD7C00DA9919 /* ELTrackDataHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTrackDataHandler.m; sourceTree = "<group>"; };
-		D03EC7DC225DDFA800DA9919 /* TrackCollect.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TrackCollect.json; sourceTree = "<group>"; };
 		D0771055224CB4AB00D0B993 /* ELShopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELShopViewController.h; sourceTree = "<group>"; };
 		D0771056224CB4AB00D0B993 /* ELShopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELShopViewController.m; sourceTree = "<group>"; };
 		D077105A224CB95900D0B993 /* ELMineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMineTableViewCell.h; sourceTree = "<group>"; };
@@ -549,18 +541,6 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		D03EC7D3225DDC2200DA9919 /* TrackCollect */ = {
-			isa = PBXGroup;
-			children = (
-				D03EC7D0225DD94800DA9919 /* ELTrackCollectTool.h */,
-				D03EC7D1225DD94800DA9919 /* ELTrackCollectTool.m */,
-				D03EC7D9225DDD7C00DA9919 /* ELTrackDataHandler.h */,
-				D03EC7DA225DDD7C00DA9919 /* ELTrackDataHandler.m */,
-				D03EC7DC225DDFA800DA9919 /* TrackCollect.json */,
-			);
-			path = TrackCollect;
-			sourceTree = "<group>";
-		};
 		D0771054224CB48700D0B993 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
@@ -790,7 +770,6 @@
 		D0F52AEC22377F0100A26504 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D03EC7D3225DDC2200DA9919 /* TrackCollect */,
 				D0180B04223F399D008C06C1 /* CPProgressHUD */,
 				D0180AF7223F357E008C06C1 /* LocationTools */,
 				D0DC66F822393AD90064C07A /* NetworkTools */,
@@ -1084,7 +1063,6 @@
 				18B4B3C92252668500EA9404 /* Tag.bundle in Resources */,
 				D0180B13223F399D008C06C1 /* HUD_success@3x.png in Resources */,
 				D0771089224E1AB800D0B993 /* Shopping.json in Resources */,
-				D03EC7DD225DDFA800DA9919 /* TrackCollect.json in Resources */,
 				D0180B15223F399D008C06C1 /* HUD_info@3x.png in Resources */,
 				D0A0DC3A2251AF6A000F9048 /* Assets.xcassets in Resources */,
 				D0180B17223F399D008C06C1 /* HUD_error@2x.png in Resources */,
@@ -1202,7 +1180,6 @@
 				D0F52B3622378F7A00A26504 /* ELRootViewController.m in Sources */,
 				D0771082224DFC6900D0B993 /* ELBannerCollectionReusableView.m in Sources */,
 				D0F52B102237892300A26504 /* UIView+Category.m in Sources */,
-				D03EC7DB225DDD7C00DA9919 /* ELTrackDataHandler.m in Sources */,
 				D0A0DBA0224FC1C2000F9048 /* ELMyofascialMenuCollectionViewCell.m in Sources */,
 				D0DC670722393DB20064C07A /* ELMessageEventButton.m in Sources */,
 				D0EC4B242238AAE800B5A74D /* ELHomeViewController.m in Sources */,
@@ -1255,7 +1232,6 @@
 				18B4B3BB224FBBC600EA9404 /* ELHomeTitleCollectionCell.m in Sources */,
 				D0771072224D172D00D0B993 /* CJXBarButtonItem.m in Sources */,
 				D0F52B03223788D400A26504 /* Foundation+Log.m in Sources */,
-				D03EC7D2225DD94800DA9919 /* ELTrackCollectTool.m in Sources */,
 				D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */,
 				D0180BD82244C7D2008C06C1 /* SCREENAdaptationTool.m in Sources */,
 				18B4B3CF225269A000EA9404 /* ELSearchResultView.m in Sources */,
