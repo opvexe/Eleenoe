@@ -39,21 +39,21 @@
                         @{@"datas":@[
                                   @{@"title":@"肩部",@"selectedImageName":@"relax_shoulders",@"choose":@(NO)},
                                   @{@"title":@"背部",@"selectedImageName":@"relax_back",@"choose":@(NO)},
-                                  @{@"title":@"臀部",@"selectedImageName":@"relax_haunch",@"choose":@(YES)},
+                                  @{@"title":@"臀部",@"selectedImageName":@"relax_haunch",@"choose":@(NO)},
                                   @{@"title":@"大腿",@"selectedImageName":@"relax_thigh",@"choose":@(NO)},
                                   @{@"title":@"小腿",@"selectedImageName":@"relax_shank",@"choose":@(NO)},
-                                  @{@"title":@"手臂",@"selectedImageName":@"relax_arm",@"choose":@(NO)}],
+                                  @{@"title":@"手臂",@"selectedImageName":@"relax_arm",@"choose":@(YES)}],
                           @"isShow":@(NO)},
                         //筋膜松懈
                         @{@"datas":@[
                                   @{@"title":@"头前倾",@"selectedImageName":@"fascia_head",@"choose":@(NO)},
                                   @{@"title":@"腰肌劳损",@"selectedImageName":@"fascia_psoas",@"choose":@(NO)},
                                   @{@"title":@"背部松懈",@"selectedImageName":@"fascia_back",@"choose":@(NO)},
-                                  @{@"title":@"颈椎劳损",@"selectedImageName":@"fascia_neck",@"choose":@(YES)},
+                                  @{@"title":@"颈椎劳损",@"selectedImageName":@"fascia_neck",@"choose":@(NO)},
                                   @{@"title":@"驼背",@"selectedImageName":@"fascia_humpback",@"choose":@(NO)},
                                   @{@"title":@"O型腿",@"selectedImageName":@"fascia_oleg",@"choose":@(NO)},
                                   @{@"title":@"X型腿",@"selectedImageName":@"fascia_xleg",@"choose":@(NO)},
-                                  @{@"title":@"盆骨前倾",@"selectedImageName":@"fascia_pelvicum",@"choose":@(NO)}],
+                                  @{@"title":@"盆骨前倾",@"selectedImageName":@"fascia_pelvicum",@"choose":@(YES)}],
                           @"isShow":@(NO)},
                         //疼痛
                         @{@"datas":@[

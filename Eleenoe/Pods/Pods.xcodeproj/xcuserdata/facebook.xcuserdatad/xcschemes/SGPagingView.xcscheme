@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "81CBCCC3E421CA156FF0D3515A2C7135"
+               BlueprintIdentifier = "FF39D95AB703684B19FA205B3BF03748"
+               BuildableName = "libSGPagingView.a"
                BlueprintName = "SGPagingView"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libSGPagingView.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

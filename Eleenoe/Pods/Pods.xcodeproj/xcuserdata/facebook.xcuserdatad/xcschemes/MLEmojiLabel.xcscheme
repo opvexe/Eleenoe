@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F1BCDC820648D186A86588F32863162C"
+               BlueprintIdentifier = "3B73E1D02C9A565D30EFED76A0DF08A7"
+               BuildableName = "libMLEmojiLabel.a"
                BlueprintName = "MLEmojiLabel"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libMLEmojiLabel.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
