@@ -110,7 +110,6 @@
 }
 
 -(void)Analyze:(NSNotification*)notification{
-    NSLog(@"%@===%@",[notification.userInfo objectForKey:@"page"],[notification.userInfo objectForKey:@"model"]);
     ELMyofascialContentModel *model = [notification.userInfo objectForKey:@"model"];
     _model = model;
 }

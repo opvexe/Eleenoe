@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Eleenoe/Class/Pages/Home/ELHomeViewController.m"
-            timestampString = "577185803.82095"
+            filePath = "Eleenoe/Class/Common/ToolViews/ELTriggerAnalyzeFloatingView.m"
+            timestampString = "577187158.71156"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "-Analyze:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Eleenoe/Class/Pages/Home/ELHomeViewController.m"
-            timestampString = "577185822.995382"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "-settupView"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "-InitDataWithModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

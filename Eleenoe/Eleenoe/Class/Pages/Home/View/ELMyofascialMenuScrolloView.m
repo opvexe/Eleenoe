@@ -58,13 +58,17 @@
     
     [self sendSubviewToBack:self.circleView];
     
-    for (NSInteger i = 0; i<21; i++) {
-        [self.lists addObject:[NSString stringWithFormat:@"%ld",(long)i]];
-    }
     [self.collectionView reloadData];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.collectionView setContentOffset:CGPointMake(5, 0)];
     });
+}
+
+-(void)InitDataSouce:(NSArray *)souce{
+    if (souce.count) {
+        [self.lists addObjectsFromArray:souce];
+    }
+    [self.collectionView reloadData];
 }
 
 - (void)setCurrentIndex:(NSInteger )row{
@@ -73,8 +77,8 @@
     [self.collectionView reloadData];
 }
 
-- (void)collectioViewScrollToIndex:(NSInteger)index
-{
+
+- (void)collectioViewScrollToIndex:(NSInteger)index{
     
     NSLog(@"%ld",index);
 }
