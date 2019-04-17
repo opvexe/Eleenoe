@@ -248,9 +248,7 @@
 
 -(void)Click:(UIButton *)sender{
     sender.selected = !sender.selected;
-    [ELTriggerAnalyzeFloatingView showInitDataModel:nil Complete:^(ELBaseModel * _Nonnull model) {
-        
-    }];
+
 }
 
 
