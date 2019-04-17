@@ -173,7 +173,7 @@
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
         [iv setBackgroundImage:[UIImage imageWithColor:MainThemColor] forState:UIControlStateNormal];
         [iv setBackgroundImage:[UIImage imageWithColor:MainThemColor] forState:UIControlStateHighlighted];
-        [iv .titleLabel setFont:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)]];
+        [iv .titleLabel setFont:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(13.0)]];
         [iv setTitleColor:MainWhiteTitleColor forState:UIControlStateNormal];
         [iv setTitleColor:MainWhiteTitleColor forState:UIControlStateHighlighted];
         [iv setTitle:@"登录" forState:UIControlStateNormal];
