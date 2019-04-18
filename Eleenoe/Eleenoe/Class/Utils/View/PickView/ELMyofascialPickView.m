@@ -47,7 +47,7 @@
             }
         }];
     }
-    [self.pickerView reloadAllComponents];
+        [self.pickerView reloadAllComponents];
 }
 
 
@@ -99,8 +99,10 @@
 }
 
 - (void)pickerView:(STDPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    if (self.MyofascialPickBlock) {
-        self.MyofascialPickBlock(self, row, self.items[row]);
+    if (self.items.count) {
+        if (self.MyofascialPickBlock) {
+            self.MyofascialPickBlock(self, row, self.items[row]);
+        }
     }
 }
 

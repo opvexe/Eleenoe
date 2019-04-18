@@ -60,6 +60,7 @@
     _rankListView = ({
         ELMyofascialPickView *iv = [[ELMyofascialPickView alloc]init];
         iv.backgroundColor = [UIColor clearColor];
+        iv.hidden = YES;
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(kSAdap(10));
@@ -74,13 +75,13 @@
     self.bodyListView.MyofascialPickBlock = ^(ELMyofascialPickView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
         @strongify(self);
         self.contentImageView.image = ELImageNamed(model.selectedImageName);
-        [ELNotificationCenter postNotificationName:TriggerAnalyzeNotificationCenter object:nil userInfo:@{@"model":model}];
+//        [ELNotificationCenter postNotificationName:TriggerAnalyzeNotificationCenter object:nil userInfo:@{@"model":model}];
     };
 
-//    self.rankListView.MyofascialPickBlock = ^(ELMyofascialPickView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
-//         @strongify(self);
-//         self.marqueLabel.text = model.ads;
-//    };
+    self.rankListView.MyofascialPickBlock = ^(ELMyofascialPickView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
+         @strongify(self);
+         self.marqueLabel.text = model.ads;
+    };
 }
 
 -(void)InitDataWithModel:(ELMyofascialContentModel *)model{
