@@ -11,7 +11,7 @@
 @implementation ELAPIConstant
 
 NSString * const TriggerAnalyzeNotificationCenter  = @"com.triggerAnalyzeType.cn";
-
+NSString * const AnalyzeUserInfoNotificationCenter  = @"com.analyzeUserInfoModel.cn";
 
 NSString *const HOST_API = @"";
 

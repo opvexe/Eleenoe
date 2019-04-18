@@ -23,9 +23,14 @@
 -(void)ELSinitConfingViews{
     
     _marqueLabel = ({
-        ELMarqueLabel *iv = [[ELMarqueLabel alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30) font:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12)] textColor:MainThemColor];
+        ELMarqueLabel *iv = [[ELMarqueLabel alloc]initWithFrame:CGRectZero font:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12)] textColor:MainThemColor];
         iv.backgroundColor = MainLightThemColor;
         [self addSubview:iv];
+        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(0);
+            make.width.mas_equalTo(SCREEN_WIDTH);
+            make.height.mas_equalTo(30);
+        }];
         iv;
     });
     
@@ -75,12 +80,15 @@
     self.bodyListView.MyofascialPickBlock = ^(ELMyofascialPickView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
         @strongify(self);
         self.contentImageView.image = ELImageNamed(model.selectedImageName);
-//        [ELNotificationCenter postNotificationName:TriggerAnalyzeNotificationCenter object:nil userInfo:@{@"model":model}];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setObject:model forKey:AnalyzeUserInfoNotificationCenter];
+        NSLog(@"通知传值图片：=== %@",model.selectedImageName);
+        [ELNotificationCenter postNotificationName:TriggerAnalyzeNotificationCenter object:nil userInfo:dic];
     };
-
+    
     self.rankListView.MyofascialPickBlock = ^(ELMyofascialPickView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
-         @strongify(self);
-         self.marqueLabel.text = model.ads;
+        @strongify(self);
+        self.marqueLabel.text = model.ads;
     };
 }
 

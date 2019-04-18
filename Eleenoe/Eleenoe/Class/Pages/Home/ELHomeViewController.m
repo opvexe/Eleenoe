@@ -13,7 +13,6 @@
 #import "ELMyofascialBottomView.h"
 #import "ELHomeListView.h"
 #import "ELHomeTitleListView.h"
-#import "ELMyofascialMenuScrolloView.h"
 #import "ELMyofascialMenuModel.h"
 #import "ELUpdateViewController.h"
 #import "ELTriggerAnalyzeFloatingView.h"
@@ -21,7 +20,6 @@
 @property(nonatomic,strong)ELMyofascialBottomView *bottomView;
 @property(nonatomic,strong)ELHomeListView *homelistView;
 @property(nonatomic,strong)ELHomeTitleListView *titleListView;
-@property(nonatomic,strong) ELMyofascialMenuScrolloView *pickListView;
 @property(nonatomic,strong)ELTriggerAnalyzeFloatingView *analyzeView;
 @property(nonatomic,strong)ELMyofascialContentModel *model;
 @property(nonatomic,strong)NSMutableArray *homeLists;
@@ -110,7 +108,7 @@
 }
 
 -(void)Analyze:(NSNotification*)notification{
-    ELMyofascialContentModel *model = [notification.userInfo objectForKey:@"model"];
+    ELMyofascialContentModel *model = [notification.userInfo objectForKey:AnalyzeUserInfoNotificationCenter];
     _model = model;
 }
 

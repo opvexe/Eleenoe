@@ -92,7 +92,7 @@
 + (instancetype)buttonWithImageNormal:(NSString *)imageNormal imageSelected:(NSString *)imageSelected imageHightlight:(NSString *)imageHighlight target:(id)target selector:(SEL)sel
 {
     CJXBarButtonItem *barButtonItem = [super buttonWithType:UIButtonTypeCustom];
-    barButtonItem.frame = CGRectMake(0, 0, 12, 30);
+    barButtonItem.frame = CGRectMake(0, 0, 20, 30);
     [barButtonItem setImage:[UIImage imageNamed:imageNormal] forState:UIControlStateNormal];
     [barButtonItem setImage:[UIImage imageNamed:imageSelected] forState:UIControlStateSelected];
     [barButtonItem setImage:[UIImage imageNamed:imageHighlight] forState:UIControlStateHighlighted];

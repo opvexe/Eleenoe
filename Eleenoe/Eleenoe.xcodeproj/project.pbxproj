@@ -31,8 +31,6 @@
 		C2E6CE9522369AA40049D54C /* EleenoeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E6CE9422369AA40049D54C /* EleenoeTests.m */; };
 		C2E6CEA022369AA40049D54C /* EleenoeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E6CE9F22369AA40049D54C /* EleenoeUITests.m */; };
 		D018051E2268020100A22869 /* ELMyofascialPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = D018051D2268020100A22869 /* ELMyofascialPickView.m */; };
-		D0180AFA223F3604008C06C1 /* ELLocationManger.m in Sources */ = {isa = PBXBuildFile; fileRef = D0180AF9223F3604008C06C1 /* ELLocationManger.m */; };
-		D0180AFD223F367A008C06C1 /* ELPlacemark.m in Sources */ = {isa = PBXBuildFile; fileRef = D0180AFC223F367A008C06C1 /* ELPlacemark.m */; };
 		D0180B03223F3915008C06C1 /* ELWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0180B02223F3915008C06C1 /* ELWebViewController.m */; };
 		D0180B10223F399D008C06C1 /* CPProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D0180B05223F399D008C06C1 /* CPProgressHUD.m */; };
 		D0180B11223F399D008C06C1 /* NSObject+CPHUDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D0180B06223F399D008C06C1 /* NSObject+CPHUDExtension.m */; };
@@ -178,10 +176,6 @@
 		C2E6CEB322369C3E0049D54C /* EleenoePrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EleenoePrefixHeader.pch; sourceTree = "<group>"; };
 		D018051C2268020100A22869 /* ELMyofascialPickView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMyofascialPickView.h; sourceTree = "<group>"; };
 		D018051D2268020100A22869 /* ELMyofascialPickView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMyofascialPickView.m; sourceTree = "<group>"; };
-		D0180AF8223F3604008C06C1 /* ELLocationManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELLocationManger.h; sourceTree = "<group>"; };
-		D0180AF9223F3604008C06C1 /* ELLocationManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELLocationManger.m; sourceTree = "<group>"; };
-		D0180AFB223F367A008C06C1 /* ELPlacemark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELPlacemark.h; sourceTree = "<group>"; };
-		D0180AFC223F367A008C06C1 /* ELPlacemark.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELPlacemark.m; sourceTree = "<group>"; };
 		D0180B01223F3915008C06C1 /* ELWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELWebViewController.h; sourceTree = "<group>"; };
 		D0180B02223F3915008C06C1 /* ELWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELWebViewController.m; sourceTree = "<group>"; };
 		D0180B05223F399D008C06C1 /* CPProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPProgressHUD.m; sourceTree = "<group>"; };
@@ -508,17 +502,6 @@
 			path = PickView;
 			sourceTree = "<group>";
 		};
-		D0180AF7223F357E008C06C1 /* LocationTools */ = {
-			isa = PBXGroup;
-			children = (
-				D0180AF8223F3604008C06C1 /* ELLocationManger.h */,
-				D0180AF9223F3604008C06C1 /* ELLocationManger.m */,
-				D0180AFB223F367A008C06C1 /* ELPlacemark.h */,
-				D0180AFC223F367A008C06C1 /* ELPlacemark.m */,
-			);
-			path = LocationTools;
-			sourceTree = "<group>";
-		};
 		D0180B00223F38A6008C06C1 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,7 +767,6 @@
 			isa = PBXGroup;
 			children = (
 				D0180B04223F399D008C06C1 /* CPProgressHUD */,
-				D0180AF7223F357E008C06C1 /* LocationTools */,
 				D0DC66F822393AD90064C07A /* NetworkTools */,
 				D0EC4B352238D03B00B5A74D /* DataSocre */,
 				D0EC4B302238B12D00B5A74D /* View */,
@@ -1224,7 +1206,6 @@
 				D0A0DC4322520587000F9048 /* ELBatteryView.m in Sources */,
 				18B4B3AC224FB6B800EA9404 /* ELMyofascialContentView.m in Sources */,
 				D0F52B0D2237891800A26504 /* UIViewController+WDNavigatonBarAppearance.m in Sources */,
-				D0180AFA223F3604008C06C1 /* ELLocationManger.m in Sources */,
 				D0EC4B3B2238D38000B5A74D /* ELGuideViewController.m in Sources */,
 				D0F52B2722378B2D00A26504 /* ELBaseCollectionViewCell.m in Sources */,
 				D0EC4B282238AB5400B5A74D /* ELMineViewController.m in Sources */,
@@ -1248,7 +1229,6 @@
 				D0180BD82244C7D2008C06C1 /* SCREENAdaptationTool.m in Sources */,
 				18B4B3CF225269A000EA9404 /* ELSearchResultView.m in Sources */,
 				D0A0DBA4224FC69E000F9048 /* ELMyofascialMenuModel.m in Sources */,
-				D0180AFD223F367A008C06C1 /* ELPlacemark.m in Sources */,
 				D0771057224CB4AB00D0B993 /* ELShopViewController.m in Sources */,
 				D0EC4B382238D05900B5A74D /* ELUserDataSocure.m in Sources */,
 				D0F52B2A22378B5200A26504 /* ELBaseViewController.m in Sources */,
