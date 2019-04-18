@@ -9,6 +9,12 @@
 #import "ELBaseModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
+typedef NS_ENUM(NSInteger, MyofascialContentType) {
+    MyofascialContentTypeRelax, //放松
+    MyofascialContentTypeAnadesma, //筋膜
+    MyofascialContentTypePains, //疼痛
+    MyofascialContentTypeDamage, //损伤
+};
 
 @interface ELMyofascialContentModel : ELBaseModel
 /**
@@ -19,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  疼痛
  */
 @property(nonatomic,strong)NSArray *pains;
+/**
+ *  类型
+ */
+@property(nonatomic,assign)MyofascialContentType MyofascialType;
 
 @end
 

@@ -12,9 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ELMyofascialPickView : ELBaseView
 
-//默认选中
-@property (assign, nonatomic) NSUInteger selectedIndex;
-
 -(void)InitDataSouce:(NSArray *)souce;
 @end
 

@@ -50,7 +50,7 @@
         iv.backgroundColor = [UIColor clearColor];
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(-kSAdap(15));
+            make.right.mas_equalTo(-kSAdap(10));
             make.top.mas_equalTo(kSAdap_V(60));
             make.width.mas_equalTo(kSAdap(60));
             make.height.mas_equalTo(kSAdap_V(210));
@@ -72,7 +72,7 @@
         iv.backgroundColor = [UIColor clearColor];
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(kSAdap(15));
+            make.left.mas_equalTo(kSAdap(10));
             make.top.mas_equalTo(kSAdap_V(60));
             make.width.mas_equalTo(kSAdap(50));
             make.height.mas_equalTo(kSAdap_V(210));
@@ -100,6 +100,34 @@
     [self.bodyListView InitDataSouce:model.datas];
     if (model.isShow) {
         [self.rankListView InitDataSouce:model.pains];
+    }
+    
+    switch (model.MyofascialType) {
+        case MyofascialContentTypeRelax:{
+            [self.bodyListView mas_updateConstraints:^(MASConstraintMaker *make) {
+                  make.width.mas_equalTo(kSAdap(60));
+            }];
+        }
+            break;
+        case MyofascialContentTypeAnadesma:{
+            [self.bodyListView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.width.mas_equalTo(kSAdap(70));
+            }];
+        }
+            break;
+        case MyofascialContentTypePains:{
+            [self.bodyListView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.width.mas_equalTo(kSAdap(60));
+            }];
+        }
+            break;
+        case MyofascialContentTypeDamage:{
+            [self.bodyListView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.width.mas_equalTo(kSAdap(90));
+            }];
+        }
+        default:
+            break;
     }
 }
 

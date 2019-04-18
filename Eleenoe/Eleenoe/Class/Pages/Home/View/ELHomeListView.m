@@ -43,7 +43,8 @@
                                   @{@"title":@"大腿",@"selectedImageName":@"relax_thigh",@"choose":@(NO)},
                                   @{@"title":@"小腿",@"selectedImageName":@"relax_shank",@"choose":@(NO)},
                                   @{@"title":@"手臂",@"selectedImageName":@"relax_arm",@"choose":@(YES)}],
-                          @"isShow":@(NO)},
+                          @"isShow":@(NO),
+                          @"MyofascialType":@(MyofascialContentTypeRelax)},
                         //筋膜松懈
                         @{@"datas":@[
                                   @{@"title":@"头前倾",@"selectedImageName":@"fascia_head",@"choose":@(NO)},
@@ -54,7 +55,8 @@
                                   @{@"title":@"O型腿",@"selectedImageName":@"fascia_oleg",@"choose":@(NO)},
                                   @{@"title":@"X型腿",@"selectedImageName":@"fascia_xleg",@"choose":@(NO)},
                                   @{@"title":@"盆骨前倾",@"selectedImageName":@"fascia_pelvicum",@"choose":@(YES)}],
-                          @"isShow":@(NO)},
+                          @"isShow":@(NO),
+                          @"MyofascialType":@(MyofascialContentTypeAnadesma)},
                         //疼痛
                         @{@"datas":@[
                                   @{@"title":@"肩痛",@"selectedImageName":@"pain_shoulder",@"choose":@(NO)},
@@ -74,7 +76,8 @@
                                   @{@"title":@"8",@"choose":@(NO),@"ads":@"【八级】明显痛"},
                                   @{@"title":@"9",@"choose":@(NO),@"ads":@"【九级】明显痛"},
                                   @{@"title":@"10",@"choose":@(NO),@"ads":@"【十级】明显痛"}],
-                          @"isShow":@(YES)},
+                          @"isShow":@(YES),
+                          @"MyofascialType":@(MyofascialContentTypePains)},
                         //损伤康复
                         @{@"datas":@[
                                   @{@"title":@"鼠标手",@"selectedImageName":@"damage_mouthhand",@"choose":@(NO)},
@@ -86,7 +89,8 @@
                                   @{@"title":@"梨状肌综合性",@"selectedImageName":@"damage_piriformis",@"choose":@(NO)},
                                   @{@"title":@"网球肘",@"selectedImageName":@"damage_tennis",@"choose":@(NO)},
                                   @{@"title":@"肩周炎",@"selectedImageName":@"damage_shoulders",@"choose":@(NO)}],
-                          @"isShow":@(NO)},
+                          @"isShow":@(NO),
+                          @"MyofascialType":@(MyofascialContentTypeDamage)},
                         ];
     self.homeLists = [ELMyofascialContentModel mj_objectArrayWithKeyValuesArray:lists];
 }

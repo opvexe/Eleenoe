@@ -26,7 +26,7 @@
         iv.forceItemTypeText = NO;
         iv.selectionIndicatorStyle = STDPickerViewSelectionIndicatorStyleCustom;
         iv.showVerticalDivisionLine = NO;
-        iv.edgeInsets = UIEdgeInsetsMake(0, 5, 0, 5);
+        iv.edgeInsets = UIEdgeInsetsZero;
         iv.spacingOfComponents = 0;
         iv.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:iv];
@@ -42,14 +42,9 @@
     if (souce.count) {
         [self.items addObjectsFromArray:souce];
     }
-    [self.pickerView selectRow:5 inComponent:1 animated:YES];
     [self.pickerView reloadAllComponents];
 }
 
--(void)setSelectedIndex:(NSUInteger)selectedIndex{
-    _selectedIndex = selectedIndex;
-    [self.pickerView selectRow:5 inComponent:1 animated:YES];
-}
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
