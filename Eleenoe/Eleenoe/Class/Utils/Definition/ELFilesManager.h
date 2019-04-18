@@ -30,7 +30,7 @@
 #import "ELUserDataSocure.h"
 #import "UIViewController+WDNavigatonBarAppearance.h"
 #import "UIGestureRecognizer+WDExtension.h"
-#import "CJXBarButtonItem.h"
+
 /**
  三方库
  */

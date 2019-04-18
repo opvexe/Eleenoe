@@ -21,11 +21,11 @@
         self.delegate = self;
         self.rowHeight = kSAdap_V(60);
         NSArray *settings = @[@{@"sections":@[
-                                        @{@"icon":@"mine_instructions",@"title":@"使用说明",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"},
-                                        @{@"icon":@"mine_suggestion",@"title":@"意见反馈",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"},
-                                        @{@"icon":@"mine_announcements",@"title":@"注意事项",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"}]},
+                                        @{@"icon":@"mine_instructions",@"title":@"使用说明",@"itemType":@(WDSettingItemTypeArrow),@"url":@"http://www.baidu.com"},
+                                        @{@"icon":@"mine_suggestion",@"title":@"意见反馈",@"itemType":@(WDSettingItemTypeArrow),@"url":@"http://www.baidu.com"},
+                                        @{@"icon":@"mine_announcements",@"title":@"注意事项",@"itemType":@(WDSettingItemTypeArrow),@"url":@"http://www.baidu.com"}]},
                               @{@"sections":@[
-                                        @{@"icon":@"mine_service",@"title":@"售后服务",@"itemType":@(WDSettingItemTypeArrow),@"ClassName":@"ELWebViewController"}]}];
+                                        @{@"icon":@"mine_service",@"title":@"售后服务",@"itemType":@(WDSettingItemTypeArrow),@"url":@"http://www.baidu.com"}]}];
         self.lists = [ELSettingModel mj_objectArrayWithKeyValuesArray:settings];
     }
     return self;
@@ -49,7 +49,10 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    ELSettingModel *model = self.lists[indexPath.section];
+    if (self.listDelegate&&[self.listDelegate respondsToSelector:@selector(pageListView:AtModel:)]) {
+        [self.listDelegate pageListView:self AtModel:model.sections[indexPath.row]];
+    }
 }
 
 #pragma mark 适配ios11

@@ -44,7 +44,6 @@
 		D0771057224CB4AB00D0B993 /* ELShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771056224CB4AB00D0B993 /* ELShopViewController.m */; };
 		D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D077105B224CB95900D0B993 /* ELMineTableViewCell.m */; };
 		D0771062224CC16700D0B993 /* ELSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771061224CC16700D0B993 /* ELSettingModel.m */; };
-		D0771072224D172D00D0B993 /* CJXBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771070224D172D00D0B993 /* CJXBarButtonItem.m */; };
 		D0771079224D253300D0B993 /* ELTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771078224D253300D0B993 /* ELTextField.m */; };
 		D077107C224DA7B800D0B993 /* ELShopCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D077107B224DA7B800D0B993 /* ELShopCollectionViewCell.m */; };
 		D077107F224DA82700D0B993 /* ELBaseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D077107E224DA82700D0B993 /* ELBaseCollectionReusableView.m */; };
@@ -197,8 +196,6 @@
 		D077105B224CB95900D0B993 /* ELMineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMineTableViewCell.m; sourceTree = "<group>"; };
 		D0771060224CC16700D0B993 /* ELSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELSettingModel.h; sourceTree = "<group>"; };
 		D0771061224CC16700D0B993 /* ELSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELSettingModel.m; sourceTree = "<group>"; };
-		D0771070224D172D00D0B993 /* CJXBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJXBarButtonItem.m; sourceTree = "<group>"; };
-		D0771071224D172D00D0B993 /* CJXBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJXBarButtonItem.h; sourceTree = "<group>"; };
 		D0771077224D253300D0B993 /* ELTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTextField.h; sourceTree = "<group>"; };
 		D0771078224D253300D0B993 /* ELTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTextField.m; sourceTree = "<group>"; };
 		D077107A224DA7B800D0B993 /* ELShopCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELShopCollectionViewCell.h; sourceTree = "<group>"; };
@@ -720,8 +717,6 @@
 				D0EC1EF4223B7C030059BA1C /* ELBlueToothManager.m */,
 				D0180BD62244C7D2008C06C1 /* SCREENAdaptationTool.h */,
 				D0180BD72244C7D2008C06C1 /* SCREENAdaptationTool.m */,
-				D0771071224D172D00D0B993 /* CJXBarButtonItem.h */,
-				D0771070224D172D00D0B993 /* CJXBarButtonItem.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1223,7 +1218,6 @@
 				D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */,
 				D0771079224D253300D0B993 /* ELTextField.m in Sources */,
 				18B4B3BB224FBBC600EA9404 /* ELHomeTitleCollectionCell.m in Sources */,
-				D0771072224D172D00D0B993 /* CJXBarButtonItem.m in Sources */,
 				D0F52B03223788D400A26504 /* Foundation+Log.m in Sources */,
 				D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */,
 				D0180BD82244C7D2008C06C1 /* SCREENAdaptationTool.m in Sources */,

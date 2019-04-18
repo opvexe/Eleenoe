@@ -7,9 +7,10 @@
 //
 
 #import "ELMineViewController.h"
+#import "ELWebViewController.h"
 #import "ELSettingModel.h"
 #import "ELMineListView.h"
-@interface ELMineViewController ()
+@interface ELMineViewController ()<ELMineListViewDelegate>
 @property (nonatomic,strong) ELMineListView *listView;
 @property (nonatomic, strong) UIButton *logoutButton;
 @end
@@ -19,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"个人中心";
+    [self navTitleLabelWithTitle:@"个人中心"];
     [self configView];
 }
 
@@ -47,6 +48,7 @@
     _listView = ({
         ELMineListView *iv = [[ELMineListView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         iv.tableFooterView = footView;
+        iv.listDelegate = self;
         [self.view addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             if (iOS11) {
@@ -63,6 +65,11 @@
     NSLog(@"退出");
 }
 
+#pragma mark  ELMineListViewDelegate
+-(void)pageListView:(ELMineListView *)listView AtModel:(ELSettingModel *)model{
+    ELWebViewController *webViewController = [[ELWebViewController alloc]initWithAddress:model.url];
+    [self.navigationController pushViewController:webViewController animated:YES];
+}
 
 
 /*

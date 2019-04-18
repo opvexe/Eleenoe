@@ -39,9 +39,9 @@
 
 - (UILabel *)navTitleLabelWithTitle:(NSString *)title{
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-    label.font = [UIFont systemFontOfSize:18.0];
+    label.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(16)];
     label.text = title;
-    label.textColor = [UIColor blackColor];
+    label.textColor = UIColorFromRGB(0x333333);
     [label sizeToFit];
     self.navigationItem.titleView = label;
     return label;
@@ -171,6 +171,10 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setFrame:CGRectMake(0, 0, 44, 44)];
     [button setImage:image forState:UIControlStateNormal];
+    [button setImage:image forState:UIControlStateDisabled];
+    [button setImage:image forState:UIControlStateHighlighted];
+    [button setImage:image forState:UIControlStateSelected];
+    button.showsTouchWhenHighlighted =NO;
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barButtonItem =[[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.rightBarButtonItem = barButtonItem;

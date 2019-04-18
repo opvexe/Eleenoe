@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.showsToolBar = NO;
-    self.showsNavigationBackBarButtonItemTitle = NO;
+    self.navigationType = AXWebViewControllerNavigationBarItem;
     if (AX_WEB_VIEW_CONTROLLER_iOS9_0_AVAILABLE()) {
         self.webView.allowsLinkPreview = YES;
     }

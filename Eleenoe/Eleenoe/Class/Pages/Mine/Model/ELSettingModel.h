@@ -37,6 +37,10 @@ typedef NS_ENUM(NSInteger, WDSettingItemType) {
  * 右侧 类型
  */
 @property (nonatomic, assign) WDSettingItemType itemType;
+/**
+ * 跳转地址
+ */
+@property(nonatomic,copy)NSString *url;
 
 @end
 

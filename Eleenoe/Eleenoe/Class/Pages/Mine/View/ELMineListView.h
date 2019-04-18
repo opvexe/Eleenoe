@@ -10,8 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class ELMineListView;
+@protocol ELMineListViewDelegate <NSObject>
+@optional
+- (void)pageListView:(ELMineListView *)listView AtModel:(ELBaseModel *)model;
+@end
+
 @interface ELMineListView : ELBaseTableView
 
+@property(nonatomic,weak) id <ELMineListViewDelegate>listDelegate;
 
 @end
 

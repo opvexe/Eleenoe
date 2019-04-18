@@ -30,8 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"肌筋膜放松仪";
-    self.navigationRightView = [CJXBarButtonItem buttonWithImageNormal:@"home_nav_more" imageSelected:@"home_nav_more" imageHightlight:@"home_nav_more" target:self selector:@selector(Click)];
+    [self navTitleLabelWithTitle:@"肌筋膜放松仪"];
+    [self rightBarButtonWithImage:[UIImage imageNamed:@"home_nav_more"] target:self action:@selector(ClickAction)];
     [ELNotificationCenter addObserver:self selector:@selector(Analyze:) name:TriggerAnalyzeNotificationCenter object:nil];
     [self settupView];
 }
@@ -130,8 +130,9 @@
     return _homeLists;
 }
 
--(void)Click{
-    [self.navigationController pushViewController:[ELUpdateViewController new] animated:YES];
+
+-(void)ClickAction{
+    [self pushViewControllerWithViewControllerClass:[ELUpdateViewController class]];
 }
 
 

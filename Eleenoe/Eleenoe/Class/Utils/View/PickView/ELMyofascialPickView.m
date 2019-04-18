@@ -68,11 +68,11 @@
     if (!label) {
         label = [[UILabel alloc] init];
         label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont ELPingFangSCMediumFontOfSize:14];
+        label.font = [UIFont ELPingFangSCRegularFontOfSize:14];
         [label sizeToFit];
     }
     label.textColor = MainLightThemColor;
-    label.transform = CGAffineTransformIdentity;
+//    label.transform = CGAffineTransformIdentity;
     ELMyofascialContentListModel *model = self.items[row];
     label.text = model.title;
     return label;
@@ -84,17 +84,19 @@
 
 - (void)pickerView:(STDPickerView *)pickerView willSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     UILabel *label = (UILabel *)[pickerView viewForRow:row forComponent:component];
-    [UIView animateWithDuration:0.25 animations:^{
-        label.transform = CGAffineTransformMakeScale(1.2, 1.2);
-    }];
+//    [UIView animateWithDuration:0.25 animations:^{
+//        label.transform = CGAffineTransformMakeScale(1.2, 1.2);
+//    }];
+    label.font = [UIFont ELPingFangSCRegularFontOfSize:16];
     label.textColor = [UIColor whiteColor];
 }
 
 - (void)pickerView:(STDPickerView *)pickerView willDeselectRow:(NSInteger)row inComponent:(NSInteger)component{
     UILabel *label = (UILabel *)[pickerView viewForRow:row forComponent:component];
-    [UIView animateWithDuration:0.25 animations:^{
-        label.transform = CGAffineTransformIdentity;
-    }];
+//    [UIView animateWithDuration:0.25 animations:^{
+//        label.transform = CGAffineTransformIdentity;
+//    }];
+    label.font = [UIFont ELPingFangSCRegularFontOfSize:14];
     label.textColor = MainLightThemColor;
 }
 
