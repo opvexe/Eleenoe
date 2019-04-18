@@ -7,7 +7,6 @@
 //
 
 #import "ELMyofascialPickView.h"
-#import "ELMyofascialContentModel.h"
 #import <STDPickerView.h>
 @interface ELMyofascialPickView ()<STDPickerViewDataSource,STDPickerViewDelegate>
 @property (strong, nonatomic) STDPickerView *pickerView;
@@ -41,6 +40,12 @@
     [self.items removeAllObjects];
     if (souce.count) {
         [self.items addObjectsFromArray:souce];
+        [self.items enumerateObjectsUsingBlock:^(ELMyofascialContentListModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.choose == YES) {
+                [self.pickerView selectRow:idx inComponent:0 animated:NO];
+                *stop = YES;
+            }
+        }];
     }
     [self.pickerView reloadAllComponents];
 }
@@ -94,8 +99,9 @@
 }
 
 - (void)pickerView:(STDPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    
-    
+    if (self.MyofascialPickBlock) {
+        self.MyofascialPickBlock(self, row, self.items[row]);
+    }
 }
 
 - (UIView *)selectionIndicatorViewForPickerView:(STDPickerView *)pickerView{

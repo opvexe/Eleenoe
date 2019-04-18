@@ -7,12 +7,16 @@
 //
 
 #import "ELBaseView.h"
-
+#import "ELMyofascialContentModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ELMyofascialPickView : ELBaseView
 
 -(void)InitDataSouce:(NSArray *)souce;
+
+
+@property(nonatomic,copy)void(^MyofascialPickBlock)(ELMyofascialPickView *pickview,NSInteger index,ELMyofascialContentListModel *model);
+
 @end
 
 NS_ASSUME_NONNULL_END

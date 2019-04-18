@@ -9,7 +9,6 @@
 #import "ELMyofascialContentView.h"
 #import "ELMyofascialPickView.h"
 #import "ELMyofascialContentModel.h"
-#import "ELPickerContainerView.h"
 #import "ELMarqueLabel.h"
 @interface ELMyofascialContentView()
 @property(nonatomic,strong)UIImageView *contentImageView;
@@ -58,15 +57,6 @@
         iv;
     });
     
-//    self.bodyListView.selectedIndex = 5;
-    
-//    _bodyListView = ({
-//        ELPickerContainerView *iv = [[ELPickerContainerView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-kSAdap(70), kSAdap_V(60), kSAdap(55), kSAdap_V(210)) itemsSize:CGSizeMake(kSAdap(60), kSAdap_V(32))];
-//        iv.backgroundColor = [UIColor clearColor];
-//        [self addSubview:iv];
-//        iv;
-//    });
-    
     _rankListView = ({
         ELMyofascialPickView *iv = [[ELMyofascialPickView alloc]init];
         iv.backgroundColor = [UIColor clearColor];
@@ -80,21 +70,21 @@
         iv;
     });
     
-//    @weakify(self);
-//    self.bodyListView.ContainerChioceBlock = ^(ELPickerContainerView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
-//        @strongify(self);
-//        self.contentImageView.image = ELImageNamed(model.selectedImageName);
-//        [ELNotificationCenter postNotificationName:TriggerAnalyzeNotificationCenter object:nil userInfo:@{@"model":model}];
-//    };
-    
-//    self.rankListView.ContainerChioceBlock = ^(ELPickerContainerView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
-//        @strongify(self);
-//        self.marqueLabel.text = model.ads;
+    @weakify(self);
+    self.bodyListView.MyofascialPickBlock = ^(ELMyofascialPickView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
+        @strongify(self);
+        self.contentImageView.image = ELImageNamed(model.selectedImageName);
+        [ELNotificationCenter postNotificationName:TriggerAnalyzeNotificationCenter object:nil userInfo:@{@"model":model}];
+    };
+
+//    self.rankListView.MyofascialPickBlock = ^(ELMyofascialPickView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
+//         @strongify(self);
+//         self.marqueLabel.text = model.ads;
 //    };
 }
 
 -(void)InitDataWithModel:(ELMyofascialContentModel *)model{
-     _model = model;
+    _model = model;
     [self.rankListView setHidden:!model.isShow];
     [self.marqueLabel setHidden:!model.isShow];
     [self.bodyListView InitDataSouce:model.datas];
@@ -105,7 +95,7 @@
     switch (model.MyofascialType) {
         case MyofascialContentTypeRelax:{
             [self.bodyListView mas_updateConstraints:^(MASConstraintMaker *make) {
-                  make.width.mas_equalTo(kSAdap(60));
+                make.width.mas_equalTo(kSAdap(60));
             }];
         }
             break;
