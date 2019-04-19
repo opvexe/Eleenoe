@@ -20,6 +20,25 @@
     return cell;
 }
 -(void)ELSinitConfingViews{
+//    _contentImageView = ({
+//        ELMyofascialContentView *iv = [[ELMyofascialContentView alloc]init];
+//        [self.contentView addSubview:iv];
+//        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.and.right.mas_equalTo(0);
+//            make.top.mas_equalTo(0);
+//            make.bottom.mas_equalTo(kSAdap_V(-8));
+//        }];
+//        iv;
+//    });
+}
+
+-(void)InitDataWithModel:(ELMyofascialContentModel *)model{
+    for (UIView *subview in self.contentView.subviews) {
+        if (subview) {
+            [subview removeAllSubviews];
+        }
+    }
+    
     _contentImageView = ({
         ELMyofascialContentView *iv = [[ELMyofascialContentView alloc]init];
         [self.contentView addSubview:iv];
@@ -30,9 +49,6 @@
         }];
         iv;
     });
-}
-
--(void)InitDataWithModel:(ELMyofascialContentModel *)model{
     [self.contentImageView InitDataWithModel:model];
 }
 

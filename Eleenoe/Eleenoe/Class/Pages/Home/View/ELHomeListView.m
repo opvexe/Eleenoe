@@ -23,6 +23,9 @@
         self.dataSource = self;
         self.delegate = self;
         self.pagingEnabled = YES;
+        if (@available(iOS 10.0,*)) {
+            self.prefetchingEnabled = NO; //关闭预加载，不然顺序混乱
+        }
         self.backgroundColor = MainThemColor;
         [self registerClass:[ELHomeCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELHomeCollectionViewCell class])];
         _startOffsetX = 0;
