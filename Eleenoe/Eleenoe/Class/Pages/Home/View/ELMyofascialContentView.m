@@ -43,8 +43,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self);
             make.top.mas_equalTo(kSAdap_V(40));
-            make.width.mas_equalTo(icon.size.width);
-            make.bottom.mas_equalTo(0);
+            make.size.mas_equalTo(CGSizeMake(kSAdap(150), kSAdap_V(250)));
         }];
         iv;
     });

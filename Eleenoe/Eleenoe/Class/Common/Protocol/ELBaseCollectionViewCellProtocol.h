@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  获取高度
  */
 +(CGSize)getCellHeight:(ELBaseModel *)model;
+
 @end
 
 NS_ASSUME_NONNULL_END

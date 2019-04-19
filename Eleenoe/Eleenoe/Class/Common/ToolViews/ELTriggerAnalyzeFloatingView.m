@@ -86,7 +86,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(kSAdap_V(30.0));
             make.centerX.mas_equalTo(self);
-            make.size.mas_equalTo(CGSizeMake(167, 264));
+            make.size.mas_equalTo(CGSizeMake(kSAdap(123), kSAdap_V(200)));
         }];
         iv;
     });
