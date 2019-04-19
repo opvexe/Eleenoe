@@ -105,24 +105,25 @@
             [self.bodyListView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.width.mas_equalTo(kSAdap(60));
             }];
-        }
             break;
+        }
         case MyofascialContentTypeAnadesma:{
             [self.bodyListView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.width.mas_equalTo(kSAdap(70));
             }];
+                break;
         }
-            break;
         case MyofascialContentTypePains:{
             [self.bodyListView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.width.mas_equalTo(kSAdap(60));
             }];
+                break;
         }
-            break;
         case MyofascialContentTypeDamage:{
             [self.bodyListView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.width.mas_equalTo(kSAdap(90));
             }];
+            break;
         }
         default:
             break;

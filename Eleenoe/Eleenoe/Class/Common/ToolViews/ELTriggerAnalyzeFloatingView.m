@@ -220,14 +220,14 @@
     switch (sender.tag) {
         case TriggerAnalyzeTypeClose:{
             [self dismiss];
-        }
             break;
+        }
         case TriggerAnalyzeTypeDownload:{
             if (self.CompleteBlock) {
              
             }
-        }
             break;
+        }
         default:
             break;
     }

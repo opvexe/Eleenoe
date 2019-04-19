@@ -18,7 +18,7 @@
 @property(nonatomic,strong)UIImageView *timeIcon;
 @property(nonatomic,strong)ELBatteryView *batteryView;
 @property(nonatomic,strong)UILabel *titleLabel;
-@property(nonatomic,strong)UIImageView *bluetoothImageView;
+@property(nonatomic,strong)UIButton *bluetoothButton;
 @property(nonatomic,strong)UILabel *minutesLabel;
 @property(nonatomic,strong)UILabel *gearLabel;
 @property(nonatomic,strong)UIView *rightContentView;
@@ -51,13 +51,12 @@
     _determineButton = ({
         ELButtonExtention *iv = [ELButtonExtention buttonWithType:UIButtonTypeCustom];
         UIImage *size = [UIImage imageNamed:@"BluetoothConnection"];
-        [iv setImage:size forState:UIControlStateNormal];
-        [iv setImage:size forState:UIControlStateHighlighted];
-        [iv setImage:size forState:UIControlStateDisabled];
+        [iv setImage:[UIImage imageNamed:@"BluetoothConnection"] forState:UIControlStateNormal];
         [iv setImage:[UIImage imageNamed:@"BluetoothPause"] forState:UIControlStateSelected];
         iv.adjustsImageWhenHighlighted = NO;
         iv.showsTouchWhenHighlighted = NO;
-        iv.isExpandClick = YES;
+//        iv.isExpandClick = YES;
+        iv.tag = MyofascialBottomActionTypeHandle;
         [iv addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -116,11 +115,15 @@
         iv;
     });
     
-    _bluetoothImageView = ({
-        UIImageView *iv = [[UIImageView alloc]init];
-        iv.clipsToBounds = YES;
-        UIImage *icon  = [UIImage imageNamed:@"blueBloth_open"];
-        iv.image = icon ;
+    _bluetoothButton = ({
+        UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *icon = [UIImage imageNamed:@"blueBloth_open"];
+        [iv setImage:[UIImage imageNamed:@"blueBloth_close"] forState:UIControlStateNormal];
+        [iv setImage:[UIImage imageNamed:@"blueBloth_open"] forState:UIControlStateSelected];
+        iv.adjustsImageWhenHighlighted = NO;
+        iv.showsTouchWhenHighlighted = NO;
+        iv.tag = MyofascialBottomActionTypeBluetooth;
+        [iv addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.MyofascialBottomImageView);
@@ -236,7 +239,7 @@
     @weakify(self);
     [self.rightContentView WH_whenTapped:^{
         @strongify(self);
-        self.complete(BottomViewClickTypeElectrode);
+        self.complete(MyofascialBottomActionTypeElectrode);
     }];
     
 }
@@ -247,7 +250,7 @@
 
 -(void)Click:(UIButton *)sender{
     sender.selected = !sender.selected;
-    self.complete(BottomViewClickTypeDownload);
+    self.complete(sender.tag);
 }
 
 

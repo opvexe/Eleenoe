@@ -68,7 +68,7 @@
     if (!label) {
         label = [[UILabel alloc] init];
         label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont ELPingFangSCRegularFontOfSize:14];
+        label.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12)];
         [label sizeToFit];
     }
     label.textColor = MainLightThemColor;
@@ -87,7 +87,7 @@
 //    [UIView animateWithDuration:0.25 animations:^{
 //        label.transform = CGAffineTransformMakeScale(1.2, 1.2);
 //    }];
-    label.font = [UIFont ELPingFangSCRegularFontOfSize:16];
+    label.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(14)];
     label.textColor = [UIColor whiteColor];
 }
 
@@ -96,7 +96,7 @@
 //    [UIView animateWithDuration:0.25 animations:^{
 //        label.transform = CGAffineTransformIdentity;
 //    }];
-    label.font = [UIFont ELPingFangSCRegularFontOfSize:14];
+    label.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12)];
     label.textColor = MainLightThemColor;
 }
 

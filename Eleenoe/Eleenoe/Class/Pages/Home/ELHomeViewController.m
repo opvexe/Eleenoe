@@ -9,7 +9,6 @@
 #import "ELHomeViewController.h"
 #import "ELBluetoothConnectionFloatingView.h"
 #import "ELElectrodeViewController.h"
-#import "ELBluetoothConnectionFloatingView.h"
 #import "ELMyofascialBottomView.h"
 #import "ELHomeListView.h"
 #import "ELHomeTitleListView.h"
@@ -21,6 +20,7 @@
 @property(nonatomic,strong)ELHomeListView *homelistView;
 @property(nonatomic,strong)ELHomeTitleListView *titleListView;
 @property(nonatomic,strong)ELTriggerAnalyzeFloatingView *analyzeView;
+@property(nonatomic,strong)ELBluetoothConnectionFloatingView *connectionView;
 @property(nonatomic,strong)ELMyofascialContentModel *model;
 @property(nonatomic,strong)NSMutableArray *homeLists;
 @end
@@ -87,20 +87,26 @@
     });
     
     @weakify(self);
-    self.bottomView.complete = ^(BottomViewClickType type) {
+    self.bottomView.complete = ^(MyofascialBottomActionType type) {
         @strongify(self);
         switch (type) {
-            case BottomViewClickTypeElectrode:{
+            case MyofascialBottomActionTypeElectrode:{
                 [self.navigationController pushViewController:[ELElectrodeViewController new] animated:YES];
-            }
                 break;
-            case BottomViewClickTypeDownload:{
-               self.analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
+            }
+            case MyofascialBottomActionTypeHandle:{
+                self.analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
                     
                 }];
                 [self.analyzeView InitDataWithModel:self.model];
-            }
                 break;
+            }
+            case MyofascialBottomActionTypeBluetooth:{
+                self.connectionView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
+                    
+                }];
+                break;
+            }
             default:
                 break;
         }

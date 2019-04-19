@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(instancetype)showComplete:(void(^)(ConnectionStatusType status))complete;
 
-+(void)updateStatus:(ConnectionStatusType)status;
+-(void)updateStatus:(ConnectionStatusType)status;
 
 @end
 

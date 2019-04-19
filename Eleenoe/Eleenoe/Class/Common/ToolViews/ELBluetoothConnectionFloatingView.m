@@ -26,7 +26,7 @@
                                             showType:KLCPopupShowTypeSlideInFromBottom
                                          dismissType:KLCPopupDismissTypeSlideOutToBottom
                                             maskType:KLCPopupMaskTypeDimmed
-                            dismissOnBackgroundTouch:YES
+                            dismissOnBackgroundTouch:NO
                                dismissOnContentTouch:NO];
     
     [popup  showWithLayout:KLCPopupLayoutMake(KLCPopupHorizontalLayoutCenter, KLCPopupVerticalLayoutBottom)];
@@ -103,33 +103,44 @@
         iv.adjustsImageWhenHighlighted = NO;
         iv.showsTouchWhenHighlighted = NO;
         iv.isExpandClick = YES;
-        [iv addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
+        [iv addTarget:self action:@selector(CloseAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(icon.size);
             make.centerY.mas_equalTo(self.statueLabel);
-            make.right.mas_equalTo(kSAdap(20.0));
+            make.right.mas_equalTo(-kSAdap(15));
         }];
         iv;
     });
 }
 
-+(void)updateStatus:(ConnectionStatusType)status{
+-(void)updateStatus:(ConnectionStatusType)status{
     switch (status) {
         case ConnectionStatusTypeNone:{
-            
+            [_closeButton setHidden:NO];
+            _bluetoothImageView.image = ELImageNamed(@"blueBloth_close");
+            _statueLabel.text = @"设备当前处于未连接状态、是否#立即连接?#";
             break;
         }
         case ConnectionStatusTypeLoading:{
-            
+            [_closeButton setHidden:YES];
+            self.bluetoothImageView.image = ELImageNamed(@"blueBloth_open");
+            self.statueLabel.text = @"设备链接中、#请稍后...#";
             break;
         }
         case ConnectionStatusTypeFailure:{
-            
+            [_closeButton setHidden:NO];
+            _bluetoothImageView.image = ELImageNamed(@"blueBloth_close");
+            _statueLabel.text = @"设备连接失败、是#否重新连接?#";
             break;
         }
         case ConnectionStatusTypeSuccess:{
-            
+            [_closeButton setHidden:YES];
+            _bluetoothImageView.image = ELImageNamed(@"blueBloth_close");
+            _statueLabel.text = @"设备连接成功...";
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self dismiss];
+            });
             break;
         }
         default:
@@ -137,9 +148,15 @@
     }
 }
 
-#pragma mark - 关闭
--(void)Click:(UIButton *)sender{
-    
+//mark:关闭事件
+-(void)CloseAction:(UIButton *)sender{
+    [self dismiss];
 }
+
+//mark: 关闭视图
+- (void)dismiss {
+    [self.popup dismiss:YES];
+}
+
 
 @end
