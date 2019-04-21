@@ -37,9 +37,8 @@
 }
 
 -(void)InitDataSouce:(NSArray *)souce{
-    [self.items removeAllObjects];
     if (souce.count) {
-        [self.items addObjectsFromArray:souce];
+        self.items = [NSMutableArray arrayWithArray:souce];
         [self.items enumerateObjectsUsingBlock:^(ELMyofascialContentListModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (obj.choose == YES) {
                 [self.pickerView selectRow:idx inComponent:0 animated:NO];
@@ -117,12 +116,4 @@
     view.layer.masksToBounds = YES;
     return view;
 }
-
--(NSMutableArray *)items{
-    if (!_items) {
-        _items = [NSMutableArray array];
-    }
-    return _items;
-}
-
 @end
