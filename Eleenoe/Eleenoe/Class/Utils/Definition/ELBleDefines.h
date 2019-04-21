@@ -10,13 +10,15 @@
 #define ELBleDefines_h
 
 /**
-  蓝牙通讯协议 - 开始
+ 蓝牙通讯协议 - 开始
  */
-#define Ble_F0   @"0xF0"
+
+#define Ble_F0   @"0xF0" //开始
 
 /**
  蓝牙通讯协议 - 通讯命令
  */
+
 #define Ble_00   @"0x00"  //空命令
 #define Ble_01   @"0x01"  //停止命令
 #define Ble_02   @"0x02"  //设置命令
@@ -27,16 +29,40 @@
 /**
  蓝牙通讯协议 - 参数1为模式选择: 0x03
  */
-//#define Ble_ //0x03    0x00    空参数，不改变上一个命令此参数值
-//0x01    固定自动程序1 （如 肌肉放松）
-//0x02    固定自动程序2 （如 疼痛控制）
-//0x03    固定自动程序3
-//0x04    固定自动程序4
-//0x05    固定自动程序5
-//0x06    固定自动程序6
-//0x11    固定手法1（如 揉捏）
-//0x12    固定手法2（如 敲击）
-//0x13    固定手法3（如 针灸）
-//0x14    固定手法4（如 推拿）
+
+#define BleParamp01_00  @"0x00"  //0x00    空参数，不改变上一个命令此参数值
+#define BleParamp01_01  @"0x01"  //0x01    固定自动程序1 （如 肌肉放松）
+#define BleParamp01_02  @"0x02"  //0x02    固定自动程序2 （如 疼痛控制）
+#define BleParamp01_03  @"0x03"  //0x03    固定自动程序3
+#define BleParamp01_04  @"0x04"  //0x04    固定自动程序4
+#define BleParamp01_05  @"0x05"  //0x05    固定自动程序5
+#define BleParamp01_06  @"0x06"  //0x06    固定自动程序6
+#define BleParamp01_11  @"0x11"  //0x11    固定手法1（如 揉捏）
+#define BleParamp01_12  @"0x12"  //0x12    固定手法2（如 敲击）
+#define BleParamp01_13  @"0x13"  //0x13    固定手法3（如 针灸）
+#define BleParamp01_14  @"0x14"  //0x14    固定手法4（如 推拿）
+
+/**
+ 蓝牙通讯协议 - 参数2为强度: 0x03
+ */
+#define BleParamp02_00  @"0x00"  //0x00  空参数
+#define BleParamp02_01  @"0x01"
+#define BleParamp02_02  @"0x02"
+#define BleParamp02_03  @"0x03"
+#define BleParamp02_04  @"0x04"
+#define BleParamp02_05  @"0x05"
+#define BleParamp02_06  @"0x06"
+#define BleParamp02_07  @"0x07"
+#define BleParamp02_08  @"0x08"
+#define BleParamp02_09  @"0x09"
+#define BleParamp02_10  @"0x10"
+#define BleParamp02_11  @"0x11"
+#define BleParamp02_12  @"0x12"
+#define BleParamp02_13  @"0x13"
+#define BleParamp02_14  @"0x14"
+#define BleParamp02_15  @"0x0F"
+
+
+
 
 #endif /* ELBleDefines_h */
