@@ -15,6 +15,7 @@
 #import "ELMyofascialMenuModel.h"
 #import "ELUpdateViewController.h"
 #import "ELTriggerAnalyzeFloatingView.h"
+#import "ELBlueToothManager.h"
 @interface ELHomeViewController ()<ELHomeListViewDelegate,ELHomeTitleListViewDelegate>
 @property(nonatomic,strong)ELMyofascialBottomView *bottomView;
 @property(nonatomic,strong)ELHomeListView *homelistView;
@@ -102,9 +103,9 @@
                 break;
             }
             case MyofascialBottomActionTypeBluetooth:{
-                self.connectionView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
-                    
-                }];
+//                self.connectionView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
+//                    
+//                }];
                 break;
             }
             default:
