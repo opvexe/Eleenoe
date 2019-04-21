@@ -173,9 +173,9 @@
     }
     // 2、记录上个子控制器下标
     _previousCVCIndex = currentIndex;
-    if (self.delegatePageContentCollectionView && [self.delegatePageContentCollectionView respondsToSelector:@selector(pageContentCollectionView:index:)]) {
-        [self.delegatePageContentCollectionView pageContentCollectionView:self index:currentIndex];
-    }
+//    if (self.delegatePageContentCollectionView && [self.delegatePageContentCollectionView respondsToSelector:@selector(pageContentCollectionView:index:)]) {
+//        [self.delegatePageContentCollectionView pageContentCollectionView:self index:currentIndex];
+//    }
 }
 
 //设置分区
