@@ -37,10 +37,11 @@
 }
 
 -(void)InitDataSouce:(NSArray *)souce{
-    if (souce.count) {
+    if (souce.count&&!self.items.count) {
         self.items = [NSMutableArray arrayWithArray:souce];
         [self.items enumerateObjectsUsingBlock:^(ELMyofascialContentListModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (obj.choose == YES) {
+                NSLog(@"selectRow:==%ld",idx);
                 [self.pickerView selectRow:idx inComponent:0 animated:NO];
                 *stop = YES;
             }

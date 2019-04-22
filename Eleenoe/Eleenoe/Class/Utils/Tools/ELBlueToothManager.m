@@ -39,17 +39,11 @@
 {
     self = [super init];
     if (self) {
-        _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+        _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue()];
     }
     return self;
 }
 
-/**
- *  蓝牙单例
- *
- *  @return 蓝牙单例
- *
- */
 + (ELBlueToothManager *)shareInstance {
     static ELBlueToothManager *instance = nil;
     static dispatch_once_t predicate;
@@ -60,41 +54,8 @@
     return instance;
 }
 
-#pragma mark - CBCentralManager代理函数
+#pragma mark private
 
-//本地蓝牙设备状态更新代理
-- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
-    switch (central.state) {
-        case CBCentralManagerStatePoweredOff:
-            NSLog(@"尚未打开蓝牙，请在设置中打开……");
-            _loaclState = ELBleLocalStatePowerOff;
-            break;
-        case CBCentralManagerStatePoweredOn: {
-            NSLog(@"蓝牙已经成功开启，稍后……");
-            _loaclState = ELBleLocalStatePowerOn;
-            break;
-        }
-        default:
-            _loaclState = ELBleLocalStateUnsupported;
-            break;
-    }
-    
-    if([self.managerDelegate respondsToSelector:@selector(ble:didLocalState:)]) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.managerDelegate ble:self didLocalState:self.loaclState];
-        });
-    }
-}
-
-/**
- *  开始扫描
- *
- *  @param isPowerSaving      是否为省电模式；true为省电模式即不会更新重复的设备，false为非省电模式
- *  @param serviceUUIDs       仅扫描有该服务的设备
- *
- *  @return 成功true，否则false
- *
- */
 - (BOOL)startScan:(BOOL)isPowerSaving services:(NSArray <NSString *> *)serviceUUIDs{
     if (_centralManager.state != CBCentralManagerStatePoweredOn) {
         return NO;
@@ -121,15 +82,35 @@
     return YES;
 }
 
-
-/**
- *  停止扫描
- *
- */
 - (void)stopScan{
     [_centralManager stopScan];
 }
 
+
+#pragma mark - CBCentralManager
+
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+    switch (central.state) {
+        case CBCentralManagerStatePoweredOff:
+            NSLog(@"尚未打开蓝牙，请在设置中打开……");
+            _loaclState = ELBleLocalStatePowerOff;
+            break;
+        case CBCentralManagerStatePoweredOn: {
+            NSLog(@"蓝牙已经成功开启，稍后……");
+            _loaclState = ELBleLocalStatePowerOn;
+            break;
+        }
+        default:
+            _loaclState = ELBleLocalStateUnsupported;
+            break;
+    }
+    
+    if([self.managerDelegate respondsToSelector:@selector(ble:didLocalState:)]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.managerDelegate ble:self didLocalState:self.loaclState];
+        });
+    }
+}
 
 //扫描信息代理
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI {
@@ -190,7 +171,6 @@
 //    }
 }
 
-
 ///设备信息处理
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
     NSString *value = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
@@ -201,9 +181,19 @@
     //    }
 }
 
-//-(void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
-//    NSLog(@"改变通知状态:%@",characteristic.service);
-//}
+-(void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
+    NSLog(@"改变通知状态:%@",characteristic.service);
+    if (error) {
+        return ;
+    }
+    
+    if (characteristic.isNotifying) {
+        NSLog(@"开始订阅");
+    }else{
+        NSLog(@"取消订阅");
+        [_centralManager cancelPeripheralConnection:peripheral];
+    }
+}
 
 //- (void)peripheral:(CBPeripheral *)peripheral didDiscoverDescriptorsForCharacteristic:(nonnull CBCharacteristic *)characteristic error:(nullable NSError *)error{
 //    NSLog(@"发现外设的特征的描述数组:%@",characteristic.descriptors);
@@ -229,6 +219,8 @@
     
     //    unsigned char send[4] = {0x5d, 0x08, 0x01, 0x3b};
     //    NSData *sendData = [NSData dataWithBytes:send length:4];
+//    Byte b[] = {0X00,0X00,0X7C,0X7C,0X00,0X00,0X00,0X00};
+//    NSData *data = [NSData dataWithBytes:&b length:sizeof(b)];
     
     if (self.characteristic ==nil) {
         return NO;
@@ -258,4 +250,18 @@
     return strTemp;
 }
 
+- (NSString*)hexadecimalString:(NSData *)data{
+    NSString* result;
+    const unsigned char* dataBuffer = (const unsigned char*)[data bytes];
+    if(!dataBuffer){
+        return nil;
+    }
+    NSUInteger dataLength = [data length];
+    NSMutableString* hexString = [NSMutableString stringWithCapacity:(dataLength * 2)];
+    for(int i = 0; i < dataLength; i++){
+        [hexString appendString:[NSString stringWithFormat:@"%02lx", (unsigned long)dataBuffer[i]]];
+    }
+    result = [NSString stringWithString:hexString];
+    return result;
+}
 @end
