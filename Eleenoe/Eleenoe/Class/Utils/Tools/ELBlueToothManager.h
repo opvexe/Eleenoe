@@ -11,9 +11,9 @@
 
 #define  BLE_Suffix    @"HJ"     //过滤设备前缀 (HJ_580XP_EE)
 #define  BLE_SEVICEID  @"FFF0"   //服务的UUID
-#define  BLE_READ      @"0xFFF1" //读特性
-#define  BLE_WRITE     @"0xFFF2" //写特性
-#define  BLE_NOTICE    @"0xFFF3" //通知特性
+#define  BLE_READ      @"FFF1" //读特性
+#define  BLE_WRITE     @"FFF2" //写特性
+#define  BLE_NOTICE    @"FFF3" //通知特性
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -67,27 +67,34 @@ typedef NS_ENUM(NSInteger, ELResultType) {
 
 /**
  *  开始扫描
- *
- *  @param isPowerSaving      是否为省电模式；true为省电模式即不会更新重复的设备，false为非省电模式
- *  @param serviceUUIDs       仅扫描有该服务的设备
- *
- *  @return 成功true，否则false
- *
- *  @note 结果见回调函数 ble:didScan:advertisementData:rssi:
  */
-- (BOOL)startScan:(BOOL)isPowerSaving services:(NSArray <NSString *> *)serviceUUIDs;
-
-/**
- *  发送数据
- *
- */
--(BOOL)send:(NSData *)data;
+- (void)startScan:(BOOL)isPowerSaving;
 
 /**
  *  停止扫描
  *
  */
 - (void)stopScan;
+
+/**
+ *  连接蓝牙
+ *
+ */
+- (void)connectPeripheral:(CBPeripheral *)peripheral;
+
+/**
+ *  取消连接蓝牙
+ *
+ */
+- (void)disConnectPeripheral:(CBPeripheral *)peripheral;
+
+/**
+ *  发送数据
+ *
+ */
+- (void)sendData;
+
+
 
 @end
 

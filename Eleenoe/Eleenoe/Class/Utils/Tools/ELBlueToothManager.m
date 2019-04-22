@@ -20,7 +20,8 @@
 /**
  特征值
  */
-@property (nonatomic, strong) CBCharacteristic *characteristic;
+@property (nonatomic, strong) CBCharacteristic *characteristic_write;
+@property (nonatomic, strong) CBCharacteristic *characteristic_notice;
 /**
  服务
  */
@@ -56,30 +57,12 @@
 
 #pragma mark private
 
-- (BOOL)startScan:(BOOL)isPowerSaving services:(NSArray <NSString *> *)serviceUUIDs{
-    if (_centralManager.state != CBCentralManagerStatePoweredOn) {
-        return NO;
-    }
-    
-    NSMutableArray<CBUUID *> * uuids = nil;
-    if (serviceUUIDs!=nil) {
-        for (NSString *str in serviceUUIDs) {
-            CBUUID *temp = [CBUUID UUIDWithString:str];
-            if (temp==nil) {
-                return NO;
-            }else{
-                [uuids addObject:temp];
-            }
-        }
-    }
-    
+- (void)startScan:(BOOL)isPowerSaving {
     if (isPowerSaving) {
-        [_centralManager scanForPeripheralsWithServices:uuids options:nil];
+        [_centralManager scanForPeripheralsWithServices:nil options:nil];
     }else{
-        [_centralManager scanForPeripheralsWithServices:uuids options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
+        [_centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
     }
-    
-    return YES;
 }
 
 - (void)stopScan{
@@ -157,28 +140,60 @@
 
 //扫描到特征
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
-//    if (!error) {
-//        for (CBCharacteristic *characteristic in service.characteristics) {
-//            [_peripheral discoverDescriptorsForCharacteristic:characteristic];
-//            [_peripheral readValueForCharacteristic:characteristic];
-//            [_peripheral setNotifyValue:YES forCharacteristic:characteristic]; //打开外设的通知，否则无法接受数据
-//            if ([characteristic.UUID.UUIDString isEqualToString:BLE_SEVICEID]){
-//                [_peripheral readValueForCharacteristic:characteristic];
-//            }
-//        }
-//    }else{
-//        NSLog(@"扫描外设的特征失败:%@",error.description);
-//    }
+    
+    if (error){
+        NSLog(@"扫描外设的特征失败！%@->%@-> %@",peripheral.name,service.UUID, [error localizedDescription]);
+        return;
+    }
+    
+    if ([service.UUID.UUIDString isEqualToString:BLE_SEVICEID]) {
+        for (CBCharacteristic *characteristic in service.characteristics){
+            
+            CBCharacteristicProperties properties = characteristic.properties;
+            
+            [peripheral setNotifyValue:YES forCharacteristic:characteristic];
+            
+            
+            if ([characteristic.UUID.UUIDString isEqualToString:BLE_READ]){
+                
+                [peripheral readValueForCharacteristic:characteristic];
+                
+            }else if ([characteristic.UUID.UUIDString isEqualToString:BLE_WRITE]){
+                
+                
+                self.characteristic_write = characteristic;
+                
+                
+            }else if ([characteristic.UUID.UUIDString isEqualToString:BLE_NOTICE]){
+                
+                self.characteristic_notice = characteristic;
+                
+            }
+            
+        }
+    }
 }
 
 ///设备信息处理
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    NSString *value = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
-    NSLog(@"获取蓝牙发回的数据:%@",value);
-    //    if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"FFE2"]]) {
-    //        NSData *data =characteristic.value;
-    //        NSLog(@"%@",[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding]);
-    //    }
+    if (error) {
+        NSLog(@"扫描外设的特征失败！%@-> %@",peripheral.name, [error localizedDescription]);
+        return;
+    }
+    
+    NSLog(@"%@ %@",characteristic.UUID.UUIDString,characteristic.value);
+    
+    if ([characteristic.UUID.UUIDString isEqualToString:BLE_READ]) {
+        
+        
+    }else if ([characteristic.UUID.UUIDString isEqualToString:BLE_WRITE]){
+        
+        
+    }else if ([characteristic.UUID.UUIDString isEqualToString:BLE_NOTICE]){
+        
+        
+    }
+    
 }
 
 -(void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
@@ -214,30 +229,14 @@
 }
 
 
-
--(BOOL)send:(NSData *)data{
+- (void)sendData{
     
-    //    unsigned char send[4] = {0x5d, 0x08, 0x01, 0x3b};
-    //    NSData *sendData = [NSData dataWithBytes:send length:4];
-//    Byte b[] = {0X00,0X00,0X7C,0X7C,0X00,0X00,0X00,0X00};
-//    NSData *data = [NSData dataWithBytes:&b length:sizeof(b)];
+    Byte b[] = {0XF0,0X03,0X01,0X00,0X00,0X00,0X00,0X00,0X04,0XF1};
+    NSData *data = [NSData dataWithBytes:&b length:sizeof(b)];
+    [self.peripheral writeValue:data forCharacteristic:self.characteristic_write type:CBCharacteristicWriteWithResponse];
     
-    if (self.characteristic ==nil) {
-        return NO;
-    }
-    
-    if (data==nil) {
-        return NO;
-    }
-    
-    if (self.peripheral.state!=CBPeripheralStateConnected) {
-        return NO;
-    }
-    
-    [self.peripheral writeValue:data forCharacteristic:self.characteristic type:CBCharacteristicWriteWithoutResponse];
-    
-    return YES;
 }
+
 
 
 //Mac地址解析
