@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+ELExtension.h"
+#import "ELBlueToothManager.h"
 @interface AppDelegate ()
 
 @end
@@ -21,6 +22,7 @@
     
     self.window.frame = [UIScreen mainScreen].bounds;
 
+    [[ELBlueToothManager shareInstance] stopScan];
     [IQKeyboardManager sharedManager].enable = YES;
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 10;
     [IQKeyboardManager sharedManager].shouldShowToolbarPlaceholder = NO;

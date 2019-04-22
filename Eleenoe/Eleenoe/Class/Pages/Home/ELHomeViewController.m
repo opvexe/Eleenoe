@@ -96,16 +96,23 @@
                 break;
             }
             case MyofascialBottomActionTypeHandle:{
-                self.analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
-                    
-                }];
-                [self.analyzeView InitDataWithModel:self.model];
+//                self.analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
+//
+//                }];
+//                [self.analyzeView InitDataWithModel:self.model];
+                 
                 break;
             }
             case MyofascialBottomActionTypeBluetooth:{
 //                self.connectionView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
 //                    
 //                }];
+
+                [[ELBlueToothManager shareInstance] startScan:YES];
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [[ELBlueToothManager shareInstance] sendData];
+                });
                 break;
             }
             default:
