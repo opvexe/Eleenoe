@@ -32,7 +32,7 @@
 /**
  蓝牙状态
  */
-@property(nonatomic,copy)ELBlueToothPowerBlock blueToothPowerblock;
+@property(nonatomic,copy)ELBleLocalStateBlock state;
 
 @end
 
@@ -48,41 +48,32 @@
     return instance;
 }
 
+- (void)checkBlueToothPowerOn:(ELBleLocalStateBlock)state{
+    _state = state;
+}
+
 - (void)registerBlueToothManager{
     _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 }
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     switch (central.state) {
-        case CBCentralManagerStateUnknown:
-            NSLog(@"初始化中，请稍后……");
-            break;
-        case CBCentralManagerStateResetting:
-            NSLog(@"设备不支持状态，过会请重试……");
-            break;
-        case CBCentralManagerStateUnsupported:
-            NSLog(@"设备未授权状态，过会请重试……");
-            break;
-        case CBCentralManagerStateUnauthorized:
-            NSLog(@"设备未授权状态，过会请重试……");
-            break;
         case CBCentralManagerStatePoweredOff:
-            _blueToothPowerblock(ELBlueToothPowerTypeOFF);
             NSLog(@"尚未打开蓝牙，请在设置中打开……");
+            if (self.state) {self.state(ELBleLocalStatePowerOff);}
             break;
         case CBCentralManagerStatePoweredOn: {
             NSLog(@"蓝牙已经成功开启，稍后……");
-            _blueToothPowerblock(ELBlueToothPowerTypeON);
-            [self.centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
-        }
+            if (self.state) {self.state(ELBleLocalStatePowerOn);}
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
+            });
             break;
+        }
         default:
+            if (self.state) {self.state(ELBleLocalStateUnsupported);}
             break;
     }
-}
-
-- (void)checkBlueToothPowerOn:(ELBlueToothPowerBlock)blueToothPowerblock{
-    _blueToothPowerblock = blueToothPowerblock;
 }
 
 ///MARK: 外设设备连接代理
@@ -170,7 +161,6 @@
 //}
 
 -(void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
-    NSLog(@"发送数据成功回调:%@",characteristic);
     if (error) {
         NSLog(@"发送数据失败:%@",error.description);
     }else{

@@ -17,12 +17,14 @@
 
 
 NS_ASSUME_NONNULL_BEGIN
-typedef NS_ENUM(NSInteger,ELBlueToothPowerType) {
-    ELBlueToothPowerTypeON,
-    ELBlueToothPowerTypeOFF,
+
+typedef NS_ENUM(NSInteger, ELBleLocalState) {
+    ELBleLocalStatePowerOff,         //本地蓝牙已关闭
+    ELBleLocalStatePowerOn,          //本地蓝牙已开启
+    ELBleLocalStateUnsupported,     //本地不支持蓝牙
 };
 
-typedef void(^ELBlueToothPowerBlock)(ELBlueToothPowerType PowerType);
+typedef void(^ELBleLocalStateBlock)(ELBleLocalState state);
 
 @interface ELBlueToothManager : NSObject
 
@@ -41,8 +43,7 @@ typedef void(^ELBlueToothPowerBlock)(ELBlueToothPowerType PowerType);
  *  检测蓝牙是否打开或者关闭
  *
  */
-- (void)checkBlueToothPowerOn:(ELBlueToothPowerBlock)blueToothPowerblock;
-
+- (void)checkBlueToothPowerOn:(ELBleLocalStateBlock)state;
 
 @end
 
