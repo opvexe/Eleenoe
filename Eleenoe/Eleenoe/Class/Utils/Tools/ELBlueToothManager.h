@@ -9,8 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-#define  M_BLE_Suffix @""
-#define  DEVICE @""
+#define  BLE_Suffix  @"HJ"     //过滤设备前缀 (HJ_580XP_EE)
+#define  BLE_CBUUID  @"FFF0"   //服务的UUID
+#define  BLE_READ    @"0xFFF1" //读特性
+#define  BLE_WRITE   @"0xFFF2" //写特性
+#define  BLE_NOTICE  @"0xFFF3" //通知特性
+
+
 NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger,ELBlueToothPowerType) {
     ELBlueToothPowerTypeON,

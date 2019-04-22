@@ -89,7 +89,7 @@
 #pragma mark CBCentralManagerDelegate
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI {
     NSLog(@"扫描连接外设：%@ %@ %@",peripheral.name,RSSI,advertisementData);
-    if([peripheral.name rangeOfString:M_BLE_Suffix].location != NSNotFound){
+    if([peripheral.name rangeOfString:BLE_Suffix].location != NSNotFound){
         self.peripheral = peripheral;  //外界设备
         [self.centralManager connectPeripheral:_peripheral options:nil];
     }
@@ -131,7 +131,7 @@
             [_peripheral discoverDescriptorsForCharacteristic:characteristic];
             [_peripheral readValueForCharacteristic:characteristic];
             [_peripheral setNotifyValue:YES forCharacteristic:characteristic]; //打开外设的通知，否则无法接受数据
-            if ([characteristic.UUID.UUIDString isEqualToString:DEVICE]){
+            if ([characteristic.UUID.UUIDString isEqualToString:BLE_CBUUID]){
                 [_peripheral readValueForCharacteristic:characteristic];
             }
         }
@@ -178,12 +178,6 @@
     }
 }
 
-#pragma mark 数据发送
-//-(void)sendDataToBLE:(NSData *)data{
-//    if (self.characteristic!=nil) {
-//        [self.peripheral writeValue:data forCharacteristic:self.characteristic type:CBCharacteristicWriteWithoutResponse];
-//    }
-//}
 
 //Mac地址解析
 - (NSString *)convertToNSStringWithNSData:(NSData *)data {
@@ -193,6 +187,12 @@
         [strTemp appendFormat:@"%02lx",(unsigned long)szBuffer[i]];
     }
     return strTemp;
+}
+
+
+-(void)sendDate{
+    unsigned char send[4] = {0x5d, 0x08, 0x01, 0x3b};
+    NSData *sendData = [NSData dataWithBytes:send length:4];
 }
 
 @end
