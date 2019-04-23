@@ -154,7 +154,7 @@
         // 订阅通知
         [peripheral setNotifyValue:YES forCharacteristic:self.characteristic];
         
-        if ([characteristic.UUID.UUIDString isEqualToString:BLE_WRITE]){
+        if ([characteristic.UUID.UUIDString isEqualToString:BLE_WRITE]&&CBCharacteristicPropertyWrite){
             
             self.characteristic = characteristic;
         }
@@ -187,7 +187,7 @@
 - (void)send:(NSData *)data{
     Byte b[] = {0XF0,0X03,0X01,0X00,0X00,0X00,0X00,0X00,0X04,0XF1};
     NSData *datas = [NSData dataWithBytes:&b length:sizeof(b)];
-    [self.peripheral writeValue:datas forCharacteristic:self.characteristic_write type:CBCharacteristicWriteWithResponse];
+    [self.peripheral writeValue:datas forCharacteristic:self.characteristic type:CBCharacteristicWriteWithoutResponse];
     
 }
 

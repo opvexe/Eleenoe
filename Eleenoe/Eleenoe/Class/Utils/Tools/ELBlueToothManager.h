@@ -10,7 +10,8 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 #define  BLE_Suffix         @"HJ"     //过滤设备前缀 (HJ_580XP_EE)
-#define  BLE_SEVICEID_UUID  @"FFF0"   //服务的UUID
+#define  BLE_SYSEVICE_UUID  @"180A"   //设备信息服务UUID
+#define  BLE_SEVICEID_UUID  @"FFF0"   //特征服务的UUID
 #define  BLE_READ           @"FFF1" //读特性    特征的UUID
 #define  BLE_WRITE          @"FFF2" //写特性
 #define  BLE_NOTICE         @"FFF3" //通知特性
