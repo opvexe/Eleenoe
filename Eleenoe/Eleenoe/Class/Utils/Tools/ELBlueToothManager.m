@@ -7,43 +7,16 @@
 //
 
 #import "ELBlueToothManager.h"
-
 @interface ELBlueToothManager ()<CBCentralManagerDelegate, CBPeripheralDelegate>
-/**
- 手机设备
- */
 @property (nonatomic, strong) CBCentralManager *centralManager;
-/**
- 外设设备
- */
 @property (nonatomic, strong) CBPeripheral *peripheral;
-/**
- 特征值
- */
-@property (nonatomic, strong) CBCharacteristic *characteristic_write;
-@property (nonatomic, strong) CBCharacteristic *characteristic_notice;
-/**
- 服务
- */
-@property (nonatomic, strong) CBService *service;
-/**
- 描述
- */
-@property (nonatomic, strong) CBDescriptor *descriptor;
-
-
+@property (nonatomic, strong) CBCharacteristic *characteristic;
+@property (nonatomic, strong) dispatch_queue_t queue;
+@property (nonatomic, copy) ELConnectPeripheralStateBlock connectStateCallback;
+@property (nonatomic, copy) ELExameBluetoothStateBlock  stateBLECallback;
 @end
 
 @implementation ELBlueToothManager
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_main_queue()];
-    }
-    return self;
-}
 
 + (ELBlueToothManager *)shareInstance {
     static ELBlueToothManager *instance = nil;
@@ -55,189 +28,168 @@
     return instance;
 }
 
-#pragma mark private
+- (void)connectPeripheralWithStateCallback:(ELConnectPeripheralStateBlock)connectStateCallback
+                           examBLECallback:(ELExameBluetoothStateBlock)stateCallback{
+    self.connectStateCallback = connectStateCallback;
+    self.stateBLECallback = stateCallback;
+    [self connectPeripheral];
+}
 
-- (void)startScan:(BOOL)isPowerSaving {
-    if (isPowerSaving) {
-        [_centralManager scanForPeripheralsWithServices:nil options:nil];
-    }else{
-        [_centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
-    }
+-(void)connectPeripheral{
+    [self stopScan];
+    self.queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:self.queue];
 }
 
 - (void)stopScan{
-    [_centralManager stopScan];
+    if (self.centralManager){
+        [self.centralManager stopScan];
+        if (self.peripheral){
+            [self.centralManager cancelPeripheralConnection:self.peripheral];
+        }
+        self.centralManager = nil;
+    }
 }
 
-
-#pragma mark - CBCentralManager
+- (void)reScanPeripheral{
+    [self connectPeripheral];
+}
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     switch (central.state) {
+        case CBCentralManagerStateUnknown:
+            NSLog(@">>>CBCentralManagerStateUnknown");
+            break;
+        case CBCentralManagerStateResetting:
+            NSLog(@">>>CBCentralManagerStateResetting");
+            break;
+        case CBCentralManagerStateUnsupported:
+            NSLog(@">>>CBCentralManagerStateUnsupported");
+            break;
+        case CBCentralManagerStateUnauthorized:
+            NSLog(@">>>CBCentralManagerStateUnauthorized");
+            break;
         case CBCentralManagerStatePoweredOff:
             NSLog(@"尚未打开蓝牙，请在设置中打开……");
-            _loaclState = ELBleLocalStatePowerOff;
+            if (self.stateBLECallback) {
+                self.stateBLECallback(ELBleLocalStatePowerOff);
+            }
             break;
         case CBCentralManagerStatePoweredOn: {
-            NSLog(@"蓝牙已经成功开启，稍后……");
-            _loaclState = ELBleLocalStatePowerOn;
+            NSLog(@">>>蓝牙已经成功开启，稍后……");
+            [self.centralManager scanForPeripheralsWithServices:nil options:nil];
             break;
         }
         default:
-            _loaclState = ELBleLocalStateUnsupported;
+            if (self.stateBLECallback) {self.stateBLECallback(ELBleLocalStateUnsupported);}
             break;
     }
-    
-    if([self.managerDelegate respondsToSelector:@selector(ble:didLocalState:)]) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.managerDelegate ble:self didLocalState:self.loaclState];
-        });
-    }
 }
 
-//扫描信息代理
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI {
-    NSLog(@"扫描连接外设：%@ %@ %@",peripheral.name,RSSI,advertisementData);
-    if([peripheral.name rangeOfString:BLE_Suffix].location != NSNotFound){
-        self.peripheral = peripheral;  //外界设备
-        [self.centralManager connectPeripheral:_peripheral options:nil];
+    BOOL hasSevice = [self hasServiceWithAdvertisementData:advertisementData];
+    if (hasSevice/*&& [peripheral.name hasPrefix:BLE_Suffix]*/) {
+        NSLog(@">>>当扫描到设备:%@", peripheral);
+        if (self.connectStateCallback) {
+            self.connectStateCallback(ELResultTypeLoading);
+        }
+        if (peripheral.state == CBPeripheralStateDisconnected){
+            self.peripheral = peripheral;
+            [self.centralManager connectPeripheral:self.peripheral options:nil];
+        }
     }
 }
 
-//外围蓝牙设备连接代理
+- (BOOL)hasServiceWithAdvertisementData:(NSDictionary *)advertisementData{
+    NSArray *serviceUUIDs = [advertisementData valueForKey:@"kCBAdvDataServiceUUIDs"];
+    if (serviceUUIDs && [serviceUUIDs isKindOfClass:[NSArray class]]){
+        CBUUID *uuid = [CBUUID UUIDWithString:BLE_SEVICEID_UUID];
+        if ([serviceUUIDs containsObject:uuid]){
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
-    NSLog(@"连接ok...%@", peripheral);
-    [_peripheral setDelegate:self];
+    NSLog(@">>>连接ok...%@", peripheral);
+    [self.peripheral setDelegate:self];
     
-    NSLog(@"扫描服务...");
-    [_peripheral discoverServices:nil];
+    NSLog(@">>>扫描服务...");
+    [self.peripheral discoverServices:nil];
+    
+    if (self.connectStateCallback) {
+        self.connectStateCallback(ELResultTypeSuccess);
+    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
-    NSLog(@"设备连接失败:%@", peripheral.name);
-    [_centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
+    NSLog(@">>>连接设备（%@）失败,原因:%@",[peripheral name],[error localizedDescription]);
+    if (self.connectStateCallback) {
+        self.connectStateCallback(ELResultTypeFailed);
+    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
-    NSLog(@"设备断开连接:%@", peripheral.name);
-    [_centralManager connectPeripheral:_peripheral options:nil];  //重连
-}
-
-
-#pragma mark - CBPeripheral代理函数
-
-//搜索服务
-- (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
-    if (!error) {
-        for (CBService *service in peripheral.services) {
-            [peripheral discoverCharacteristics:nil forService:service];
-            NSLog(@"开始扫描外设服务的特征 %@...",peripheral.name);
-        }
-    }else{
-        NSLog(@"发现外设服务错误信息：%@",[error localizedDescription]);
+    NSLog(@">>>外设断开连接 %@: %@\n", [peripheral name], [error localizedDescription]);
+    if (self.connectStateCallback) {
+        self.connectStateCallback(ELResultTypeFailed);
     }
 }
 
-//扫描到特征
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
+    for (CBService *service in peripheral.services) {
+        NSLog(@">>>所有的服务: %@", service);
+        [peripheral discoverCharacteristics:nil forService:service];
+    }
+    
+}
+
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     
-    if (error){
-        NSLog(@"扫描外设的特征失败！%@->%@-> %@",peripheral.name,service.UUID, [error localizedDescription]);
-        return;
-    }
-    
-    if ([service.UUID.UUIDString isEqualToString:BLE_SEVICEID]) {
-        for (CBCharacteristic *characteristic in service.characteristics){
+    for (CBCharacteristic *characteristic in service.characteristics){
+        NSLog(@">>>所有特征：%@", characteristic);
+        // 读取特征数据
+        [peripheral readValueForCharacteristic:self.characteristic];
+        // 订阅通知
+        [peripheral setNotifyValue:YES forCharacteristic:self.characteristic];
+        
+        if ([characteristic.UUID.UUIDString isEqualToString:BLE_WRITE]){
             
-            CBCharacteristicProperties properties = characteristic.properties;
-            
-            [peripheral setNotifyValue:YES forCharacteristic:characteristic];
-            
-            
-            if ([characteristic.UUID.UUIDString isEqualToString:BLE_READ]){
-                
-                [peripheral readValueForCharacteristic:characteristic];
-                
-            }else if ([characteristic.UUID.UUIDString isEqualToString:BLE_WRITE]){
-                
-                
-                self.characteristic_write = characteristic;
-                
-                
-            }else if ([characteristic.UUID.UUIDString isEqualToString:BLE_NOTICE]){
-                
-                self.characteristic_notice = characteristic;
-                
-            }
-            
+            self.characteristic = characteristic;
         }
     }
 }
 
-///设备信息处理
-- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    if (error) {
-        NSLog(@"扫描外设的特征失败！%@-> %@",peripheral.name, [error localizedDescription]);
-        return;
-    }
-    
-    NSLog(@"%@ %@",characteristic.UUID.UUIDString,characteristic.value);
-    
-    if ([characteristic.UUID.UUIDString isEqualToString:BLE_READ]) {
-        
-        
-    }else if ([characteristic.UUID.UUIDString isEqualToString:BLE_WRITE]){
-        
-        
-    }else if ([characteristic.UUID.UUIDString isEqualToString:BLE_NOTICE]){
-        
-        
-    }
-    
-}
 
--(void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
-    NSLog(@"改变通知状态:%@",characteristic.service);
-    if (error) {
-        return ;
-    }
-    
+-(void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
     if (characteristic.isNotifying) {
-        NSLog(@"开始订阅");
-    }else{
-        NSLog(@"取消订阅");
-        [_centralManager cancelPeripheralConnection:peripheral];
+        NSLog(@">>>订阅成功");
+    } else {
+        NSLog(@">>>取消订阅");
     }
 }
 
-//- (void)peripheral:(CBPeripheral *)peripheral didDiscoverDescriptorsForCharacteristic:(nonnull CBCharacteristic *)characteristic error:(nullable NSError *)error{
-//    NSLog(@"发现外设的特征的描述数组:%@",characteristic.descriptors);
-//    if (!error) {
-//        for (CBDescriptor *descriptor in characteristic.descriptors) {
-//            self.descriptor = descriptor;
-//            [peripheral readValueForDescriptor:descriptor];
-//        }
-//    }
-//}
+
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+    
+    NSLog(@">>>外设发送过来的数据: %@ %@",characteristic.UUID.UUIDString,characteristic.value);
+}
 
 -(void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
     if (error) {
-        NSLog(@"发送数据失败:%@",error.description);
+        NSLog(@">>>发送数据失败:%@",error.description);
     }else{
-        NSLog(@"发送数据成功回调:%@",characteristic);
+        NSLog(@">>>发送数据成功回调:%@",characteristic);
     }
 }
 
-
-- (void)sendData{
-    
+- (void)send:(NSData *)data{
     Byte b[] = {0XF0,0X03,0X01,0X00,0X00,0X00,0X00,0X00,0X04,0XF1};
-    NSData *data = [NSData dataWithBytes:&b length:sizeof(b)];
-    [self.peripheral writeValue:data forCharacteristic:self.characteristic_write type:CBCharacteristicWriteWithResponse];
+    NSData *datas = [NSData dataWithBytes:&b length:sizeof(b)];
+    [self.peripheral writeValue:datas forCharacteristic:self.characteristic_write type:CBCharacteristicWriteWithResponse];
     
 }
-
-
 
 //Mac地址解析
 - (NSString *)convertToNSStringWithNSData:(NSData *)data {
@@ -249,18 +201,4 @@
     return strTemp;
 }
 
-- (NSString*)hexadecimalString:(NSData *)data{
-    NSString* result;
-    const unsigned char* dataBuffer = (const unsigned char*)[data bytes];
-    if(!dataBuffer){
-        return nil;
-    }
-    NSUInteger dataLength = [data length];
-    NSMutableString* hexString = [NSMutableString stringWithCapacity:(dataLength * 2)];
-    for(int i = 0; i < dataLength; i++){
-        [hexString appendString:[NSString stringWithFormat:@"%02lx", (unsigned long)dataBuffer[i]]];
-    }
-    result = [NSString stringWithString:hexString];
-    return result;
-}
 @end
