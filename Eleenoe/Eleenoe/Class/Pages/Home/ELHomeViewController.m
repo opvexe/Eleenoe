@@ -100,7 +100,17 @@
 //
 //                }];
 //                [self.analyzeView InitDataWithModel:self.model];
-                 
+                
+                [[ELBlueToothManager shareInstance] connectPeripheralWithStateCallback:^(ELResultType connectState) {
+                    
+                } examBLECallback:^(ELBleLocalState localState) {
+                    
+                }];
+                
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [[ELBlueToothManager shareInstance] send:nil];
+                });
                 break;
             }
             case MyofascialBottomActionTypeBluetooth:{

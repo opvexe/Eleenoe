@@ -38,7 +38,8 @@
 -(void)connectPeripheral{
     [self stopScan];
     self.queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
-    self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:self.queue];
+    NSDictionary *dic  = @{CBCentralManagerOptionShowPowerAlertKey:[NSNumber numberWithBool:false]};
+    self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:self.queue options:dic];
 }
 
 - (void)stopScan{
@@ -77,7 +78,7 @@
             break;
         case CBCentralManagerStatePoweredOn: {
             NSLog(@">>>蓝牙已经成功开启，稍后……");
-            [self.centralManager scanForPeripheralsWithServices:nil options:nil];
+            [self.centralManager scanForPeripheralsWithServices:[NSArray arrayWithObject:[CBUUID UUIDWithString:BLE_ADDATESEVICE_UUID]] options:nil];
             break;
         }
         default:
@@ -103,7 +104,7 @@
 - (BOOL)hasServiceWithAdvertisementData:(NSDictionary *)advertisementData{
     NSArray *serviceUUIDs = [advertisementData valueForKey:@"kCBAdvDataServiceUUIDs"];
     if (serviceUUIDs && [serviceUUIDs isKindOfClass:[NSArray class]]){
-        CBUUID *uuid = [CBUUID UUIDWithString:BLE_SEVICEID_UUID];
+        CBUUID *uuid = [CBUUID UUIDWithString:BLE_ADDATESEVICE_UUID];
         if ([serviceUUIDs containsObject:uuid]){
             return YES;
         }
@@ -142,21 +143,24 @@
         NSLog(@">>>所有的服务: %@", service);
         [peripheral discoverCharacteristics:nil forService:service];
     }
-    
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     
     for (CBCharacteristic *characteristic in service.characteristics){
         NSLog(@">>>所有特征：%@", characteristic);
-        // 读取特征数据
-        [peripheral readValueForCharacteristic:self.characteristic];
-        // 订阅通知
-        [peripheral setNotifyValue:YES forCharacteristic:self.characteristic];
-        
-        if ([characteristic.UUID.UUIDString isEqualToString:BLE_WRITE]&&CBCharacteristicPropertyWrite){
+        if ([characteristic.UUID.UUIDString isEqualToString:BLE_NOTICE]) {
+            // 订阅通知
+            [peripheral setNotifyValue:YES forCharacteristic:characteristic];
+        }else if ([characteristic.UUID.UUIDString isEqualToString:BLE_WRITE]){
             
             self.characteristic = characteristic;
+        }else if ([characteristic.UUID.UUIDString isEqualToString:BLE_READ]){
+            // 读取特征数据
+            [peripheral readValueForCharacteristic:characteristic];
+        }else{
+            // 读取特征数据
+            [peripheral readValueForCharacteristic:characteristic];
         }
     }
 }
@@ -170,10 +174,11 @@
     }
 }
 
-
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
     
-    NSLog(@">>>外设发送过来的数据: %@ %@",characteristic.UUID.UUIDString,characteristic.value);
+    if ([characteristic.UUID.UUIDString isEqualToString:BLE_NOTICE]) {  //FFF1
+        NSLog(@">>>外设发送过来的数据: %@ %@",characteristic.UUID.UUIDString,characteristic.value);
+    }
 }
 
 -(void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error{
@@ -185,20 +190,18 @@
 }
 
 - (void)send:(NSData *)data{
+    if (self.characteristic==nil) {
+        return ;
+    }
+    if (self.centralManager==nil) {
+        return ;
+    }
+    if (!data.length) {
+        return ;
+    }
     Byte b[] = {0XF0,0X03,0X01,0X00,0X00,0X00,0X00,0X00,0X04,0XF1};
     NSData *datas = [NSData dataWithBytes:&b length:sizeof(b)];
-    [self.peripheral writeValue:datas forCharacteristic:self.characteristic type:CBCharacteristicWriteWithoutResponse];
-    
-}
-
-//Mac地址解析
-- (NSString *)convertToNSStringWithNSData:(NSData *)data {
-    NSMutableString *strTemp = [NSMutableString stringWithCapacity:[data length]*2];
-    const unsigned char *szBuffer = [data bytes];
-    for (NSInteger i=0; i < [data length]; ++i) {
-        [strTemp appendFormat:@"%02lx",(unsigned long)szBuffer[i]];
-    }
-    return strTemp;
+    [self.peripheral writeValue:datas forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
 }
 
 @end

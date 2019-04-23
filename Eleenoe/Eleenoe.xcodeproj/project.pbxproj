@@ -1406,7 +1406,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Eleenoe.move;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = dev_Eleenoe;
+				PROVISIONING_PROFILE_SPECIFIER = dev_iPerMove;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
