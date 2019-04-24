@@ -64,6 +64,19 @@ typedef void (^ELExameBluetoothStateBlock)(ELBleLocalState localState);
 - (void)stopScan;
 - (void)sendCommand;
 
+/*
+ *  返回数据 <f0000100 09015200 5df1>
+ 
+ f0起始位，
+ 00表明正常运行状态，
+ 01表明自动程序1（为0表示未运行），
+ 00表示按摩部位，
+ 09表示时间，
+ 01表示强度（强度为0表示未运行）
+ 52是电池容量百分比，
+ 00是与皮肤接触度，
+ 5d为检验码
+ */
 @end
 
 NS_ASSUME_NONNULL_END

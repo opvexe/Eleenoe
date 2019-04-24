@@ -566,17 +566,17 @@ NSString *cacheSizeStr(NSInteger _totalSize){
         decimal = decimal / 16;
         switch (number) {
             case 10:
-                letter =@"a"; break;
+                letter =@"A"; break;
             case 11:
-                letter =@"b"; break;
+                letter =@"B"; break;
             case 12:
-                letter =@"c"; break;
+                letter =@"C"; break;
             case 13:
-                letter =@"d"; break;
+                letter =@"D"; break;
             case 14:
-                letter =@"e"; break;
+                letter =@"E"; break;
             case 15:
-                letter =@"f"; break;
+                letter =@"F"; break;
             default:
                 letter = [NSString stringWithFormat:@"%ld", (long)number];
         }

@@ -86,7 +86,7 @@
 }
 
 
--(NSData *)hex2data:(NSString *)hex
++(NSData *)hex2data:(NSString *)hex
 {
     NSMutableData *data = [NSMutableData dataWithCapacity:hex.length / 2];
     unsigned char whole_byte;
