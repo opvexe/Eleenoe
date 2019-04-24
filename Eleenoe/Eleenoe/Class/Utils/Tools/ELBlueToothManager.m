@@ -23,9 +23,26 @@
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         instance = [[[self class] alloc] init];
-        
     });
     return instance;
+}
+
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        _operations = [NSMutableArray arrayWithCapacity:10];
+        [_operations addObjectsFromArray:@[Ble_F0,
+                                           Ble_03,
+                                           BleParamp01_00,
+                                           BleParamp02_00,
+                                           BleParamp03_00,
+                                           BleParamp045_00,
+                                           BleParamp06_00,
+                                           BleParamp078_00,
+                                           @"0x03",
+                                           Ble_F1]];
+    }
+    return self;
 }
 
 - (void)connectPeripheralWithStateCallback:(ELConnectPeripheralStateBlock)connectStateCallback
@@ -78,7 +95,7 @@
             break;
         case CBCentralManagerStatePoweredOn: {
             NSLog(@">>>蓝牙已经成功开启，稍后……");
-            [self.centralManager scanForPeripheralsWithServices:[NSArray arrayWithObject:[CBUUID UUIDWithString:BLE_ADDATESEVICE_UUID]] options:nil];
+            [self.centralManager scanForPeripheralsWithServices:nil options:nil];
             break;
         }
         default:
@@ -149,6 +166,8 @@
     
     for (CBCharacteristic *characteristic in service.characteristics){
         NSLog(@">>>所有特征：%@", characteristic);
+        [peripheral discoverDescriptorsForCharacteristic:characteristic];
+        
         if ([characteristic.UUID.UUIDString isEqualToString:BLE_NOTICE]) {
             // 订阅通知
             [peripheral setNotifyValue:YES forCharacteristic:characteristic];
@@ -176,7 +195,7 @@
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
     
-    if ([characteristic.UUID.UUIDString isEqualToString:BLE_NOTICE]) {  //FFF1
+    if ([characteristic.UUID.UUIDString isEqualToString:BLE_NOTICE]) {
         NSLog(@">>>外设发送过来的数据: %@ %@",characteristic.UUID.UUIDString,characteristic.value);
     }
 }
@@ -189,19 +208,60 @@
     }
 }
 
-- (void)send:(NSData *)data{
+- (void)sendCommand{
     if (self.characteristic==nil) {
         return ;
     }
     if (self.centralManager==nil) {
         return ;
     }
-    if (!data.length) {
+    if (!self.operations.count||self.operations.count!=10) {
         return ;
     }
-    Byte b[] = {0XF0,0X03,0X01,0X00,0X00,0X00,0X00,0X00,0X04,0XF1};
-    NSData *datas = [NSData dataWithBytes:&b length:sizeof(b)];
-    [self.peripheral writeValue:datas forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+
+    NSMutableData *datas= [[NSMutableData alloc] init];
+    for (int i = 0; i<self.operations.count; i++) {
+        [datas appendData:[self convertHexStrToData:self.operations[i]]];
+    }
+    
+    switch (self.characteristic.properties & 0x04) {
+        case CBCharacteristicPropertyWriteWithoutResponse:{
+            [self.peripheral writeValue:datas forCharacteristic:self.characteristic type:CBCharacteristicWriteWithoutResponse];
+            break;
+        }
+        default:{
+            [self.peripheral writeValue:datas forCharacteristic:self.characteristic type:CBCharacteristicWriteWithResponse];
+            break;
+        }
+    }
+}
+
+- (NSMutableData *)convertHexStrToData:(NSString *)str{
+    if (!str || [str length] == 0||str.length<=2) {
+        return nil;
+    }
+    
+    NSMutableData *hexData = [[NSMutableData alloc] initWithCapacity:8];
+    NSRange range;
+    if ([str length] %4 == 0) {
+        range = NSMakeRange(2,2);
+    } else {
+        range = NSMakeRange(2,1);
+    }
+    for (NSInteger i = range.location; i < [str length]; i += 2) {
+        unsigned int anInt;
+        NSString *hexCharStr = [str substringWithRange:range];
+        NSScanner *scanner = [[NSScanner alloc] initWithString:hexCharStr];
+        
+        [scanner scanHexInt:&anInt];
+        NSData *entity = [[NSData alloc] initWithBytes:&anInt length:1];
+        [hexData appendData:entity];
+        
+        range.location += range.length;
+        range.length = 2;
+    }
+    
+    return hexData;
 }
 
 @end

@@ -281,4 +281,13 @@ NSString *cacheSizeStr(NSInteger _totalSize);
  @return 数据字典
  */
 +(NSDictionary *)readJson2DicWithFileName:(NSString *)fileName;
+
+/**
+ 异或运算 0x80&0x7f 结果0x00
+ 
+ @param pan 字符串1
+ @param pinv 字符串2
+ @return 返回异或结果
+ */
+- (NSString *)pinxCreator:(NSString *)pan withPinv:(NSString *)pinv;
 @end

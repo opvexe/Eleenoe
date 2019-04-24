@@ -85,6 +85,7 @@
 		D0EC4B3B2238D38000B5A74D /* ELGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B3A2238D38000B5A74D /* ELGuideViewController.m */; };
 		D0EC4B3E2238D3F700B5A74D /* ELGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B3D2238D3F700B5A74D /* ELGuideView.m */; };
 		D0EC4B4822390BD300B5A74D /* ELTools+ELAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B4722390BD300B5A74D /* ELTools+ELAuthorization.m */; };
+		D0F3ED5E226FF8CE00408E0D /* ELTools+Ble.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F3ED5D226FF8CE00408E0D /* ELTools+Ble.m */; };
 		D0F52AFA2237869D00A26504 /* ELAPIConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52AF92237869D00A26504 /* ELAPIConstant.m */; };
 		D0F52B03223788D400A26504 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52B00223788D400A26504 /* Foundation+Log.m */; };
 		D0F52B04223788D500A26504 /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52B02223788D400A26504 /* NSString+Category.m */; };
@@ -278,6 +279,8 @@
 		D0EC4B452238F33200B5A74D /* ELBaseCollectionViewCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBaseCollectionViewCellProtocol.h; sourceTree = "<group>"; };
 		D0EC4B4622390BD300B5A74D /* ELTools+ELAuthorization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ELTools+ELAuthorization.h"; sourceTree = "<group>"; };
 		D0EC4B4722390BD300B5A74D /* ELTools+ELAuthorization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ELTools+ELAuthorization.m"; sourceTree = "<group>"; };
+		D0F3ED5C226FF8CE00408E0D /* ELTools+Ble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ELTools+Ble.h"; sourceTree = "<group>"; };
+		D0F3ED5D226FF8CE00408E0D /* ELTools+Ble.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ELTools+Ble.m"; sourceTree = "<group>"; };
 		D0F52AF4223781D600A26504 /* ELCommonDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCommonDefines.h; sourceTree = "<group>"; };
 		D0F52AF5223781F500A26504 /* ELFilesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELFilesManager.h; sourceTree = "<group>"; };
 		D0F52AF62237822000A26504 /* ELColorDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELColorDefines.h; sourceTree = "<group>"; };
@@ -713,6 +716,8 @@
 				D0EC4B2E2238AF3A00B5A74D /* ELTools.m */,
 				D0EC4B4622390BD300B5A74D /* ELTools+ELAuthorization.h */,
 				D0EC4B4722390BD300B5A74D /* ELTools+ELAuthorization.m */,
+				D0F3ED5C226FF8CE00408E0D /* ELTools+Ble.h */,
+				D0F3ED5D226FF8CE00408E0D /* ELTools+Ble.m */,
 				D0EC1EF3223B7C030059BA1C /* ELBlueToothManager.h */,
 				D0EC1EF4223B7C030059BA1C /* ELBlueToothManager.m */,
 				D0180BD62244C7D2008C06C1 /* SCREENAdaptationTool.h */,
@@ -1231,6 +1236,7 @@
 				D0F52B422237921300A26504 /* ELLoginViewController.m in Sources */,
 				D0D7BFD92266CAA800DE21E6 /* ELMyofascialContentModel.m in Sources */,
 				D0EC4B3E2238D3F700B5A74D /* ELGuideView.m in Sources */,
+				D0F3ED5E226FF8CE00408E0D /* ELTools+Ble.m in Sources */,
 				D093EB012253C0C900215901 /* ELCollectionViewFlowLayout.m in Sources */,
 				18B4B3AF224FB92800EA9404 /* ELBaseTableView.m in Sources */,
 				D0A0DC382250DCD3000F9048 /* ELMarqueLabel.m in Sources */,
@@ -1395,8 +1401,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = CMH4BADJQ6;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NJC3EGBWR;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Eleenoe/Class/Resources/EleenoePrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Eleenoe/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1404,9 +1410,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Eleenoe.move;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Eleenoe.cn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = dev_iPerMove;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1418,8 +1424,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = CMH4BADJQ6;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NJC3EGBWR;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Eleenoe/Class/Resources/EleenoePrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Eleenoe/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1427,9 +1433,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Eleenoe.move;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Eleenoe.cn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = dev_iPerMove;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

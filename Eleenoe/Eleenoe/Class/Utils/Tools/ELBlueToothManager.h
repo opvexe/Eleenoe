@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-#define  BLE_Suffix             @"HJ"   //过滤设备前缀 (HJ_580XP_EE)
+#define  BLE_Suffix             @"HJ"   //过滤设备前缀 (HJ_580XP_EE)   后期 iPerMove  试试180A
 #define  BLE_ADDATESEVICE_UUID  @"6958" //kCBAdvDataServiceUUIDs
 #define  BLE_SEVICEID_UUID      @"FFF0" //特征服务的UUID
 #define  BLE_NOTICE             @"FFF1" //通知特性
@@ -37,6 +37,20 @@ typedef void (^ELExameBluetoothStateBlock)(ELBleLocalState localState);
 
 @interface ELBlueToothManager : NSObject
 
+/*
+ * [0] 开始命令
+ * [1] 通讯命令
+ * [2] 模式选择
+ * [3] 强度
+ * [4] 部位
+ * [5-6] 预留，不解析
+ * [7] 时间
+ * [8-9] 预留，不解析
+ * [10] 校验位
+ * [11] 结束位
+ */
+@property(nonatomic,strong)NSMutableArray *operations;
+
 + (instancetype)shareInstance;
 
 - (void)connectPeripheralWithStateCallback:(ELConnectPeripheralStateBlock)connectStateCallback
@@ -44,7 +58,7 @@ typedef void (^ELExameBluetoothStateBlock)(ELBleLocalState localState);
 
 - (void)reScanPeripheral;
 - (void)stopScan;
-- (void)send:(NSData *)data;
+- (void)sendCommand;
 
 @end
 
