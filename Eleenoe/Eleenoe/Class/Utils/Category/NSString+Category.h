@@ -289,5 +289,27 @@ NSString *cacheSizeStr(NSInteger _totalSize);
  @param pinv 字符串2
  @return 返回异或结果
  */
-- (NSString *)pinxCreator:(NSString *)pan withPinv:(NSString *)pinv;
++ (NSString *)pinxCreator:(NSString *)pan withPinv:(NSString *)pinv;
+
+/**
+ 16进制转10进制
+ 
+ @param sixteenStr 16进制字符串
+ @return 10进制字符串
+ */
++(NSString *)sixteenChangeTenString:(NSString *)sixteenStr;
+/**
+ 10进制转16进制
+ 
+ @param decimal 10进制数字
+ @return 16进制字符串
+ */
++ (NSString *)hexStringFromString:(NSInteger)decimal;
+/**
+ NSData转16进制NSString
+ 
+ @param data data数据
+ @return string数据
+ */
++(NSString *)fzHexStringFromData:(NSData *)data;
 @end

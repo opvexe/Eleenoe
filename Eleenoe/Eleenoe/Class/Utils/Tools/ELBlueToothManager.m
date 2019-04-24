@@ -7,6 +7,7 @@
 //
 
 #import "ELBlueToothManager.h"
+#import "ELTools+EzlString.h"
 @interface ELBlueToothManager ()<CBCentralManagerDelegate, CBPeripheralDelegate>
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) CBPeripheral *peripheral;
@@ -196,6 +197,7 @@
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
     
     if ([characteristic.UUID.UUIDString isEqualToString:BLE_NOTICE]) {
+        NSString *result = [[NSString alloc] initWithData:[ELTools dataTransfromBigOrSmall:characteristic.value]  encoding:NSUTF8StringEncoding];
         NSLog(@">>>外设发送过来的数据: %@ %@",characteristic.UUID.UUIDString,characteristic.value);
     }
 }
@@ -218,10 +220,10 @@
     if (!self.operations.count||self.operations.count!=10) {
         return ;
     }
-
+    
     NSMutableData *datas= [[NSMutableData alloc] init];
     for (int i = 0; i<self.operations.count; i++) {
-        [datas appendData:[self convertHexStrToData:self.operations[i]]];
+        [datas appendData:[ELTools convertHexStrToData:self.operations[i]]];
     }
     
     switch (self.characteristic.properties & 0x04) {
@@ -236,32 +238,18 @@
     }
 }
 
-- (NSMutableData *)convertHexStrToData:(NSString *)str{
-    if (!str || [str length] == 0||str.length<=2) {
+
+-(NSString *)exclusive{
+    if (!self.operations.count||self.operations.count!=10) {
         return nil;
     }
-    
-    NSMutableData *hexData = [[NSMutableData alloc] initWithCapacity:8];
-    NSRange range;
-    if ([str length] %4 == 0) {
-        range = NSMakeRange(2,2);
-    } else {
-        range = NSMakeRange(2,1);
+    NSInteger sum =  0 ;
+    for (int i = 1; i<self.operations.count-2; i++) {
+        NSInteger count = [[NSString sixteenChangeTenString:self.operations[i]] integerValue];
+        sum +=count;
     }
-    for (NSInteger i = range.location; i < [str length]; i += 2) {
-        unsigned int anInt;
-        NSString *hexCharStr = [str substringWithRange:range];
-        NSScanner *scanner = [[NSScanner alloc] initWithString:hexCharStr];
-        
-        [scanner scanHexInt:&anInt];
-        NSData *entity = [[NSData alloc] initWithBytes:&anInt length:1];
-        [hexData appendData:entity];
-        
-        range.location += range.length;
-        range.length = 2;
-    }
-    
-    return hexData;
+    NSString *pin = [NSString pinxCreator:[NSString hexStringFromString:sum] withPinv:@"7F"];
+    return [NSString stringWithFormat:@"0x%@",pin];
 }
 
 @end

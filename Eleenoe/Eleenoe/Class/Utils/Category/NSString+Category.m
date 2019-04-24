@@ -523,7 +523,7 @@ NSString *cacheSizeStr(NSInteger _totalSize){
     return dic;
 }
 
-- (NSString *)pinxCreator:(NSString *)pan withPinv:(NSString *)pinv
++ (NSString *)pinxCreator:(NSString *)pan withPinv:(NSString *)pinv
 {
     if (pan.length != pinv.length)
     {
@@ -541,7 +541,7 @@ NSString *cacheSizeStr(NSInteger _totalSize){
     }
     return temp;
 }
-- (int)charToint:(char)tempChar
++ (int)charToint:(char)tempChar
 {
     if (tempChar >= '0' && tempChar <='9') {
         return tempChar - '0';
@@ -550,5 +550,63 @@ NSString *cacheSizeStr(NSInteger _totalSize){
     }
     return 0;
 }
+
++(NSString *)sixteenChangeTenString:(NSString *)sixteenStr{
+    NSString * temp10 = [NSString stringWithFormat:@"%lu",strtoul([sixteenStr UTF8String],0,16)];
+    return temp10;
+}
+
++ (NSString *)hexStringFromString:(NSInteger)decimal
+{
+    NSString *hex =@"";
+    NSString *letter;
+    NSInteger number;
+    for (int i = 0; i<9; i++) {
+        number = decimal % 16;
+        decimal = decimal / 16;
+        switch (number) {
+            case 10:
+                letter =@"a"; break;
+            case 11:
+                letter =@"b"; break;
+            case 12:
+                letter =@"c"; break;
+            case 13:
+                letter =@"d"; break;
+            case 14:
+                letter =@"e"; break;
+            case 15:
+                letter =@"f"; break;
+            default:
+                letter = [NSString stringWithFormat:@"%ld", (long)number];
+        }
+        hex = [letter stringByAppendingString:hex];
+        if (decimal == 0) {
+            
+            break;
+        }
+    }
+    if (hex.length == 1) {
+        hex = [NSString stringWithFormat:@"0%@",hex];
+    }
+    return hex;
+}
+
++ (NSString *)fzHexStringFromData:(NSData *)data
+{
+    Byte *bytes = (Byte *)[data bytes];
+    //下面是Byte 转换为16进制
+    NSString *hexStr=@"";
+    for(int i=0;i<[data length];i++){
+        NSString *newHexStr = [NSString stringWithFormat:@"%x",bytes[i]&0xff];///16进制数
+        if([newHexStr length]==1){
+            hexStr = [NSString stringWithFormat:@"%@0%@",hexStr,newHexStr];
+        }else{
+            hexStr = [NSString stringWithFormat:@"%@%@",hexStr,newHexStr];
+        }
+    }
+    return hexStr;
+}
+
 
 @end

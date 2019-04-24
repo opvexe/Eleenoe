@@ -37,7 +37,7 @@ typedef void (^ELExameBluetoothStateBlock)(ELBleLocalState localState);
 
 @interface ELBlueToothManager : NSObject
 
-/*
+/* 
  * [0] 开始命令
  * [1] 通讯命令
  * [2] 模式选择
@@ -50,6 +50,10 @@ typedef void (^ELExameBluetoothStateBlock)(ELBleLocalState localState);
  * [11] 结束位
  */
 @property(nonatomic,strong)NSMutableArray *operations;
+/*
+ * 异或运算 0x7F :9位验证码
+ */
+-(NSString *)exclusive;
 
 + (instancetype)shareInstance;
 

@@ -107,14 +107,6 @@
                     
                 }];
                 
-                NSLog(@"钱%@",[[ELBlueToothManager shareInstance] operations]);
-                [ELBlueToothManager shareInstance].operations[0] = @"0x00";
-                NSLog(@"后%@",[[ELBlueToothManager shareInstance] operations]);
-                
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [[ELBlueToothManager shareInstance] sendCommand];
-                });
-                
                 break;
             
             }

@@ -86,6 +86,7 @@
 		D0EC4B3E2238D3F700B5A74D /* ELGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B3D2238D3F700B5A74D /* ELGuideView.m */; };
 		D0EC4B4822390BD300B5A74D /* ELTools+ELAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B4722390BD300B5A74D /* ELTools+ELAuthorization.m */; };
 		D0F3ED5E226FF8CE00408E0D /* ELTools+Ble.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F3ED5D226FF8CE00408E0D /* ELTools+Ble.m */; };
+		D0F3EDA2227052FE00408E0D /* ELTools+EzlString.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F3EDA1227052FE00408E0D /* ELTools+EzlString.m */; };
 		D0F52AFA2237869D00A26504 /* ELAPIConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52AF92237869D00A26504 /* ELAPIConstant.m */; };
 		D0F52B03223788D400A26504 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52B00223788D400A26504 /* Foundation+Log.m */; };
 		D0F52B04223788D500A26504 /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52B02223788D400A26504 /* NSString+Category.m */; };
@@ -281,6 +282,8 @@
 		D0EC4B4722390BD300B5A74D /* ELTools+ELAuthorization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ELTools+ELAuthorization.m"; sourceTree = "<group>"; };
 		D0F3ED5C226FF8CE00408E0D /* ELTools+Ble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ELTools+Ble.h"; sourceTree = "<group>"; };
 		D0F3ED5D226FF8CE00408E0D /* ELTools+Ble.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ELTools+Ble.m"; sourceTree = "<group>"; };
+		D0F3EDA0227052FE00408E0D /* ELTools+EzlString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ELTools+EzlString.h"; sourceTree = "<group>"; };
+		D0F3EDA1227052FE00408E0D /* ELTools+EzlString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ELTools+EzlString.m"; sourceTree = "<group>"; };
 		D0F52AF4223781D600A26504 /* ELCommonDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCommonDefines.h; sourceTree = "<group>"; };
 		D0F52AF5223781F500A26504 /* ELFilesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELFilesManager.h; sourceTree = "<group>"; };
 		D0F52AF62237822000A26504 /* ELColorDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELColorDefines.h; sourceTree = "<group>"; };
@@ -718,6 +721,8 @@
 				D0EC4B4722390BD300B5A74D /* ELTools+ELAuthorization.m */,
 				D0F3ED5C226FF8CE00408E0D /* ELTools+Ble.h */,
 				D0F3ED5D226FF8CE00408E0D /* ELTools+Ble.m */,
+				D0F3EDA0227052FE00408E0D /* ELTools+EzlString.h */,
+				D0F3EDA1227052FE00408E0D /* ELTools+EzlString.m */,
 				D0EC1EF3223B7C030059BA1C /* ELBlueToothManager.h */,
 				D0EC1EF4223B7C030059BA1C /* ELBlueToothManager.m */,
 				D0180BD62244C7D2008C06C1 /* SCREENAdaptationTool.h */,
@@ -1237,6 +1242,7 @@
 				D0D7BFD92266CAA800DE21E6 /* ELMyofascialContentModel.m in Sources */,
 				D0EC4B3E2238D3F700B5A74D /* ELGuideView.m in Sources */,
 				D0F3ED5E226FF8CE00408E0D /* ELTools+Ble.m in Sources */,
+				D0F3EDA2227052FE00408E0D /* ELTools+EzlString.m in Sources */,
 				D093EB012253C0C900215901 /* ELCollectionViewFlowLayout.m in Sources */,
 				18B4B3AF224FB92800EA9404 /* ELBaseTableView.m in Sources */,
 				D0A0DC382250DCD3000F9048 /* ELMarqueLabel.m in Sources */,
