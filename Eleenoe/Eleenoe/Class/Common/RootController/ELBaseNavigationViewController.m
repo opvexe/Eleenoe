@@ -18,15 +18,22 @@
     UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
     UIImage *backgroundImage = nil;
     NSDictionary *textAttributes = nil;
+    
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,[UIFont systemFontOfSize:16],NSFontAttributeName, nil]];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:UIColorFromRGB(0x909090)];
+    
+    [navigationBarAppearance setBackIndicatorImage:[UIImage imageNamed:@"navigBarHidden_back"]];
+    [navigationBarAppearance setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"navigBarHidden_back"]];
+    
     [navigationBarAppearance setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [navigationBarAppearance setShadowImage:[UIImage new]];
+    
     if (@available(iOS 11.0, *)) {
         [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-2.0, -0.4) forBarMetrics:UIBarMetricsDefault];
     } else {
         [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -2) forBarMetrics:UIBarMetricsDefault];
     }
+    
     if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
         backgroundImage = [UIImage imageWithColor:UIColorFromRGB(0xffffff)];
         

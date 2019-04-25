@@ -66,7 +66,7 @@
 - (UIBarButtonItem *)backBarButtonWithTitle:(NSString *)title target:(id)target action:(SEL)action {
     UIButton *colorView = [UIButton buttonWithType:UIButtonTypeCustom];
     [colorView setFrame:CGRectMake(0, 0, 64, 44)];
-    UIImageView *image_view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigationbar_icon_back"]];
+    UIImageView *image_view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navigBarHidden_back"]];
     [colorView addSubview:image_view];
     [image_view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(colorView);
