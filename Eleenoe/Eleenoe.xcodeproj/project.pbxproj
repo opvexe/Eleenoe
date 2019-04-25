@@ -66,9 +66,9 @@
 		D0A0DBA7225039A1000F9048 /* ELMineListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DBA6225039A1000F9048 /* ELMineListView.m */; };
 		D0A0DBAA22503E37000F9048 /* ELShopListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DBA922503E37000F9048 /* ELShopListView.m */; };
 		D0A0DC352250B618000F9048 /* ELTriggerAnalyzeFloatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DC342250B618000F9048 /* ELTriggerAnalyzeFloatingView.m */; };
-		D0A0DC382250DCD3000F9048 /* ELMarqueLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DC372250DCD3000F9048 /* ELMarqueLabel.m */; };
 		D0A0DC3A2251AF6A000F9048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A0DC392251AF6A000F9048 /* Assets.xcassets */; };
 		D0A0DC4322520587000F9048 /* ELBatteryView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A0DC4222520587000F9048 /* ELBatteryView.m */; };
+		D0C180D62271D8AE00D83FAC /* ELHorseRaceLamp.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C180D52271D8AE00D83FAC /* ELHorseRaceLamp.m */; };
 		D0D7BFD92266CAA800DE21E6 /* ELMyofascialContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D7BFD82266CAA800DE21E6 /* ELMyofascialContentModel.m */; };
 		D0DC66FB22393B700064C07A /* ELBusinessNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FA22393B700064C07A /* ELBusinessNetworkTool.m */; };
 		D0DC66FE22393B990064C07A /* ELNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DC66FD22393B990064C07A /* ELNetworkCache.m */; };
@@ -241,11 +241,11 @@
 		D0A0DBA922503E37000F9048 /* ELShopListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELShopListView.m; sourceTree = "<group>"; };
 		D0A0DC332250B618000F9048 /* ELTriggerAnalyzeFloatingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTriggerAnalyzeFloatingView.h; sourceTree = "<group>"; };
 		D0A0DC342250B618000F9048 /* ELTriggerAnalyzeFloatingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTriggerAnalyzeFloatingView.m; sourceTree = "<group>"; };
-		D0A0DC362250DCD3000F9048 /* ELMarqueLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMarqueLabel.h; sourceTree = "<group>"; };
-		D0A0DC372250DCD3000F9048 /* ELMarqueLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMarqueLabel.m; sourceTree = "<group>"; };
 		D0A0DC392251AF6A000F9048 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0A0DC4122520587000F9048 /* ELBatteryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBatteryView.h; sourceTree = "<group>"; };
 		D0A0DC4222520587000F9048 /* ELBatteryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELBatteryView.m; sourceTree = "<group>"; };
+		D0C180D42271D8AE00D83FAC /* ELHorseRaceLamp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELHorseRaceLamp.h; sourceTree = "<group>"; };
+		D0C180D52271D8AE00D83FAC /* ELHorseRaceLamp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELHorseRaceLamp.m; sourceTree = "<group>"; };
 		D0D7BFD72266CAA800DE21E6 /* ELMyofascialContentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMyofascialContentModel.h; sourceTree = "<group>"; };
 		D0D7BFD82266CAA800DE21E6 /* ELMyofascialContentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELMyofascialContentModel.m; sourceTree = "<group>"; };
 		D0DC66F922393B700064C07A /* ELBusinessNetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBusinessNetworkTool.h; sourceTree = "<group>"; };
@@ -361,8 +361,8 @@
 				00034EC1224E42FA00CE83AB /* ELBluetoothConnectionFloatingView.m */,
 				D0A0DC332250B618000F9048 /* ELTriggerAnalyzeFloatingView.h */,
 				D0A0DC342250B618000F9048 /* ELTriggerAnalyzeFloatingView.m */,
-				D0A0DC362250DCD3000F9048 /* ELMarqueLabel.h */,
-				D0A0DC372250DCD3000F9048 /* ELMarqueLabel.m */,
+				D0C180D42271D8AE00D83FAC /* ELHorseRaceLamp.h */,
+				D0C180D52271D8AE00D83FAC /* ELHorseRaceLamp.m */,
 			);
 			path = ToolViews;
 			sourceTree = "<group>";
@@ -1219,6 +1219,7 @@
 				D0F52B04223788D500A26504 /* NSString+Category.m in Sources */,
 				18B4B3CC2252699000EA9404 /* ELSearchListView.m in Sources */,
 				D0F52B2D22378BA000A26504 /* ELTabBarControllerConfig.m in Sources */,
+				D0C180D62271D8AE00D83FAC /* ELHorseRaceLamp.m in Sources */,
 				18B4B3BF225265CA00EA9404 /* ELSearchTableViewCell.m in Sources */,
 				D0DC670122393BAA0064C07A /* ELNetworkHelper.m in Sources */,
 				D0F52B1F22378A5800A26504 /* ELBaseView.m in Sources */,
@@ -1245,7 +1246,6 @@
 				D0F3EDA2227052FE00408E0D /* ELTools+EzlString.m in Sources */,
 				D093EB012253C0C900215901 /* ELCollectionViewFlowLayout.m in Sources */,
 				18B4B3AF224FB92800EA9404 /* ELBaseTableView.m in Sources */,
-				D0A0DC382250DCD3000F9048 /* ELMarqueLabel.m in Sources */,
 				18B4B3A9224F7DA900EA9404 /* ELMyofascialBottomView.m in Sources */,
 				D077108D224E1D2200D0B993 /* ELShopModel.m in Sources */,
 				18B4B3C82252668500EA9404 /* SLTagView.m in Sources */,

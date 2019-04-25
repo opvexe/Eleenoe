@@ -9,12 +9,12 @@
 #import "ELMyofascialContentView.h"
 #import "ELMyofascialPickView.h"
 #import "ELMyofascialContentModel.h"
-#import "ELMarqueLabel.h"
+#import "ELHorseRaceLamp.h"
 @interface ELMyofascialContentView()
 @property(nonatomic,strong)UIImageView *contentImageView;
 @property(nonatomic,strong) ELMyofascialPickView *bodyListView;
 @property(nonatomic,strong) ELMyofascialPickView *rankListView;
-@property(nonatomic,strong) ELMarqueLabel *marqueLabel;
+@property(nonatomic,strong) ELHorseRaceLamp *marqueLabel;
 @property(nonatomic,strong) ELMyofascialContentModel *model;
 @property(nonatomic,assign)NSInteger atIndex;
 @end
@@ -23,7 +23,10 @@
 -(void)ELSinitConfingViews{
     
     _marqueLabel = ({
-        ELMarqueLabel *iv = [[ELMarqueLabel alloc]initWithFrame:CGRectZero font:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12)] textColor:MainThemColor];
+        ELHorseRaceLamp *iv = [[ELHorseRaceLamp alloc]init];
+        iv.textColor = MainThemColor;
+        iv.textFont = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(12)];
+        [iv updateTextAlignmentLeft];
         iv.backgroundColor = MainLightThemColor;
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -110,13 +113,13 @@
             [self.bodyListView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.width.mas_equalTo(kSAdap(70));
             }];
-                break;
+            break;
         }
         case MyofascialContentTypePains:{
             [self.bodyListView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.width.mas_equalTo(kSAdap(60));
             }];
-                break;
+            break;
         }
         case MyofascialContentTypeDamage:{
             [self.bodyListView mas_updateConstraints:^(MASConstraintMaker *make) {
