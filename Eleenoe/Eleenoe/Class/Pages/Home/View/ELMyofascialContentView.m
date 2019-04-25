@@ -79,10 +79,9 @@
     self.bodyListView.MyofascialPickBlock = ^(ELMyofascialPickView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {
         @strongify(self);
         self.contentImageView.image = ELImageNamed(model.selectedImageName);
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        [dic setObject:model forKey:AnalyzeUserInfoNotificationCenter];
-        NSLog(@"通知传值图片：=== %@",model.selectedImageName);
-        [ELNotificationCenter postNotificationName:TriggerAnalyzeNotificationCenter object:nil userInfo:dic];
+        NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+        [userInfo setValue:model forKey:AnalyzeUserInfoKey];
+        [ELNotificationCenter postNotificationName:TriggerAnalyzeNotificationCenter object:nil userInfo:userInfo];
     };
     
     self.rankListView.MyofascialPickBlock = ^(ELMyofascialPickView * _Nonnull pickview, NSInteger index, ELMyofascialContentListModel * _Nonnull model) {

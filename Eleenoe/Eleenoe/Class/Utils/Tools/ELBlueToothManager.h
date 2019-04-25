@@ -53,7 +53,7 @@ typedef void (^ELExameBluetoothStateBlock)(ELBleLocalState localState);
 /*
  * 异或运算 0x7F :9位验证码
  */
--(NSString *)exclusive;
+-(void)exclusive;
 
 + (instancetype)shareInstance;
 

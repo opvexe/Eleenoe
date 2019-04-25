@@ -31,7 +31,7 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
-        _operations = [NSMutableArray arrayWithCapacity:10];
+        _operations = [NSMutableArray arrayWithCapacity:10]; //初始化
         [_operations addObjectsFromArray:@[Ble_F0,
                                            Ble_03,
                                            BleParamp01_00,
@@ -198,6 +198,11 @@
     
     if ([characteristic.UUID.UUIDString isEqualToString:BLE_NOTICE]) {
         NSString *result = [[NSString alloc] initWithData:[ELTools dataTransfromBigOrSmall:characteristic.value]  encoding:NSUTF8StringEncoding];
+        if (result.length) {
+            NSMutableDictionary *message = [NSMutableDictionary dictionary];
+            [message setValue:result forKey:BlueToothMessageKey];
+            [ELNotificationCenter postNotificationName:BlueToothMessageNotificationCenter object:nil userInfo:message];
+        }
         NSLog(@">>>外设发送过来的数据: %@ %@",characteristic.UUID.UUIDString,characteristic.value);
     }
 }
@@ -239,9 +244,9 @@
 }
 
 
--(NSString *)exclusive{
+-(void)exclusive{
     if (!self.operations.count||self.operations.count!=10) {
-        return nil;
+        return ;
     }
     NSInteger sum =  0 ;
     for (int i = 1; i<self.operations.count-2; i++) {
@@ -249,7 +254,7 @@
         sum +=count;
     }
     NSString *pin = [NSString pinxCreator:[NSString hexStringFromString:sum] withPinv:@"7F"];
-    return [NSString stringWithFormat:@"0x%@",pin];
+    _operations[8] =  [NSString stringWithFormat:@"0x%@",pin];
 }
 
 @end

@@ -125,7 +125,7 @@
 }
 
 -(void)Analyze:(NSNotification*)notification{
-    ELMyofascialContentModel *model = [notification.userInfo objectForKey:AnalyzeUserInfoNotificationCenter];
+    ELMyofascialContentModel *model = [notification.userInfo objectForKey:AnalyzeUserInfoKey];
     _model = model;
 }
 

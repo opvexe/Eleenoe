@@ -10,8 +10,10 @@
 
 @implementation ELAPIConstant
 
-NSString * const TriggerAnalyzeNotificationCenter  = @"com.triggerAnalyzeType.cn";
-NSString * const AnalyzeUserInfoNotificationCenter  = @"com.analyzeUserInfoModel.cn";
+NSString * const AnalyzeUserInfoKey  = @"com.analyzeUserInfoKey.cn";
+NSString * const TriggerAnalyzeNotificationCenter   = @"com.triggerAnalyzeNotificationCenter.cn";
+NSString * const BlueToothMessageKey = @"com.blueToothMessageKey.cn";
+NSString * const BlueToothMessageNotificationCenter = @"com.blueToothMessageNotificationCenter.cn";
 
 NSString *const HOST_API = @"";
 

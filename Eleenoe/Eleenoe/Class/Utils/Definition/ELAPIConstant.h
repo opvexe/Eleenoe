@@ -13,8 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ELAPIConstant : NSObject
 
 //通知
+FOUNDATION_EXTERN NSString * const AnalyzeUserInfoKey;
 FOUNDATION_EXTERN NSString * const TriggerAnalyzeNotificationCenter;
-FOUNDATION_EXTERN NSString * const AnalyzeUserInfoNotificationCenter;
+FOUNDATION_EXTERN NSString * const BlueToothMessageKey;
+FOUNDATION_EXTERN NSString * const BlueToothMessageNotificationCenter;
 
 //域名
 FOUNDATION_EXTERN NSString *const HOST_API ;
