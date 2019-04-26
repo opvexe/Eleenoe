@@ -13,7 +13,7 @@
 -(void)ELSinitConfingViews{
     
     UIView * lastView ;
-    for (NSInteger index = 0; index<5; index++) {
+    for (NSInteger index = 0; index<6; index++) {
         UIView *iv = [[UIView alloc]init];
         iv.backgroundColor = UIColorFromRGB(0xC3E282);
         [self addSubview:iv];
@@ -35,19 +35,21 @@
 -(void)setProgress:(float)progress{
     _progress = progress;
     NSInteger currentIndex = 5;
-    if (0<=progress<0.2) {
+    if (0<=progress<0.1) {
         currentIndex = 0;
-    }else if (0.2<=progress<=0.4){
+    }else if (0.1<=progress<0.2){
         currentIndex = 1;
-    }else if (0.4<=progress<=0.6){
+    }else if (0.2<=progress<0.4){
         currentIndex = 2;
-    }else if (0.6<=progress<=0.8){
+    }else if (0.4<=progress<0.6){
         currentIndex = 3;
-    }else if (0.8<=progress<=1.0){
+    }else if (0.6<=progress<0.8){
         currentIndex = 4;
+    }else if (0.8<=progress<=1.0){
+        currentIndex = 5;
     }
     
-    [self.lists enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.lists enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (currentIndex<=idx) {
             [obj setHidden:YES];
         }else{

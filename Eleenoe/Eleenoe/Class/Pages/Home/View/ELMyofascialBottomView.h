@@ -21,6 +21,9 @@ typedef void(^BottomBlock)(MyofascialBottomActionType type);
 
 @property(nonatomic,copy)BottomBlock complete;
 
+/** 更新蓝牙状态 图标 */
+-(void)updateBluetoothStatus:(BOOL)isOpen;
+
 @end
 
 NS_ASSUME_NONNULL_END

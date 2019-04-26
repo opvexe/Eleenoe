@@ -70,7 +70,7 @@ typedef void (^ELExameBluetoothStateBlock)(ELBleLocalState localState);
  f0起始位，
  00表明正常运行状态，
  01表明自动程序1（为0表示未运行），
- 00表示按摩部位，
+ 00表示按摩部位，didConnectPeripheral
  09表示时间，
  01表示强度（强度为0表示未运行）
  52是电池容量百分比，

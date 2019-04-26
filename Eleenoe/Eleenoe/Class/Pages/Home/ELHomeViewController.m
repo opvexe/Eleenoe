@@ -20,8 +20,6 @@
 @property(nonatomic,strong)ELMyofascialBottomView *bottomView;
 @property(nonatomic,strong)ELHomeListView *homelistView;
 @property(nonatomic,strong)ELHomeTitleListView *titleListView;
-@property(nonatomic,strong)ELTriggerAnalyzeFloatingView *analyzeView;
-@property(nonatomic,strong)ELBluetoothConnectionFloatingView *connectionView;
 @property(nonatomic,strong)ELMyofascialContentModel *model;
 @property(nonatomic,strong)NSMutableArray *homeLists;
 @end
@@ -96,14 +94,10 @@
                 break;
             }
             case MyofascialBottomActionTypeHandle:{
-                self.analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
+              ELTriggerAnalyzeFloatingView  *analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
                     
                 }];
-                [self.analyzeView InitDataWithModel:self.model];
-                
-                break;
-            }
-            case MyofascialBottomActionTypeBluetooth:{
+                [analyzeView InitDataWithModel:self.model];
                 
                 break;
             }
@@ -114,7 +108,7 @@
     
     
     [[ELBlueToothManager shareInstance] connectPeripheralWithStateCallback:^(ELResultType connectState) {
-        
+        @strongify(self);
         dispatch_async(dispatch_get_main_queue(), ^{
             
             ELBluetoothConnectionFloatingView *connectView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
@@ -125,22 +119,27 @@
             switch (connectState) {
                 case ELResultTypeLoading:{
                     [connectView updateStatus:ConnectionStatusTypeLoading];
+                    [self.bottomView updateBluetoothStatus:NO];
                     break;
                 }
                 case ELResultTypeFailed:{
                     [connectView updateStatus:ConnectionStatusTypeFailure];
+                    [self.bottomView updateBluetoothStatus:NO];
                     break;
                 }
                 case ELResultTypeSuccess:{
                     [connectView updateStatus:ConnectionStatusTypeSuccess];
+                    [self.bottomView updateBluetoothStatus:YES];
                 }
                     break;
                 case ELResultTypeTimeOut:{
                     [connectView updateStatus:ConnectionStatusTypeFailure];
+                    [self.bottomView updateBluetoothStatus:NO];
                     break;
                 }
                 default:
                     [connectView updateStatus:ConnectionStatusTypeNone];
+                    [self.bottomView updateBluetoothStatus:NO];
                     break;
             }
             

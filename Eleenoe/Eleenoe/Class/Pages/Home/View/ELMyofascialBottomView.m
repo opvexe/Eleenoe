@@ -96,7 +96,7 @@
         iv;
     });
     
-    self.batteryView.progress = 0.7;
+    self.batteryView.progress = 0.05;
     
     _titleLabel = ({
         UILabel *iv = [[UILabel alloc] init];
@@ -124,7 +124,7 @@
         iv.showsTouchWhenHighlighted = NO;
         iv.isExpandClick = YES;
         iv.tag = MyofascialBottomActionTypeBluetooth;
-//        [iv addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
+        //        [iv addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.MyofascialBottomImageView);
@@ -180,7 +180,7 @@
         iv;
     });
     [self.timeListView InitDataSouce:@[@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21"]];
-
+    
     _gearListView = ({
         ELMyofascialMenuScrolloView *iv = [[ELMyofascialMenuScrolloView alloc]init];
         [self.MyofascialBottomImageView addSubview:iv];
@@ -254,5 +254,9 @@
     self.complete(sender.tag);
 }
 
+
+-(void)updateBluetoothStatus:(BOOL)isOpen{
+    _bluetoothButton.selected = isOpen;
+}
 
 @end

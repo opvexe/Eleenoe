@@ -15,6 +15,7 @@
 @property (nonatomic, strong) dispatch_queue_t queue;
 @property (nonatomic, copy) ELConnectPeripheralStateBlock connectStateCallback;
 @property (nonatomic, copy) ELExameBluetoothStateBlock  stateBLECallback;
+@property (nonatomic, strong) NSTimer  *timer;
 @end
 
 @implementation ELBlueToothManager
@@ -115,6 +116,7 @@
             if (self.connectStateCallback) {
                 self.connectStateCallback(ELResultTypeLoading);
             }
+            
             break;
         }
         default:
@@ -125,6 +127,7 @@
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI {
+    
     BOOL hasSevice = [self hasServiceWithAdvertisementData:advertisementData];
     if (hasSevice/*&& [peripheral.name hasPrefix:BLE_Suffix]*/) {
         NSLog(@">>>当扫描到设备:%@", peripheral);
@@ -234,6 +237,7 @@
     }
 }
 
+
 - (void)sendCommand{
     if (self.characteristic==nil) {
         return ;
@@ -276,4 +280,11 @@
     _operations[8] =  [NSString stringWithFormat:@"0x%@",pin];
 }
 
+
+-(void)destroytimer{
+    if ([_timer isValid]) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+}
 @end
