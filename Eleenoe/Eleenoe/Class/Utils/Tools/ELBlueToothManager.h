@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, ELBleLocalState) {
 };
 
 typedef NS_ENUM(NSInteger, ELResultType) {
+    ELResultTypeDisconnected,//未连接
     ELResultTypeSuccess,     //成功
     ELResultTypeFailed,      //失败
     ELResultTypeTimeOut,     //超时

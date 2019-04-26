@@ -185,7 +185,7 @@
     
     _downloadButton = ({
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *icon = [UIImage imageNamed:@"home_download"];
+        UIImage *icon = [UIImage imageNamed:@"home_download_white"];
         [iv setImage:icon forState:UIControlStateNormal];
         [iv setImage:icon forState:UIControlStateSelected];
         [iv setImage:icon forState:UIControlStateHighlighted];

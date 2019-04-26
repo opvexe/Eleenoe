@@ -80,25 +80,25 @@
         case CBCentralManagerStateUnknown:
             NSLog(@">>>CBCentralManagerStateUnknown");
             if (self.connectStateCallback) {
-                self.connectStateCallback(ELResultTypeFailed);
+                self.connectStateCallback(ELResultTypeDisconnected);
             }
             break;
         case CBCentralManagerStateResetting:
             NSLog(@">>>CBCentralManagerStateResetting");
             if (self.connectStateCallback) {
-                self.connectStateCallback(ELResultTypeFailed);
+                self.connectStateCallback(ELResultTypeDisconnected);
             }
             break;
         case CBCentralManagerStateUnsupported:
             NSLog(@">>>CBCentralManagerStateUnsupported");
             if (self.connectStateCallback) {
-                self.connectStateCallback(ELResultTypeFailed);
+                self.connectStateCallback(ELResultTypeDisconnected);
             }
             break;
         case CBCentralManagerStateUnauthorized:
             NSLog(@">>>CBCentralManagerStateUnauthorized");
             if (self.connectStateCallback) {
-                self.connectStateCallback(ELResultTypeFailed);
+                self.connectStateCallback(ELResultTypeDisconnected);
             }
             break;
         case CBCentralManagerStatePoweredOff:
@@ -107,7 +107,7 @@
                 self.stateBLECallback(ELBleLocalStatePowerOff);
             }
             if (self.connectStateCallback) {
-                self.connectStateCallback(ELResultTypeFailed);
+                self.connectStateCallback(ELResultTypeDisconnected);
             }
             break;
         case CBCentralManagerStatePoweredOn: {
@@ -121,7 +121,7 @@
         }
         default:
             if (self.stateBLECallback) {self.stateBLECallback(ELBleLocalStateUnsupported);}
-            if (self.connectStateCallback) {self.connectStateCallback(ELResultTypeFailed);}
+            if (self.connectStateCallback) {self.connectStateCallback(ELResultTypeDisconnected);}
             break;
     }
 }

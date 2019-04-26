@@ -98,7 +98,6 @@
                     
                 }];
                 [analyzeView InitDataWithModel:self.model];
-                
                 break;
             }
             default:
@@ -117,6 +116,12 @@
             }];
             
             switch (connectState) {
+                    
+                case ELResultTypeDisconnected:{
+                     [connectView updateStatus:ConnectionStatusTypeNone];
+                     [self.bottomView updateBluetoothStatus:NO];
+                    break;
+                }
                 case ELResultTypeLoading:{
                     [connectView updateStatus:ConnectionStatusTypeLoading];
                     [self.bottomView updateBluetoothStatus:NO];
