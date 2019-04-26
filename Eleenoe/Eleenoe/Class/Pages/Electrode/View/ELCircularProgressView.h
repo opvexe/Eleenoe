@@ -28,6 +28,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (assign,nonatomic) CGFloat pointWidth;
 
+/**
+ * 时间文本
+ */
+@property(nonatomic,copy)NSString *text;
+/**
+ * 时间文本字体
+ */
+@property (nonatomic,strong) UIFont * textFont;
+
+/**
+ * 时间文本颜色
+ */
+@property (nonatomic,strong) UIColor * textColor;
 @end
 
 NS_ASSUME_NONNULL_END

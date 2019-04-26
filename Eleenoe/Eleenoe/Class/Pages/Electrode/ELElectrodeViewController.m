@@ -41,11 +41,13 @@
     _circleView = ({
         ELCircularProgressView *iv = [[ELCircularProgressView alloc] initWithFrame:CGRectMake(kSAdap(80.0), kSAdap_V(80.0), SCREEN_WIDTH-kSAdap(160.0), kSAdap_V(210.0)) lineWidth:kSAdap(10.0)];
         iv.backgroundColor = [UIColor clearColor];
+        iv.text = @"250:00";
         [self.view addSubview:iv];
         iv;
     });
     
-    self.circleView.progress = 0.8;
+    self.circleView.progress = 0.7;
+    
     
     _resetButton = ({
         UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];

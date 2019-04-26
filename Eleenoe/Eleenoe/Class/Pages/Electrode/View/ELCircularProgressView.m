@@ -15,7 +15,7 @@
 @property (nonatomic,strong) CAShapeLayer* progressLayer;
 @end
 @implementation ELCircularProgressView
-static CGFloat endPointMargin = 1.0f;
+static CGFloat endPointMargin = -3.0f;
 
 - (instancetype)initWithFrame:(CGRect)frame lineWidth:(CGFloat)lineWidth{
     self = [super initWithFrame:frame];
@@ -50,12 +50,12 @@ static CGFloat endPointMargin = 1.0f;
         
         //结束位置原点图标
         _endPoint = [[UIImageView alloc] init];
-        _endPoint.frame = CGRectMake(0, 0, _lineWidth - endPointMargin*2,_lineWidth - endPointMargin*2);
+        _endPoint.frame = CGRectMake(0, 0, _lineWidth - endPointMargin*2,_lineWidth - endPointMargin*2);  //宽度 = 圆环+2*
         _endPoint.hidden = true;
-        _endPoint.backgroundColor = [UIColor whiteColor];
-        _endPoint.layer.shadowColor = [UIColor whiteColor].CGColor;
-        _endPoint.layer.shadowOffset = CGSizeMake(10.0, 10.0);
-        _endPoint.layer.shadowOpacity = 1.0;
+        _endPoint.backgroundColor =  UIColorFromRGB(0xFFFFFF);
+        _endPoint.layer.shadowColor = MainLightThemColor.CGColor;
+        _endPoint.layer.shadowOffset = CGSizeMake(10.0, 10.0f);
+        _endPoint.layer.shadowOpacity = 10.0;
         _endPoint.layer.masksToBounds = true;
         _endPoint.layer.cornerRadius = _endPoint.bounds.size.width/2;
         [self addSubview:self.endPoint];
@@ -110,6 +110,23 @@ static CGFloat endPointMargin = 1.0f;
     }
     return self;
 }
+
+#pragma mark setter
+-(void)setText:(NSString *)text{
+    _text = text;
+    self.timesLabel.text = text;
+}
+
+-(void)setTextFont:(UIFont *)textFont{
+    _textFont = textFont;
+    self.timesLabel.font = textFont;
+}
+
+-(void)setTextColor:(UIColor *)textColor{
+    _textColor = textColor;
+    self.timesLabel.textColor = textColor;
+}
+
 -(void)setProgress:(float)progress{
     if (progress >= 1.0f) {
         _progress = 1.0f;
@@ -120,6 +137,7 @@ static CGFloat endPointMargin = 1.0f;
     [self setNeedsDisplay];
 }
 
+#pragma mark update Point
 -(void)updateEndPoint{
     CGFloat angle = M_PI*2*_progress;
     float radius = (self.bounds.size.width-_lineWidth)/2.0;
@@ -153,7 +171,7 @@ static CGFloat endPointMargin = 1.0f;
     _endPoint.frame = rect;
     
     [self bringSubviewToFront:_endPoint];
-    _endPoint.hidden = YES;
+    _endPoint.hidden = NO;
     if (_progress == 0 || _progress == 1) {
         _endPoint.hidden = YES;
     }
