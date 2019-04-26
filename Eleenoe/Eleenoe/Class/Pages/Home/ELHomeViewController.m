@@ -96,25 +96,14 @@
                 break;
             }
             case MyofascialBottomActionTypeHandle:{
-//                self.analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
-//
-//                }];
-//                [self.analyzeView InitDataWithModel:self.model];
-                
-                [[ELBlueToothManager shareInstance] connectPeripheralWithStateCallback:^(ELResultType connectState) {
-                    
-                } examBLECallback:^(ELBleLocalState localState) {
+                self.analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
                     
                 }];
+                [self.analyzeView InitDataWithModel:self.model];
                 
                 break;
-            
             }
             case MyofascialBottomActionTypeBluetooth:{
-//                self.connectionView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
-//                    
-//                }];
-
                 
                 break;
             }
@@ -122,6 +111,45 @@
                 break;
         }
     };
+    
+    
+    [[ELBlueToothManager shareInstance] connectPeripheralWithStateCallback:^(ELResultType connectState) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            ELBluetoothConnectionFloatingView *connectView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
+                
+                
+            }];
+            
+            switch (connectState) {
+                case ELResultTypeLoading:{
+                    [connectView updateStatus:ConnectionStatusTypeLoading];
+                    break;
+                }
+                case ELResultTypeFailed:{
+                    [connectView updateStatus:ConnectionStatusTypeFailure];
+                    break;
+                }
+                case ELResultTypeSuccess:{
+                    [connectView updateStatus:ConnectionStatusTypeSuccess];
+                }
+                    break;
+                case ELResultTypeTimeOut:{
+                    [connectView updateStatus:ConnectionStatusTypeFailure];
+                    break;
+                }
+                default:
+                    [connectView updateStatus:ConnectionStatusTypeNone];
+                    break;
+            }
+            
+        });
+        
+    } examBLECallback:^(ELBleLocalState localState) {
+        
+        
+    }];
 }
 
 -(void)Analyze:(NSNotification*)notification{

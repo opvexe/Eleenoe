@@ -78,29 +78,48 @@
     switch (central.state) {
         case CBCentralManagerStateUnknown:
             NSLog(@">>>CBCentralManagerStateUnknown");
+            if (self.connectStateCallback) {
+                self.connectStateCallback(ELResultTypeFailed);
+            }
             break;
         case CBCentralManagerStateResetting:
             NSLog(@">>>CBCentralManagerStateResetting");
+            if (self.connectStateCallback) {
+                self.connectStateCallback(ELResultTypeFailed);
+            }
             break;
         case CBCentralManagerStateUnsupported:
             NSLog(@">>>CBCentralManagerStateUnsupported");
+            if (self.connectStateCallback) {
+                self.connectStateCallback(ELResultTypeFailed);
+            }
             break;
         case CBCentralManagerStateUnauthorized:
             NSLog(@">>>CBCentralManagerStateUnauthorized");
+            if (self.connectStateCallback) {
+                self.connectStateCallback(ELResultTypeFailed);
+            }
             break;
         case CBCentralManagerStatePoweredOff:
             NSLog(@"尚未打开蓝牙，请在设置中打开……");
             if (self.stateBLECallback) {
                 self.stateBLECallback(ELBleLocalStatePowerOff);
             }
+            if (self.connectStateCallback) {
+                self.connectStateCallback(ELResultTypeFailed);
+            }
             break;
         case CBCentralManagerStatePoweredOn: {
             NSLog(@">>>蓝牙已经成功开启，稍后……");
             [self.centralManager scanForPeripheralsWithServices:nil options:nil];
+            if (self.connectStateCallback) {
+                self.connectStateCallback(ELResultTypeLoading);
+            }
             break;
         }
         default:
             if (self.stateBLECallback) {self.stateBLECallback(ELBleLocalStateUnsupported);}
+            if (self.connectStateCallback) {self.connectStateCallback(ELResultTypeFailed);}
             break;
     }
 }

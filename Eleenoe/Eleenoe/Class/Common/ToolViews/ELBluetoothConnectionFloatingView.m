@@ -26,7 +26,7 @@
                                             showType:KLCPopupShowTypeSlideInFromBottom
                                          dismissType:KLCPopupDismissTypeSlideOutToBottom
                                             maskType:KLCPopupMaskTypeDimmed
-                            dismissOnBackgroundTouch:NO
+                            dismissOnBackgroundTouch:YES
                                dismissOnContentTouch:NO];
     
     [popup  showWithLayout:KLCPopupLayoutMake(KLCPopupHorizontalLayoutCenter, KLCPopupVerticalLayoutBottom)];
