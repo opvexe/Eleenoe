@@ -608,5 +608,20 @@ NSString *cacheSizeStr(NSInteger _totalSize){
     return hexStr;
 }
 
++(NSString*)splitIphoneNumer:(NSString*)string{
+    
+    if (!string) {
+        return nil;
+    }
+    NSMutableString* tStr = [NSMutableString stringWithString:[string stringByReplacingOccurrencesOfString:@" " withString:@""]];
+    
+    if (tStr.length >splitIphoneFirst) {
+        [tStr insertString:@" " atIndex:splitIphoneFirst];
+    }if (tStr.length > splitIphoneSecond) {
+        [tStr insertString:@" " atIndex:splitIphoneSecond];
+        
+    }
+    return tStr;
+}
 
 @end

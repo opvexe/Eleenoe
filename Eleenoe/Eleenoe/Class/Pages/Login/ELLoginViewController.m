@@ -140,6 +140,7 @@
         iv.clearButtonMode = UITextFieldViewModeWhileEditing;
         iv.textColor = MainBlackTitleColor;
         iv.placeholder =@"请输入手机号";
+        iv.text = [NSString splitIphoneNumer:@"13211118888"];
         [iv setValue:MainLightGrayTitleColor forKeyPath:@"_placeholderLabel.textColor"];
         [iv setValue:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(12.0)] forKeyPath:@"_placeholderLabel.font"];
         iv.keyboardType = UIKeyboardTypeNumberPad;
@@ -156,6 +157,7 @@
         }];
         iv;
     });
+    
     
     _logoImageView = ({
         FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]init];

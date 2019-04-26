@@ -14,6 +14,9 @@ struct ELTitleInfo {
     NSInteger number;
 };
 
+#define splitIphoneFirst 3
+#define splitIphoneSecond 8
+
 typedef struct ELTitleInfo ELTitleInfo;
 
 
@@ -312,4 +315,12 @@ NSString *cacheSizeStr(NSInteger _totalSize);
  @return string数据
  */
 +(NSString *)fzHexStringFromData:(NSData *)data;
+
+/**
+ string 转换字符 13222222 转换成132 2222 2222
+ 
+ @param  string 输入手机号码
+ @return string数据
+ */
++(NSString*)splitIphoneNumer:(NSString*)string;
 @end
