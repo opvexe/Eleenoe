@@ -94,7 +94,7 @@
                 break;
             }
             case MyofascialBottomActionTypeHandle:{
-              ELTriggerAnalyzeFloatingView  *analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
+                ELTriggerAnalyzeFloatingView  *analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
                     
                 }];
                 [analyzeView InitDataWithModel:self.model];
@@ -105,7 +105,6 @@
         }
     };
     
-    
     ELBluetoothConnectionFloatingView *connectView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
         
         
@@ -113,12 +112,12 @@
     
     [[ELBlueToothManager shareInstance] connectPeripheralWithStateCallback:^(ELResultType connectState) {
         @strongify(self);
+        dispatch_async(dispatch_get_main_queue(), ^{
             
             switch (connectState) {
-                    
                 case ELResultTypeDisconnected:{
-                     [connectView updateStatus:ConnectionStatusTypeNone];
-                     [self.bottomView updateBluetoothStatus:NO];
+                    [connectView updateStatus:ConnectionStatusTypeNone];
+                    [self.bottomView updateBluetoothStatus:NO];
                     break;
                 }
                 case ELResultTypeLoading:{
@@ -146,6 +145,8 @@
                     [self.bottomView updateBluetoothStatus:NO];
                     break;
             }
+            
+        });
         
     } examBLECallback:^(ELBleLocalState localState) {
         
@@ -167,6 +168,10 @@
     [self.titleListView setELHomeTitleListViewCurrentIndex:index];
 }
 
+#pragma mark Click Navgation
+-(void)ClickAction{
+    [self pushViewControllerWithViewControllerClass:[ELUpdateViewController class]];
+}
 
 #pragma mark 懒加载
 -(NSMutableArray *)homeLists{
@@ -174,11 +179,6 @@
         _homeLists =[NSMutableArray array];
     }
     return _homeLists;
-}
-
-
--(void)ClickAction{
-    [self pushViewControllerWithViewControllerClass:[ELUpdateViewController class]];
 }
 
 
