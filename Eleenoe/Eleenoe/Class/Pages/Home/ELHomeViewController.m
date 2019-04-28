@@ -118,10 +118,7 @@
 -(void)showConnectionFloatingView{
     
     @weakify(self);
-    ELBluetoothConnectionFloatingView *connectView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
-        
-        
-    }];
+    ELBluetoothConnectionFloatingView *connectView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {}];
     
     [[ELBlueToothManager shareInstance] connectPeripheralWithStateCallback:^(ELResultType connectState) {
         @strongify(self);
@@ -162,10 +159,7 @@
             
         });
         
-    } examBLECallback:^(ELBleLocalState localState) {
-        
-        
-    }];
+    } examBLECallback:^(ELBleLocalState localState) {}];
 }
 
 #pragma mark 通知
