@@ -33,6 +33,7 @@
     self = [super init];
     if (self) {
         
+        _queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
 #if  __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_0
         NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [NSNumber numberWithBool:YES],CBCentralManagerOptionShowPowerAlertKey, //蓝牙power没打开时alert提示框
@@ -41,12 +42,11 @@
 #else
         NSDictionary *options = nil;
 #endif
-        
         NSArray *backgroundModes = [[[NSBundle mainBundle] infoDictionary]objectForKey:@"UIBackgroundModes"];
         if ([backgroundModes containsObject:@"bluetooth-central"]) { //后台模式
-            _centralManager = [[CBCentralManager alloc]initWithDelegate:self queue:nil options:options];
+            _centralManager = [[CBCentralManager alloc]initWithDelegate:self queue:self.queue options:options];
         }else {  //非后台模式
-            _centralManager = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
+            _centralManager = [[CBCentralManager alloc]initWithDelegate:self queue:self.queue];
         }
         
         _operations = [NSMutableArray arrayWithCapacity:10]; //初始化
