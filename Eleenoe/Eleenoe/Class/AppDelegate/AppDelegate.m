@@ -22,7 +22,6 @@
     
     self.window.frame = [UIScreen mainScreen].bounds;
 
-    [[ELBlueToothManager shareInstance] stopScan];
     [IQKeyboardManager sharedManager].enable = YES;
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 10;
     [IQKeyboardManager sharedManager].shouldShowToolbarPlaceholder = NO;

@@ -32,6 +32,23 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
+        
+#if  __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_0
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [NSNumber numberWithBool:YES],CBCentralManagerOptionShowPowerAlertKey, //蓝牙power没打开时alert提示框
+//                                 @"babyBluetoothRestore",CBCentralManagerOptionRestoreIdentifierKey, //重设centralManager恢复的IdentifierKey
+                                 nil];
+#else
+        NSDictionary *options = nil;
+#endif
+        
+        NSArray *backgroundModes = [[[NSBundle mainBundle] infoDictionary]objectForKey:@"UIBackgroundModes"];
+        if ([backgroundModes containsObject:@"bluetooth-central"]) { //后台模式
+            _centralManager = [[CBCentralManager alloc]initWithDelegate:self queue:nil options:options];
+        }else {  //非后台模式
+            _centralManager = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
+        }
+        
         _operations = [NSMutableArray arrayWithCapacity:10]; //初始化
         [_operations addObjectsFromArray:@[Ble_F0,
                                            Ble_03,
@@ -56,18 +73,16 @@
 
 -(void)connectPeripheral{
     [self stopScan];
-    self.queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
-    NSDictionary *dic  = @{CBCentralManagerOptionShowPowerAlertKey:[NSNumber numberWithBool:false]};
-    self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:self.queue options:dic];
+    [self.centralManager scanForPeripheralsWithServices:nil options:nil];
 }
 
 - (void)stopScan{
+    [self destroytimer];
     if (self.centralManager){
         [self.centralManager stopScan];
         if (self.peripheral){
             [self.centralManager cancelPeripheralConnection:self.peripheral];
         }
-        self.centralManager = nil;
     }
 }
 
@@ -112,11 +127,10 @@
             break;
         case CBCentralManagerStatePoweredOn: {
             NSLog(@">>>蓝牙已经成功开启，稍后……");
-            [self.centralManager scanForPeripheralsWithServices:nil options:nil];
+            _timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(disconnect) userInfo:nil repeats:NO];
             if (self.connectStateCallback) {
                 self.connectStateCallback(ELResultTypeLoading);
             }
-            
             break;
         }
         default:
@@ -154,14 +168,16 @@
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
     NSLog(@">>>连接ok...%@", peripheral);
-    [self.peripheral setDelegate:self];
+    [peripheral setDelegate:self];
     
     NSLog(@">>>扫描服务...");
-    [self.peripheral discoverServices:nil];
+    [peripheral discoverServices:nil];
     
     if (self.connectStateCallback) {
         self.connectStateCallback(ELResultTypeSuccess);
     }
+    
+    [self destroytimer];
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
@@ -169,6 +185,7 @@
     if (self.connectStateCallback) {
         self.connectStateCallback(ELResultTypeFailed);
     }
+    [self destroytimer];
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
@@ -176,6 +193,7 @@
     if (self.connectStateCallback) {
         self.connectStateCallback(ELResultTypeFailed);
     }
+    [self destroytimer];
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
@@ -280,6 +298,13 @@
     _operations[8] =  [NSString stringWithFormat:@"0x%@",pin];
 }
 
+
+-(void)disconnect{
+    if (self.connectStateCallback) {
+        self.connectStateCallback(ELResultTypeTimeOut);
+    }
+    [self stopScan];
+}
 
 -(void)destroytimer{
     if ([_timer isValid]) {
