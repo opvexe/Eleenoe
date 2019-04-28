@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)updateStatus:(ConnectionStatusType)status;
 
+-(void)show;
+
 @end
 
 NS_ASSUME_NONNULL_END

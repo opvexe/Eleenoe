@@ -92,25 +92,25 @@
         case CBCentralManagerStateUnknown:
             NSLog(@">>>CBCentralManagerStateUnknown");
             if (self.connectStateCallback) {
-                self.connectStateCallback(ELResultTypeDisconnected);
+                self.connectStateCallback(ELResultTypeFailed);
             }
             break;
         case CBCentralManagerStateResetting:
             NSLog(@">>>CBCentralManagerStateResetting");
             if (self.connectStateCallback) {
-                self.connectStateCallback(ELResultTypeDisconnected);
+                self.connectStateCallback(ELResultTypeFailed);
             }
             break;
         case CBCentralManagerStateUnsupported:
             NSLog(@">>>CBCentralManagerStateUnsupported");
             if (self.connectStateCallback) {
-                self.connectStateCallback(ELResultTypeDisconnected);
+                self.connectStateCallback(ELResultTypeFailed);
             }
             break;
         case CBCentralManagerStateUnauthorized:
             NSLog(@">>>CBCentralManagerStateUnauthorized");
             if (self.connectStateCallback) {
-                self.connectStateCallback(ELResultTypeDisconnected);
+                self.connectStateCallback(ELResultTypeFailed);
             }
             break;
         case CBCentralManagerStatePoweredOff:
@@ -119,7 +119,7 @@
                 self.stateBLECallback(ELBleLocalStatePowerOff);
             }
             if (self.connectStateCallback) {
-                self.connectStateCallback(ELResultTypeDisconnected);
+                self.connectStateCallback(ELResultTypeFailed);
             }
             break;
         case CBCentralManagerStatePoweredOn: {
@@ -133,7 +133,7 @@
         }
         default:
             if (self.stateBLECallback) {self.stateBLECallback(ELBleLocalStateUnsupported);}
-            if (self.connectStateCallback) {self.connectStateCallback(ELResultTypeDisconnected);}
+            if (self.connectStateCallback) {self.connectStateCallback(ELResultTypeFailed);}
             break;
     }
 }
@@ -193,7 +193,7 @@
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
     NSLog(@">>>外设断开连接 %@: %@\n", [peripheral name], [error localizedDescription]);
     if (self.connectStateCallback) {
-        self.connectStateCallback(ELResultTypeFailed);
+        self.connectStateCallback(ELResultTypeDisconnected);
     }
     [self destroytimer];
 }

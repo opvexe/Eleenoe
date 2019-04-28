@@ -31,7 +31,7 @@
     // Do any additional setup after loading the view.
     [self navTitleLabelWithTitle:@"肌筋膜放松仪"];
     [self rightBarButtonWithImage:[UIImage imageNamed:@"home_nav_more"] target:self action:@selector(ClickAction)];
-    [ELNotificationCenter addObserver:self selector:@selector(Analyze:) name:TriggerAnalyzeNotificationCenter object:nil];
+    [ELNotificationCenter addObserver:self selector:@selector(analyzeNotification:) name:TriggerAnalyzeNotificationCenter object:nil];
     [self settupView];
     [self showConnectionFloatingView];
 }
@@ -129,6 +129,7 @@
             
             switch (connectState) {
                 case ELResultTypeDisconnected:{
+                    [connectView show];
                     [connectView updateStatus:ConnectionStatusTypeNone];
                     [self.bottomView updateBluetoothStatus:NO];
                     break;
@@ -167,7 +168,8 @@
     }];
 }
 
--(void)Analyze:(NSNotification*)notification{
+#pragma mark 通知
+-(void)analyzeNotification:(NSNotification*)notification{
     ELMyofascialContentModel *model = [notification.userInfo objectForKey:AnalyzeUserInfoKey];
     _model = model;
 }

@@ -25,7 +25,7 @@
     KLCPopup *popup = [KLCPopup popupWithContentView:view
                                             showType:KLCPopupShowTypeSlideInFromBottom
                                          dismissType:KLCPopupDismissTypeSlideOutToBottom
-                                            maskType:KLCPopupMaskTypeDimmed
+                                            maskType:KLCPopupMaskTypeDimmed 
                             dismissOnBackgroundTouch:NO
                                dismissOnContentTouch:NO];
     
@@ -155,6 +155,10 @@
 //mark:关闭事件
 -(void)CloseAction:(UIButton *)sender{
     [self dismiss];
+}
+
+-(void)show{
+    [self.popup showWithLayout:KLCPopupLayoutMake(KLCPopupHorizontalLayoutCenter, KLCPopupVerticalLayoutBottom)];
 }
 
 //mark: 关闭视图
