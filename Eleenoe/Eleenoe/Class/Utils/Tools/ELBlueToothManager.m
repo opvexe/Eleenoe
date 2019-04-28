@@ -31,23 +31,6 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
-        
-
-#if  __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_0
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithBool:YES],CBCentralManagerOptionShowPowerAlertKey, //蓝牙power没打开时alert提示框
-//                                 @"babyBluetoothRestore",CBCentralManagerOptionRestoreIdentifierKey, //重设centralManager恢复的IdentifierKey
-                                 nil];
-#else
-        NSDictionary *options = nil;
-#endif
-        NSArray *backgroundModes = [[[NSBundle mainBundle] infoDictionary]objectForKey:@"UIBackgroundModes"];
-        if ([backgroundModes containsObject:@"bluetooth-central"]) { //后台模式
-            _centralManager = [[CBCentralManager alloc]initWithDelegate:self queue:nil options:options];
-        }else {  //非后台模式
-            _centralManager = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
-        }
-        
         _operations = [NSMutableArray arrayWithCapacity:10]; //初始化
         [_operations addObjectsFromArray:@[Ble_F0,
                                            Ble_03,
@@ -72,7 +55,21 @@
 
 -(void)connectPeripheral{
     [self stopScan];
-    [self.centralManager scanForPeripheralsWithServices:nil options:nil];
+    
+#if  __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_0
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES],CBCentralManagerOptionShowPowerAlertKey, //蓝牙power没打开时alert提示框
+                             //                                 @"babyBluetoothRestore",CBCentralManagerOptionRestoreIdentifierKey, //重设centralManager恢复的IdentifierKey
+                             nil];
+#else
+    NSDictionary *options = nil;
+#endif
+    NSArray *backgroundModes = [[[NSBundle mainBundle] infoDictionary]objectForKey:@"UIBackgroundModes"];
+    if ([backgroundModes containsObject:@"bluetooth-central"]) { //后台模式
+        self.centralManager = [[CBCentralManager alloc]initWithDelegate:self queue:nil options:options];
+    }else {
+        self.centralManager = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
+    }
 }
 
 - (void)stopScan{
@@ -82,6 +79,7 @@
         if (self.peripheral){
             [self.centralManager cancelPeripheralConnection:self.peripheral];
         }
+        self.centralManager = nil;
     }
 }
 
@@ -130,6 +128,7 @@
             if (self.connectStateCallback) {
                 self.connectStateCallback(ELResultTypeLoading);
             }
+            [self.centralManager scanForPeripheralsWithServices:nil options:nil];
             break;
         }
         default:
