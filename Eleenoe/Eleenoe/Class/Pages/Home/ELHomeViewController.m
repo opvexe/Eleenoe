@@ -33,6 +33,7 @@
     [self rightBarButtonWithImage:[UIImage imageNamed:@"home_nav_more"] target:self action:@selector(ClickAction)];
     [ELNotificationCenter addObserver:self selector:@selector(Analyze:) name:TriggerAnalyzeNotificationCenter object:nil];
     [self settupView];
+    [self showConnectionFloatingView];
 }
 
 -(void)settupView{
@@ -86,18 +87,21 @@
     });
     
     @weakify(self);
-    self.bottomView.complete = ^(MyofascialBottomActionType type) {
+    self.bottomView.complete = ^(MyofascialBottomActionType type,UIButton *sender) {
         @strongify(self);
         switch (type) {
-            case MyofascialBottomActionTypeElectrode:{
-                [self.navigationController pushViewController:[ELElectrodeViewController new] animated:YES];
-                break;
-            }
             case MyofascialBottomActionTypeHandle:{
+                sender.selected = !sender.selected;
                 ELTriggerAnalyzeFloatingView  *analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
                     
                 }];
                 [analyzeView InitDataWithModel:self.model];
+                break;
+            }
+            case MyofascialBottomActionTypeBluetooth:{
+                if (!sender.selected) {
+                    [self showConnectionFloatingView];
+                }
                 break;
             }
             default:
@@ -105,6 +109,15 @@
         }
     };
     
+    [self.bottomView.rightContentView WH_whenTapped:^{
+        @strongify(self);
+        [self.navigationController pushViewController:[ELElectrodeViewController new] animated:YES];
+    }];
+}
+
+-(void)showConnectionFloatingView{
+    
+    @weakify(self);
     ELBluetoothConnectionFloatingView *connectView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
         
         

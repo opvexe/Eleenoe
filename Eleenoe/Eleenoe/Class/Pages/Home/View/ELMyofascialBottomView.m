@@ -21,7 +21,6 @@
 @property(nonatomic,strong)ELButtonExtention *bluetoothButton;
 @property(nonatomic,strong)UILabel *minutesLabel;
 @property(nonatomic,strong)UILabel *gearLabel;
-@property(nonatomic,strong)UIView *rightContentView;
 @property(nonatomic,strong)UIImageView *rightIconImageView;
 @property(nonatomic,strong)UILabel *rightTitle;
 @property(nonatomic,strong) ELMyofascialMenuScrolloView *timeListView;
@@ -124,7 +123,7 @@
         iv.showsTouchWhenHighlighted = NO;
         iv.isExpandClick = YES;
         iv.tag = MyofascialBottomActionTypeBluetooth;
-        //        [iv addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
+        [iv addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
         [self.MyofascialBottomImageView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.mas_equalTo(self.MyofascialBottomImageView);
@@ -237,12 +236,6 @@
         iv;
     });
     
-    @weakify(self);
-    [self.rightContentView WH_whenTapped:^{
-        @strongify(self);
-        self.complete(MyofascialBottomActionTypeElectrode);
-    }];
-    
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
@@ -250,8 +243,7 @@
 }
 
 -(void)Click:(UIButton *)sender{
-    sender.selected = !sender.selected;
-    self.complete(sender.tag);
+    self.complete(sender.tag,sender);
 }
 
 

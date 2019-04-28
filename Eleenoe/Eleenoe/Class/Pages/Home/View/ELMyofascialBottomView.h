@@ -10,14 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, MyofascialBottomActionType) {
-    MyofascialBottomActionTypeElectrode, //电极
     MyofascialBottomActionTypeHandle, //操作
     MyofascialBottomActionTypeBluetooth,//蓝牙
 };
 
-typedef void(^BottomBlock)(MyofascialBottomActionType type);
+typedef void(^BottomBlock)(MyofascialBottomActionType type,UIButton *sender);
 
 @interface ELMyofascialBottomView : ELBaseView
+
+/** 电极视图 ** */
+@property(nonatomic,strong)UIView *rightContentView;
 
 @property(nonatomic,copy)BottomBlock complete;
 
