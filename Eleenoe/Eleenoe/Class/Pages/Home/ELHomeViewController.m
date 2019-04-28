@@ -106,14 +106,13 @@
     };
     
     
+    ELBluetoothConnectionFloatingView *connectView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
+        
+        
+    }];
+    
     [[ELBlueToothManager shareInstance] connectPeripheralWithStateCallback:^(ELResultType connectState) {
         @strongify(self);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            ELBluetoothConnectionFloatingView *connectView = [ELBluetoothConnectionFloatingView showComplete:^(ConnectionStatusType status) {
-                
-                
-            }];
             
             switch (connectState) {
                     
@@ -147,8 +146,6 @@
                     [self.bottomView updateBluetoothStatus:NO];
                     break;
             }
-            
-        });
         
     } examBLECallback:^(ELBleLocalState localState) {
         

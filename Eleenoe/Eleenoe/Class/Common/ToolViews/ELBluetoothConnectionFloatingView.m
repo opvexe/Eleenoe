@@ -142,7 +142,7 @@
             [_closeButton setHidden:YES];
             _bluetoothImageView.image = ELImageNamed(@"blueBloth_close");
             _statueLabel.text = @"设备连接成功...";
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self dismiss];
             });
             break;
@@ -165,7 +165,6 @@
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
     NSLog(@">>>>立即重连蓝牙：%@",url);
-    [self dismiss];
     [[ELBlueToothManager shareInstance]reScanPeripheral];
 }
 @end
