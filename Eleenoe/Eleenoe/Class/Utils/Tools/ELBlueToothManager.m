@@ -59,7 +59,7 @@
 #if  __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_0
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithBool:YES],CBCentralManagerOptionShowPowerAlertKey, //蓝牙power没打开时alert提示框
-                             //                                 @"babyBluetoothRestore",CBCentralManagerOptionRestoreIdentifierKey, //重设centralManager恢复的IdentifierKey
+                             @"babyBluetoothRestore",CBCentralManagerOptionRestoreIdentifierKey, //重设centralManager恢复的IdentifierKey
                              nil];
 #else
     NSDictionary *options = nil;
@@ -136,6 +136,10 @@
             if (self.connectStateCallback) {self.connectStateCallback(ELResultTypeDisconnected);}
             break;
     }
+}
+
+- (void)centralManager:(CBCentralManager *)central willRestoreState:(nonnull NSDictionary<NSString *,id> *)dict{
+    NSLog(@">>>>重设蓝牙设备：%@",dict);
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI {
