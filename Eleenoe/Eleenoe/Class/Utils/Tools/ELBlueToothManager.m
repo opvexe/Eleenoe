@@ -75,7 +75,7 @@
 }
 
 - (void)stopScan{
-    self.isConnection = NO;
+    _isConnection = NO;
     [self destroytimer];
     if (self.centralManager){
         [self.centralManager stopScan];
@@ -192,7 +192,7 @@
     }
     
     [self destroytimer];
-    self.isConnection = YES;
+    _isConnection = YES;
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
@@ -201,7 +201,7 @@
         self.connectStateCallback(ELResultTypeFailed);
     }
     [self destroytimer];
-    self.isConnection = NO;
+    _isConnection = NO;
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
@@ -210,7 +210,7 @@
         self.connectStateCallback(ELResultTypeDisconnected);
     }
     [self destroytimer];
-    self.isConnection = NO;
+    _isConnection = NO;
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {

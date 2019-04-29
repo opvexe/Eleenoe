@@ -8,18 +8,18 @@
 
 #import "ELTriggerAnalyzeFloatingView.h"
 #import "UIButton+ButtonStyle.h"
+#import "ELSlideTabBar.h"
 #import <KLCPopup.h>
-@interface ELTriggerAnalyzeFloatingView()
+@interface ELTriggerAnalyzeFloatingView()<ELSlideTabBarDelegate>
 @property(nonatomic,strong) KLCPopup *popup;
 @property(nonatomic,copy)void(^CompleteBlock)(ELBaseModel *model);
 @property(nonatomic,strong) FLAnimatedImageView *triggerImageView;
 @property(nonatomic,strong) UIView *analyzeView;
 @property(nonatomic,strong) UIButton *downloadButton;
 @property(nonatomic,strong) UIButton *close;
-@property (nonatomic,strong) UILabel *analyzeLabel;
-@property (nonatomic,strong) UILabel *treatLabel;
-@property (nonatomic,strong) UILabel *placeLabel;
-@property (nonatomic,strong) UILabel *contentLabel;
+@property(nonatomic,strong) ELSlideTabBar *sliderBar;
+@property(nonatomic,strong) UILabel *contentLabel;
+@property(nonatomic,strong) NSMutableArray *titles;
 @end
 @implementation ELTriggerAnalyzeFloatingView
 
@@ -107,53 +107,20 @@
         iv;
     });
     
-    _analyzeLabel = ({
-        UILabel *iv = [[UILabel alloc]init];
-        iv.text = @"成因分析";
-        iv.textColor = MainThemColor;
-        iv.textAlignment = NSTextAlignmentLeft;
-        iv.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(14)];
+    _sliderBar = ({
+        ELSlideTabBar *iv = [[ELSlideTabBar alloc]init];
+        iv.backgroundColor = [UIColor clearColor];
+        iv.delegate = self;
         [self.analyzeView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(kSAdap_V(20));
             make.left.mas_equalTo(kSAdap(12));
+            make.right.mas_equalTo(-kSAdap(12));
             make.top.mas_equalTo(kSAdap_V(10));
-            make.width.mas_equalTo(kSaFont(60));
-            make.height.mas_equalTo(kSAdap_V(20));
         }];
         iv;
     });
-    
-    _treatLabel = ({
-        UILabel *iv = [[UILabel alloc]init];
-        iv.text = @"治疗原则";
-        iv.textColor = UIColorFromRGB(0x666666);
-        iv.textAlignment = NSTextAlignmentLeft;
-        iv.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(14)];
-        [self.analyzeView addSubview:iv];
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.analyzeLabel.mas_right).mas_offset(kSAdap(25));
-            make.top.mas_equalTo(self.analyzeLabel);
-            make.width.mas_equalTo(kSaFont(60));
-            make.height.mas_equalTo(kSAdap_V(20));
-        }];
-        iv;
-    });
-    
-    _treatLabel = ({
-        UILabel *iv = [[UILabel alloc]init];
-        iv.text = @"扳机点位置";
-        iv.textColor = UIColorFromRGB(0x666666);
-        iv.textAlignment = NSTextAlignmentLeft;
-        iv.font = [UIFont ELPingFangSCRegularFontOfSize:kSaFont(14)];
-        [self.analyzeView addSubview:iv];
-        [iv mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.treatLabel.mas_right).mas_offset(kSAdap(25));
-            make.top.mas_equalTo(self.analyzeLabel);
-            make.width.mas_equalTo(kSaFont(80));
-            make.height.mas_equalTo(kSAdap_V(20));
-        }];
-        iv;
-    });
+    [_sliderBar setLabels:@[@"成因分析",@"治疗原则",@"扳机点位置"] tabIndex:0];
     
     UIView *spliteLine = [[UIView alloc] init];
     spliteLine.backgroundColor = MainThemColor;
@@ -162,7 +129,7 @@
         make.left.mas_equalTo(kSAdap(12));
         make.right.mas_equalTo(-kSAdap(12));
         make.height.mas_equalTo(0.5);
-        make.top.mas_equalTo(self.analyzeLabel.mas_bottom).mas_offset(kSAdap_V(5));
+        make.top.mas_equalTo(self.sliderBar.mas_bottom).mas_offset(kSAdap_V(5));
     }];
     
     _contentLabel = ({
@@ -177,7 +144,7 @@
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(kSAdap(12));
             make.right.mas_equalTo(-kSAdap(12));
-            make.top.mas_equalTo(self.analyzeLabel.mas_bottom).mas_offset(kSAdap_V(14));
+            make.top.mas_equalTo(self.sliderBar.mas_bottom).mas_offset(kSAdap_V(14));
         }];
         iv;
     });
@@ -214,6 +181,12 @@
 
 -(void)InitDataWithModel:(ELMyofascialContentListModel *)model{
     self.triggerImageView.image = ELImageNamed(model.selectedImageName);
+    [self.titles addObjectsFromArray:@[@"在电脑或办公桌保持一个姿势或从事体力劳动，进行大量运动等导致腰部过度劳累而引起。",@"测试治疗原则测试治疗原则测试治疗原则测试治疗原则",@"扳机点位置扳机点位置扳机点位置扳机点位置"]];
+}
+
+#pragma mark ELSlideTabBarDelegate
+- (void)onTabTapAction:(NSInteger)index{
+    self.contentLabel.text = convertToString(self.titles[index]);
 }
 
 -(void)Click:(UIButton *)sender{
@@ -224,7 +197,7 @@
         }
         case TriggerAnalyzeTypeDownload:{
             if (self.CompleteBlock) {
-             
+                
             }
             break;
         }
@@ -237,4 +210,11 @@
     [self.popup dismiss:YES];
 }
 
+#pragma mark 懒加载
+-(NSMutableArray *)titles{
+    if (!_titles) {
+        _titles = [NSMutableArray array];
+    }
+    return _titles;
+}
 @end

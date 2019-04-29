@@ -41,6 +41,7 @@
 		D0180B16223F399D008C06C1 /* HUD_info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0180B0C223F399D008C06C1 /* HUD_info@2x.png */; };
 		D0180B17223F399D008C06C1 /* HUD_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0180B0D223F399D008C06C1 /* HUD_error@2x.png */; };
 		D0180BD82244C7D2008C06C1 /* SCREENAdaptationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D0180BD72244C7D2008C06C1 /* SCREENAdaptationTool.m */; };
+		D021A1662276E93D000E154E /* ELSlideTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D021A1652276E93D000E154E /* ELSlideTabBar.m */; };
 		D0771057224CB4AB00D0B993 /* ELShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771056224CB4AB00D0B993 /* ELShopViewController.m */; };
 		D077105C224CB95900D0B993 /* ELMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D077105B224CB95900D0B993 /* ELMineTableViewCell.m */; };
 		D0771062224CC16700D0B993 /* ELSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771061224CC16700D0B993 /* ELSettingModel.m */; };
@@ -192,6 +193,8 @@
 		D0180BD5224379EF008C06C1 /* ELBleDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELBleDefines.h; sourceTree = "<group>"; };
 		D0180BD62244C7D2008C06C1 /* SCREENAdaptationTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCREENAdaptationTool.h; sourceTree = "<group>"; };
 		D0180BD72244C7D2008C06C1 /* SCREENAdaptationTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCREENAdaptationTool.m; sourceTree = "<group>"; };
+		D021A1642276E93D000E154E /* ELSlideTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELSlideTabBar.h; sourceTree = "<group>"; };
+		D021A1652276E93D000E154E /* ELSlideTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSlideTabBar.m; sourceTree = "<group>"; };
 		D0771055224CB4AB00D0B993 /* ELShopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELShopViewController.h; sourceTree = "<group>"; };
 		D0771056224CB4AB00D0B993 /* ELShopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELShopViewController.m; sourceTree = "<group>"; };
 		D077105A224CB95900D0B993 /* ELMineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELMineTableViewCell.h; sourceTree = "<group>"; };
@@ -361,6 +364,8 @@
 				00034EC1224E42FA00CE83AB /* ELBluetoothConnectionFloatingView.m */,
 				D0A0DC332250B618000F9048 /* ELTriggerAnalyzeFloatingView.h */,
 				D0A0DC342250B618000F9048 /* ELTriggerAnalyzeFloatingView.m */,
+				D021A1642276E93D000E154E /* ELSlideTabBar.h */,
+				D021A1652276E93D000E154E /* ELSlideTabBar.m */,
 				D0C180D42271D8AE00D83FAC /* ELHorseRaceLamp.h */,
 				D0C180D52271D8AE00D83FAC /* ELHorseRaceLamp.m */,
 			);
@@ -1247,6 +1252,7 @@
 				D093EB012253C0C900215901 /* ELCollectionViewFlowLayout.m in Sources */,
 				18B4B3AF224FB92800EA9404 /* ELBaseTableView.m in Sources */,
 				18B4B3A9224F7DA900EA9404 /* ELMyofascialBottomView.m in Sources */,
+				D021A1662276E93D000E154E /* ELSlideTabBar.m in Sources */,
 				D077108D224E1D2200D0B993 /* ELShopModel.m in Sources */,
 				18B4B3C82252668500EA9404 /* SLTagView.m in Sources */,
 				D018051E2268020100A22869 /* ELMyofascialPickView.m in Sources */,
