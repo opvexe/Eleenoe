@@ -149,7 +149,7 @@ static NSString * const kSTDPickerContainerCellReuseIdentifier =  @"STDPickerCon
     self.collectionView.backgroundColor                = [UIColor clearColor];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    
+    self.collectionView.decelerationRate = 0.9;//
     [self.collectionView registerClass:[STDPickerContainerCell class] forCellWithReuseIdentifier:kSTDPickerContainerCellReuseIdentifier];
     
     if (@available(iOS 11.0, *)) {

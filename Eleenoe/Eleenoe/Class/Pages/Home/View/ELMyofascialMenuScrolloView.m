@@ -31,6 +31,7 @@
         collectionView.backgroundColor = [UIColor clearColor];
         collectionView.delegate = self;
         collectionView.dataSource = self;
+        collectionView.decelerationRate = 0.9;
         [self addSubview:collectionView];
         [collectionView registerClass:[ELMyofascialMenuCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ELMyofascialMenuCollectionViewCell class])];
         [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
