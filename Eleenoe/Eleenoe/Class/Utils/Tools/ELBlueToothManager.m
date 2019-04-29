@@ -15,6 +15,7 @@
 @property (nonatomic, copy) ELConnectPeripheralStateBlock connectStateCallback;
 @property (nonatomic, copy) ELExameBluetoothStateBlock  stateBLECallback;
 @property (nonatomic, strong) NSTimer  *timer;
+@property (nonatomic, assign) BOOL isConnection;
 @end
 
 @implementation ELBlueToothManager
@@ -31,6 +32,7 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
+        _isConnection = NO; //默认蓝牙未连接状态
         _operations = [NSMutableArray arrayWithCapacity:10]; //初始化
         [_operations addObjectsFromArray:@[Ble_F0,
                                            Ble_03,
@@ -73,6 +75,7 @@
 }
 
 - (void)stopScan{
+    self.isConnection = NO;
     [self destroytimer];
     if (self.centralManager){
         [self.centralManager stopScan];
@@ -85,6 +88,15 @@
 
 - (void)reScanPeripheral{
     [self connectPeripheral];
+}
+
+
+- (BOOL)connectionStatus{
+    if (_isConnection == NO) {
+        return NO;
+    }else{
+        return YES;
+    }
 }
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
@@ -180,6 +192,7 @@
     }
     
     [self destroytimer];
+    self.isConnection = YES;
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
@@ -188,6 +201,7 @@
         self.connectStateCallback(ELResultTypeFailed);
     }
     [self destroytimer];
+    self.isConnection = NO;
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
@@ -196,6 +210,7 @@
         self.connectStateCallback(ELResultTypeDisconnected);
     }
     [self destroytimer];
+    self.isConnection = NO;
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {

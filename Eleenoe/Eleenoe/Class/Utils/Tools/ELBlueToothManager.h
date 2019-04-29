@@ -64,6 +64,7 @@ typedef void (^ELExameBluetoothStateBlock)(ELBleLocalState localState);
 - (void)reScanPeripheral;
 - (void)stopScan;
 - (void)sendCommand;
+- (BOOL)connectionStatus;
 
 /*
  *  返回数据 <f0000100 09015200 5df1>

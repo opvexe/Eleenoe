@@ -91,11 +91,15 @@
         @strongify(self);
         switch (type) {
             case MyofascialBottomActionTypeHandle:{
-                sender.selected = !sender.selected;
-                ELTriggerAnalyzeFloatingView  *analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
-                    
-                }];
-                [analyzeView InitDataWithModel:self.model];
+                if ([[ELBlueToothManager shareInstance] connectionStatus]) {
+                    sender.selected = !sender.selected;
+                    ELTriggerAnalyzeFloatingView  *analyzeView = [ELTriggerAnalyzeFloatingView showComplete:^(ELBaseModel * _Nonnull model) {
+                        
+                    }];
+                    [analyzeView InitDataWithModel:self.model];
+                }else{
+                       [self makeToast:@"按摩帖未连接"];
+                }
                 break;
             }
             case MyofascialBottomActionTypeBluetooth:{
