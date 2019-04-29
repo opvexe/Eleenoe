@@ -39,6 +39,13 @@ extern void showErrorText(NSString *text);
  *
  *  @param text <#text description#>
  */
+extern void showInfoText(NSString *text);
+
+/**
+ *  <#Description#>
+ *
+ *  @param text <#text description#>
+ */
 extern void showSuccessText(NSString *text);
 /**
  *  <#Description#>

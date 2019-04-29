@@ -80,6 +80,28 @@ void showErrorText(NSString *text){
         
     }
 }
+
+/**
+ *  <#Description#>
+ *
+ *  @param text <#text description#>
+ */
+void showInfoText(NSString *text){
+    
+    if (![NSThread isMainThread]) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [CPProgressHUD showInfoWithStatus:text];
+            
+        });
+        
+    }else{
+        
+        [CPProgressHUD showInfoWithStatus:text];
+        
+    }
+}
+
 /**
  *  <#Description#>
  *
