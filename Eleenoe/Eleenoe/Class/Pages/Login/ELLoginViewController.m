@@ -14,7 +14,7 @@
 @property (nonatomic, strong) UIButton *loginButton;
 @property (nonatomic, strong) UITextField *iphoneTextField;
 @property (nonatomic, strong) UITextField *authCodeTextField;
-@property (nonatomic, strong) FLAnimatedImageView *logoImageView;
+@property (nonatomic, strong) UIImageView *logoImageView;
 @property (nonatomic, strong) ELMessageEventButton *messageEventButton;
 @property (nonatomic, strong) UIButton *weixinButton;
 @property (nonatomic, strong) UILabel *tipLabel;
@@ -160,12 +160,13 @@
     
     
     _logoImageView = ({
-        FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]init];
-        iv.image = [UIImage imageNamed:@"login_logo"];
+        UIImageView *iv = [[UIImageView alloc]init];
+        UIImage *icon  =  [UIImage imageNamed:@"login_logo"];
+        iv.image = icon;
         [self.view addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_equalTo(self.iphoneView.mas_top).mas_offset(-kSAdap_V(45));
-            make.size.mas_equalTo(CGSizeMake(kSAdap(105), kSAdap_V(56)));
+            make.size.mas_equalTo(icon.size);
             make.centerX.mas_equalTo(self.view);
         }];
         iv;

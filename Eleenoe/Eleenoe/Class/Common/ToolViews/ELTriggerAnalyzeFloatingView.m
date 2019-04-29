@@ -13,7 +13,7 @@
 @interface ELTriggerAnalyzeFloatingView()<ELSlideTabBarDelegate>
 @property(nonatomic,strong) KLCPopup *popup;
 @property(nonatomic,copy)void(^CompleteBlock)(ELBaseModel *model);
-@property(nonatomic,strong) FLAnimatedImageView *triggerImageView;
+@property(nonatomic,strong) UIImageView *triggerImageView;
 @property(nonatomic,strong) UIView *analyzeView;
 @property(nonatomic,strong) UIButton *downloadButton;
 @property(nonatomic,strong) UIButton *close;
@@ -79,7 +79,7 @@
     });
     
     _triggerImageView = ({
-        FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]initWithFrame:CGRectZero];
+        UIImageView *iv = [[UIImageView alloc]initWithFrame:CGRectZero];
         UIImage *icon  = [UIImage imageNamed:@"body_downwhite"];
         iv.image = icon ;
         [self addSubview:iv];

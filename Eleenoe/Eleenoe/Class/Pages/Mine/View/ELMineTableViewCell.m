@@ -9,9 +9,9 @@
 #import "ELMineTableViewCell.h"
 
 @interface ELMineTableViewCell()
-@property (nonatomic, strong) FLAnimatedImageView *iconImageView;
+@property (nonatomic, strong) UIImageView *iconImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) FLAnimatedImageView *itemImageView;
+@property (nonatomic, strong) UIImageView *itemImageView;
 @end
 @implementation ELMineTableViewCell
 
@@ -28,7 +28,7 @@
     [super ELSinitConfingViews];
     
     _iconImageView = ({
-        FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]init];
+        UIImageView *iv = [[UIImageView alloc]init];
         [self.contentView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(kSAdap(15.0));
@@ -39,7 +39,7 @@
     });
     
     _itemImageView = ({
-        FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]init];
+        UIImageView *iv = [[UIImageView alloc]init];
         [self.contentView addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(-kSAdap(15.0));

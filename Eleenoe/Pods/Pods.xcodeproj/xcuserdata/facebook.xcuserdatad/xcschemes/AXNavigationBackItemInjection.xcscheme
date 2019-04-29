@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "350358E04FB9A32770BDE5198CFA1901"
-               BuildableName = "libAXNavigationBackItemInjection.a"
+               BlueprintIdentifier = "8BA6986852A8A534ED5F5D70DB15F51C"
                BlueprintName = "AXNavigationBackItemInjection"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libAXNavigationBackItemInjection.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

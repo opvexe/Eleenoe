@@ -13,7 +13,7 @@
 -(void)ELSinitConfingViews{
     
     _imageView = ({
-        FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]initWithFrame:CGRectZero];
+        UIImageView *iv = [[UIImageView alloc]initWithFrame:CGRectZero];
         iv.clipsToBounds = YES;
         iv.contentMode  = UIViewContentModeScaleAspectFill;
         iv.backgroundColor = [UIColor redColor];

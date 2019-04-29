@@ -41,7 +41,6 @@
 #import <Masonry.h>
 #import <MJExtension.h>
 #import <MJRefresh.h>
-#import <FLAnimatedImageView+WebCache.h>
 #import <UIImageView+WebCache.h>
 #import <UIButton+WebCache.h>
 #import <IQKeyboardManager.h>

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 轮播
  */
-@property (nonatomic, strong) FLAnimatedImageView *imageView;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 

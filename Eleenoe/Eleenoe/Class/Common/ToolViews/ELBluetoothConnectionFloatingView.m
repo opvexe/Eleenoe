@@ -13,7 +13,7 @@
 @interface ELBluetoothConnectionFloatingView()<MLEmojiLabelDelegate>
 @property(nonatomic,strong) KLCPopup *popup;
 @property(nonatomic,copy)void(^CompleteBlock)(ConnectionStatusType);
-@property(nonatomic,strong) FLAnimatedImageView *bluetoothImageView;
+@property(nonatomic,strong) UIImageView *bluetoothImageView;
 @property(nonatomic,strong) MLEmojiLabel *statueLabel;
 @property(nonatomic,strong) UIButton *closeButton;
 @end
@@ -56,7 +56,7 @@
     self.layer.mask = layer;
     
     _bluetoothImageView = ({
-        FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]initWithFrame:CGRectZero];
+        UIImageView *iv = [[UIImageView alloc]initWithFrame:CGRectZero];
         iv.clipsToBounds = YES;
         iv.image = [UIImage imageNamed:@"blueBloth_close"];
         iv.contentMode = UIViewContentModeScaleAspectFill;

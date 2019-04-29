@@ -10,7 +10,7 @@
 @interface ELUpdateViewController ()
 @property (nonatomic,strong) UIButton *checkButton;
 @property (nonatomic,strong) UIView *topView;
-@property (nonatomic,strong) FLAnimatedImageView *updateImageView;
+@property (nonatomic,strong) UIImageView *updateImageView;
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *veseionLabel;
 @end
@@ -48,7 +48,7 @@
     });
 
     _updateImageView = ({
-        FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]initWithFrame:CGRectZero];
+        UIImageView *iv = [[UIImageView alloc]initWithFrame:CGRectZero];
         UIImage *icon  = [UIImage imageNamed:@"update_white"];
         iv.image = icon;
         [self.topView addSubview:iv];

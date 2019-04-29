@@ -9,7 +9,7 @@
 #import "ELShopCollectionViewCell.h"
 #import "ELShopModel.h"
 @interface ELShopCollectionViewCell()
-@property (nonatomic,strong) FLAnimatedImageView *shopImageView;
+@property (nonatomic,strong) UIImageView *shopImageView;
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *describeLabel;
 @property (nonatomic,strong) UILabel *priceLabel;
@@ -27,7 +27,7 @@
     self.contentView.backgroundColor = [UIColor whiteColor];
     
     _shopImageView = ({
-        FLAnimatedImageView *iv = [[FLAnimatedImageView alloc]initWithFrame:CGRectZero];
+        UIImageView *iv = [[UIImageView alloc]initWithFrame:CGRectZero];
         iv.clipsToBounds = YES;
         iv.contentMode = UIViewContentModeScaleAspectFill;
         [self.contentView addSubview:iv];
