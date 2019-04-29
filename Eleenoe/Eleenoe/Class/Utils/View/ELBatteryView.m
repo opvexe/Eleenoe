@@ -15,7 +15,7 @@
     UIView * lastView ;
     for (NSInteger index = 0; index<6; index++) {
         UIView *iv = [[UIView alloc]init];
-        iv.backgroundColor = UIColorFromRGB(0xC3E282);
+        iv.backgroundColor = UIColorFromRGB(0x8EC31F);
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(3);
@@ -78,7 +78,7 @@
     UIBezierPath *path1 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(x, y, w, h) cornerRadius:2];
     CAShapeLayer *batteryLayer = [CAShapeLayer layer];
     batteryLayer.lineWidth = 1;
-    batteryLayer.strokeColor = UIColorFromRGB(0xC3E282).CGColor;
+    batteryLayer.strokeColor = UIColorFromRGB(0x8EC31F).CGColor;
     batteryLayer.fillColor = [UIColor clearColor].CGColor;
     batteryLayer.path = [path1 CGPath];
     [self.layer addSublayer:batteryLayer];
@@ -90,7 +90,7 @@
     [path2 addLineToPoint:CGPointMake(x+w, y+h*2/3-1)];
     CAShapeLayer *layer2 = [CAShapeLayer layer];
     layer2.lineWidth = 1;
-    layer2.strokeColor = UIColorFromRGB(0xC3E282).CGColor;
+    layer2.strokeColor = UIColorFromRGB(0x8EC31F).CGColor;
     layer2.fillColor = [UIColor clearColor].CGColor;
     layer2.path = [path2 CGPath];
     [self.layer addSublayer:layer2];

@@ -98,7 +98,7 @@
                     }];
                     [analyzeView InitDataWithModel:self.model];
                 }else{
-                       [self makeToast:@"按摩帖未连接"];
+                       [self makeToast:@"筋膜贴未连接"];
                 }
                 break;
             }

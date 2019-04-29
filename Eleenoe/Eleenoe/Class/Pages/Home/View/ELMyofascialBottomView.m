@@ -95,7 +95,7 @@
         iv;
     });
     
-    self.batteryView.progress = 0.1;
+    self.batteryView.progress = 1.0;
     
     _titleLabel = ({
         UILabel *iv = [[UILabel alloc] init];
