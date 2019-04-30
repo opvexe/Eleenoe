@@ -7,7 +7,7 @@
 //
 
 #import "ELBlueToothManager.h"
-#import "ELTools+EzlString.h"
+#import "ELTools+Ble.h"
 @interface ELBlueToothManager ()<CBCentralManagerDelegate, CBPeripheralDelegate>
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) CBPeripheral *peripheral;

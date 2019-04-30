@@ -7,7 +7,6 @@
 //
 
 #import "ELSearchNavigationView.h"
-
 #import "ELButtonExtention.h"
 @interface ELSearchNavigationView()
 @property(nonatomic,strong)ELSearchBarView *searchBarView;

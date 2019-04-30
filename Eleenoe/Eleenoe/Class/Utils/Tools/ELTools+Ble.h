@@ -26,6 +26,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 +(NSString *)setCommunication:(NSString *)communication;
 
+
+//大端与小端互转
++(NSData *)dataTransfromBigOrSmall:(NSData *)data;
+
+//16进制字符转(带0x),转NSData
++ (NSMutableData *)convertHexStrToData:(NSString *)str;
+
+/**
+ @see 16进制字符串转2进制数据
+ @param hex 16进制字符串
+ @return 2进制数据
+ */
++(NSData *)hex2data:(NSString *)hex;
+
 @end
 
 NS_ASSUME_NONNULL_END

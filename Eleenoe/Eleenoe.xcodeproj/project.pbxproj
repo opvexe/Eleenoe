@@ -54,7 +54,6 @@
 		D077108D224E1D2200D0B993 /* ELShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D077108C224E1D2200D0B993 /* ELShopModel.m */; };
 		D0771091224E322500D0B993 /* ELSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771090224E322500D0B993 /* ELSearchViewController.m */; };
 		D0771094224E537200D0B993 /* ELDefaultContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0771093224E537200D0B993 /* ELDefaultContentViewController.m */; };
-		D077109E224E84AC00D0B993 /* UIButton+ButtonStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D077109C224E84AC00D0B993 /* UIButton+ButtonStyle.m */; };
 		D07710A2224EE3CC00D0B993 /* ELElectrodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07710A1224EE3CC00D0B993 /* ELElectrodeViewController.m */; };
 		D07710A6224EF32B00D0B993 /* ELCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D07710A5224EF32B00D0B993 /* ELCircularProgressView.m */; };
 		D07710AE224F0CD700D0B993 /* ELUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07710AD224F0CD700D0B993 /* ELUpdateViewController.m */; };
@@ -81,13 +80,11 @@
 		D0EC4B282238AB5400B5A74D /* ELMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B272238AB5400B5A74D /* ELMineViewController.m */; };
 		D0EC4B2B2238AE3300B5A74D /* AppDelegate+ELExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B2A2238AE3300B5A74D /* AppDelegate+ELExtension.m */; };
 		D0EC4B2F2238AF3A00B5A74D /* ELTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B2E2238AF3A00B5A74D /* ELTools.m */; };
-		D0EC4B332238B1C700B5A74D /* ELTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B322238B1C700B5A74D /* ELTextView.m */; };
 		D0EC4B382238D05900B5A74D /* ELUserDataSocure.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B372238D05900B5A74D /* ELUserDataSocure.m */; };
 		D0EC4B3B2238D38000B5A74D /* ELGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B3A2238D38000B5A74D /* ELGuideViewController.m */; };
 		D0EC4B3E2238D3F700B5A74D /* ELGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B3D2238D3F700B5A74D /* ELGuideView.m */; };
 		D0EC4B4822390BD300B5A74D /* ELTools+ELAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EC4B4722390BD300B5A74D /* ELTools+ELAuthorization.m */; };
 		D0F3ED5E226FF8CE00408E0D /* ELTools+Ble.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F3ED5D226FF8CE00408E0D /* ELTools+Ble.m */; };
-		D0F3EDA2227052FE00408E0D /* ELTools+EzlString.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F3EDA1227052FE00408E0D /* ELTools+EzlString.m */; };
 		D0F52AFA2237869D00A26504 /* ELAPIConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52AF92237869D00A26504 /* ELAPIConstant.m */; };
 		D0F52B03223788D400A26504 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52B00223788D400A26504 /* Foundation+Log.m */; };
 		D0F52B04223788D500A26504 /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F52B02223788D400A26504 /* NSString+Category.m */; };
@@ -218,8 +215,6 @@
 		D0771090224E322500D0B993 /* ELSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELSearchViewController.m; sourceTree = "<group>"; };
 		D0771092224E537200D0B993 /* ELDefaultContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELDefaultContentViewController.h; sourceTree = "<group>"; };
 		D0771093224E537200D0B993 /* ELDefaultContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELDefaultContentViewController.m; sourceTree = "<group>"; };
-		D077109C224E84AC00D0B993 /* UIButton+ButtonStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ButtonStyle.m"; sourceTree = "<group>"; };
-		D077109D224E84AC00D0B993 /* UIButton+ButtonStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ButtonStyle.h"; sourceTree = "<group>"; };
 		D07710A0224EE3CC00D0B993 /* ELElectrodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELElectrodeViewController.h; sourceTree = "<group>"; };
 		D07710A1224EE3CC00D0B993 /* ELElectrodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELElectrodeViewController.m; sourceTree = "<group>"; };
 		D07710A4224EF32B00D0B993 /* ELCircularProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCircularProgressView.h; sourceTree = "<group>"; };
@@ -271,8 +266,6 @@
 		D0EC4B2A2238AE3300B5A74D /* AppDelegate+ELExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ELExtension.m"; sourceTree = "<group>"; };
 		D0EC4B2D2238AF3A00B5A74D /* ELTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTools.h; sourceTree = "<group>"; };
 		D0EC4B2E2238AF3A00B5A74D /* ELTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTools.m; sourceTree = "<group>"; };
-		D0EC4B312238B1C700B5A74D /* ELTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELTextView.h; sourceTree = "<group>"; };
-		D0EC4B322238B1C700B5A74D /* ELTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELTextView.m; sourceTree = "<group>"; };
 		D0EC4B362238D05900B5A74D /* ELUserDataSocure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELUserDataSocure.h; sourceTree = "<group>"; };
 		D0EC4B372238D05900B5A74D /* ELUserDataSocure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELUserDataSocure.m; sourceTree = "<group>"; };
 		D0EC4B392238D38000B5A74D /* ELGuideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELGuideViewController.h; sourceTree = "<group>"; };
@@ -285,8 +278,6 @@
 		D0EC4B4722390BD300B5A74D /* ELTools+ELAuthorization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ELTools+ELAuthorization.m"; sourceTree = "<group>"; };
 		D0F3ED5C226FF8CE00408E0D /* ELTools+Ble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ELTools+Ble.h"; sourceTree = "<group>"; };
 		D0F3ED5D226FF8CE00408E0D /* ELTools+Ble.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ELTools+Ble.m"; sourceTree = "<group>"; };
-		D0F3EDA0227052FE00408E0D /* ELTools+EzlString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ELTools+EzlString.h"; sourceTree = "<group>"; };
-		D0F3EDA1227052FE00408E0D /* ELTools+EzlString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ELTools+EzlString.m"; sourceTree = "<group>"; };
 		D0F52AF4223781D600A26504 /* ELCommonDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCommonDefines.h; sourceTree = "<group>"; };
 		D0F52AF5223781F500A26504 /* ELFilesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELFilesManager.h; sourceTree = "<group>"; };
 		D0F52AF62237822000A26504 /* ELColorDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELColorDefines.h; sourceTree = "<group>"; };
@@ -718,16 +709,12 @@
 		D0EC4B2C2238AF2900B5A74D /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				D077109D224E84AC00D0B993 /* UIButton+ButtonStyle.h */,
-				D077109C224E84AC00D0B993 /* UIButton+ButtonStyle.m */,
 				D0EC4B2D2238AF3A00B5A74D /* ELTools.h */,
 				D0EC4B2E2238AF3A00B5A74D /* ELTools.m */,
 				D0EC4B4622390BD300B5A74D /* ELTools+ELAuthorization.h */,
 				D0EC4B4722390BD300B5A74D /* ELTools+ELAuthorization.m */,
 				D0F3ED5C226FF8CE00408E0D /* ELTools+Ble.h */,
 				D0F3ED5D226FF8CE00408E0D /* ELTools+Ble.m */,
-				D0F3EDA0227052FE00408E0D /* ELTools+EzlString.h */,
-				D0F3EDA1227052FE00408E0D /* ELTools+EzlString.m */,
 				D0EC1EF3223B7C030059BA1C /* ELBlueToothManager.h */,
 				D0EC1EF4223B7C030059BA1C /* ELBlueToothManager.m */,
 				D0180BD62244C7D2008C06C1 /* SCREENAdaptationTool.h */,
@@ -741,8 +728,6 @@
 			children = (
 				D018051B226801B200A22869 /* PickView */,
 				18B4B3C42252668500EA9404 /* TagView */,
-				D0EC4B312238B1C700B5A74D /* ELTextView.h */,
-				D0EC4B322238B1C700B5A74D /* ELTextView.m */,
 				D0DC670522393DB20064C07A /* ELMessageEventButton.h */,
 				D0DC670622393DB20064C07A /* ELMessageEventButton.m */,
 				00034EB6224E3AE100CE83AB /* ELButtonExtention.h */,
@@ -1176,7 +1161,6 @@
 				D0771062224CC16700D0B993 /* ELSettingModel.m in Sources */,
 				D0F52B2422378AF300A26504 /* ELBaseTableViewCell.m in Sources */,
 				D07710A6224EF32B00D0B993 /* ELCircularProgressView.m in Sources */,
-				D077109E224E84AC00D0B993 /* UIButton+ButtonStyle.m in Sources */,
 				D0EC1EF5223B7C040059BA1C /* ELBlueToothManager.m in Sources */,
 				00034EC2224E42FA00CE83AB /* ELBluetoothConnectionFloatingView.m in Sources */,
 				D0F52B3022378E2000A26504 /* UIImage+Category.m in Sources */,
@@ -1219,7 +1203,6 @@
 				D0EC4B3B2238D38000B5A74D /* ELGuideViewController.m in Sources */,
 				D0F52B2722378B2D00A26504 /* ELBaseCollectionViewCell.m in Sources */,
 				D0EC4B282238AB5400B5A74D /* ELMineViewController.m in Sources */,
-				D0EC4B332238B1C700B5A74D /* ELTextView.m in Sources */,
 				D0A0DBAA22503E37000F9048 /* ELShopListView.m in Sources */,
 				D0F52B04223788D500A26504 /* NSString+Category.m in Sources */,
 				18B4B3CC2252699000EA9404 /* ELSearchListView.m in Sources */,
@@ -1248,7 +1231,6 @@
 				D0D7BFD92266CAA800DE21E6 /* ELMyofascialContentModel.m in Sources */,
 				D0EC4B3E2238D3F700B5A74D /* ELGuideView.m in Sources */,
 				D0F3ED5E226FF8CE00408E0D /* ELTools+Ble.m in Sources */,
-				D0F3EDA2227052FE00408E0D /* ELTools+EzlString.m in Sources */,
 				D093EB012253C0C900215901 /* ELCollectionViewFlowLayout.m in Sources */,
 				18B4B3AF224FB92800EA9404 /* ELBaseTableView.m in Sources */,
 				18B4B3A9224F7DA900EA9404 /* ELMyofascialBottomView.m in Sources */,

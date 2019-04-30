@@ -7,7 +7,7 @@
 //
 
 #import "ELTriggerAnalyzeFloatingView.h"
-#import "UIButton+ButtonStyle.h"
+#import "ELButtonExtention.h"
 #import "ELSlideTabBar.h"
 #import <KLCPopup.h>
 @interface ELTriggerAnalyzeFloatingView()<ELSlideTabBarDelegate>
@@ -15,7 +15,7 @@
 @property(nonatomic,copy)void(^CompleteBlock)(ELBaseModel *model);
 @property(nonatomic,strong) UIImageView *triggerImageView;
 @property(nonatomic,strong) UIView *analyzeView;
-@property(nonatomic,strong) UIButton *downloadButton;
+@property(nonatomic,strong) ELButtonExtention *downloadButton;
 @property(nonatomic,strong) UIButton *close;
 @property(nonatomic,strong) ELSlideTabBar *sliderBar;
 @property(nonatomic,strong) UILabel *contentLabel;
@@ -151,7 +151,7 @@
     
     
     _downloadButton = ({
-        UIButton *iv = [UIButton buttonWithType:UIButtonTypeCustom];
+        ELButtonExtention *iv = [ELButtonExtention buttonWithType:UIButtonTypeCustom];
         UIImage *icon = [UIImage imageNamed:@"home_download_white"];
         [iv setImage:icon forState:UIControlStateNormal];
         [iv setImage:icon forState:UIControlStateSelected];
@@ -166,7 +166,7 @@
         iv.showsTouchWhenHighlighted =NO;
         [iv.titleLabel setFont:[UIFont ELPingFangSCRegularFontOfSize:kSaFont(16.0)]];
         [iv addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
-        [iv layoutTextWithImageButtonStyle:layoutTextRightImageButton withSpace:5.0];
+        iv.type = ButtonDisplayTypeImageRightTileleft;
         iv.tag = TriggerAnalyzeTypeDownload;
         [self addSubview:iv];
         [iv mas_makeConstraints:^(MASConstraintMaker *make) {
