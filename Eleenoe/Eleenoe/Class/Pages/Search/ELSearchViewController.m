@@ -89,10 +89,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 [self.navigationController setNavigationBarHidden:YES animated:YES];
+      [MobClick beginLogPageView:@"search_page"];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [MobClick endLogPageView:@"search_page"];
 }
 #pragma mark ELSearchNavigationViewDelegate
 -(void)popSearchBarView:(ELSearchNavigationView *)searchBarView{

@@ -17,6 +17,16 @@
 
 @implementation ELMineViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"mine_page"];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"mine_page"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -62,6 +72,7 @@
 }
 
 -(void)logoutAction:(UIButton *)sender{
+    [MobClick event:@"logout"];
     NSLog(@"退出");
 }
 

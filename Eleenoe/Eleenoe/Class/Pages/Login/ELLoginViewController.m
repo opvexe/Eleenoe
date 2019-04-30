@@ -33,11 +33,13 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+     [MobClick beginLogPageView:@"login_page"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+     [MobClick endLogPageView:@"login_page"];
 }
 
 -(void)configViews{
@@ -252,6 +254,7 @@
     
 }
 -(void)weiXinAction:(UIButton *)sender{
+     [MobClick event:@"login" label:@"weiXin"];
     @weakify(self);
     [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:self completion:^(UMSocialUserInfoResponse * result, NSError *error) {
         @strongify(self);
@@ -301,6 +304,7 @@
 
 #pragma mark - loginActoion
 -(void)loginAction:(UIButton *)sender{
+    [MobClick event:@"login" label:@"iphone"];
     [self switchRootController];
 }
 /*

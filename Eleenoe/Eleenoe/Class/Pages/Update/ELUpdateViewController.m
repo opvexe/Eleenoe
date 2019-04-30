@@ -20,13 +20,16 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:MainThemColor] forBarMetrics:UIBarMetricsDefault];
+      [MobClick beginLogPageView:@"update_page"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0xffffff)] forBarMetrics:UIBarMetricsDefault];
+    [MobClick endLogPageView:@"update_page"];
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -117,7 +120,7 @@
 }
 
 -(void)Click:(UIButton *)sender{
-    
+        [MobClick event:@"check"];
 }
 /*
  #pragma mark - Navigation

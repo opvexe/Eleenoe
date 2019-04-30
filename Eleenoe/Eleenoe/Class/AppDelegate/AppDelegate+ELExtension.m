@@ -36,8 +36,6 @@
 
 -(void)umengTrack{
     
-    [MobClick setLogEnabled:YES];
-    
     [MobClick setAppVersion:XcodeAppVersion];
     
     UMConfigInstance.ePolicy = REALTIME;
@@ -50,14 +48,19 @@
     
     [MobClick startWithConfigure:UMConfigInstance];
     
+    [MobClick setCrashReportEnabled:YES];  //开启崩溃日志采集
+    
     [[UMSocialManager defaultManager]setUmSocialAppkey:UMENG_APPKEY];
     
 #if kReleaseAPI
     [[UMSocialManager defaultManager] openLog:NO];
+    [MobClick setLogEnabled:NO];
 #elif kTestAPI
     [[UMSocialManager defaultManager] openLog:YES];
+     [MobClick setLogEnabled:YES];
 #else
     [[UMSocialManager defaultManager] openLog:NO];
+    [MobClick setLogEnabled:NO];
 #endif
     
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WEIXIN_APPKEY appSecret:WEXIN_SECRET redirectURL:nil];

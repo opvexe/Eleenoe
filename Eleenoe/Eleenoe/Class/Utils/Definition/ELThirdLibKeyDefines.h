@@ -13,7 +13,7 @@
 
 
 //友盟
-#define UMENG_APPKEY @"5cac66e30cafb26bed000f36"
+#define UMENG_APPKEY @"5cc7d97d570df3131d00096a"
 
 #define WEIXIN_APPKEY @"wxec1013de270b5899"
 

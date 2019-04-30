@@ -20,12 +20,14 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:MainThemColor] forBarMetrics:UIBarMetricsDefault];
+    [MobClick beginLogPageView:@"electrode_page"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0xffffff)] forBarMetrics:UIBarMetricsDefault];
+    [MobClick endLogPageView:@"electrode_page"];
 }
 
 - (void)viewDidLoad {
@@ -87,10 +89,12 @@
 -(void)Cick:(UIButton *)sender{
     switch (sender.tag) {
         case ELElectrodeTypeReset:{
+            [MobClick event:@"reset"];
             NSLog(@"重置时间");
         }
             break;
         case ELElectrodeTypeChange:{
+             [MobClick event:@"change"];
             NSLog(@"更换贴片");
         }
             break;
