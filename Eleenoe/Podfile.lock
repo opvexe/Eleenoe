@@ -25,9 +25,6 @@ PODS:
     - AXPracticalHUD
     - NJKWebViewProgress
   - CYLTabBarController (1.19.3)
-  - FMDB (2.7.5):
-    - FMDB/standard (= 2.7.5)
-  - FMDB/standard (2.7.5)
   - IQKeyboardManager (6.2.0)
   - KLCPopup (1.0)
   - Masonry (1.1.0)
@@ -62,7 +59,6 @@ DEPENDENCIES:
   - AFNetworking
   - AXWebViewController
   - CYLTabBarController
-  - FMDB
   - IQKeyboardManager
   - KLCPopup
   - Masonry
@@ -89,7 +85,6 @@ SPEC REPOS:
     - AXPracticalHUD
     - AXWebViewController
     - CYLTabBarController
-    - FMDB
     - IQKeyboardManager
     - KLCPopup
     - Masonry
@@ -117,7 +112,6 @@ SPEC CHECKSUMS:
   AXPracticalHUD: 821d170b31e050c426ef8754b07b4264a8b1d861
   AXWebViewController: 96566c473fce2806f4da696132b31777f5404c9f
   CYLTabBarController: 88b8d428f30fd12cf12073174ad8a4b51cd66b94
-  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   KLCPopup: 76c5a19227977f1e53d85236f9ef42257c168d98
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -137,6 +131,6 @@ SPEC CHECKSUMS:
   UMengUShare: 370d180101e13ee0227ae657ab119ba97243d2b3
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: b985827304641ee153e6aae758c4f0f051329fd2
+PODFILE CHECKSUM: 5a1578214c0c4daf6cee875f7d9985c77e4d50a7
 
 COCOAPODS: 1.5.3

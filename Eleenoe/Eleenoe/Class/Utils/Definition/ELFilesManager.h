@@ -35,7 +35,6 @@
  三方库
  */
 #import <AFNetworking.h>
-#import <FMDB.h>
 #import <IQKeyboardManager.h>
 #import <KLCPopup.h>
 #import <Masonry.h>
