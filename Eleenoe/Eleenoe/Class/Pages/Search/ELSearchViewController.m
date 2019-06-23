@@ -88,7 +88,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-[self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
       [MobClick beginLogPageView:@"search_page"];
 }
 -(void)viewWillDisappear:(BOOL)animated{
